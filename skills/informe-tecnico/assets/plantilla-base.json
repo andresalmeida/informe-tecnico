@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "",
+    "unit": "",
+    "accent": "#155D86",
+    "ink": "#17232F",
+    "rule": "#CED6DD",
+    "border": 0.65,
+    "frame": false
+  },
+  "document": {
+    "title": "",
+    "short_title": "",
+    "code": "",
+    "version": "",
+    "date": "",
+    "status": "Borrador",
+    "paper": "A4"
+  },
+  "changes": [],
+  "sections": [
+    {
+      "id": "introduccion",
+      "title": "Introducción",
+      "level": 1,
+      "blocks": []
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivos",
+      "level": 1,
+      "blocks": []
+    },
+    {
+      "id": "alcance",
+      "title": "Alcance",
+      "level": 1,
+      "blocks": []
+    },
+    {
+      "id": "desarrollo",
+      "title": "Desarrollo técnico",
+      "level": 1,
+      "blocks": []
+    },
+    {
+      "id": "metodo",
+      "title": "Método y fuentes",
+      "level": 2,
+      "blocks": []
+    },
+    {
+      "id": "analisis",
+      "title": "Análisis técnico",
+      "level": 2,
+      "blocks": []
+    },
+    {
+      "id": "solucion",
+      "title": "Diseño o solución propuesta",
+      "level": 2,
+      "blocks": []
+    },
+    {
+      "id": "procedimientos",
+      "title": "Procedimientos aplicables",
+      "level": 2,
+      "blocks": []
+    },
+    {
+      "id": "resultados",
+      "title": "Resultados y validación",
+      "level": 1,
+      "blocks": []
+    },
+    {
+      "id": "conclusiones",
+      "title": "Conclusiones y recomendaciones",
+      "level": 1,
+      "blocks": []
+    },
+    {
+      "id": "referencias",
+      "title": "Referencias",
+      "level": 1,
+      "blocks": []
+    }
+  ]
+}

@@ -1,0 +1,522 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "ENTIDAD DE DEMOSTRACIÓN",
+    "unit": "Unidad de documentación técnica",
+    "accent": "#155D86",
+    "ink": "#17232F",
+    "rule": "#CED6DD",
+    "border": 0.65,
+    "frame": false
+  },
+  "document": {
+    "title": "Documentación técnica institucional",
+    "short_title": "Documentación técnica institucional",
+    "subtitle": "Especificación de una plantilla configurable para informes, manuales y catálogos de datos.",
+    "code": "DEMO-DOC-001",
+    "version": "0.2",
+    "date": "2026-10-28",
+    "status": "Borrador de demostración",
+    "paper": "A4",
+    "author": "Demostración de la skill informe-tecnico",
+    "notice": "Muestra ficticia para evaluar estructura y composición. No describe un sistema desplegado ni acredita aprobación institucional.",
+    "control_note": "Los localizadores enlazan a objetos de esta edición. Las páginas se calculan al compilar; no se registran manualmente en el historial."
+  },
+  "changes": [
+    {
+      "version": "0.1",
+      "date": "2026-10-28",
+      "summary": "Creación de la muestra: identidad configurable, navegación automática y catálogo de campos documentales.",
+      "author": "Equipo de demostración",
+      "affects": [
+        "modelo",
+        "campos",
+        "revision"
+      ]
+    },
+    {
+      "version": "0.2",
+      "date": "2026-10-28",
+      "summary": "Alineación del separador entidad/paginación y organización del trabajo principal dentro de Desarrollo técnico. Se integra un esquema de revisión creado con diagram-design.",
+      "author": "Equipo de demostración",
+      "affects": [
+        "desarrollo",
+        "flujo"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "introduccion",
+      "title": "Introducción",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Un informe técnico debe permitir entender su propósito, localizar sus datos y distinguir una revisión de otra. Esta muestra define una plantilla para documentos que se consultan y actualizan a lo largo del tiempo."
+        },
+        {
+          "type": "paragraph",
+          "text": "El encabezado identifica el documento en cada página. El historial explica los cambios. Los índices y las referencias internas conducen a la información de la edición vigente. La identidad gráfica se configura sin alterar estos mecanismos."
+        }
+      ]
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Establecer una estructura reutilizable que mantenga identificación, legibilidad y navegación al crecer el contenido."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Separar la identidad institucional de los datos y de la revisión documental.",
+            "Mantener índices, referencias y total de páginas sincronizados con el PDF generado.",
+            "Representar tablas extensas con encabezados repetidos y códigos intactos.",
+            "Conservar una fuente editable que permita revisar y volver a generar el documento."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alcance",
+      "title": "Alcance y límites",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La plantilla cubre informes de evaluación, manuales técnicos y catálogos. Cada tipo incorpora los capítulos necesarios para su finalidad; no se exige la misma extensión a los tres."
+        },
+        {
+          "type": "paragraph",
+          "text": "El motor incluido produce PDF A4 o Carta en vertical. Incluye tablas simples, figuras estáticas, contenido e índices de tablas y figuras. Una entrega que exija Word editable, firmas o tablas complejas requiere un motor compatible y una revisión adicional."
+        },
+        {
+          "type": "note",
+          "label": "Estado de la muestra",
+          "text": "Los nombres, códigos y responsables son demostrativos. No se han trasladado datos de negocio ni identidades visuales de los PDF de referencia."
+        }
+      ]
+    },
+    {
+      "id": "desarrollo",
+      "title": "Desarrollo técnico",
+      "new_page": true,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Este capítulo reúne el trabajo principal. En la muestra contiene el modelo documental, sus convenciones, el catálogo de campos y el procedimiento de revisión. En un informe real, estas subsecciones se sustituyen por el análisis, diseño, cálculos, esquemas o procedimientos que respondan a sus objetivos."
+        }
+      ]
+    },
+    {
+      "id": "modelo",
+      "title": "Modelo documental",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La fuente reúne cuatro grupos: metadatos, identidad, contenido y revisiones. El compilador construye la edición final y la {{ref:flujo}} muestra cómo se revisa. El catálogo de campos se encuentra en {{ref:campos}}."
+        },
+        {
+          "type": "figure",
+          "id": "flujo",
+          "title": "Ciclo de revisión documental",
+          "description": "La revisión evalúa la edición generada. Si detecta defectos, se corrige la fuente y se vuelve a compilar; cuando cumple los criterios definidos, se prepara la entrega.",
+          "source": "Demostración propia creada aplicando la skill diagram-design. Fuente HTML y exportación SVG conservadas junto al PNG de impresión.",
+          "path": "diagrams/ciclo-revision.png",
+          "max_height_mm": 115
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "convenciones",
+      "title": "Convenciones de contenido",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La versión documental se guarda como texto. Las fechas de la fuente usan AAAA-MM-DD y la cabecera las presenta como DD/MM/AAAA. Los códigos conservan ceros iniciales. Un valor desconocido se declara de forma explícita."
+        },
+        {
+          "type": "paragraph",
+          "text": "La redacción describe condiciones y efectos verificables. Por ejemplo: una fila con más celdas que el encabezado detiene la compilación. Una propiedad no acreditada por las fuentes se identifica como supuesto, propuesta o dato pendiente."
+        },
+        {
+          "type": "paragraph",
+          "text": "Las bajas y los estados se nombran con palabras. Su interpretación no depende exclusivamente del color, de modo que las tablas sigan siendo comprensibles en una impresión en gris."
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "catalogo",
+      "title": "Catálogo de campos documentales",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El siguiente catálogo usa identificadores de ejemplo. Sus filas describen elementos de la plantilla y sirven para observar la continuación de una tabla entre páginas. El título y los encabezados se repiten; el índice conserva un único destino de inicio."
+        },
+        {
+          "type": "table",
+          "id": "campos",
+          "title": "Campos y controles de la fuente documental",
+          "headers": [
+            "Código",
+            "Campo o control",
+            "Definición",
+            "Formato"
+          ],
+          "rows": [
+            [
+              "DOC-01",
+              "Título",
+              "Nombre que identifica el objeto del documento. Debe describir el sistema o tema de forma concreta.",
+              "Texto"
+            ],
+            [
+              "DOC-02",
+              "Código",
+              "Identificador documental estable dentro de la entidad. No depende del número de página.",
+              "Texto"
+            ],
+            [
+              "DOC-03",
+              "Versión documental",
+              "Revisión del informe. Se conserva la convención institucional y se trata como cadena.",
+              "Texto"
+            ],
+            [
+              "DOC-04",
+              "Fecha efectiva",
+              "Fecha de la revisión de contenido; una nueva exportación no la modifica.",
+              "AAAA-MM-DD"
+            ],
+            [
+              "DOC-05",
+              "Estado",
+              "Borrador, en revisión o aprobado según evidencia. La plantilla no aprueba documentos.",
+              "Texto"
+            ],
+            [
+              "DOC-06",
+              "Entidad",
+              "Organización responsable. En esta muestra se usa una identidad neutral explícita.",
+              "Texto"
+            ],
+            [
+              "DOC-07",
+              "Unidad",
+              "Área responsable que aparece en el pie. No sustituye el nombre del autor del cambio.",
+              "Texto"
+            ],
+            [
+              "DOC-08",
+              "Título corto",
+              "Versión breve del título usada para mantener la cabecera legible en todas las páginas.",
+              "Texto"
+            ],
+            [
+              "DOC-09",
+              "Autor",
+              "Persona o equipo que redacta; no implica validación ni aprobación de una autoridad.",
+              "Texto"
+            ],
+            [
+              "IDN-01",
+              "Logo",
+              "Activo local opcional. Se preservan proporciones y no se reutiliza el logo de la referencia.",
+              "Archivo"
+            ],
+            [
+              "IDN-02",
+              "Acento",
+              "Color institucional para cabecera, líneas y encabezados. La tinta se ajusta para contraste.",
+              "Hexadecimal"
+            ],
+            [
+              "IDN-03",
+              "Borde",
+              "Grosor configurable de las líneas del encabezado, expresado en puntos tipográficos.",
+              "Número"
+            ],
+            [
+              "IDN-04",
+              "Marco",
+              "Activa o desactiva el marco exterior opcional sin cambiar el flujo de contenido.",
+              "Booleano"
+            ],
+            [
+              "IDN-05",
+              "Papel",
+              "A4 o Carta en orientación vertical para el motor incluido en esta versión.",
+              "Enumeración"
+            ],
+            [
+              "REV-01",
+              "Versión del cambio",
+              "Identifica la revisión a la que pertenece una modificación real del contenido.",
+              "Texto"
+            ],
+            [
+              "REV-02",
+              "Fecha del cambio",
+              "Fecha efectiva de la revisión documentada; no una fecha inventada de aprobación.",
+              "AAAA-MM-DD"
+            ],
+            [
+              "REV-03",
+              "Resumen del cambio",
+              "Explica qué cambió y por qué afecta al lector, con suficiente precisión para localizarlo.",
+              "Texto"
+            ],
+            [
+              "REV-04",
+              "Responsable del cambio",
+              "Autor real del cambio o equipo de demostración cuando los datos sean ficticios.",
+              "Texto"
+            ],
+            [
+              "REV-05",
+              "Objetos afectados",
+              "IDs estables que se resuelven como referencias internas de la edición actual.",
+              "Lista de IDs"
+            ],
+            [
+              "SEC-01",
+              "ID de sección",
+              "Clave estable que sobrevive a una inserción o cambio de numeración visible.",
+              "Identificador"
+            ],
+            [
+              "SEC-02",
+              "Nivel de sección",
+              "Profundidad de uno a tres. No se admiten saltos sin un nivel superior previo.",
+              "Entero"
+            ],
+            [
+              "SEC-03",
+              "Título de sección",
+              "Encabezado que aparece en el contenido y en los marcadores del archivo PDF.",
+              "Texto"
+            ],
+            [
+              "TAB-01",
+              "ID de tabla",
+              "Clave de referencia independiente del número visible o del código de catálogo heredado.",
+              "Identificador"
+            ],
+            [
+              "TAB-02",
+              "Número de catálogo",
+              "Número opcional que conserva la identidad publicada de una tabla existente.",
+              "Texto"
+            ],
+            [
+              "TAB-03",
+              "Encabezados",
+              "Nombres y unidades de las columnas. Se repiten al continuar la tabla en otra página.",
+              "Lista"
+            ],
+            [
+              "TAB-04",
+              "Filas",
+              "Valores del catálogo con el mismo número de celdas que los encabezados.",
+              "Matriz"
+            ],
+            [
+              "TAB-05",
+              "Códigos",
+              "Se guardan como cadenas para mantener ceros iniciales y combinaciones alfanuméricas.",
+              "Texto"
+            ],
+            [
+              "TAB-06",
+              "Dato desconocido",
+              "Se representa como No informado. No se reemplaza por cero ni por un valor probable.",
+              "Nulo"
+            ],
+            [
+              "TAB-07",
+              "Fuente",
+              "Referencia que permite verificar la procedencia del contenido de la tabla.",
+              "Texto"
+            ],
+            [
+              "FIG-01",
+              "ID de figura",
+              "Clave estable para vincular texto e índice con el esquema correspondiente.",
+              "Identificador"
+            ],
+            [
+              "FIG-02",
+              "Título de figura",
+              "Nombre descriptivo de lo que representa, sin promesas ni metáforas decorativas.",
+              "Texto"
+            ],
+            [
+              "FIG-03",
+              "Descripción",
+              "Explica relaciones y límites de la representación sin repetir todas sus etiquetas.",
+              "Texto"
+            ],
+            [
+              "FIG-04",
+              "Fuente editable",
+              "SVG o especificación conservada para poder corregir el esquema en futuras revisiones.",
+              "Archivo o datos"
+            ],
+            [
+              "NAV-01",
+              "Índices",
+              "Contenido, tablas y figuras se calculan a partir de los destinos renderizados.",
+              "Derivado"
+            ],
+            [
+              "NAV-02",
+              "Página y total",
+              "Número físico de página desde la portada y total de la compilación final.",
+              "Derivado"
+            ],
+            [
+              "NAV-03",
+              "Referencia cruzada",
+              "Vínculo por ID que se actualiza cuando cambia la posición del objeto.",
+              "Derivado"
+            ],
+            [
+              "QA-01",
+              "Manifiesto",
+              "Registro de hashes, páginas y destinos para relacionar fuente y PDF de una compilación.",
+              "Derivado"
+            ],
+            [
+              "QA-02",
+              "Revisión visual",
+              "Inspección de las páginas renderizadas para comprobar cortes, rótulos y composición.",
+              "Actividad"
+            ]
+          ],
+          "widths": [
+            1.1,
+            2,
+            4.8,
+            1.5
+          ],
+          "source": "Especificación propia de la plantilla; todos los códigos son demostrativos."
+        }
+      ],
+      "new_page": true,
+      "level": 2
+    },
+    {
+      "id": "revision",
+      "title": "Preparación de una nueva revisión",
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Identificar los cambios de contenido respecto de la edición anterior y conservar los originales.",
+            "Actualizar únicamente la versión, fecha e historial que correspondan a cambios reales. Mantener los IDs de los objetos que conservan su identidad.",
+            "Compilar la fuente y comprobar que se han estabilizado índices y total de páginas.",
+            "Ejecutar la revisión estructural y abrir las páginas renderizadas, incluidos los cortes de tabla.",
+            "Entregar el PDF con su fuente editable, activos y observaciones pendientes."
+          ]
+        }
+      ],
+      "new_page": true,
+      "level": 2
+    },
+    {
+      "id": "validacion",
+      "title": "Resultados y validación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "criterios",
+          "title": "Comprobaciones antes de entregar",
+          "headers": [
+            "Aspecto",
+            "Resultado esperado",
+            "Comprobación"
+          ],
+          "widths": [
+            1.5,
+            4,
+            3.3
+          ],
+          "rows": [
+            [
+              "Identificación",
+              "Código, fecha, versión y estado consistentes en todas las páginas.",
+              "Extracción de texto y revisión visual."
+            ],
+            [
+              "Navegación",
+              "Índices y enlaces conducen a la página del objeto en esta edición.",
+              "Destinos del PDF y manifiesto."
+            ],
+            [
+              "Tablas",
+              "Encabezados repetidos, filas completas y códigos conservados.",
+              "Revisión de cada corte de página."
+            ],
+            [
+              "Figuras",
+              "Rótulos legibles y conectores sin colisiones.",
+              "Inspección al tamaño de impresión."
+            ],
+            [
+              "Evidencia",
+              "Los hechos técnicos se pueden contrastar con una fuente.",
+              "Revisión de contenido, fuera del comprobador automático."
+            ],
+            [
+              "Revisión",
+              "Los cambios registrados corresponden a cambios reales.",
+              "Comparación con la edición anterior."
+            ]
+          ],
+          "source": "Criterios definidos para esta plantilla."
+        },
+        {
+          "type": "paragraph",
+          "text": "Una comprobación automática no acredita la corrección de los datos ni la aprobación de una entidad. El resultado se entrega como borrador mientras existan decisiones o evidencias pendientes."
+        }
+      ]
+    },
+    {
+      "id": "conclusiones",
+      "title": "Conclusiones y recomendaciones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La plantilla separa la identidad institucional del contenido y resuelve la navegación a partir de objetos estables. El capítulo 4 concentra el trabajo técnico y permite incorporar tablas extensas y esquemas sin escribir sus páginas a mano."
+        },
+        {
+          "type": "paragraph",
+          "text": "Antes de utilizarla para una entrega real, definir la entidad y el alcance, sustituir el contenido demostrativo y contrastar la evidencia técnica. Las comprobaciones estructurales y visuales complementan esa revisión de contenido."
+        }
+      ],
+      "new_page": true
+    },
+    {
+      "id": "referencias",
+      "title": "Referencias de diseño",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La composición toma como referencia el Manual Técnico de Generalidades sobre Estructuras de Datos, Codificación de Tablas, versión 14.3 (2022), suministrado por el usuario: cabecera tabulada, revisión y organización de catálogos."
+        },
+        {
+          "type": "paragraph",
+          "text": "La organización por propósito se apoya en la Guía para la elaboración del manual técnico y de operación de los sistemas de información, DNP (2020), suministrada por el usuario. Su aplicación aquí es una adaptación editorial, sin atribución de aprobación."
+        },
+        {
+          "type": "paragraph",
+          "text": "El método de plantilla y revisión visual se inspira en nasa-handbook, de R44VC0RP. La selección de esquemas se apoya en diagram-design, de Cathryn Lavery. Los enlaces, diferencias y decisiones de adaptación se conservan en references/fuentes.md dentro de la skill."
+        }
+      ]
+    }
+  ]
+}

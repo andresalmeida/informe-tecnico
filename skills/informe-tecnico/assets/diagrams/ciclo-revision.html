@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ciclo de revisión documental</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --color-paper:   #FFFFFF;   /* white-smoke */
+      --color-ink:     #17232F;   /* jet-black */
+      --color-muted:   #4F6070;   /* blue-slate */
+      --color-accent:  #155D86;   /* burnt-tangerine */
+      --font-sans:     'Helvetica', Arial, sans-serif;
+      --font-serif:    'Helvetica', Arial, sans-serif;
+      --font-mono:     'Courier New', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--color-paper);
+      color: var(--color-ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+    }
+
+    .frame { max-width: 100%; min-width: 0; width: 760px; }
+    /* The SVG holds its readable width (min-width == the viewBox width, so the
+       type ramp is never silently scaled down). This wrapper lets a narrow
+       screen scroll the diagram instead of the whole page. */
+    .diagram-container { width: 100%; overflow-x: auto; }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 2.4vw + 0.75rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-ink);
+      margin-bottom: 1.5rem;
+    }
+
+    svg { width: 100%; min-width: 600px; display: block; }
+    /* Paper has no scrollbar, so the local scroller would clip instead of
+       scroll. Let the diagram scale down to the sheet: smaller but whole
+       beats sharp but cut off. Must come after the svg rule above - a media
+       query adds no specificity, so a later plain rule would win. */
+    @media print {
+      .diagram-container { overflow-x: visible; }
+      svg { min-width: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <p class="eyebrow">Flujo de revisión · Muestra institucional</p>
+    <h1>Ciclo de revisión documental</h1>
+
+    <!-- Replace ciclo-revision with a unique slug for this diagram before export. -->
+    <div class="diagram-container">
+      <svg viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ciclo-revision-title ciclo-revision-desc">
+        <title id="ciclo-revision-title">Ciclo de revisión documental</title>
+        <desc id="ciclo-revision-desc">La fuente se compila y revisa; los defectos exigen corregirla y repetir el cálculo antes de preparar la entrega.</desc>
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4F6070"/></marker>
+          <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#155D86"/></marker>
+        </defs>
+        <rect width="600" height="460" fill="#FFFFFF"/>
+        <!-- Relationships precede nodes. The correction route remains outside every node. -->
+        <g fill="none" stroke="#4F6070" stroke-width="1.5">
+          <line x1="184" y1="88" x2="184" y2="116" marker-end="url(#arrow)"/>
+          <line x1="184" y1="164" x2="184" y2="192" marker-end="url(#arrow)"/>
+          <line x1="184" y1="280" x2="184" y2="320" marker-end="url(#arrow)"/>
+          <path d="M 80 344 H 48 Q 40 344 40 336 V 148 Q 40 140 48 140 H 80" marker-end="url(#arrow)"/>
+        </g>
+        <line x1="248" y1="236" x2="360" y2="236" stroke="#155D86" stroke-width="1.5" marker-end="url(#arrow-accent)"/>
+        <!-- Branch labels sit clear of their strokes, each on opaque paper. -->
+        <rect x="284" y="200" width="40" height="24" fill="#FFFFFF"/>
+        <text x="304" y="216" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#155D86">SÍ</text>
+        <rect x="204" y="288" width="40" height="24" fill="#FFFFFF"/>
+        <text x="224" y="304" text-anchor="middle" font-family="'Courier New', monospace" font-size="12" fill="#4F6070">NO</text>
+        <g stroke="#17232F" stroke-width="1" fill="#FFFFFF">
+          <rect x="80" y="40" width="208" height="48" rx="6"/>
+          <rect x="80" y="116" width="208" height="48" rx="6"/>
+          <rect x="80" y="320" width="208" height="48" rx="6"/>
+          <rect x="360" y="212" width="192" height="48" rx="20"/>
+        </g>
+        <polygon points="184,192 248,236 184,280 120,236" fill="#EFF5F9" stroke="#155D86" stroke-width="1.5"/>
+        <g font-family="'Helvetica', Arial, sans-serif" font-size="16" font-weight="600" fill="#17232F" text-anchor="middle">
+          <text x="184" y="68">Fuente editable</text>
+          <text x="184" y="144">Compilar y calcular</text>
+          <text x="184" y="232">¿Pasa la</text>
+          <text x="184" y="252">revisión?</text>
+          <text x="184" y="348">Corregir la fuente</text>
+          <text x="456" y="232">PDF revisado</text>
+          <text x="456" y="252">y fuente</text>
+        </g>
+        <line x1="40" y1="396" x2="560" y2="396" stroke="#CED6DD" stroke-width="1"/>
+        <text x="40" y="420" font-family="'Helvetica', Arial, sans-serif" font-size="14" fill="#4F6070">La revisión comprende contenido, estructura y composición.</text>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

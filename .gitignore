@@ -1,0 +1,18 @@
+# Referencias locales y resultados de trabajo
+/*.pdf
+/tmp/
+/output/
+
+# Python y entornos locales
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+
+# Configuración privada
+.env
+.env.*
+*.pem
+*.key
