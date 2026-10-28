@@ -45,32 +45,26 @@
       "blocks": []
     },
     {
-      "id": "metodo",
-      "title": "Método y fuentes",
+      "id": "descripcion-sistema",
+      "title": "Descripción del sistema",
       "level": 2,
       "blocks": []
     },
     {
-      "id": "analisis",
-      "title": "Análisis técnico",
-      "level": 2,
-      "blocks": []
-    },
-    {
-      "id": "solucion",
-      "title": "Diseño o solución propuesta",
+      "id": "implementacion",
+      "title": "Implementación y funcionamiento",
       "level": 2,
       "blocks": []
     },
     {
       "id": "procedimientos",
-      "title": "Procedimientos aplicables",
+      "title": "Procedimientos de uso",
       "level": 2,
       "blocks": []
     },
     {
       "id": "resultados",
-      "title": "Resultados y validación",
+      "title": "Resultados",
       "level": 1,
       "blocks": []
     },

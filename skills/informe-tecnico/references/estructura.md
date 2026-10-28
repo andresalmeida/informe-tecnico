@@ -12,7 +12,7 @@ Los preliminares no son capítulos: portada, control de cambios, contenido e ín
 | 2. Objetivos | Objetivo general y objetivos específicos comprobables. |
 | 3. Alcance | Qué se estudia, límites, exclusiones y restricciones. |
 | **4. Desarrollo técnico** | El trabajo principal: método y fuentes, análisis, solución o descripción técnica, tablas, figuras, cálculos y procedimientos aplicables. Organizar como 4.1, 4.2, etc. |
-| 5. Resultados y validación | Hallazgos, pruebas, criterios y limitaciones sustentados en evidencia. |
+| 5. Resultados | Entregables, comportamiento obtenido y comprobaciones realizadas. Añadir evaluación o validación cuando forme parte del encargo. |
 | 6. Conclusiones y recomendaciones | Respuestas a los objetivos y acciones justificadas. No repetir el desarrollo. |
 | 7. Referencias | Fuentes y documentos relacionados con versión/localización. |
 | Anexos, cuando proceda | Evidencia extensa o detalle auxiliar; no esconder allí información necesaria para comprender el trabajo. |
@@ -26,6 +26,14 @@ Si el documento es breve o su finalidad exige otro orden, ajustar la estructura 
 ## Informe de evaluación
 
 Introducción con problema y contexto; objetivo general y específicos comprobables; alcance y exclusiones; método, fuentes y restricciones; desarrollo técnico; resultados y evidencia; conclusiones que respondan a objetivos; recomendaciones con responsable/plazo solo si se conocen; referencias y anexos necesarios. No confundir recomendaciones con resultados medidos.
+
+## Informe técnico de actividad o entrega
+
+Describir lo implementado, configurado o elaborado, su funcionamiento y los resultados de la actividad con voz impersonal. El desarrollo se ocupa del sistema y sus entregables. No usar como estructura predeterminada un inventario de fuentes revisadas, hallazgos editoriales de manuales ni una matriz de pruebas pendientes. Conservar esos registros en los archivos de trabajo; incluir únicamente el estado pendiente que afecte a la entrega. Aplicar [redaccion.md](redaccion.md).
+
+## Manual de usuario
+
+Organizar la guía por tareas y por rol cuando cambie el alcance de acceso. Explicar entrada al sistema, navegación, consultas, operaciones e interpretación de resultados con pasos directos, controles identificables y resultado esperado. Las fuentes sirven para sustentar la guía; el texto no relata su lectura ni su extracción. Incluir referencias documentales cuando aporten contexto sin duplicar los manuales existentes.
 
 ## Manual técnico y de operación
 

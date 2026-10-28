@@ -15,6 +15,7 @@ Skill para crear informes técnicos, manuales de sistemas y catálogos de datos 
 - Tablas multipágina con títulos y encabezados repetidos.
 - Figuras con fuente editable, número, pie y destino en el índice.
 - Comprobación estructural del PDF y pruebas de regresión del motor.
+- Redacción de presentación adaptada a informes y manuales, con referencias por nombre o código documental. Las rutas personales y la trazabilidad de autoría quedan en archivos de trabajo.
 
 La muestra es ficticia. Los documentos institucionales que orientaron el diseño se describen en [fuentes](skills/informe-tecnico/references/fuentes.md); sus PDF y logos originales no forman parte del repositorio.
 
@@ -51,11 +52,13 @@ La estructura base comprende preliminares y siete capítulos:
 2. Objetivos.
 3. Alcance.
 4. **Desarrollo técnico:** el trabajo principal, dividido en 4.1, 4.2, etc.
-5. Resultados y validación.
+5. Resultados.
 6. Conclusiones y recomendaciones.
 7. Referencias.
 
 Los módulos se adaptan al tipo de documento y a las estructuras institucionales que deban preservarse. Consulta la [guía de estructura](skills/informe-tecnico/references/estructura.md).
+
+La [guía de redacción](skills/informe-tecnico/references/redaccion.md) distingue un informe de actividad, un manual y una evaluación solicitada. El documento describe el sistema y el trabajo realizado con lenguaje técnico; no narra cómo lo investigó el agente. Las comprobaciones y los pendientes conservan su estado real.
 
 ## Una skill coordina la otra
 

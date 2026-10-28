@@ -6,6 +6,8 @@ Ejecutar `scripts/build_report.py fuente.json --output informe.pdf` con Python 3
 
 `assets/ejemplo.json` muestra el esquema completo. Rutas de logo, fuentes y figuras se resuelven respecto al JSON, no al directorio desde donde se ejecuta. Empaquetar esos archivos junto con la fuente.
 
+Los campos `id` y `path` son datos de composición; no se convierten en referencias bibliográficas. Los textos `source`, `description`, títulos, celdas, historial y metadatos de presentación sí se imprimen: redactarlos para el destinatario según [redaccion.md](redaccion.md). Conservar localizadores del equipo y hashes en archivos de trabajo o manifiestos, fuera de esos textos visibles.
+
 `assets/plantilla-base.json` permite comenzar un informe con el capítulo 4 reservado al desarrollo técnico. Sus campos vacíos de identidad/metadatos y su historial vacío deben completarse con evidencia real antes de compilar; el motor los rechaza mientras falten. Los bloques de contenido vacíos son espacios de autoría: rellenarlos o eliminar las subsecciones que no correspondan, no entregar capítulos sin desarrollar. La muestra completa es un documento distinto, de demostración.
 
 Cambiar `brand` actualiza la composición del informe; no recolorea una imagen externa ya exportada. Si cambia la identidad, regenerar también los esquemas desde su HTML/SVG con los nuevos tokens antes de compilar.
