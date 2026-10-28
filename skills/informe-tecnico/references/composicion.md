@@ -1,5 +1,7 @@
 # Composición institucional
 
+El perfil `institucional` conserva las medidas originales descritas aquí. En `institucional-apa` prevalecen las reglas de párrafo, referencias, títulos y notas de [apa.md](apa.md); la cabecera y el control documental siguen siendo institucionales.
+
 La referencia local aporta una cabecera tabulada de dos filas, título a la izquierda, identidad a la derecha, fecha/versión/página en la segunda fila, línea de pie y tablas densas. Conservar esa gramática sin reproducir el logo ni la autoridad de la entidad original.
 
 - Papel A4 o Carta; márgenes laterales de 21 mm. Encabezado separado del cuerpo; pie con unidad responsable y código. Contar físicamente desde la portada para evitar ambigüedad entre el visor y «Página X de Y».

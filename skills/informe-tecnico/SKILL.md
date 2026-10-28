@@ -1,9 +1,9 @@
 ---
 name: informe-tecnico
-description: Crear y actualizar informes técnicos, manuales de sistemas y catálogos de datos con identidad institucional configurable, control de cambios, paginación e índices automáticos y tablas multipágina. Usar cuando se solicite documentación técnica formal y mantenible; no para propuestas comerciales ni presentaciones.
+description: Crear y actualizar informes técnicos, manuales de sistemas y catálogos de datos con identidad institucional, control documental, índices automáticos y formato con criterios APA 7. Usar para documentación técnica formal y mantenible; no para propuestas comerciales ni presentaciones.
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.3.0"
 ---
 
 # Informe técnico institucional
@@ -25,6 +25,12 @@ Identificar audiencia, uso y clase documental: informe técnico de actividad/ent
 Para un informe nuevo, partir de `assets/plantilla-base.json`: introducción, objetivos, alcance, **4. Desarrollo técnico**, resultados/validación, conclusiones/recomendaciones y referencias. La faena principal y sus subsecciones pertenecen al capítulo 4. Los preliminares no consumen números de capítulo. Adaptar esta base cuando el usuario o una estructura institucional requieran otro orden.
 
 Reutilizar logo, entidad, colores y metadatos proporcionados. Si faltan, avanzar con una identidad neutral explícita y estado Borrador; no inventar una entidad, responsable, fecha de aprobación o historial. Pedir únicamente los datos que bloqueen una entrega real. Separar la versión del documento, la del sistema descrito y la de esta skill.
+
+## Formato institucional con criterios APA 7
+
+Para documentos nuevos, usar `format.profile: "institucional-apa"` de la plantilla base y leer [apa.md](references/apa.md). Aplica doble interlineado, sangría inicial de 1,27 cm, alineación izquierda, referencias con sangría francesa, cursivas y títulos/notas de tablas y figuras. Mantiene la cabecera, portada, índices y márgenes institucionales; denominarlo **formato institucional con criterios APA 7**, no APA integral. Un encargo académico que exija APA estricto necesita adaptar también esas diferencias o elegir otro motor.
+
+Las fuentes antiguas sin `format` conservan su maquetación. Al actualizar un informe, mantener su perfil salvo que se solicite la adaptación. Aplicar citas autor-fecha y referencias cuando se use material ajeno; conservar los códigos documentales dentro de su título o identificación. No inventar autores, fechas, DOI ni validaciones para completar una referencia. El formato APA no cambia la voz técnica ni convierte un informe de sistema en una revisión bibliográfica.
 
 ## Construir una fuente mantenible
 
@@ -54,7 +60,7 @@ Para un DOCX solicitado explícitamente, usar campos nativos de tabla de conteni
 
 ## Comprobar y entregar
 
-1. Revisar la redacción con [redaccion.md](references/redaccion.md): el destinatario debe leer sobre el sistema o la actividad, sin reconstruir cómo trabajó el agente. Comprobar también títulos, pies, historial, referencias e índices: sin rutas de trabajo, notación `§`, etiquetas como `$1.2` ni marcadores sin resolver.
+1. Revisar la redacción con [redaccion.md](references/redaccion.md): el destinatario debe leer sobre el sistema o la actividad, sin reconstruir cómo trabajó el agente. Comprobar también títulos, pies, historial, referencias e índices: sin rutas de trabajo, notación `§`, etiquetas como `$1.2` ni marcadores sin resolver. En el perfil APA, comprobar correspondencia entre citas y referencias, orden alfabético, cursivas y sangrías; el motor no valida esos hechos bibliográficos.
 2. Ejecutar el comprobador: tamaño de papel, total de páginas, metadatos repetidos, destinos de índices, enlaces, texto fuera de márgenes y mínimo tipográfico. Es una comprobación parcial, no demuestra corrección técnica ni accesibilidad PDF/UA.
 3. Renderizar **todas** las páginas con Poppler o un renderizador disponible. Revisar portada, historial, índices, texto, figuras, cada corte de tabla y última página. Abrir las imágenes; un comando exitoso no demuestra buena composición. Comprobar que no haya saltos consecutivos que produzcan una página solo con cabecera y pie.
 4. Corregir colisiones, filas cortadas, títulos huérfanos y rótulos ilegibles. Redistribuir columnas, dividir figuras o usar una hoja apaisada justificada en otro motor antes de reducir tamaños. Tras cambios que afecten al flujo, recompilar y revisar los cortes nuevos.

@@ -19,6 +19,9 @@ Cambiar `brand` actualiza la composición del informe; no recolorea una imagen e
 - `document`: `title`, `code`, `version`, `date` ISO YYYY-MM-DD y `status` obligatorios como cadenas. Opcionales: `short_title` para cabecera, `subtitle`, `author`, `notice`, `control_note`, `paper` (`A4` o `Letter`, predeterminado A4). La versión es texto, no número decimal.
 - `changes`: lista no vacía de cambios. Cada elemento tiene `version`, `date`, `summary`, `author` y opcional `affects` como lista de IDs actuales. Para historial no localizado usar explicación textual, no fabricar un destino. No hay aprobaciones automáticas.
 - `sections`: lista no vacía de secciones en orden de lectura.
+- `format`: objeto opcional; sin él se conserva el perfil original `institucional`. `profile: "institucional-apa"` activa el nuevo perfil descrito en [apa.md](apa.md). Opciones numéricas: `body_size_pt` (8,5..24), `line_spacing` (1..3), `first_line_indent_mm` (0..30), `paragraph_space_after_pt` (0..30), `reference_indent_mm` (0..30) y `table_line_spacing` (1..2). Valores del perfil: 11 pt, 2,0, 12,7 mm, 0 pt, 12,7 mm y 1,0. Una modificación institucional de estas medidas no se presenta como exigencia APA.
+
+En `brand.fonts`, `normal` y `bold` siguen siendo obligatorios; se admiten además `italic` y `bold_italic`. Para fuentes TTF con el perfil APA se requieren las cuatro variantes, de modo que la cursiva no se simule con la fuente normal. Las rutas son relativas al JSON. La familia integrada predeterminada es Helvetica con sus cuatro variantes.
 
 ## Secciones y bloques
 
@@ -28,7 +31,9 @@ Bloques admitidos:
 
 | type | Campos |
 | --- | --- |
-| paragraph | `text` |
+| paragraph | `text` o `runs`; `indent: false` opcional para excepciones de párrafo sin sangría |
+| reference | `text` o `runs`; aplica sangría francesa y espaciado del perfil |
+| quotation | `text` de al menos 40 palabras y `citation` con atribución/localizador; párrafos separados por una línea en blanco |
 | list | `items` (lista de texto), `ordered` opcional |
 | note | `text`, `label` opcional |
 | pagebreak | Sin otros campos |
@@ -37,12 +42,31 @@ Bloques admitidos:
 
 `headers` y cada fila deben tener la misma longitud. `widths` contiene pesos positivos, uno por columna. Una celda es texto; `null` se muestra «No informado». Códigos con cero inicial deben ser cadenas. Una fila demasiado alta falla: reorganizar el contenido, no reducir automáticamente la fuente. La fuente de una tabla se coloca al final, y su título y encabezados se repiten al partirla.
 
+`runs` es una lista de tramos `{ "text": "...", "italic": true, "bold": false }`; las marcas de estilo son opcionales y booleanas. Utilizar `text` o `runs`, sin mezclarlos. El contenido se escapa: no se aceptan etiquetas HTML libres. Ejemplo de referencia con título en cursiva:
+
+```json
+{
+  "type": "reference",
+  "runs": [
+    {"text": "Entidad de demostración. (2026). "},
+    {"text": "Manual de operación del sistema", "italic": true},
+    {"text": " (ENT-IT-04)."}
+  ]
+}
+```
+
+El ejemplo es ficticio. En documentos reales, verificar datos, orden alfabético y correspondencia autor-fecha antes de compilar. El bloque no genera automáticamente autores ni citas.
+
 `number` conserva el número publicado de un catálogo (por ejemplo `"136"`); no renumerar catálogos heredados. Para tablas nuevas en un catálogo usar números explícitos que no colisionen. Si se omite, se usa el ordinal de aparición. Numeración de tablas y figuras independiente.
 
-`{{ref:id}}` dentro de textos, celdas e historial se transforma en el título/número del objeto y un enlace al destino. Un ID inexistente detiene la compilación. No admite enlaces externos ni estilo en línea en este motor.
+`{{ref:id}}` dentro de textos, celdas e historial se transforma en el título/número del objeto y un enlace al destino. Un ID inexistente detiene la compilación. No admite enlaces externos ni HTML libre en este motor.
+
+En el perfil `institucional-apa`, las llamadas a tablas y figuras muestran solo «Tabla 1» o «Figura 2»; sus títulos completos permanecen en los índices. El manifiesto conserva `labels` para navegación y `reference_labels` para el texto de las llamadas. Las cursivas y negritas controladas de `runs` constituyen la excepción al texto plano; no equivalen a HTML libre.
 
 El flujo nativo admite 2-5 nodos de texto y flechas lineales. SVG externos requieren `svglib` y compatibilidad con sus funciones. No usar diagramas animados dentro del PDF. Conservar la fuente vectorial editable.
 
 ## Alcance real
 
 El motor implementa A4/Carta en vertical, portada, control de cambios, contenido, índices condicionales, encabezado/pie, marcadores y tablas simples con filas no divisibles. No implementa DOCX, numeración romana, tablas anidadas, fórmulas, mezcla de orientaciones, firmas electrónicas, control de acceso ni PDF/UA. Las cabeceras y pies demasiado largos fallan con mensaje en vez de solaparse. Para un documento con otras necesidades elegir un motor apropiado manteniendo los mismos invariantes.
+
+El manifiesto añade `format` con medidas efectivas. El perfil APA no modifica los márgenes, la portada, la cabecera, los índices ni la numeración técnica; no equivale a un documento académico APA integral. El comprobador estructural no valida la exactitud bibliográfica. Las fuentes antiguas y el perfil `institucional` conservan sus medidas y la posición tradicional de pies de figura.

@@ -24,3 +24,5 @@ jobs:
         run: python skills/informe-tecnico/scripts/self_test.py
       - name: Comprobar muestra publicada
         run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-informe-tecnico.pdf
+      - name: Comprobar muestra institucional con criterios APA
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-perfil-apa.pdf

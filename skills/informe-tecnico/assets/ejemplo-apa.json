@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "format": {
+    "profile": "institucional-apa"
+  },
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Documentación técnica | Demostración",
+    "accent": "#155D86",
+    "ink": "#17232F",
+    "rule": "#CED6DD",
+    "border": 0.65,
+    "frame": false
+  },
+  "document": {
+    "title": "Formato institucional con criterios APA 7",
+    "short_title": "Muestra de párrafos, tablas y referencias",
+    "code": "DEMO-APA-01",
+    "version": "1.0",
+    "date": "2026-10-28",
+    "status": "Demostración",
+    "paper": "A4",
+    "subtitle": "Muestra de composición de la skill informe-tecnico 0.3.0.\nAplicable a informes y manuales de cualquier sistema o entidad.",
+    "author": "Demostración de la plantilla",
+    "notice": "La entidad de esta muestra es ficticia. La cabecera, los índices y los márgenes institucionales se conservan; el documento no representa un trabajo académico APA integral."
+  },
+  "changes": [
+    {
+      "version": "1.0",
+      "date": "2026-10-28",
+      "summary": "Muestra del perfil institucional con criterios APA 7: párrafos, tablas, figuras y referencias.",
+      "author": "Demostración"
+    }
+  ],
+  "sections": [
+    {
+      "id": "introduccion",
+      "title": "Introducción",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se incorporaron criterios de composición y atribución de APA 7 a la plantilla de informes técnicos. La muestra presenta párrafos con sangría, referencias con sangría francesa y títulos de tablas y figuras con estilos diferenciados. La identidad institucional conserva su configuración independiente del contenido."
+        },
+        {
+          "type": "paragraph",
+          "text": "El doble interlineado y la ausencia de espacio adicional entre párrafos se aplican al cuerpo del documento. La sangría se establece como una propiedad del párrafo, sin insertar espacios en el texto (American Psychological Association, 2022b, 2022c)."
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivos",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Presentar el comportamiento del perfil institucional con criterios APA 7 y los elementos que complementan la plantilla."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Mostrar la sangría inicial y el doble interlineado en texto corrido.",
+            "Distinguir el título, el cuerpo y la nota de tablas y figuras.",
+            "Presentar referencias con cursiva, orden alfabético y sangría francesa."
+          ]
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "alcance",
+      "title": "Alcance",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El perfil conserva portada, cabecera tabulada, control de cambios, índices y capítulos numerados. Estas decisiones corresponden a la plantilla institucional. Los márgenes y los preliminares no se presentan como formato académico APA integral. La aplicación se dirige a informes y manuales de sistemas; no depende de una entidad concreta."
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "desarrollo",
+      "title": "Desarrollo técnico",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La composición diferencia el texto corrido, los procedimientos, los elementos gráficos y las referencias. El tamaño de letra, el interlineado y las sangrías se mantienen como propiedades editables del perfil."
+        }
+      ],
+      "new_page": true
+    },
+    {
+      "id": "parrafos",
+      "title": "Párrafos y tipografía",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La primera línea de este párrafo comienza a 1,27 cm del margen del cuerpo. Las líneas siguientes vuelven al margen izquierdo. El borde derecho permanece irregular, con alineación izquierda y sin justificación completa, conforme a la pauta de párrafos de APA Style (American Psychological Association, 2022c)."
+        },
+        {
+          "type": "paragraph",
+          "text": "El cuerpo utiliza 11 puntos e interlineado de 22 puntos. Este segundo párrafo permite observar la continuidad del texto sin una línea vacía añadida. Las listas y los títulos utilizan sus propias reglas de alineación para conservar la lectura del documento."
+        },
+        {
+          "type": "paragraph",
+          "text": "La fuente predeterminada de la plantilla es Helvetica. El perfil admite fuentes externas con sus variantes normal, negrita, cursiva y negrita cursiva. APA Style permite varias familias y tamaños legibles; el destinatario puede establecer una tipografía concreta (American Psychological Association, 2026)."
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "tablas",
+      "title": "Tablas y figuras",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La {{ref:medidas}} reúne las medidas del perfil. El cuerpo de una tabla puede emplear un interlineado más compacto, mientras el número, el título y la nota conservan doble interlineado (American Psychological Association, 2021b, 2022b)."
+        },
+        {
+          "type": "pagebreak"
+        },
+        {
+          "type": "table",
+          "id": "medidas",
+          "title": "Medidas de composición del perfil",
+          "headers": [
+            "Elemento",
+            "Medida o tratamiento"
+          ],
+          "rows": [
+            [
+              "Cuerpo",
+              "11 puntos; alineación izquierda."
+            ],
+            [
+              "Interlineado",
+              "2,0; 22 puntos entre líneas del cuerpo."
+            ],
+            [
+              "Primera línea",
+              "1,27 cm respecto del margen del cuerpo."
+            ],
+            [
+              "Referencias",
+              "Sangría francesa de 1,27 cm."
+            ],
+            [
+              "Celdas",
+              "Interlineado sencillo; mismo tamaño del cuerpo."
+            ]
+          ],
+          "widths": [
+            1,
+            2.3
+          ],
+          "source": "Medidas configuradas en el perfil de demostración."
+        },
+        {
+          "type": "paragraph",
+          "text": "La {{ref:ciclo}} muestra el ciclo de revisión del documento. El número y el título se sitúan encima de la imagen, y la explicación se reserva para la nota inferior (American Psychological Association, 2021a)."
+        },
+        {
+          "type": "figure",
+          "id": "ciclo",
+          "title": "Ciclo de revisión documental",
+          "path": "diagrams/ciclo-revision.png",
+          "max_height_mm": 110,
+          "description": "El esquema representa la edición, compilación, revisión y corrección de una fuente. Es un recurso de la plantilla, reutilizado en esta muestra.",
+          "source": "Muestra de informe-tecnico; esquema existente elaborado con diagram-design y su atribución MIT."
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "referencias-aplicacion",
+      "title": "Citas y referencias",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Las referencias se presentan sin numeración y con la primera línea al margen. Las siguientes líneas utilizan sangría francesa. Cada cita remite a una entrada de la lista y los títulos de las obras independientes se componen en cursiva (American Psychological Association, 2022a)."
+        },
+        {
+          "type": "paragraph",
+          "text": "Los títulos y códigos de los informes se conservan como identificación documental. Los datos de autor y fecha deben verificarse antes de completar las entradas; las rutas personales del equipo no forman parte de la referencia presentada."
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "resultados",
+      "title": "Resultados",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se incorporó un perfil que aplica el doble interlineado y las sangrías a partir de la fuente editable. Las tablas y figuras presentan sus títulos y notas con estilos propios, y la lista de referencias utiliza sangría francesa. Los documentos anteriores mantienen su perfil cuando no se solicita una adaptación."
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "conclusiones",
+      "title": "Conclusiones",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Los criterios APA complementan la organización técnica y el control documental de la plantilla. Su aplicación mantiene la voz impersonal de los informes y las instrucciones directas de los manuales. La identidad institucional y los datos del sistema continúan siendo configurables."
+        }
+      ],
+      "new_page": false
+    },
+    {
+      "id": "referencias",
+      "title": "Referencias",
+      "level": 1,
+      "blocks": [
+        {
+          "type": "reference",
+          "runs": [
+            {
+              "text": "American Psychological Association. (2021a, diciembre). "
+            },
+            {
+              "text": "Figure setup",
+              "italic": true
+            },
+            {
+              "text": ". https://apastyle.apa.org/style-grammar-guidelines/tables-figures/figures"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "runs": [
+            {
+              "text": "American Psychological Association. (2021b, diciembre). "
+            },
+            {
+              "text": "Table setup",
+              "italic": true
+            },
+            {
+              "text": ". https://apastyle.apa.org/style-grammar-guidelines/tables-figures/tables"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "runs": [
+            {
+              "text": "American Psychological Association. (2022a). "
+            },
+            {
+              "text": "Creating an APA Style reference list guide",
+              "italic": true
+            },
+            {
+              "text": ". https://apastyle.apa.org/instructional-aids/creating-reference-list.pdf"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "runs": [
+            {
+              "text": "American Psychological Association. (2022b, julio). "
+            },
+            {
+              "text": "Line spacing",
+              "italic": true
+            },
+            {
+              "text": ". https://apastyle.apa.org/style-grammar-guidelines/paper-format/line-spacing"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "runs": [
+            {
+              "text": "American Psychological Association. (2022c, julio). "
+            },
+            {
+              "text": "Paragraph alignment and indentation",
+              "italic": true
+            },
+            {
+              "text": ". https://apastyle.apa.org/style-grammar-guidelines/paper-format/paragraph-format"
+            }
+          ]
+        },
+        {
+          "type": "reference",
+          "runs": [
+            {
+              "text": "American Psychological Association. (2026, febrero). "
+            },
+            {
+              "text": "Font",
+              "italic": true
+            },
+            {
+              "text": ". https://apastyle.apa.org/style-grammar-guidelines/paper-format/font"
+            }
+          ]
+        }
+      ],
+      "new_page": true
+    }
+  ]
+}

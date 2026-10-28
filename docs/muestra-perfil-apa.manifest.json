@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-apa.json",
+  "source_sha256": "a6d365f54eb8b837e028bd6022c4403c237b146602130794b4cdbd14689c0c43",
+  "pdf_sha256": "14ab253acc33245f86cdd34088560b3a4a571c6dcc39397435684c6c07ed6986",
+  "assets": [
+    {
+      "path": "diagrams/ciclo-revision.png",
+      "sha256": "823fc270c7c7038f84ea85a16353bd7638c869dfa2d6d566190ea4b94e430f84"
+    }
+  ],
+  "pages": 10,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "title": "Formato institucional con criterios APA 7",
+    "short_title": "Muestra de párrafos, tablas y referencias",
+    "code": "DEMO-APA-01",
+    "version": "1.0",
+    "date": "2026-10-28",
+    "status": "Demostración",
+    "paper": "A4",
+    "subtitle": "Muestra de composición de la skill informe-tecnico 0.3.0.\nAplicable a informes y manuales de cualquier sistema o entidad.",
+    "author": "Demostración de la plantilla",
+    "notice": "La entidad de esta muestra es ficticia. La cabecera, los índices y los márgenes institucionales se conservan; el documento no representa un trabajo académico APA integral."
+  },
+  "format": {
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 2.0,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.0
+  },
+  "entries": [
+    {
+      "id": "introduccion",
+      "label": "1 Introducción",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "objetivos",
+      "label": "2 Objetivos",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "alcance",
+      "label": "3 Alcance",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "desarrollo",
+      "label": "4 Desarrollo técnico",
+      "kind": "section",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "parrafos",
+      "label": "4.1 Párrafos y tipografía",
+      "kind": "section",
+      "level": 1,
+      "page": 6
+    },
+    {
+      "id": "tablas",
+      "label": "4.2 Tablas y figuras",
+      "kind": "section",
+      "level": 1,
+      "page": 6
+    },
+    {
+      "id": "medidas",
+      "label": "Tabla 1 Medidas de composición del perfil",
+      "kind": "table",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "ciclo",
+      "label": "Figura 1 Ciclo de revisión documental",
+      "kind": "figure",
+      "level": 0,
+      "page": 8
+    },
+    {
+      "id": "referencias-aplicacion",
+      "label": "4.3 Citas y referencias",
+      "kind": "section",
+      "level": 1,
+      "page": 8
+    },
+    {
+      "id": "resultados",
+      "label": "5 Resultados",
+      "kind": "section",
+      "level": 0,
+      "page": 9
+    },
+    {
+      "id": "conclusiones",
+      "label": "6 Conclusiones",
+      "kind": "section",
+      "level": 0,
+      "page": 9
+    },
+    {
+      "id": "referencias",
+      "label": "7 Referencias",
+      "kind": "section",
+      "level": 0,
+      "page": 10
+    }
+  ],
+  "labels": {
+    "introduccion": "1 Introducción",
+    "objetivos": "2 Objetivos",
+    "alcance": "3 Alcance",
+    "desarrollo": "4 Desarrollo técnico",
+    "parrafos": "4.1 Párrafos y tipografía",
+    "tablas": "4.2 Tablas y figuras",
+    "medidas": "Tabla 1 Medidas de composición del perfil",
+    "ciclo": "Figura 1 Ciclo de revisión documental",
+    "referencias-aplicacion": "4.3 Citas y referencias",
+    "resultados": "5 Resultados",
+    "conclusiones": "6 Conclusiones",
+    "referencias": "7 Referencias"
+  },
+  "reference_labels": {
+    "introduccion": "1 Introducción",
+    "objetivos": "2 Objetivos",
+    "alcance": "3 Alcance",
+    "desarrollo": "4 Desarrollo técnico",
+    "parrafos": "4.1 Párrafos y tipografía",
+    "tablas": "4.2 Tablas y figuras",
+    "medidas": "Tabla 1",
+    "ciclo": "Figura 1",
+    "referencias-aplicacion": "4.3 Citas y referencias",
+    "resultados": "5 Resultados",
+    "conclusiones": "6 Conclusiones",
+    "referencias": "7 Referencias"
+  }
+}

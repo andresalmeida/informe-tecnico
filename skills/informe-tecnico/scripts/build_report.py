@@ -9,7 +9,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER
+from reportlab.lib.enums import TA_CENTER, TA_LEFT
 from reportlab.lib.pagesizes import A4, letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
@@ -25,6 +25,34 @@ from reportlab.graphics.shapes import Drawing, Rect, Line, Polygon
 REF = re.compile(r"\{\{ref:([a-zA-Z0-9_-]+)\}\}")
 # One grid for both header rows: entity and pagination share the same edge.
 HEADER_BOUNDS = (0, .42, .71, 1)
+
+
+def format_for(spec):
+    """Resolve an explicit profile; pre-0.3 sources retain their layout."""
+    config = spec.get("format", {})
+    require(isinstance(config, dict), "format debe ser un objeto")
+    profile = config.get("profile", "institucional")
+    require(profile in ("institucional", "institucional-apa"), "Perfil de formato desconocido")
+    apa = profile == "institucional-apa"
+    values = {"profile": profile, "body_size_pt": 11.0 if apa else 10.5,
+              "line_spacing": 2.0 if apa else 14.5/10.5,
+              "first_line_indent_mm": 12.7 if apa else 0.0,
+              "paragraph_space_after_pt": 0.0 if apa else 8.0,
+              "reference_indent_mm": 12.7,
+              "table_line_spacing": 1.0 if apa else 12/9}
+    require(not set(config)-set(values), "Campo de formato desconocido")
+    for key in values.keys()-{"profile"}:
+        value = config.get(key, values[key])
+        require(isinstance(value, (int, float)) and not isinstance(value, bool), f"Formato no numérico: {key}")
+        require(float(value) == float(value) and abs(float(value)) != float("inf"), f"Formato no finito: {key}")
+        values[key] = float(value)
+    require(8.5 <= values["body_size_pt"] <= 24, "Cuerpo fuera de 8,5..24 pt")
+    require(1 <= values["line_spacing"] <= 3, "Interlineado fuera de 1..3")
+    require(1 <= values["table_line_spacing"] <= 2, "Interlineado de tabla fuera de 1..2")
+    require(0 <= values["first_line_indent_mm"] <= 30 and 0 <= values["reference_indent_mm"] <= 30,
+            "Sangría fuera de 0..30 mm")
+    require(0 <= values["paragraph_space_after_pt"] <= 30, "Espaciado de párrafo fuera de 0..30 pt")
+    return values
 
 
 def require(condition, message):
@@ -188,7 +216,7 @@ def registry(spec):
         items = [(section, f'{section["_number"]} {section["title"]}')]
         for block in section.get("blocks", []):
             kind = block["type"]
-            require(kind in ("paragraph", "list", "table", "figure", "note", "pagebreak"),
+            require(kind in ("paragraph", "list", "table", "figure", "note", "pagebreak", "reference", "quotation"),
                     f"Bloque no soportado: {kind}")
             if kind in ("table", "figure"):
                 if kind == "table":
@@ -199,7 +227,9 @@ def registry(spec):
                     number = block.get("number", str(figure_n))
                 require(str(number) not in used_numbers[kind], f"Número duplicado: {kind} {number}")
                 used_numbers[kind].add(str(number))
-                block["_label"] = f'{"Tabla" if kind == "table" else "Figura"} {number}. {block["title"]}'
+                block["_number_label"] = f'{"Tabla" if kind == "table" else "Figura"} {number}'
+                separator = " " if spec.get("format", {}).get("profile") == "institucional-apa" else ". "
+                block["_label"] = block["_number_label"] + separator + block["title"]
                 items.append((block, block["_label"]))
         for item, label in items:
             key = item["id"]
@@ -209,21 +239,38 @@ def registry(spec):
     return labels
 
 
-def styles_for(brand, base):
-    normal, bold = "Helvetica", "Helvetica-Bold"
+def styles_for(brand, base, layout=None):
+    layout = layout or format_for({})
+    apa = layout["profile"] == "institucional-apa"
+    normal, bold, italic, bold_italic = "Helvetica", "Helvetica-Bold", "Helvetica-Oblique", "Helvetica-BoldOblique"
     if brand.get("fonts"):
-        require(set(brand["fonts"]) == {"normal", "bold"}, "fonts requiere normal y bold")
+        require({"normal", "bold"} <= set(brand["fonts"]) <= {"normal", "bold", "italic", "bold_italic"},
+                "fonts requiere normal/bold y admite italic/bold_italic")
+        if apa:
+            require({"italic", "bold_italic"} <= set(brand["fonts"]),
+                    "El perfil APA con TTF requiere las cuatro variantes de fuente")
         normal, bold = "Institutional", "Institutional-Bold"
-        for role, name in [("normal", normal), ("bold", bold)]:
-            pdfmetrics.registerFont(TTFont(name, str(pathsafe(base, brand["fonts"][role]))))
-        pdfmetrics.registerFontFamily(normal, normal=normal, bold=bold, italic=normal, boldItalic=bold)
+        italic, bold_italic = normal, bold
+        for role, name in [("normal", normal), ("bold", bold), ("italic", "Institutional-Italic"),
+                           ("bold_italic", "Institutional-BoldItalic")]:
+            if role in brand["fonts"]:
+                pdfmetrics.registerFont(TTFont(name, str(pathsafe(base, brand["fonts"][role]))))
+                if role == "italic": italic = name
+                if role == "bold_italic": bold_italic = name
+        pdfmetrics.registerFontFamily(normal, normal=normal, bold=bold, italic=italic, boldItalic=bold_italic)
     ink = colors.HexColor(brand.get("ink", "#17232F"))
     accent = colors.HexColor(brand["accent"])
-    root = ParagraphStyle("body", fontName=normal, fontSize=10.5, leading=14.5,
-                          textColor=ink, spaceAfter=8, allowWidows=0, allowOrphans=0)
+    size = layout["body_size_pt"]
+    leading = size*layout["line_spacing"]
+    root = ParagraphStyle("body", fontName=normal, fontSize=size, leading=leading,
+                          firstLineIndent=layout["first_line_indent_mm"]*mm, alignment=TA_LEFT,
+                          textColor=ink, spaceBefore=0, spaceAfter=layout["paragraph_space_after_pt"],
+                          allowWidows=0, allowOrphans=0)
     def style(name, **kw):
+        kw.setdefault("firstLineIndent", 0)
+        kw.setdefault("leftIndent", 0)
         return ParagraphStyle(name, parent=root, **kw)
-    return {"body": root,
+    result = {"body": root,
             "h1": style("h1", fontName=bold, fontSize=16, leading=20, spaceBefore=15,
                         spaceAfter=12, keepWithNext=True),
             "h2": style("h2", fontName=bold, fontSize=12, leading=16, spaceBefore=12,
@@ -242,6 +289,22 @@ def styles_for(brand, base):
                             alignment=TA_CENTER, spaceAfter=0),
             "meta": style("meta", fontSize=8.5, leading=11, alignment=TA_CENTER, spaceAfter=0),
             "footer": style("footer", fontSize=8.5, leading=11, spaceAfter=0)}
+    result["plain"] = style("plain")
+    result["list"] = style("list", leftIndent=18, firstLineIndent=-18)
+    result["reference"] = style("reference", leftIndent=layout["reference_indent_mm"]*mm,
+                                firstLineIndent=-layout["reference_indent_mm"]*mm)
+    result["quotation"] = style("quotation", leftIndent=12.7*mm)
+    result["quotation_continued"] = style("quotation-continued", leftIndent=12.7*mm, firstLineIndent=12.7*mm)
+    if apa:
+        result.update({
+            "h1": style("h1-apa", fontName=bold, alignment=TA_CENTER, keepWithNext=True),
+            "h2": style("h2-apa", fontName=bold, keepWithNext=True),
+            "h3": style("h3-apa", fontName=bold_italic, keepWithNext=True),
+            "cell": style("cell-apa", leading=size*layout["table_line_spacing"]),
+            "caption": style("caption-apa", keepWithNext=True),
+            "small": style("notes-apa"),
+        })
+    return result
 
 
 def flow_figure(block, width, styles, accent):
@@ -292,16 +355,26 @@ def compile_report(source, output):
     require(spec["brand"].get("entity"), "Falta brand.entity")
     spec["brand"].setdefault("accent", "#155D86")
     require(spec["document"].get("paper", "A4") in ("A4", "Letter"), "paper: A4 o Letter")
+    layout = format_for(spec)
+    apa = layout["profile"] == "institucional-apa"
     labels = registry(spec)
-    styles = styles_for(spec["brand"], base)
+    reference_labels = dict(labels)
+    if apa:
+        for section in spec["sections"]:
+            for block in section.get("blocks", []):
+                if block["type"] in ("table", "figure"):
+                    reference_labels[block["id"]] = block["_number_label"]
+    styles = styles_for(spec["brand"], base, layout)
     accent = colors.HexColor(spec["brand"]["accent"])
     rule = colors.HexColor(spec["brand"].get("rule", "#CED6DD"))
     # Choose black or white via WCAG relative luminance, independent of hue.
     linear = lambda c: c/12.92 if c <= .04045 else ((c+.055)/1.055)**2.4
     luminance = sum(k*linear(c) for k,c in zip((.2126,.7152,.0722), (accent.red,accent.green,accent.blue)))
     head_ink = colors.black if (luminance+.05)/.05 >= 1.05/(luminance+.05) else colors.white
-    head_style = ParagraphStyle("column", parent=styles["cell"], fontName=styles["caption"].fontName,
-                                textColor=head_ink)
+    head_style = ParagraphStyle("column", parent=styles["cell"],
+                                fontName=styles["h2" if apa else "caption"].fontName,
+                                textColor=colors.black if apa else head_ink,
+                                alignment=TA_CENTER if apa else TA_LEFT)
     probe = PageTotal()
     paper = A4 if spec["document"].get("paper", "A4") == "A4" else letter
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -313,13 +386,35 @@ def compile_report(source, output):
         def link(match):
             key = match.group(1)
             require(key in labels, f"Referencia desconocida: {key}")
-            return f'<link href="#{key}" color="{spec["brand"]["accent"]}">{escape(labels[key])}</link>'
+            return f'<link href="#{key}" color="{spec["brand"]["accent"]}">{escape(reference_labels[key])}</link>'
         return REF.sub(link, text)
 
     def p(value, role="body"):
         return Paragraph(markup(value).replace("\n", "<br/>"), styles[role])
 
-    def table(headers, rows, widths=None, title=None, source_note=None):
+    def content_paragraph(block, role):
+        require(bool(block.get("text")) != bool(block.get("runs")), "Usar text o runs, no ambos ni vacíos")
+        if block.get("runs"):
+            require(isinstance(block["runs"], list), "runs debe ser una lista")
+            pieces = []
+            for run in block["runs"]:
+                require(isinstance(run, dict) and not set(run)-{"text", "italic", "bold"}, "Tramo de texto no válido")
+                require(isinstance(run.get("text"), str), "Cada tramo requiere text")
+                piece = markup(run["text"]).replace("\n", "<br/>")
+                for flag, tag in [("italic", "i"), ("bold", "b")]:
+                    require(isinstance(run.get(flag, False), bool), "Los estilos de tramo son booleanos")
+                    if run.get(flag): piece = f"<{tag}>{piece}</{tag}>"
+                pieces.append(piece)
+            return Paragraph("".join(pieces), styles[role])
+        return p(block["text"], role)
+
+    def caption_for(block):
+        if not apa:
+            return p(block["_label"], "caption")
+        return Paragraph(f'<b>{markup(block["_number_label"])}</b><br/><i>{markup(block["title"])}</i>',
+                         styles["caption"])
+
+    def table(headers, rows, widths=None, title=None, source_note=None, title_block=None):
         require(len(headers) >= 1, "Tabla sin columnas")
         for row in rows:
             require(len(row) == len(headers), "Fila con número de columnas incorrecto")
@@ -330,12 +425,14 @@ def compile_report(source, output):
         data = []
         heading_row = 0
         if title:
-            data.append([p(title, "caption")]+[""]*(len(headers)-1))
+            data.append([caption_for(title_block) if title_block else p(title, "caption")]+[""]*(len(headers)-1))
             heading_row = 1
         data.append([Paragraph(markup(v), head_style) for v in headers])
         data.extend([[p(v, "cell") for v in row] for row in rows])
         if source_note:
-            data.append([p(f"Fuente: {source_note}", "small")]+[""]*(len(headers)-1))
+            note = (Paragraph(f'<i>Nota.</i> Fuente: {markup(source_note)}', styles["small"])
+                    if apa else p(f"Fuente: {source_note}", "small"))
+            data.append([note]+[""]*(len(headers)-1))
         result = RegisteredTable(data, colWidths=widths, repeatRows=heading_row+1,
                                  hAlign="LEFT", splitByRow=1, splitInRow=0,
                                  spaceBefore=7, spaceAfter=13)
@@ -347,6 +444,12 @@ def compile_report(source, output):
             ("LINEBELOW", (0,heading_row),(-1,-1),.3,rule),
             ("ROWBACKGROUNDS", (0,heading_row+1),(-1,-1),[colors.white,colors.HexColor("#F4F6F8")]),
         ]
+        if apa:
+            # Sparse horizontal rules; preserve whitespace instead of boxing every cell.
+            commands = [c for c in commands if c[0] not in ("BACKGROUND", "LINEBELOW", "ROWBACKGROUNDS")]
+            commands += [("LINEABOVE", (0,heading_row),(-1,heading_row),.6,colors.black),
+                         ("LINEBELOW", (0,heading_row),(-1,heading_row),.6,colors.black),
+                         ("LINEBELOW", (0,len(data)-2 if source_note else -1),(-1,len(data)-2 if source_note else -1),.6,colors.black)]
         if title:
             commands += [("SPAN",(0,0),(-1,0)), ("BACKGROUND",(0,0),(-1,0),colors.white),
                          ("LEFTPADDING",(0,0),(-1,0),0)]
@@ -359,9 +462,9 @@ def compile_report(source, output):
     m = spec["document"]
     story = [probe, Spacer(1,22*mm), p(m["code"], "kicker"), p(m["title"], "title")]
     if m.get("subtitle"):
-        story += [p(m["subtitle"])]
+        story += [p(m["subtitle"], "plain")]
     story += [Spacer(1,12*mm), p(spec["brand"]["entity"], "h2"),
-              p(spec["brand"].get("unit", "")), Spacer(1,14*mm),
+              p(spec["brand"].get("unit", ""), "plain"), Spacer(1,14*mm),
               p(f'Versión {m["version"]} · {m["date"]} · {m["status"]}', "small")]
     if m.get("notice"):
         story += [p(m["notice"], "small")]
@@ -387,8 +490,8 @@ def compile_report(source, output):
                 extra_index_started = True
             story += [p(title,"h1"), Navigation(kind, styles["index"])]
     story += [PageBreak()]
-    for section in spec["sections"]:
-        if section.get("new_page"):
+    for section_index, section in enumerate(spec["sections"]):
+        if section.get("new_page") and section_index:
             story += [PageBreak()]
         heading = p(labels[section["id"]], f'h{section.get("level",1)}')
         heading.entry = (section["id"], labels[section["id"]], "section", section.get("level",1)-1)
@@ -396,16 +499,27 @@ def compile_report(source, output):
         for block in section.get("blocks", []):
             kind = block["type"]
             if kind == "paragraph":
-                story += [p(block["text"])]
+                story += [content_paragraph(block, "plain" if block.get("indent") is False else "body")]
+            elif kind == "reference":
+                story += [content_paragraph(block, "reference")]
+            elif kind == "quotation":
+                require(isinstance(block.get("text"), str) and len(block["text"].split()) >= 40,
+                        "Cita en bloque: requiere al menos 40 palabras")
+                require(isinstance(block.get("citation"), str) and bool(block["citation"].strip()),
+                        "Cita en bloque: falta cita y localizador")
+                paragraphs = [part.strip() for part in block["text"].split("\n\n") if part.strip()]
+                for i, part in enumerate(paragraphs):
+                    if i == len(paragraphs)-1: part += " "+block["citation"]
+                    story += [p(part, "quotation" if i == 0 else "quotation_continued")]
             elif kind == "list":
                 for i, item in enumerate(block["items"]):
-                    story += [p(f'{i+1}. {item}' if block.get("ordered") else f'• {item}')]
+                    story += [p(f'{i+1}. {item}' if block.get("ordered") else f'• {item}', "list" if apa else "body")]
             elif kind == "note":
                 story += [p(block.get("label", "Nota"),"kicker"),p(block["text"],"small")]
             elif kind == "pagebreak":
                 story += [PageBreak()]
             elif kind == "table":
-                t = table(block["headers"],block["rows"],block.get("widths"),block["_label"],block.get("source"))
+                t = table(block["headers"],block["rows"],block.get("widths"),block["_label"],block.get("source"),block)
                 t.entry = (block["id"],block["_label"],"table",0)
                 story += [t]
             elif kind == "figure":
@@ -425,16 +539,23 @@ def compile_report(source, output):
                         figure.drawWidth, figure.drawHeight = figure.imageWidth*factor, figure.imageHeight*factor
                 else:
                     figure = flow_figure(block,doc.width,styles,accent)
-                caption = p(block["_label"],"caption")
+                caption = caption_for(block)
                 caption.entry = (block["id"],block["_label"],"figure",0)
                 # Register on the figure itself (KeepTogether children enter the frame).
                 figure.entry = caption.entry
                 del caption.entry
-                components = [figure, Spacer(1,3*mm), caption]
-                if block.get("description"):
-                    components += [p(block["description"],"small")]
-                if block.get("source"):
-                    components += [p(f'Fuente: {block["source"]}',"small")]
+                components = ([caption, Spacer(1,3*mm), figure] if apa else
+                              [figure, Spacer(1,3*mm), caption])
+                if apa:
+                    notes = block.get("description", "")
+                    if block.get("source"): notes += f' Fuente: {block["source"]}'
+                    if notes.strip(): components += [Paragraph(f'<i>Nota.</i> {markup(notes.strip())}', styles["small"])]
+                    components += [Spacer(1,styles["body"].leading)]
+                else:
+                    if block.get("description"):
+                        components += [p(block["description"],"small")]
+                    if block.get("source"):
+                        components += [p(f'Fuente: {block["source"]}',"small")]
                 story += [KeepTogether(components)]
     doc.multiBuild(story, maxPasses=10)
     assets = []
@@ -447,7 +568,8 @@ def compile_report(source, output):
     manifest = {"schema_version":1, "source":source.name, "source_sha256":hashlib.sha256(raw).hexdigest(),
                 "pdf_sha256":hashlib.sha256(output.read_bytes()).hexdigest(), "assets":assets,
                 "pages":doc.page, "passes":doc.passes, "paper":m.get("paper","A4"),
-                "document":m, "entries":doc.entries, "labels":labels}
+                "document":m, "format":layout, "entries":doc.entries, "labels":labels,
+                "reference_labels":reference_labels}
     output.with_suffix(".manifest.json").write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n")
     return manifest
 

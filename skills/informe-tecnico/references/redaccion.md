@@ -18,6 +18,8 @@ Cuando una parte siga pendiente, expresarlo con lenguaje de proyecto una vez en 
 
 En el documento de presentación:
 
+Con el perfil `institucional-apa`, completar la atribución autor-fecha y las entradas bibliográficas conforme a [apa.md](apa.md). Los códigos de informe se conservan como identificación documental; la preferencia por nombres reconocibles no elimina los datos bibliográficos exigidos por el perfil.
+
 - Explicar el sistema, los componentes implementados, el procedimiento o los resultados de la actividad.
 - Citar otros informes y manuales por su nombre o código documental existente. Usar «AA_Act9_4, apartado 3» o «Manual de usuario SIGC - Administrador, Importación de datos». Añadir fecha, versión o página cuando ayude a localizar el contenido.
 - Usar fuentes de datos cuando sean pertinentes para una métrica: «Fuente: OpenAlex y registros institucionales; corte: octubre de 2026». En un informe de implementación no es obligatorio añadir bibliografía para cada descripción del propio sistema.

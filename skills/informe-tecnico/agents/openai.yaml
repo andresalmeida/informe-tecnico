@@ -1,4 +1,4 @@
 interface:
   display_name: "Informe técnico institucional"
-  short_description: "Informes con identidad y control documental automático"
-  default_prompt: "Usa $informe-tecnico para preparar un documento listo para presentar, con redacción técnica impersonal, referencias documentales, identidad institucional y control de cambios."
+  short_description: "Informes institucionales con criterios APA 7"
+  default_prompt: "Usa $informe-tecnico para preparar un documento listo para presentar, con redacción técnica impersonal, formato institucional con criterios APA 7, referencias documentales y control de cambios."

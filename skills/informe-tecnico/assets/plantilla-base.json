@@ -80,5 +80,8 @@
       "level": 1,
       "blocks": []
     }
-  ]
+  ],
+  "format": {
+    "profile": "institucional-apa"
+  }
 }

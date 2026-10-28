@@ -100,8 +100,8 @@ def check(pdf):
                            f"Enlace sin página de destino en {i}")
     expect(links >= len(manifest["entries"]), "Faltan enlaces de índices")
     return {"ok":not errors,"pages":n,"entries":len(manifest["entries"]),
-            "internal_links":links,"errors":errors,
-            "limits":"Requiere revisión visual; no verifica hechos, semántica de tablas ni PDF/UA."}
+            "internal_links":links,"format":manifest.get("format", {"profile":"institucional"}),"errors":errors,
+            "limits":"Requiere revisión visual; no verifica hechos, correspondencia bibliográfica, APA integral ni PDF/UA."}
 
 
 if __name__ == "__main__":

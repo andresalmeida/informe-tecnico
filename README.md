@@ -6,6 +6,8 @@ Skill para crear informes técnicos, manuales de sistemas y catálogos de datos 
 
 [Ver la muestra en PDF](docs/muestra-informe-tecnico.pdf) · [Leer la skill](skills/informe-tecnico/SKILL.md) · [Ver la plantilla base](skills/informe-tecnico/assets/plantilla-base.json)
 
+Versión 0.3.0: [muestra del perfil institucional con criterios APA 7](docs/muestra-perfil-apa.pdf) · [fuente editable](skills/informe-tecnico/assets/ejemplo-apa.json) · [criterios y fuentes oficiales](skills/informe-tecnico/references/apa.md).
+
 ## Qué resuelve
 
 - Entidad, logo, colores, líneas y marco configurables.
@@ -16,6 +18,7 @@ Skill para crear informes técnicos, manuales de sistemas y catálogos de datos 
 - Figuras con fuente editable, número, pie y destino en el índice.
 - Comprobación estructural del PDF y pruebas de regresión del motor.
 - Redacción de presentación adaptada a informes y manuales, con referencias por nombre o código documental. Las rutas personales y la trazabilidad de autoría quedan en archivos de trabajo.
+- Perfil institucional con criterios APA 7: interlineado doble, sangría inicial, referencias con sangría francesa, cursivas y presentación de tablas y figuras.
 
 La muestra es ficticia. Los documentos institucionales que orientaron el diseño se describen en [fuentes](skills/informe-tecnico/references/fuentes.md); sus PDF y logos originales no forman parte del repositorio.
 
@@ -60,6 +63,14 @@ Los módulos se adaptan al tipo de documento y a las estructuras institucionales
 
 La [guía de redacción](skills/informe-tecnico/references/redaccion.md) distingue un informe de actividad, un manual y una evaluación solicitada. El documento describe el sistema y el trabajo realizado con lenguaje técnico; no narra cómo lo investigó el agente. Las comprobaciones y los pendientes conservan su estado real.
 
+## Formato con criterios APA 7
+
+Los documentos nuevos parten de `format.profile: "institucional-apa"`: cuerpo de 11 pt, interlineado 2,0, sangría inicial de 1,27 cm y referencias con sangría francesa de 1,27 cm. Los títulos de tabla/figura se colocan encima, con número en negrita y título en cursiva. Las tablas usan líneas horizontales mínimas y celdas con interlineado sencillo.
+
+Se conservan identidad, cabecera, portada, índices, márgenes institucionales y capítulos numerados. Es una adaptación para informes, no un formato académico APA integral. La [guía APA](skills/informe-tecnico/references/apa.md) identifica las diferencias y la atribución autor-fecha. Las fuentes antiguas sin `format` mantienen su composición; `profile: "institucional"` permite elegir expresamente el perfil original.
+
+Los nuevos bloques `reference` y `quotation`, y los tramos `runs` para cursivas/negritas, están descritos en el [contrato](skills/informe-tecnico/references/contrato.md). El motor compone las entradas que se le suministran; la selección y verificación de autores, fechas y citas siguen siendo trabajo de autoría.
+
 ## Una skill coordina la otra
 
 `informe-tecnico` y `diagram-design` se instalan por separado. El agente que aplica la principal carga la colaboradora cuando necesita crear un esquema:
@@ -98,6 +109,8 @@ La muestra incluye un esquema exportado a PNG para imprimir y sus fuentes HTML/S
 ## Comprobaciones y límites
 
 Las pruebas comprueban continuación de tablas, desplazamiento de destinos al crecer el índice, conservación de números de catálogo, ceros iniciales, otro perfil gráfico/papel y rechazo de referencias desconocidas, IDs duplicados, filas excesivas y cabeceras desalineadas.
+
+La regresión APA mide en el PDF la sangría de 36 pt y la distancia de 22 pt entre líneas, la sangría francesa y el bloque de cita, además de cursivas, título sobre la imagen y continuación de tablas. No certifica cumplimiento APA integral ni exactitud de las referencias.
 
 El motor incluido produce PDF A4/Carta en vertical. El contenido se mantiene en JSON editable; no genera DOCX. Las comprobaciones automáticas no verifican los hechos técnicos, las aprobaciones institucionales ni la conformidad PDF/UA. La entrega requiere abrir las páginas renderizadas y revisar su composición.
 
