@@ -36,11 +36,15 @@ Bloques admitidos:
 | quotation | `text` de al menos 40 palabras y `citation` con atribución/localizador; párrafos separados por una línea en blanco |
 | list | `items` (lista de texto), `ordered` opcional |
 | note | `text`, `label` opcional |
+| notice | `level` (`note`, `caution`, `warning`), `text`; `title` opcional |
+| procedure | `id`, `title`, `steps` no vacía; `role` y `prerequisites` (lista de texto) opcionales |
 | pagebreak | Sin otros campos |
 | table | `id`, `title`, `headers`, `rows`; opcionales `widths`, `source`, `number` |
 | figure | `id`, `title`, `description`, `source`; `nodes` para flujo simple **o** `path` para SVG/imagen; `max_height_mm` y `number` opcionales |
 
 `headers` y cada fila deben tener la misma longitud. `widths` contiene pesos positivos, uno por columna. Una celda es texto; `null` se muestra «No informado». Códigos con cero inicial deben ser cadenas. Una fila demasiado alta falla: reorganizar el contenido, no reducir automáticamente la fuente. La fuente de una tabla se coloca al final, y su título y encabezados se repiten al partirla.
+
+Cada elemento de `procedure.steps` requiere `action` y `expected` como textos no vacíos. Admite `on_failure` (texto) y `notice` (objeto con `level`, `text` y `title` opcional, sin `type`); el aviso se imprime antes de la acción. No admite campos de aprobación o ejecución como `checked` o `status`. Los procedimientos reciben numeración automática independiente, destino enlazable e índice condicional. Sus referencias APA muestran «Procedimiento 1»; el índice conserva el título completo. Véase [procedimientos.md](procedimientos.md) para semántica y ejemplo. Los nuevos bloques rechazan campos desconocidos; `note` mantiene su comportamiento anterior.
 
 `runs` es una lista de tramos `{ "text": "...", "italic": true, "bold": false }`; las marcas de estilo son opcionales y booleanas. Utilizar `text` o `runs`, sin mezclarlos. El contenido se escapa: no se aceptan etiquetas HTML libres. Ejemplo de referencia con título en cursiva:
 

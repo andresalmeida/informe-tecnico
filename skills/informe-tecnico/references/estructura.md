@@ -41,6 +41,8 @@ Introducción y propósito; audiencia; objetivos; alcance; términos necesarios;
 
 Un procedimiento operativo útil precisa condición inicial, permisos/requisitos, pasos, resultado esperado, comprobación y recuperación cuando exista. Los comandos deben proceder de evidencia y no ejecutarse sobre un sistema real por el hecho de documentarlos.
 
+Para componer esas tareas usar los módulos opcionales de [procedimientos.md](procedimientos.md): acción y resultado esperado por paso, con avisos antes de las acciones que los requieran. La descripción de una comprobación esperada no sustituye el registro de una ejecución real.
+
 ## Catálogo o diccionario
 
 Propósito, ámbito, convenciones, reglas generales y fichas tabulares. Por ficha: ID estable, nombre, definición, código, tipo/longitud cuando se conozcan, dominio permitido, unidad, obligatoriedad, vigencia y fuente. No inventar columnas de esquema ausentes. Las bajas llevan estado explícito; no se borra silenciosamente su significado histórico.

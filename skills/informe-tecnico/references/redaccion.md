@@ -14,6 +14,14 @@ No reemplazar mecánicamente cualquier verbo por «se validó». Reservar esa ex
 
 Cuando una parte siga pendiente, expresarlo con lenguaje de proyecto una vez en el lugar pertinente: «El despliegue definitivo está previsto para el 4 de noviembre». Mantener esa condición coherente en resultados y conclusiones. No repetir en cada figura fórmulas como «no acredita», «no certifica» o «no se ejecutó durante esta revisión» salvo que sean necesarias para entender un resultado de evaluación solicitado.
 
+## Ordenar la explicación y revisar repeticiones
+
+En resultados, conclusiones y un resumen ejecutivo solicitado, abrir con la respuesta o el resultado principal sustentado; desarrollar después las razones y la evidencia pertinente. Agrupar las razones por un mismo criterio, evitando que dos apartados repitan el mismo argumento. Si la evidencia todavía no permite concluir, precisar el resultado disponible o la pregunta pendiente. Esta adaptación de Minto se limita al orden de la explicación: conservar los capítulos institucionales y la secuencia de requisitos, acciones y resultados esperados de los manuales. No añadir un resumen ejecutivo por defecto ni imponer un número de argumentos.
+
+En la revisión editorial, eliminar la oración que repite la anterior sin añadir una condición, un dato o una consecuencia. Evitar anunciar una tabla y luego volver a enumerar íntegramente sus celdas; explicar la relación o el resultado que el lector necesita interpretar. Mantener las repeticiones necesarias para consultar un procedimiento de forma independiente o reconocer controles y permisos.
+
+La revisión de estilo no cambia la terminología del sistema para variar el vocabulario. Conservar los nombres de controles, los términos técnicos, las enumeraciones completas y los rótulos de APA. Las listas de pasos, los paralelismos útiles y un conjunto de tres elementos no se eliminan por su forma. De unicorntext se toma la revisión del relleno y la repetición; no se incorpora un decálogo de prohibiciones ni otra dependencia para redactar.
+
 ## Separar el documento de los archivos de trabajo
 
 En el documento de presentación:

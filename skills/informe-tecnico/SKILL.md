@@ -3,7 +3,7 @@ name: informe-tecnico
 description: Crear y actualizar informes técnicos, manuales de sistemas y catálogos de datos con identidad institucional, control documental, índices automáticos y formato con criterios APA 7. Usar para documentación técnica formal y mantenible; no para propuestas comerciales ni presentaciones.
 license: MIT
 metadata:
-  version: "0.3.0"
+  version: "0.4.0"
 ---
 
 # Informe técnico institucional
@@ -36,6 +36,8 @@ Las fuentes antiguas sin `format` conservan su maquetación. Al actualizar un in
 
 Leer [contrato.md](references/contrato.md) para el esquema del motor y [composicion.md](references/composicion.md) para su tratamiento visual.
 
+Para tareas de un manual o instrucciones de operación, leer [procedimientos.md](references/procedimientos.md). Los bloques opcionales `procedure` presentan condición inicial, acción y resultado esperado por paso; `notice` distingue nota, precaución para datos/equipos y advertencia para personas. Usarlos cuando aporten a la tarea, sin convertir resultados esperados en pruebas realizadas ni añadir avisos a todos los informes.
+
 `assets/ejemplo-preview.png` muestra una página renderizada de la demostración: usarla como referencia de escala y gramática, adaptando la identidad al encargo.
 
 - Guardar contenido, identidad, fecha efectiva y revisión en un JSON editable. `assets/ejemplo.json` es una demostración ficticia, no hechos reutilizables sobre el usuario.
@@ -54,7 +56,7 @@ python3 <skill>/scripts/build_report.py <documento.json> --output <informe.pdf>
 python3 <skill>/scripts/check_report.py <informe.pdf>
 ```
 
-El motor genera portada, encabezado institucional, fecha/versión/estado, `Página X de Y`, historial, contenido, índices condicionales de tablas/figuras, marcadores, referencias internas y manifiesto `.manifest.json`. Compila hasta estabilizar índices y total. Falla si una fila no cabe o un objeto carece de referencia; no reduce la letra silenciosamente.
+El motor genera portada, encabezado institucional, fecha/versión/estado, `Página X de Y`, historial, contenido, índices condicionales de tablas/figuras/procedimientos, marcadores, referencias internas y manifiesto `.manifest.json`. Compila hasta estabilizar índices y total. Falla si una fila no cabe o un objeto carece de referencia; no reduce la letra silenciosamente.
 
 Para un DOCX solicitado explícitamente, usar campos nativos de tabla de contenido, títulos y referencias cruzadas, además de PAGE/NUMPAGES en encabezados/pies. Recalcular los campos con una herramienta compatible y exportar/revisar el resultado. El motor incluido produce PDF, no DOCX. No entregar una maqueta de texto plano como equivalente editable.
 

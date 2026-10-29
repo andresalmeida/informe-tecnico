@@ -34,6 +34,17 @@ def main():
             result = compile_report(source,pdf)
             validation = check(pdf)
             assert validation["ok"], validation
+            # Inspect printed coordinates: opposite edges and the same baseline.
+            import pdfplumber
+            with pdfplumber.open(pdf) as printed:
+                for page in printed.pages:
+                    words = [w for w in page.extract_words() if w["top"] > page.height-18*72/25.4]
+                    left = [w for w in words if w["x0"] < page.width/2]
+                    right = [w for w in words if w["x0"] >= page.width/2]
+                    assert left and right
+                    assert abs(min(w["x0"] for w in left)-21*72/25.4) < .3
+                    assert abs(max(w["x1"] for w in right)-(page.width-21*72/25.4)) < .3
+                    assert abs(min(w["top"] for w in left)-min(w["top"] for w in right)) < .3
             return result,pdf
 
         baseline,pdf = build("base",spec)
@@ -120,6 +131,7 @@ def main():
                     lines.setdefault(top,[]).append(w)
             return [min(ws,key=lambda w:w["x0"]) for _,ws in sorted(lines.items())]
         with pdfplumber.open(measured_pdf) as rendered:
+            assert any(w["text"] == "Versión" for w in rendered.pages[1].extract_words()), "History header split inside a word"
             for marker, first, continuation in [("SANGRIA_INICIAL",36,0),("REFERENCIA_INICIAL",0,36),
                                                  ("CITA_INICIAL",36,36),("CITA_SEGUNDA",72,36)]:
                 page = next(pg for pg in rendered.pages if marker in (pg.extract_text() or ""))
@@ -150,6 +162,82 @@ def main():
         with pdfplumber.open(custom_pdf) as embedded:
             assert any("Oblique" in c["fontname"] for pg in embedded.pages for c in pg.chars)
         checks.append({"case":"apa-four-custom-font-variants","embedded":4})
+
+        operations = {"schema_version":1, "brand":copy.deepcopy(spec["brand"]),
+                      "document":copy.deepcopy(spec["document"]), "format":{"profile":"institucional-apa"},
+                      "changes":[{"version":"1.0","date":"2026-10-29","summary":"Muestra sintética.",
+                                  "author":"Prueba","affects":["operar"]}],
+                      "sections":[{"id":"operacion","title":"Operación de prueba","blocks":[
+                          {"type":"paragraph","text":"Consulte {{ref:operar}} y {{ref:finalizar}}."},
+                          {"type":"notice","level":"note","text":"NOTA_TEST Aclaración de prueba."},
+                          {"type":"procedure","id":"operar","title":"Operar el equipo de prueba",
+                           "role":"Operador de prueba", "prerequisites":["Equipo simulado disponible."],
+                           "steps":[{"action":f"ACCION_{i:02d} Seleccione el control de prueba y confirme la selección.",
+                                     "expected":f"RESULTADO_{i:02d} El indicador muestra el estado seleccionado y el panel conserva el identificador del equipo de prueba.",
+                                     "on_failure":"Conserve el estado actual y revise la selección antes de continuar."}
+                                    for i in range(20)]},
+                          {"type":"procedure","id":"finalizar","title":"Finalizar la consulta",
+                           "steps":[{"action":"FIN_ACCION Pulse Cerrar.","expected":"FIN_RESULTADO La vista inicial queda visible."}]}]}]}
+        operation_steps = operations["sections"][0]["blocks"][2]["steps"]
+        operation_steps[4]["notice"] = {"level":"warning","title":"Equipo simulado",
+                                        "text":"ADVERTENCIA_TEST Desconecte el equipo antes de retirar la cubierta."}
+        operation_steps[8]["notice"] = {"level":"caution","text":"PRECAUCION_TEST Conserve los datos antes de sustituirlos."}
+        operation_steps[0]["action"] += " El rótulo de prueba contiene <b>literal</b>."
+        operation_steps[1]["expected"] += " Continúe con {{ref:finalizar}}."
+        for profile_name in ("institucional-apa", "institucional"):
+            operations["format"]["profile"] = profile_name
+            operation_manifest, operation_pdf = build("procedures-"+profile_name, operations)
+            destinations = {e["id"]:e["page"] for e in operation_manifest["entries"]}
+            assert operation_manifest["labels"]["operar"].startswith("Procedimiento 1.")
+            assert operation_manifest["labels"]["finalizar"].startswith("Procedimiento 2.")
+            with pdfplumber.open(operation_pdf) as rendered:
+                texts = [pg.extract_text() or "" for pg in rendered.pages]
+                assert "<b>literal</b>" in " ".join(texts), "Input markup must remain literal"
+                step_pages = []
+                for i in range(20):
+                    action_page = next(n for n,t in enumerate(texts) if f"ACCION_{i:02d}" in t)
+                    expected_page = next(n for n,t in enumerate(texts) if f"RESULTADO_{i:02d}" in t)
+                    assert action_page == expected_page, (profile_name,i,action_page,expected_page)
+                    step_pages.append(action_page)
+                assert len(set(step_pages)) >= 2, "Procedure must exercise page continuation"
+                assert destinations["operar"] == step_pages[0]+1
+                for marker, action in [("ADVERTENCIA_TEST","ACCION_04"),("PRECAUCION_TEST","ACCION_08")]:
+                    page_n = next(n for n,t in enumerate(texts) if marker in t)
+                    assert action in texts[page_n], "Notice separated from its action"
+                    words = rendered.pages[page_n].extract_words()
+                    notice_y = next(w["top"] for w in words if w["text"] == marker)
+                    action_y = next(w["top"] for w in words if w["text"] == action)
+                    assert notice_y < action_y
+                for marker, label in [("NOTA_TEST","Nota."),("ADVERTENCIA_TEST","Advertencia:"),
+                                      ("PRECAUCION_TEST","Precaución.")]:
+                    assert any(marker in t and label in t for t in texts)
+                # Body spacing also applies inside the operational blocks.
+                page = rendered.pages[step_pages[1]]
+                lines = paragraph_lines(page,"RESULTADO_01")
+                assert abs(lines[1]["top"]-lines[0]["top"]-(22 if profile_name.endswith("apa") else 14.5)) < .3
+            checks.append({"case":"procedures-navigation-pagination-notices-"+profile_name,
+                           "step_pages":[p+1 for p in sorted(set(step_pages))], "pages":operation_manifest["pages"]})
+
+        for name, mutate in [
+            ("procedure-missing-expected",lambda b: b["steps"][0].pop("expected")),
+            ("procedure-empty-action",lambda b: b["steps"][0].update(action="  ")),
+            ("procedure-empty-steps",lambda b: b.update(steps=[])),
+            ("procedure-executed-status",lambda b: b["steps"][0].update(checked=True)),
+            ("notice-unknown-level",lambda b: b["steps"][4]["notice"].update(level="danger")),
+            ("notice-empty-text",lambda b: b["steps"][4]["notice"].update(text=" ")),
+            ("procedure-duplicate-id",lambda b: b.update(id="operacion")),
+            ("procedure-unknown-reference",lambda b: b["steps"][0].update(expected="{{ref:missing-step}}")),
+        ]:
+            invalid = copy.deepcopy(operations)
+            mutate(invalid["sections"][0]["blocks"][2])
+            source = root/f"{name}.json"
+            source.write_text(json.dumps(invalid))
+            try:
+                compile_report(source,root/f"{name}.pdf")
+            except ValueError:
+                checks.append({"case":name,"rejected":True})
+            else:
+                raise AssertionError(f"Expected rejection: {name}")
 
         for name, mutate in [
             ("unknown-reference",lambda x: x["sections"][0]["blocks"].append({"type":"paragraph","text":"{{ref:missing}}"})),

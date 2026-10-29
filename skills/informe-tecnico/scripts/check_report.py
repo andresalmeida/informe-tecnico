@@ -101,7 +101,7 @@ def check(pdf):
     expect(links >= len(manifest["entries"]), "Faltan enlaces de índices")
     return {"ok":not errors,"pages":n,"entries":len(manifest["entries"]),
             "internal_links":links,"format":manifest.get("format", {"profile":"institucional"}),"errors":errors,
-            "limits":"Requiere revisión visual; no verifica hechos, correspondencia bibliográfica, APA integral ni PDF/UA."}
+            "limits":"Requiere revisión visual; no verifica hechos, ejecución de procedimientos, correspondencia bibliográfica, APA integral ni PDF/UA."}
 
 
 if __name__ == "__main__":

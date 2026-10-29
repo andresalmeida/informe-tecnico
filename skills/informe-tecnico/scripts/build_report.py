@@ -9,7 +9,7 @@ from pathlib import Path
 from xml.sax.saxutils import escape
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_LEFT
+from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
 from reportlab.lib.pagesizes import A4, letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
@@ -25,6 +25,7 @@ from reportlab.graphics.shapes import Drawing, Rect, Line, Polygon
 REF = re.compile(r"\{\{ref:([a-zA-Z0-9_-]+)\}\}")
 # One grid for both header rows: entity and pagination share the same edge.
 HEADER_BOUNDS = (0, .42, .71, 1)
+NOTICE_LABELS = {"note": "Nota", "caution": "Precaución", "warning": "Advertencia"}
 
 
 def format_for(spec):
@@ -188,7 +189,7 @@ class Document(BaseDocTemplate):
         self.box_text(brand.get("unit") or brand["entity"], x, 8*mm, w*.49, 9*mm,
                       self.styles["footer"])
         self.box_text(f'{m["code"]} · {m["status"]}', x+w*.51, 8*mm,
-                      w*.49, 9*mm, self.styles["footer"])
+                      w*.49, 9*mm, self.styles["footer_right"])
         if brand.get("frame", False):
             canvas.setStrokeColor(colors.HexColor(brand.get("rule", "#CFD6DD")))
             canvas.rect(12*mm, 6*mm, self.pagesize[0]-24*mm, self.pagesize[1]-12*mm)
@@ -202,8 +203,46 @@ class Document(BaseDocTemplate):
         p.drawOn(self.canv, x, y+(height-ph)/2)
 
 
+def required_text(value, field):
+    require(isinstance(value, str) and bool(value.strip()), f"Texto obligatorio: {field}")
+
+
+def validate_notice(block, nested=False):
+    fields = {"level", "title", "text"} | (set() if nested else {"type"})
+    require(isinstance(block, dict) and not set(block)-fields, "Aviso: campos no admitidos")
+    require(isinstance(block.get("level"), str) and block["level"] in NOTICE_LABELS,
+            "Aviso: level debe ser note, caution o warning")
+    required_text(block.get("text"), "notice.text")
+    if "title" in block:
+        required_text(block["title"], "notice.title")
+
+
+def validate_procedure(block):
+    require(not set(block)-{"type", "id", "title", "role", "prerequisites", "steps"},
+            "Procedimiento: campos no admitidos")
+    required_text(block.get("id"), "procedure.id")
+    required_text(block.get("title"), "procedure.title")
+    if "role" in block:
+        required_text(block["role"], "procedure.role")
+    prerequisites = block.get("prerequisites", [])
+    require(isinstance(prerequisites, list), "Procedimiento: prerequisites debe ser lista")
+    for item in prerequisites:
+        required_text(item, "procedure.prerequisites")
+    steps = block.get("steps")
+    require(isinstance(steps, list) and bool(steps), "Procedimiento: steps debe ser lista no vacía")
+    for step in steps:
+        require(isinstance(step, dict) and not set(step)-{"action", "expected", "on_failure", "notice"},
+                "Paso: campos no admitidos")
+        for field in ("action", "expected"):
+            required_text(step.get(field), f"step.{field}")
+        if "on_failure" in step:
+            required_text(step["on_failure"], "step.on_failure")
+        if "notice" in step:
+            validate_notice(step["notice"], nested=True)
+
+
 def registry(spec):
-    labels, counters, table_n, figure_n = {}, [0, 0, 0], 0, 0
+    labels, counters, table_n, figure_n, procedure_n = {}, [0, 0, 0], 0, 0, 0
     used_numbers = {"table": set(), "figure": set()}
     for section in spec["sections"]:
         level = section.get("level", 1)
@@ -216,8 +255,17 @@ def registry(spec):
         items = [(section, f'{section["_number"]} {section["title"]}')]
         for block in section.get("blocks", []):
             kind = block["type"]
-            require(kind in ("paragraph", "list", "table", "figure", "note", "pagebreak", "reference", "quotation"),
+            require(kind in ("paragraph", "list", "table", "figure", "note", "pagebreak", "reference", "quotation",
+                             "procedure", "notice"),
                     f"Bloque no soportado: {kind}")
+            if kind == "notice":
+                validate_notice(block)
+            if kind == "procedure":
+                validate_procedure(block)
+                procedure_n += 1
+                block["_number_label"] = f"Procedimiento {procedure_n}"
+                block["_label"] = f'{block["_number_label"]}. {block["title"]}'
+                items.append((block, block["_label"]))
             if kind in ("table", "figure"):
                 if kind == "table":
                     table_n += 1
@@ -289,12 +337,21 @@ def styles_for(brand, base, layout=None):
                             alignment=TA_CENTER, spaceAfter=0),
             "meta": style("meta", fontSize=8.5, leading=11, alignment=TA_CENTER, spaceAfter=0),
             "footer": style("footer", fontSize=8.5, leading=11, spaceAfter=0)}
+    result["footer_right"] = ParagraphStyle("footer-right", parent=result["footer"], alignment=TA_RIGHT)
     result["plain"] = style("plain")
     result["list"] = style("list", leftIndent=18, firstLineIndent=-18)
     result["reference"] = style("reference", leftIndent=layout["reference_indent_mm"]*mm,
                                 firstLineIndent=-layout["reference_indent_mm"]*mm)
     result["quotation"] = style("quotation", leftIndent=12.7*mm)
     result["quotation_continued"] = style("quotation-continued", leftIndent=12.7*mm, firstLineIndent=12.7*mm)
+    result["procedure_title"] = style("procedure-title", fontName=bold, spaceBefore=10,
+                                       spaceAfter=6, keepWithNext=True)
+    result["procedure_action"] = style("procedure-action", leftIndent=18, firstLineIndent=-18,
+                                        keepWithNext=True)
+    result["procedure_detail"] = style("procedure-detail", leftIndent=18)
+    result["procedure_context"] = style("procedure-context", keepWithNext=True)
+    result["notice"] = style("notice", leftIndent=8, rightIndent=8, spaceBefore=10, spaceAfter=10,
+                              borderWidth=.55, borderColor=ink, borderPadding=6)
     if apa:
         result.update({
             "h1": style("h1-apa", fontName=bold, alignment=TA_CENTER, keepWithNext=True),
@@ -362,7 +419,7 @@ def compile_report(source, output):
     if apa:
         for section in spec["sections"]:
             for block in section.get("blocks", []):
-                if block["type"] in ("table", "figure"):
+                if block["type"] in ("table", "figure", "procedure"):
                     reference_labels[block["id"]] = block["_number_label"]
     styles = styles_for(spec["brand"], base, layout)
     accent = colors.HexColor(spec["brand"]["accent"])
@@ -413,6 +470,33 @@ def compile_report(source, output):
             return p(block["_label"], "caption")
         return Paragraph(f'<b>{markup(block["_number_label"])}</b><br/><i>{markup(block["title"])}</i>',
                          styles["caption"])
+
+    def notice_for(block):
+        label = NOTICE_LABELS[block["level"]]
+        title = f': {markup(block["title"])}' if block.get("title") else ""
+        return Paragraph(f'<b>{label}{title}.</b> {markup(block["text"]).replace(chr(10), "<br/>")}',
+                         styles["notice"])
+
+    def procedure_for(block):
+        heading = p(block["_label"], "procedure_title")
+        heading.entry = (block["id"], block["_label"], "procedure", 0)
+        parts = [heading]
+        if block.get("role"):
+            parts += [Paragraph(f'<b>Rol:</b> {markup(block["role"])}', styles["procedure_context"])]
+        if block.get("prerequisites"):
+            parts += [p("Condiciones iniciales:", "procedure_context")]
+            for item in block["prerequisites"]:
+                parts += [Paragraph(f'• {markup(item)}',
+                                    ParagraphStyle("procedure-prerequisite", parent=styles["list"], keepWithNext=True))]
+        for i, step in enumerate(block["steps"], 1):
+            group = [notice_for(step["notice"])] if step.get("notice") else []
+            group += [Paragraph(f'<b>{i}.</b> {markup(step["action"])}', styles["procedure_action"]),
+                      Paragraph(f'<b>Resultado esperado:</b> {markup(step["expected"])}', styles["procedure_detail"])]
+            if step.get("on_failure"):
+                group += [Paragraph(f'<b>Si no se obtiene:</b> {markup(step["on_failure"])}', styles["procedure_detail"])]
+            # A step moves intact when it fits a page; a long procedure can span pages.
+            parts += [KeepTogether(group), Spacer(1,6)]
+        return parts
 
     def table(headers, rows, widths=None, title=None, source_note=None, title_block=None):
         require(len(headers) >= 1, "Tabla sin columnas")
@@ -476,13 +560,16 @@ def compile_report(source, output):
         date.fromisoformat(change["date"])
         affects = "; ".join("{{ref:"+key+"}}" for key in change.get("affects", []))
         history.append([change["version"], change["date"], change["summary"]+("\n"+affects if affects else ""), change["author"]])
-    story += [table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], history, [1,1.5,5,2])]
+    # The APA header is 11 pt bold: reserve enough width to keep «Versión» whole.
+    history_widths = [1.15,1.5,4.85,2] if apa else [1,1.5,5,2]
+    story += [table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], history, history_widths)]
     if m.get("control_note"):
         story += [p(m["control_note"], "small")]
     extra_index_started = False
     for title, kind, has in [("Contenido", "section", True),
                              ("Índice de tablas", "table", any(b["type"] == "table" for s in spec["sections"] for b in s.get("blocks", []))),
-                             ("Índice de figuras", "figure", any(b["type"] == "figure" for s in spec["sections"] for b in s.get("blocks", [])))]:
+                             ("Índice de figuras", "figure", any(b["type"] == "figure" for s in spec["sections"] for b in s.get("blocks", []))),
+                             ("Índice de procedimientos", "procedure", any(b["type"] == "procedure" for s in spec["sections"] for b in s.get("blocks", [])))]:
         if has:
             if kind == "section" or not extra_index_started:
                 story += [PageBreak()]
@@ -516,6 +603,10 @@ def compile_report(source, output):
                     story += [p(f'{i+1}. {item}' if block.get("ordered") else f'• {item}', "list" if apa else "body")]
             elif kind == "note":
                 story += [p(block.get("label", "Nota"),"kicker"),p(block["text"],"small")]
+            elif kind == "notice":
+                story += [notice_for(block)]
+            elif kind == "procedure":
+                story += procedure_for(block)
             elif kind == "pagebreak":
                 story += [PageBreak()]
             elif kind == "table":

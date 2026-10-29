@@ -26,3 +26,7 @@ jobs:
         run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-informe-tecnico.pdf
       - name: Comprobar muestra institucional con criterios APA
         run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-perfil-apa.pdf
+      - name: Compilar y comprobar ejemplo de procedimientos y avisos
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-procedimientos.json --output output/procedimientos.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/procedimientos.pdf

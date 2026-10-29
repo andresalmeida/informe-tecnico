@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Documentación técnica",
+    "accent": "#155D86"
+  },
+  "document": {
+    "title": "Procedimientos y avisos del manual",
+    "short_title": "Manual de operación | Muestra",
+    "code": "DEMO-OP-01",
+    "version": "0.1",
+    "date": "2026-10-29",
+    "status": "Demostración",
+    "author": "Entidad de demostración",
+    "notice": "Ejemplo ficticio para revisar la composición. Las funciones descritas no corresponden a un sistema desplegado."
+  },
+  "format": {"profile": "institucional-apa"},
+  "changes": [
+    {
+      "version": "0.1",
+      "date": "2026-10-29",
+      "summary": "Muestra de procedimientos con resultados esperados y avisos antes de la acción.",
+      "author": "Entidad de demostración",
+      "affects": ["consulta-periodo", "sustituir-configuracion"]
+    }
+  ],
+  "sections": [
+    {
+      "id": "introduccion",
+      "title": "Introducción",
+      "blocks": [{"type": "paragraph", "text": "El manual describe dos tareas de un sistema ficticio de consulta y administración. Cada procedimiento presenta las condiciones iniciales, las acciones y el resultado esperado para reconocer su correcta ejecución."}]
+    },
+    {
+      "id": "objetivo",
+      "title": "Objetivo",
+      "blocks": [{"type": "paragraph", "text": "Orientar la consulta de registros por período y la sustitución de un archivo de configuración mediante instrucciones con resultados observables."}]
+    },
+    {
+      "id": "alcance",
+      "title": "Alcance",
+      "blocks": [{"type": "paragraph", "text": "La muestra comprende una tarea de consulta y una tarea de administración. Los resultados esperados indican qué observar al seguir los pasos; no registran pruebas ejecutadas ni aprobaciones."}]
+    },
+    {
+      "id": "desarrollo",
+      "title": "Desarrollo técnico",
+      "new_page": true,
+      "blocks": []
+    },
+    {
+      "id": "consulta",
+      "title": "Consulta de información",
+      "level": 2,
+      "blocks": [
+        {"type": "paragraph", "text": "La consulta se realiza con {{ref:consulta-periodo}}. El período visible en la cabecera permite identificar el conjunto de registros presentado."},
+        {
+          "type": "procedure",
+          "id": "consulta-periodo",
+          "title": "Consultar registros de un período",
+          "role": "Usuario con permiso de consulta",
+          "prerequisites": ["Sesión iniciada y vista Registros abierta."],
+          "steps": [
+            {
+              "action": "Seleccione el período en el filtro Período.",
+              "expected": "El filtro muestra el período seleccionado.",
+              "notice": {"level": "note", "text": "La selección del filtro se aplica a la tabla al pulsar Consultar."}
+            },
+            {
+              "action": "Pulse Consultar.",
+              "expected": "La cabecera muestra el período seleccionado. La tabla presenta sus registros o el mensaje Sin registros si no existen datos para ese período.",
+              "on_failure": "Si la cabecera conserva otro período, revise la selección antes de interpretar los registros."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "configuracion",
+      "title": "Sustitución de la configuración",
+      "level": 2,
+      "new_page": true,
+      "blocks": [
+        {"type": "paragraph", "text": "La sustitución se realiza con {{ref:sustituir-configuracion}}. El archivo activo permanece disponible hasta confirmar el cambio."},
+        {
+          "type": "procedure",
+          "id": "sustituir-configuracion",
+          "title": "Sustituir el archivo de configuración",
+          "role": "Administrador",
+          "prerequisites": ["Vista Configuración abierta y copia de la configuración actual conservada.", "Archivo de reemplazo revisado para el entorno de destino."],
+          "steps": [
+            {
+              "action": "Pulse Seleccionar archivo y elija el archivo de reemplazo.",
+              "expected": "El formulario presenta el nombre y la versión del archivo seleccionado."
+            },
+            {
+              "action": "Compruebe el nombre y la versión y pulse Sustituir configuración.",
+              "expected": "La vista identifica el nuevo archivo como configuración activa y muestra el mensaje Configuración actualizada.",
+              "notice": {"level": "caution", "title": "Sobrescritura", "text": "La confirmación sobrescribe el archivo activo. Compruebe que la copia de la configuración anterior está disponible antes de confirmar."},
+              "on_failure": "Si el formulario muestra Archivo incompatible, conserve la configuración activa y revise el archivo antes de iniciar otra sustitución."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
