@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-procedimientos.json",
+  "source_sha256": "389c71a467b57f03057eb9eefe6ec446d427f665bda19ea322767f7f97f558e2",
+  "pdf_sha256": "91aa27fa89ca1bc53951fe10e0d31c002b1f3ddfc6eef1121c2eea11c566f79a",
+  "assets": [],
+  "pages": 7,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "title": "Procedimientos y avisos del manual",
+    "short_title": "Manual de operación | Muestra",
+    "code": "DEMO-OP-01",
+    "version": "0.1",
+    "date": "2026-10-29",
+    "status": "Demostración",
+    "author": "Entidad de demostración",
+    "notice": "Ejemplo ficticio para revisar la composición. Las funciones descritas no corresponden a un sistema desplegado."
+  },
+  "format": {
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 2.0,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.0
+  },
+  "entries": [
+    {
+      "id": "introduccion",
+      "label": "1 Introducción",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "objetivo",
+      "label": "2 Objetivo",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "alcance",
+      "label": "3 Alcance",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "desarrollo",
+      "label": "4 Desarrollo técnico",
+      "kind": "section",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "consulta",
+      "label": "4.1 Consulta de información",
+      "kind": "section",
+      "level": 1,
+      "page": 6
+    },
+    {
+      "id": "consulta-periodo",
+      "label": "Procedimiento 1. Consultar registros de un período",
+      "kind": "procedure",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "configuracion",
+      "label": "4.2 Sustitución de la configuración",
+      "kind": "section",
+      "level": 1,
+      "page": 7
+    },
+    {
+      "id": "sustituir-configuracion",
+      "label": "Procedimiento 2. Sustituir el archivo de configuración",
+      "kind": "procedure",
+      "level": 0,
+      "page": 7
+    }
+  ],
+  "labels": {
+    "introduccion": "1 Introducción",
+    "objetivo": "2 Objetivo",
+    "alcance": "3 Alcance",
+    "desarrollo": "4 Desarrollo técnico",
+    "consulta": "4.1 Consulta de información",
+    "consulta-periodo": "Procedimiento 1. Consultar registros de un período",
+    "configuracion": "4.2 Sustitución de la configuración",
+    "sustituir-configuracion": "Procedimiento 2. Sustituir el archivo de configuración"
+  },
+  "reference_labels": {
+    "introduccion": "1 Introducción",
+    "objetivo": "2 Objetivo",
+    "alcance": "3 Alcance",
+    "desarrollo": "4 Desarrollo técnico",
+    "consulta": "4.1 Consulta de información",
+    "consulta-periodo": "Procedimiento 1",
+    "configuracion": "4.2 Sustitución de la configuración",
+    "sustituir-configuracion": "Procedimiento 2"
+  }
+}

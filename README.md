@@ -1,21 +1,29 @@
 # Informe técnico institucional
 
-Skill para crear informes técnicos, manuales de sistemas y catálogos de datos con una identidad configurable y control documental mantenible.
+Skill para crear informes técnicos, manuales de sistemas y catálogos de datos a partir de código, documentación, capturas y otras fuentes del sistema. La entidad, el logo y los colores se configuran para cada proyecto.
 
-![Página de la muestra: desarrollo técnico y esquema de revisión](skills/informe-tecnico/assets/ejemplo-preview.png)
+**Versión 0.4.0.** Incluye procedimientos con resultados esperados, avisos opcionales, criterios APA 7, mejoras de redacción y alineación del pie. Mantiene compatibilidad con las fuentes anteriores.
 
-[Ver la muestra en PDF](docs/muestra-informe-tecnico.pdf) · [Leer la skill](skills/informe-tecnico/SKILL.md) · [Ver la plantilla base](skills/informe-tecnico/assets/plantilla-base.json)
+![Muestra actual: procedimiento de administración con condiciones iniciales, resultado esperado y aviso de precaución](skills/informe-tecnico/assets/procedimientos-preview.png)
 
-Versión actual: **0.4.0**. Incorpora procedimientos con resultados esperados, avisos opcionales, mejoras de redacción y alineación del pie. Mantiene compatibilidad con las fuentes anteriores.
+[Ver esta muestra en PDF](docs/muestra-procedimientos-avisos.pdf) · [Fuente editable](skills/informe-tecnico/assets/ejemplo-procedimientos.json) · [Leer la skill](skills/informe-tecnico/SKILL.md) · [Plantilla base](skills/informe-tecnico/assets/plantilla-base.json)
 
-[Muestra del perfil institucional con criterios APA 7](docs/muestra-perfil-apa.pdf) · [fuente editable](skills/informe-tecnico/assets/ejemplo-apa.json) · [criterios y fuentes oficiales](skills/informe-tecnico/references/apa.md).
+La vista previa se generó con el motor 0.4.0. La versión que aparece en su cabecera corresponde al documento de demostración, independiente de la versión de la skill.
+
+## Ejemplos disponibles
+
+| Muestra | Qué permite revisar | PDF y fuente |
+| --- | --- | --- |
+| Procedimientos y avisos | Perfil APA, pasos con resultados esperados, notas y precauciones, índice de procedimientos y pie alineado. | [PDF actual](docs/muestra-procedimientos-avisos.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo-procedimientos.json) |
+| Formato con criterios APA 7 | Sangrías, interlineado, cursivas, referencias y presentación de tablas y figuras. | [PDF](docs/muestra-perfil-apa.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo-apa.json) |
+| Perfil institucional original | Composición anterior y ejemplo de integración con diagram-design. Se conserva para comparar perfiles. | [PDF](docs/muestra-informe-tecnico.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo.json) |
 
 ## Qué resuelve
 
 - Entidad, logo, colores, líneas y marco configurables.
 - Cabecera con fecha de actualización, versión y «Página X de Y»; entidad y paginación comparten el mismo separador vertical.
 - Historial de cambios con identificadores estables y referencias enlazadas.
-- Contenido e índices de tablas y figuras calculados al compilar.
+- Contenido e índices de tablas, figuras y procedimientos calculados al compilar.
 - Tablas multipágina con títulos y encabezados repetidos.
 - Figuras con fuente editable, número, pie y destino en el índice.
 - Comprobación estructural del PDF y pruebas de regresión del motor.
@@ -29,7 +37,11 @@ La muestra es ficticia. Los documentos institucionales que orientaron el diseño
 
 Pide al agente:
 
-> Instala la skill informe-tecnico desde https://github.com/andresalmeida/informe-tecnico, ruta skills/informe-tecnico. Instala también diagram-design desde https://github.com/cathrynlavery/diagram-design, ruta skills/diagram-design, para crear los esquemas.
+> Instala la skill informe-tecnico desde https://github.com/andresalmeida/informe-tecnico, ruta skills/informe-tecnico.
+
+Para crear esquemas nuevos, añade la colaboradora:
+
+> Instala diagram-design desde https://github.com/cathrynlavery/diagram-design, ruta skills/diagram-design.
 
 El instalador de skills de Codex también admite estos comandos, ejecutados en un entorno con Python y acceso a GitHub:
 
@@ -37,6 +49,7 @@ El instalador de skills de Codex también admite estos comandos, ejecutados en u
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/install-skill-from-github.py" \
   --repo andresalmeida/informe-tecnico --path skills/informe-tecnico
 
+# Opcional, para crear esquemas nuevos:
 python3 "${CODEX_HOME:-$HOME/.codex}/skills/.system/skill-installer/scripts/install-skill-from-github.py" \
   --repo cathrynlavery/diagram-design --path skills/diagram-design
 ```
@@ -45,12 +58,25 @@ Las skills instaladas estarán disponibles en el siguiente turno de Codex. Si ya
 
 ## Uso
 
+Para un informe:
+
 ```text
 Usa $informe-tecnico para preparar un informe sobre [tema] a partir de mis
 archivos. Usa la identidad de [entidad] y coloca el trabajo principal en el
 capítulo 4. Para los esquemas necesarios, aplica $diagram-design con los
 mismos colores y tipografía.
 ```
+
+Para un manual de un sistema:
+
+```text
+Usa $informe-tecnico para crear un manual de usuario por roles a partir de
+este código, los manuales y las capturas. Incluye navegación y procedimientos
+con resultados esperados. Usa la identidad de [entidad] y pide los datos
+esenciales que falten para describir el funcionamiento real.
+```
+
+La entrega incluye PDF, fuente JSON editable y los activos necesarios para regenerarlo. El motor incluido produce PDF; para un DOCX se utiliza el flujo específico de Word. La información disponible determina el alcance: no se inventan permisos, funciones ni resultados de validación.
 
 La estructura base comprende preliminares y siete capítulos:
 
@@ -74,7 +100,7 @@ Los documentos nuevos parten de `format.profile: "institucional-apa"`: cuerpo de
 
 Se conservan identidad, cabecera, portada, índices, márgenes institucionales y capítulos numerados. Es una adaptación para informes, no un formato académico APA integral. La [guía APA](skills/informe-tecnico/references/apa.md) identifica las diferencias y la atribución autor-fecha. Las fuentes antiguas sin `format` mantienen su composición; `profile: "institucional"` permite elegir expresamente el perfil original.
 
-Los nuevos bloques `reference` y `quotation`, y los tramos `runs` para cursivas/negritas, están descritos en el [contrato](skills/informe-tecnico/references/contrato.md). El motor compone las entradas que se le suministran; la selección y verificación de autores, fechas y citas siguen siendo trabajo de autoría.
+Los bloques `reference` y `quotation`, y los tramos `runs` para cursivas/negritas, están descritos en el [contrato](skills/informe-tecnico/references/contrato.md). El motor compone las entradas que se le suministran; la selección y verificación de autores, fechas y citas siguen siendo trabajo de autoría. La [guía APA](skills/informe-tecnico/references/apa.md) reúne los criterios y sus fuentes oficiales.
 
 ## Una skill coordina la otra
 
@@ -100,7 +126,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 
 python skills/informe-tecnico/scripts/build_report.py \
-  skills/informe-tecnico/assets/ejemplo.json \
+  skills/informe-tecnico/assets/ejemplo-procedimientos.json \
   --output output/muestra.pdf
 
 python skills/informe-tecnico/scripts/check_report.py output/muestra.pdf
@@ -109,7 +135,7 @@ python skills/informe-tecnico/scripts/self_test.py
 
 El motor genera el PDF y un manifiesto de compilación. Para crear un informe propio, copia `plantilla-base.json`, completa la identidad, los metadatos, el historial y el contenido, y conserva los activos junto a la fuente. Los campos obligatorios vacíos deben completarse antes de compilar.
 
-La muestra incluye un esquema exportado a PNG para imprimir y sus fuentes HTML/SVG editables. Integrar otros SVG directamente requiere el paquete opcional `svglib` y revisión de su compatibilidad. Crear o regenerar esquemas con diagram-design usa sus herramientas y requisitos propios.
+El ejemplo anterior compila un manual ficticio con procedimientos y avisos. La muestra del perfil original incluye además un esquema exportado a PNG y sus fuentes HTML/SVG editables. Integrar otros SVG directamente requiere el paquete opcional `svglib` y revisión de su compatibilidad. Crear o regenerar esquemas con diagram-design usa sus herramientas y requisitos propios.
 
 ## Comprobaciones y límites
 

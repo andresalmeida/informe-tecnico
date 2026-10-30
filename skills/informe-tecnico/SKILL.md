@@ -38,7 +38,7 @@ Leer [contrato.md](references/contrato.md) para el esquema del motor y [composic
 
 Para tareas de un manual o instrucciones de operación, leer [procedimientos.md](references/procedimientos.md). Los bloques opcionales `procedure` presentan condición inicial, acción y resultado esperado por paso; `notice` distingue nota, precaución para datos/equipos y advertencia para personas. Usarlos cuando aporten a la tarea, sin convertir resultados esperados en pruebas realizadas ni añadir avisos a todos los informes.
 
-`assets/ejemplo-preview.png` muestra una página renderizada de la demostración: usarla como referencia de escala y gramática, adaptando la identidad al encargo.
+`assets/procedimientos-preview.png` muestra una página renderizada del perfil actual con un procedimiento y un aviso: usarla como referencia de escala y gramática, adaptando la identidad al encargo. La muestra anterior se conserva en `assets/ejemplo-preview.png`.
 
 - Guardar contenido, identidad, fecha efectiva y revisión en un JSON editable. `assets/ejemplo.json` es una demostración ficticia, no hechos reutilizables sobre el usuario.
 - Asignar identificadores estables a secciones, tablas y figuras. Referenciar con `{{ref:identificador}}`; no escribir números de página ni índices manuales. Conservar identificadores de catálogo existentes aunque se inserten otros nuevos.
