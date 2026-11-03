@@ -25,6 +25,8 @@ En `brand.fonts`, `normal` y `bold` siguen siendo obligatorios; se admiten adem�
 
 ## Secciones y bloques
 
+`document.kind` admite `informe` (predeterminado), `acta-entrega` y `acta-reunion`. Los dos tipos de acta comienzan con el título y el contenido en la primera página. Usan cabecera, pie, marcadores, referencias y tablas del mismo motor. El historial permanece en `changes` y los índices impresos se reservan para `informe`. La elección de `format` es independiente. Para ejemplos y pautas de contenido, consultar [actas.md](actas.md).
+
 Cada sección tiene `id`, `title`, `level` (1,2,3; predeterminado 1), `blocks` y opcional `new_page`. No saltar niveles. La numeración se calcula por jerarquía. Los IDs empiezan con letra y continúan con letras ASCII, dígitos, guion o guion bajo; son únicos en todo el documento.
 
 Bloques admitidos:

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Proyecto Atlas",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "acta-entrega",
+    "code": "DEMO-ENT-01",
+    "title": "Acta de entrega y recepción",
+    "short_title": "Acta de entrega y recepción",
+    "subtitle": "Proyecto Atlas · Ejemplo ficticio",
+    "date": "2026-11-03",
+    "version": "0.1",
+    "status": "Demostración"
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-03",
+      "version": "0.1",
+      "summary": "Ejemplo inicial.",
+      "author": "Equipo de demostración"
+    }
+  ],
+  "sections": [
+    {
+      "id": "recepcion",
+      "title": "Objeto y estado de recepción",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El Equipo de Implementación entrega el módulo de consultas Atlas 1.4 al Área de Operaciones el 3 de noviembre de 2026. Se registra la recepción para revisión. La conformidad queda pendiente de la comprobación del Área de Operaciones."
+        }
+      ]
+    },
+    {
+      "id": "antecedentes",
+      "title": "Antecedentes y trabajo realizado",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La solicitud AT-17 requirió filtrar las consultas por período. Se implementó el filtro y se incorporó la exportación de los resultados visibles. El alcance entregado se identifica en {{ref:entregables}}."
+        }
+      ]
+    },
+    {
+      "id": "inventario",
+      "title": "Entregables y comprobación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "entregables",
+          "title": "Inventario de entrega",
+          "headers": [
+            "Entregable",
+            "Identificación",
+            "Comprobación"
+          ],
+          "rows": [
+            [
+              "Módulo de consultas",
+              "Atlas 1.4",
+              "Verificar que el archivo exportado incluya solo los registros del período seleccionado."
+            ],
+            [
+              "Guía de usuario",
+              "GU-AT-04, rev. 1",
+              "Incluye instrucciones de consulta y exportación."
+            ]
+          ],
+          "widths": [
+            1.2,
+            1,
+            2.5
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "El Área de Operaciones comunicará el resultado de la revisión el 6 de noviembre de 2026."
+        }
+      ]
+    },
+    {
+      "id": "firmas",
+      "title": "Registro de firmas",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "registro-firmas",
+          "title": "Intervinientes",
+          "headers": [
+            "Nombre",
+            "Rol",
+            "Firma"
+          ],
+          "rows": [
+            [
+              "Elena Ríos",
+              "Entrega · Desarrollo",
+              "\n\n________________"
+            ],
+            [
+              "Tomás Valle",
+              "Coordinación técnica",
+              "\n\n________________"
+            ],
+            [
+              "Nora Vidal",
+              "Recepción · Operaciones",
+              "\n\n________________"
+            ]
+          ],
+          "widths": [
+            1,
+            1.6,
+            1.15
+          ]
+        }
+      ]
+    }
+  ]
+}

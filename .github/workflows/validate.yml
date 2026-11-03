@@ -28,6 +28,10 @@ jobs:
         run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-perfil-apa.pdf
       - name: Comprobar muestra publicada de procedimientos y avisos
         run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-procedimientos-avisos.pdf
+      - name: Comprobar las muestras publicadas de actas
+        run: |
+          python skills/informe-tecnico/scripts/check_report.py docs/muestra-acta-entrega.pdf
+          python skills/informe-tecnico/scripts/check_report.py docs/muestra-acta-reunion.pdf
       - name: Compilar y comprobar ejemplo de procedimientos y avisos
         run: |
           python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-procedimientos.json --output output/procedimientos.pdf

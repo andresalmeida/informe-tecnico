@@ -43,6 +43,7 @@ def check(pdf):
     expected_size = (595.276,841.89) if manifest["paper"] == "A4" else (612,792)
     texts = []
     m = manifest["document"]
+    printed_index = m.get("kind", "informe") == "informe"
     with pdfplumber.open(pdf) as document:
         for i, page in enumerate(document.pages,1):
             text = page.extract_text() or ""
@@ -63,6 +64,7 @@ def check(pdf):
             expect(not outside, f"Texto fuera de margen en {i}")
             small = [c for c in page.chars if c.get("text","").strip() and c["size"] < 8.4]
             expect(not small, f"Texto menor a 8,5 pt en {i}")
+    index_text = re.sub(r"\s+", " ", " ".join(texts)) if printed_index else ""
     for entry in manifest["entries"]:
         page_n = entry["page"]
         expect(1 <= page_n <= n, f'Destino fuera de rango: {entry["id"]}')
@@ -70,11 +72,11 @@ def check(pdf):
             normalized = re.sub(r"\s+"," ",texts[page_n-1])
             expect(re.sub(r"\s+"," ",entry["label"]) in normalized,
                    f'Título ausente en destino: {entry["id"]}')
-        index_pattern = (re.escape(re.sub(r"\s+", " ", entry["label"])) +
-                         r"(?:\s*\.)+\s*" + str(page_n) + r"\b")
-        index_text = re.sub(r"\s+", " ", " ".join(texts))
-        expect(re.search(index_pattern,index_text) is not None,
-               f'Página impresa de índice incorrecta: {entry["id"]}')
+        if printed_index:
+            index_pattern = (re.escape(re.sub(r"\s+", " ", entry["label"])) +
+                             r"(?:\s*\.)+\s*" + str(page_n) + r"\b")
+            expect(re.search(index_pattern,index_text) is not None,
+                   f'Página impresa de índice incorrecta: {entry["id"]}')
     outlined = []
     def visit(items):
         for item in items:
@@ -98,7 +100,8 @@ def check(pdf):
                 if isinstance(dest,list) and dest:
                     expect(any(dest[0] == pg.indirect_reference for pg in reader.pages),
                            f"Enlace sin página de destino en {i}")
-    expect(links >= len(manifest["entries"]), "Faltan enlaces de índices")
+    if printed_index:
+        expect(links >= len(manifest["entries"]), "Faltan enlaces de índices")
     return {"ok":not errors,"pages":n,"entries":len(manifest["entries"]),
             "internal_links":links,"format":manifest.get("format", {"profile":"institucional"}),"errors":errors,
             "limits":"Requiere revisión visual; no verifica hechos, ejecución de procedimientos, correspondencia bibliográfica, APA integral ni PDF/UA."}

@@ -412,6 +412,8 @@ def compile_report(source, output):
     require(spec["brand"].get("entity"), "Falta brand.entity")
     spec["brand"].setdefault("accent", "#155D86")
     require(spec["document"].get("paper", "A4") in ("A4", "Letter"), "paper: A4 o Letter")
+    document_kind = spec["document"].get("kind", "informe")
+    require(document_kind in ("informe", "acta-entrega", "acta-reunion"), "Tipo de documento desconocido")
     layout = format_for(spec)
     apa = layout["profile"] == "institucional-apa"
     labels = registry(spec)
@@ -422,6 +424,8 @@ def compile_report(source, output):
                 if block["type"] in ("table", "figure", "procedure"):
                     reference_labels[block["id"]] = block["_number_label"]
     styles = styles_for(spec["brand"], base, layout)
+    if document_kind != "informe":
+        styles["h1"] = ParagraphStyle("acta-heading", parent=styles["h1"], spaceBefore=9, spaceAfter=6)
     accent = colors.HexColor(spec["brand"]["accent"])
     rule = colors.HexColor(spec["brand"].get("rule", "#CED6DD"))
     # Choose black or white via WCAG relative luminance, independent of hue.
@@ -544,15 +548,6 @@ def compile_report(source, output):
         return result
 
     m = spec["document"]
-    story = [probe, Spacer(1,22*mm), p(m["code"], "kicker"), p(m["title"], "title")]
-    if m.get("subtitle"):
-        story += [p(m["subtitle"], "plain")]
-    story += [Spacer(1,12*mm), p(spec["brand"]["entity"], "h2"),
-              p(spec["brand"].get("unit", ""), "plain"), Spacer(1,14*mm),
-              p(f'Versión {m["version"]} · {m["date"]} · {m["status"]}', "small")]
-    if m.get("notice"):
-        story += [p(m["notice"], "small")]
-    story += [PageBreak(), p("Control de cambios", "h1")]
     history = []
     for change in spec["changes"]:
         for key in ("version", "date", "summary", "author"):
@@ -560,23 +555,39 @@ def compile_report(source, output):
         date.fromisoformat(change["date"])
         affects = "; ".join("{{ref:"+key+"}}" for key in change.get("affects", []))
         history.append([change["version"], change["date"], change["summary"]+("\n"+affects if affects else ""), change["author"]])
-    # The APA header is 11 pt bold: reserve enough width to keep «Versión» whole.
-    history_widths = [1.15,1.5,4.85,2] if apa else [1,1.5,5,2]
-    story += [table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], history, history_widths)]
-    if m.get("control_note"):
-        story += [p(m["control_note"], "small")]
-    extra_index_started = False
-    for title, kind, has in [("Contenido", "section", True),
-                             ("Índice de tablas", "table", any(b["type"] == "table" for s in spec["sections"] for b in s.get("blocks", []))),
-                             ("Índice de figuras", "figure", any(b["type"] == "figure" for s in spec["sections"] for b in s.get("blocks", []))),
-                             ("Índice de procedimientos", "procedure", any(b["type"] == "procedure" for s in spec["sections"] for b in s.get("blocks", [])))]:
-        if has:
-            if kind == "section" or not extra_index_started:
-                story += [PageBreak()]
-            if kind != "section":
-                extra_index_started = True
-            story += [p(title,"h1"), Navigation(kind, styles["index"])]
-    story += [PageBreak()]
+    if document_kind == "informe":
+        story = [probe, Spacer(1,22*mm), p(m["code"], "kicker"), p(m["title"], "title")]
+        if m.get("subtitle"):
+            story += [p(m["subtitle"], "plain")]
+        story += [Spacer(1,12*mm), p(spec["brand"]["entity"], "h2"),
+                  p(spec["brand"].get("unit", ""), "plain"), Spacer(1,14*mm),
+                  p(f'Versión {m["version"]} · {m["date"]} · {m["status"]}', "small")]
+        if m.get("notice"):
+            story += [p(m["notice"], "small")]
+        story += [PageBreak(), p("Control de cambios", "h1")]
+        # The APA header is 11 pt bold: reserve enough width to keep «Versión» whole.
+        history_widths = [1.15,1.5,4.85,2] if apa else [1,1.5,5,2]
+        story += [table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], history, history_widths)]
+        if m.get("control_note"):
+            story += [p(m["control_note"], "small")]
+        extra_index_started = False
+        for title, kind, has in [("Contenido", "section", True),
+                                 ("Índice de tablas", "table", any(b["type"] == "table" for s in spec["sections"] for b in s.get("blocks", []))),
+                                 ("Índice de figuras", "figure", any(b["type"] == "figure" for s in spec["sections"] for b in s.get("blocks", []))),
+                                 ("Índice de procedimientos", "procedure", any(b["type"] == "procedure" for s in spec["sections"] for b in s.get("blocks", [])))]:
+            if has:
+                if kind == "section" or not extra_index_started:
+                    story += [PageBreak()]
+                if kind != "section":
+                    extra_index_started = True
+                story += [p(title,"h1"), Navigation(kind, styles["index"])]
+        story += [PageBreak()]
+    else:
+        story = [probe, p(m["title"], "h1")]
+        if m.get("subtitle"):
+            story += [p(m["subtitle"], "plain")]
+        if m.get("notice"):
+            story += [p(m["notice"], "small")]
     for section_index, section in enumerate(spec["sections"]):
         if section.get("new_page") and section_index:
             story += [PageBreak()]

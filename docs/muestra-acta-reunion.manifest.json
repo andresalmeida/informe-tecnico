@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-acta-reunion.json",
+  "source_sha256": "4fb6ba9730bf913860b56aa10eb8eccd0c2d0370f2ff47b5bacd1e39995f72b2",
+  "pdf_sha256": "ffe3142c9401d88b10284cb0c0f1c9bab4b81cbe705d4676b76d4abfd9e39879",
+  "assets": [],
+  "pages": 2,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "acta-reunion",
+    "code": "DEMO-REU-01",
+    "title": "Acta de reunión",
+    "short_title": "Acta de reunión",
+    "subtitle": "Proyecto Atlas · Ejemplo ficticio",
+    "date": "2026-11-03",
+    "version": "0.2",
+    "status": "Borrador"
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "sesion",
+      "label": "1 Datos de la sesión",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "ficha",
+      "label": "Tabla 1. Ficha de la reunión",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "participantes",
+      "label": "2 Participantes",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "asistencia",
+      "label": "Tabla 2. Registro de asistencia",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "agenda",
+      "label": "3 Orden del día",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "desarrollo",
+      "label": "4 Desarrollo por punto",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "detalle",
+      "label": "Tabla 3. Registro de lo tratado",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "seguimiento",
+      "label": "5 Resultados y acuerdos",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "acuerdos",
+      "label": "Tabla 4. Registro de acuerdos",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "cierre",
+      "label": "6 Cierre y próxima reunión",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "anexo-casos",
+      "label": "7 Anexo de comprobación",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "matriz-casos",
+      "label": "Tabla 5. Matriz de comprobación del módulo",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    }
+  ],
+  "labels": {
+    "sesion": "1 Datos de la sesión",
+    "ficha": "Tabla 1. Ficha de la reunión",
+    "participantes": "2 Participantes",
+    "asistencia": "Tabla 2. Registro de asistencia",
+    "agenda": "3 Orden del día",
+    "desarrollo": "4 Desarrollo por punto",
+    "detalle": "Tabla 3. Registro de lo tratado",
+    "seguimiento": "5 Resultados y acuerdos",
+    "acuerdos": "Tabla 4. Registro de acuerdos",
+    "cierre": "6 Cierre y próxima reunión",
+    "anexo-casos": "7 Anexo de comprobación",
+    "matriz-casos": "Tabla 5. Matriz de comprobación del módulo"
+  },
+  "reference_labels": {
+    "sesion": "1 Datos de la sesión",
+    "ficha": "Tabla 1. Ficha de la reunión",
+    "participantes": "2 Participantes",
+    "asistencia": "Tabla 2. Registro de asistencia",
+    "agenda": "3 Orden del día",
+    "desarrollo": "4 Desarrollo por punto",
+    "detalle": "Tabla 3. Registro de lo tratado",
+    "seguimiento": "5 Resultados y acuerdos",
+    "acuerdos": "Tabla 4. Registro de acuerdos",
+    "cierre": "6 Cierre y próxima reunión",
+    "anexo-casos": "7 Anexo de comprobación",
+    "matriz-casos": "Tabla 5. Matriz de comprobación del módulo"
+  }
+}

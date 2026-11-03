@@ -1,20 +1,26 @@
 # Informe técnico institucional
 
-Skill para crear informes técnicos, manuales de sistemas y catálogos de datos a partir de código, documentación, capturas y otras fuentes del sistema. La entidad, el logo y los colores se configuran para cada proyecto.
+Skill para crear informes técnicos, manuales de sistemas, catálogos de datos y actas institucionales a partir de fuentes del proyecto. La entidad, el logo y los colores se configuran para cada documento.
 
-**Versión 0.4.0.** Incluye procedimientos con resultados esperados, avisos opcionales, criterios APA 7, mejoras de redacción y alineación del pie. Mantiene compatibilidad con las fuentes anteriores.
+**Versión 0.5.0.** Incorpora las actas de entrega y recepción y de reunión. Los tres tipos comparten la cabecera institucional, el pie y la paginación.
 
-![Muestra actual: procedimiento de administración con condiciones iniciales, resultado esperado y aviso de precaución](skills/informe-tecnico/assets/procedimientos-preview.png)
+## Elige la plantilla
 
-[Ver esta muestra en PDF](docs/muestra-procedimientos-avisos.pdf) · [Fuente editable](skills/informe-tecnico/assets/ejemplo-procedimientos.json) · [Leer la skill](skills/informe-tecnico/SKILL.md) · [Plantilla base](skills/informe-tecnico/assets/plantilla-base.json)
+| Tipo | Cuándo usarlo | Qué necesitas aportar | JSON de partida y muestra |
+| --- | --- | --- | --- |
+| **Informe técnico** (`informe`) | Para explicar un sistema, documentar trabajo o presentar resultados. La estructura se adapta a manuales y catálogos. | Propósito, alcance y fuentes como código, documentación o evidencias. | [Plantilla base](skills/informe-tecnico/assets/plantilla-base.json) · [PDF de muestra](docs/muestra-perfil-apa.pdf) |
+| **Acta de entrega y recepción** (`acta-entrega`) | Para dejar constancia de qué se entregó, a quién y con qué estado de recepción o conformidad. | Partes, fecha efectiva, inventario, versiones, comprobaciones y roles de firma. | [Ejemplo editable](skills/informe-tecnico/assets/ejemplo-acta-entrega.json) · [PDF de muestra](docs/muestra-acta-entrega.pdf) |
+| **Acta de reunión** (`acta-reunion`) | Para dejar constancia de lo tratado y seguir las decisiones y compromisos de una sesión. | Fecha, participantes, agenda, notas de la reunión, responsables y plazos acordados. | [Ejemplo editable](skills/informe-tecnico/assets/ejemplo-acta-reunion.json) · [PDF de muestra](docs/muestra-acta-reunion.pdf) |
 
-La vista previa se generó con el motor 0.4.0. La versión que aparece en su cabecera corresponde al documento de demostración, independiente de la versión de la skill.
+El informe organiza el desarrollo técnico en el capítulo 4 y usa portada, historial e índices. Las actas empiezan con el contenido en la primera página y conservan el historial en la fuente editable. La de entrega separa la recepción de la conformidad. La de reunión conecta cada punto de la agenda con su resultado y, cuando corresponde, con el compromiso de seguimiento. [Guía de actas](skills/informe-tecnico/references/actas.md)
 
-## Ejemplos disponibles
+## Ejemplos de informes y manuales
+
+![Muestra de manual con condiciones iniciales, resultado esperado y aviso de precaución](skills/informe-tecnico/assets/procedimientos-preview.png)
 
 | Muestra | Qué permite revisar | PDF y fuente |
 | --- | --- | --- |
-| Procedimientos y avisos | Perfil APA, pasos con resultados esperados, notas y precauciones, índice de procedimientos y pie alineado. | [PDF actual](docs/muestra-procedimientos-avisos.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo-procedimientos.json) |
+| Procedimientos y avisos | Perfil APA, pasos con resultados esperados, notas y precauciones, índice de procedimientos y pie alineado. | [PDF](docs/muestra-procedimientos-avisos.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo-procedimientos.json) |
 | Formato con criterios APA 7 | Sangrías, interlineado, cursivas, referencias y presentación de tablas y figuras. | [PDF](docs/muestra-perfil-apa.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo-apa.json) |
 | Perfil institucional original | Composición anterior y ejemplo de integración con diagram-design. Se conserva para comparar perfiles. | [PDF](docs/muestra-informe-tecnico.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo.json) |
 
@@ -58,6 +64,8 @@ Las skills instaladas estarán disponibles en el siguiente turno de Codex. Si ya
 
 ## Uso
 
+Nombra el tipo de documento en tu solicitud y adjunta las fuentes. Si la entidad exige un formato oficial, adjúntalo también para que el agente trabaje sobre una copia. [Instrucciones de la skill](skills/informe-tecnico/SKILL.md)
+
 Para un informe:
 
 ```text
@@ -67,7 +75,23 @@ capítulo 4. Para los esquemas necesarios, aplica $diagram-design con los
 mismos colores y tipografía.
 ```
 
-Para un manual de un sistema:
+Para un acta de entrega y recepción:
+
+```text
+Usa $informe-tecnico para preparar un acta de entrega y recepción de [objeto].
+Adjunto el inventario y la evidencia de entrega. Identifica las partes, los
+entregables, el estado de recepción y las comprobaciones pendientes.
+```
+
+Para un acta de reunión:
+
+```text
+Usa $informe-tecnico para preparar un acta de reunión a partir de estas notas.
+Separa la agenda, el desarrollo por punto y los acuerdos. Registra los
+responsables y plazos que consten e incorpora la próxima reunión y sus anexos.
+```
+
+Para un manual dentro de la estructura de informe:
 
 ```text
 Usa $informe-tecnico para crear un manual de usuario por roles a partir de
@@ -78,7 +102,7 @@ esenciales que falten para describir el funcionamiento real.
 
 La entrega incluye PDF, fuente JSON editable y los activos necesarios para regenerarlo. El motor incluido produce PDF; para un DOCX se utiliza el flujo específico de Word. La información disponible determina el alcance: no se inventan permisos, funciones ni resultados de validación.
 
-La estructura base comprende preliminares y siete capítulos:
+La estructura base del informe comprende preliminares y siete capítulos:
 
 1. Introducción.
 2. Objetivos.
@@ -96,7 +120,7 @@ En resultados, conclusiones o resúmenes solicitados se presenta primero la resp
 
 ## Formato con criterios APA 7
 
-Los documentos nuevos parten de `format.profile: "institucional-apa"`: cuerpo de 11 pt, interlineado 2,0, sangría inicial de 1,27 cm y referencias con sangría francesa de 1,27 cm. Los títulos de tabla/figura se colocan encima, con número en negrita y título en cursiva. Las tablas usan líneas horizontales mínimas y celdas con interlineado sencillo.
+La plantilla de informe parte de `format.profile: "institucional-apa"`, con cuerpo de 11 pt, interlineado 2,0, sangría inicial de 1,27 cm y referencias con sangría francesa de 1,27 cm. Los títulos de tabla y figura se colocan encima, con número en negrita y título en cursiva. Las tablas usan líneas horizontales mínimas y celdas con interlineado sencillo. Los ejemplos de actas usan el perfil `institucional` para una composición compacta.
 
 Se conservan identidad, cabecera, portada, índices, márgenes institucionales y capítulos numerados. Es una adaptación para informes, no un formato académico APA integral. La [guía APA](skills/informe-tecnico/references/apa.md) identifica las diferencias y la atribución autor-fecha. Las fuentes antiguas sin `format` mantienen su composición; `profile: "institucional"` permite elegir expresamente el perfil original.
 
@@ -133,7 +157,7 @@ python skills/informe-tecnico/scripts/check_report.py output/muestra.pdf
 python skills/informe-tecnico/scripts/self_test.py
 ```
 
-El motor genera el PDF y un manifiesto de compilación. Para crear un informe propio, copia `plantilla-base.json`, completa la identidad, los metadatos, el historial y el contenido, y conserva los activos junto a la fuente. Los campos obligatorios vacíos deben completarse antes de compilar.
+El motor genera el PDF y un manifiesto de compilación. Para tu documento, copia el JSON de partida del tipo elegido, sustituye los datos de demostración, completa los campos obligatorios y conserva los activos junto a la fuente. Pasa esa copia como entrada a `build_report.py`. `document.kind` elige la estructura y `format.profile` el estilo. Las fuentes anteriores sin `document.kind` se leen como informes.
 
 El ejemplo anterior compila un manual ficticio con procedimientos y avisos. La muestra del perfil original incluye además un esquema exportado a PNG y sus fuentes HTML/SVG editables. Integrar otros SVG directamente requiere el paquete opcional `svglib` y revisión de su compatibilidad. Crear o regenerar esquemas con diagram-design usa sus herramientas y requisitos propios.
 

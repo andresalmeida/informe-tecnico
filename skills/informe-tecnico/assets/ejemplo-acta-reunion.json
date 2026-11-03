@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Proyecto Atlas",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "acta-reunion",
+    "code": "DEMO-REU-01",
+    "title": "Acta de reunión",
+    "short_title": "Acta de reunión",
+    "subtitle": "Proyecto Atlas · Ejemplo ficticio",
+    "date": "2026-11-03",
+    "version": "0.2",
+    "status": "Borrador"
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-03",
+      "version": "0.1",
+      "summary": "Ejemplo inicial.",
+      "author": "Equipo de demostración"
+    },
+    {
+      "date": "2026-11-03",
+      "version": "0.2",
+      "author": "Equipo de demostración",
+      "summary": "Se separaron la agenda, el desarrollo y los acuerdos. Se añadió la matriz de comprobación."
+    }
+  ],
+  "sections": [
+    {
+      "id": "sesion",
+      "title": "Datos de la sesión",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "ficha",
+          "title": "Ficha de la reunión",
+          "headers": [
+            "Campo",
+            "Detalle"
+          ],
+          "rows": [
+            [
+              "Fecha y hora",
+              "3 de noviembre de 2026, 09:00–09:30 (UTC−05:00)"
+            ],
+            [
+              "Lugar",
+              "Sala de Operaciones"
+            ],
+            [
+              "Objetivo",
+              "Definir cómo se revisará el módulo de consultas Atlas."
+            ]
+          ],
+          "widths": [
+            1,
+            3.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "participantes",
+      "title": "Participantes",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "asistencia",
+          "title": "Registro de asistencia",
+          "headers": [
+            "Nombre",
+            "Área o función",
+            "Asistencia"
+          ],
+          "rows": [
+            [
+              "Elena Ríos",
+              "Desarrollo",
+              "Presente"
+            ],
+            [
+              "Nora Vidal",
+              "Operaciones",
+              "Presente"
+            ],
+            [
+              "Tomás Valle",
+              "Coordinación técnica",
+              "Ausente"
+            ]
+          ],
+          "widths": [
+            1.2,
+            1.6,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agenda",
+      "title": "Orden del día",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "T01 · Revisión del acta anterior",
+            "T02 · Alcance de la comprobación del módulo",
+            "T03 · Datos de prueba y evidencia esperada"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desarrollo",
+      "title": "Desarrollo por punto",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "detalle",
+          "title": "Registro de lo tratado",
+          "headers": [
+            "Punto",
+            "Síntesis",
+            "Resultado"
+          ],
+          "rows": [
+            [
+              "T01",
+              "Se revisó el acta AT-REU-06.",
+              "Aprobada en la sesión."
+            ],
+            [
+              "T02",
+              "Se delimitaron el filtro por período y la exportación como alcance.",
+              "Comprobación asignada en A-02."
+            ],
+            [
+              "T03",
+              "Operaciones propuso usar registros ficticios para la revisión.",
+              "Preparación asignada en A-01."
+            ]
+          ],
+          "widths": [
+            0.65,
+            2.55,
+            1.75
+          ]
+        }
+      ],
+      "new_page": true
+    },
+    {
+      "id": "seguimiento",
+      "title": "Resultados y acuerdos",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "acuerdos",
+          "title": "Registro de acuerdos",
+          "headers": [
+            "ID",
+            "Punto",
+            "Compromiso",
+            "Responsable",
+            "Plazo"
+          ],
+          "rows": [
+            [
+              "A-01",
+              "T03",
+              "Preparar datos para los dos casos del anexo.",
+              "Nora Vidal",
+              "05/11/2026"
+            ],
+            [
+              "A-02",
+              "T02",
+              "Ejecutar ambos casos y adjuntar el resultado al registro de revisión.",
+              "Elena Ríos",
+              "06/11/2026"
+            ]
+          ],
+          "widths": [
+            0.62,
+            0.58,
+            2.6,
+            1.2,
+            1.05
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cierre",
+      "title": "Cierre y próxima reunión",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La revisión de los resultados queda agendada para el 9 de noviembre de 2026 a las 09:00 (UTC−05:00), en la Sala de Operaciones."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nora Vidal elaboró el acta de esta sesión. Su aprobación está pendiente."
+        },
+        {
+          "type": "paragraph",
+          "text": "Para revisar los criterios, consulte la {{ref:matriz-casos}}."
+        }
+      ]
+    },
+    {
+      "id": "anexo-casos",
+      "title": "Anexo de comprobación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "matriz-casos",
+          "title": "Matriz de comprobación del módulo",
+          "headers": [
+            "Caso",
+            "Acción",
+            "Resultado esperado"
+          ],
+          "rows": [
+            [
+              "C-01",
+              "Consultar un período con registros de ejemplo.",
+              "La vista muestra únicamente los registros del período elegido."
+            ],
+            [
+              "C-02",
+              "Exportar desde la vista filtrada.",
+              "El archivo conserva el conjunto de registros visible."
+            ]
+          ],
+          "widths": [
+            0.75,
+            2,
+            2.45
+          ]
+        }
+      ]
+    }
+  ]
+}

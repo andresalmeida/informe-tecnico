@@ -55,6 +55,27 @@ def main():
         assert len(continuation)>=2, continuation
         checks.append({"case":"table-continuation","pages":continuation})
 
+        for kind, expected_pages in (("acta-entrega", 1), ("acta-reunion", 2)):
+            sample = json.loads((example.parent/f"ejemplo-{kind}.json").read_text())
+            acta, acta_pdf = build(kind, sample)
+            assert acta["pages"] == expected_pages
+            assert check(acta_pdf)["internal_links"] > 0
+            checks.append({"case":kind, "pages":acta["pages"]})
+
+        meeting_destinations = {entry["id"]: entry["page"] for entry in acta["entries"]}
+        assert meeting_destinations["agenda"] == 1
+        assert meeting_destinations["detalle"] == meeting_destinations["acuerdos"] == meeting_destinations["matriz-casos"] == 2
+        table_by_id(sample, "acuerdos")["rows"].extend(
+            [f"A-{i:02d}", "T02", "Comprobar el resultado de la revisión asignada.", "Nora Vidal", "06/11/2026"]
+            for i in range(3, 51)
+        )
+        extended, extended_pdf = build("acta-reunion-extensa", sample)
+        pages = [page.extract_text() for page in PdfReader(extended_pdf).pages]
+        assert extended["pages"] > 1
+        assert sum("Registro de acuerdos" in page for page in pages) >= 2
+        assert any("A-50" in page and "Registro de acuerdos" in page for page in pages)
+        checks.append({"case":"acta-reunion-continuation", "pages":extended["pages"]})
+
         # Recreate the reported broken geometry and ensure the checker rejects it.
         from reportlab.pdfgen.canvas import Canvas
         from reportlab.lib.pagesizes import A4
@@ -244,6 +265,7 @@ def main():
             ("duplicate-id",lambda x: x["sections"].append(copy.deepcopy(x["sections"][0]))),
             ("oversize-row",lambda x: table_by_id(x,"campos")["rows"].append(["LONG","Campo","Texto extenso "*3000,"Texto"])),
             ("unknown-format-profile",lambda x: x.update(format={"profile":"apa-inexistente"})),
+            ("unknown-document-kind",lambda x: x["document"].update(kind="acta-inexistente")),
             ("negative-indent",lambda x: x.update(format={"profile":"institucional-apa","first_line_indent_mm":-3})),
             ("missing-quote-citation",lambda x: x["sections"][0]["blocks"].append({"type":"quotation","text":"Palabras sintéticas de prueba "*20})),
             ("missing-italic-font",lambda x: (x.update(format={"profile":"institucional-apa"}),

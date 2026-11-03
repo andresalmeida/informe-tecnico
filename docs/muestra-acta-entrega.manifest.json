@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-acta-entrega.json",
+  "source_sha256": "e0676e4088773e61ba341fcf868c161b5f2bd5aa22716ae63f729d04950dd9b9",
+  "pdf_sha256": "bd36d96e326442b8f328930aeb2f0e6c111af8951c2456d07e199c924ab639db",
+  "assets": [],
+  "pages": 1,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "acta-entrega",
+    "code": "DEMO-ENT-01",
+    "title": "Acta de entrega y recepción",
+    "short_title": "Acta de entrega y recepción",
+    "subtitle": "Proyecto Atlas · Ejemplo ficticio",
+    "date": "2026-11-03",
+    "version": "0.1",
+    "status": "Demostración"
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "recepcion",
+      "label": "1 Objeto y estado de recepción",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "antecedentes",
+      "label": "2 Antecedentes y trabajo realizado",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "inventario",
+      "label": "3 Entregables y comprobación",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "entregables",
+      "label": "Tabla 1. Inventario de entrega",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "firmas",
+      "label": "4 Registro de firmas",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "registro-firmas",
+      "label": "Tabla 2. Intervinientes",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    }
+  ],
+  "labels": {
+    "recepcion": "1 Objeto y estado de recepción",
+    "antecedentes": "2 Antecedentes y trabajo realizado",
+    "inventario": "3 Entregables y comprobación",
+    "entregables": "Tabla 1. Inventario de entrega",
+    "firmas": "4 Registro de firmas",
+    "registro-firmas": "Tabla 2. Intervinientes"
+  },
+  "reference_labels": {
+    "recepcion": "1 Objeto y estado de recepción",
+    "antecedentes": "2 Antecedentes y trabajo realizado",
+    "inventario": "3 Entregables y comprobación",
+    "entregables": "Tabla 1. Inventario de entrega",
+    "firmas": "4 Registro de firmas",
+    "registro-firmas": "Tabla 2. Intervinientes"
+  }
+}

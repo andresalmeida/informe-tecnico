@@ -1,9 +1,9 @@
 ---
 name: informe-tecnico
-description: Crear y actualizar informes técnicos, manuales de sistemas y catálogos de datos con identidad institucional, control documental, índices automáticos y formato con criterios APA 7. Usar para documentación técnica formal y mantenible; no para propuestas comerciales ni presentaciones.
+description: Redacta informes técnicos, manuales, catálogos y actas de entrega o reunión con identidad institucional. Genera PDF con control documental y aplica criterios APA 7 cuando corresponda.
 license: MIT
 metadata:
-  version: "0.4.0"
+  version: "0.5.0"
 ---
 
 # Informe técnico institucional
@@ -17,6 +17,8 @@ Producir documentos técnicos listos para presentar a su destinatario, centrados
 Esta composición se ejecuta por el agente que lee ambas skills. El script Python recibe el activo terminado y no invoca skills por sí mismo. Un informe sin esquemas nuevos puede compilarse sin diagram-design. Si se necesita esa skill y falta, informar de la dependencia y resolver su instalación dentro del alcance autorizado o declarar una alternativa explícita. No copiar la skill externa dentro de esta ni atribuirle un esquema que no se haya producido con su flujo.
 
 ## Decidir antes de redactar
+
+Para **actas de entrega y recepción** o **actas de reunión**, seguir [actas.md](references/actas.md) y partir de `assets/ejemplo-acta-entrega.json` o `assets/ejemplo-acta-reunion.json`. Aplicar la estructura compacta y el perfil institucional de esos ejemplos. Si el usuario aporta un formato obligatorio, trabajar sobre una copia y conservar su estructura. Para los demás documentos, seguir el flujo de informe a continuación.
 
 Leer los archivos suministrados y revisar páginas representativas si hay PDF. Distinguir entre **recomponer contenido existente**, **actualizar una edición** y **redactar desde evidencia**. Conservar los originales. No convertir automáticamente todo un PDF cuando el encargo solo pide una plantilla.
 
