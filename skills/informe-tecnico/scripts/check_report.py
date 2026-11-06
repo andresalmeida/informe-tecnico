@@ -52,7 +52,9 @@ def check(pdf):
             expect(f"Página {i} de {n}" in text, f"Paginación incorrecta en {i}")
             expect(f'Versión: {m["version"]}' in text, f"Versión ausente en {i}")
             expect(date.fromisoformat(m["date"]).strftime("%d/%m/%Y") in text, f"Fecha ausente en {i}")
-            expect(m["code"] in text and m["status"] in text, f"Código/estado ausente en {i}")
+            expect(m["code"] in text, f"Código ausente en {i}")
+            if m.get("show_status_in_footer", True):
+                expect(m["status"] in text, f"Estado ausente en {i}")
             expect(abs(page.width-expected_size[0])<1 and abs(page.height-expected_size[1])<1,
                    f"Papel incorrecto en {i}")
             expect(aligned_header(page), f"Desfase de retícula de cabecera en {i}")

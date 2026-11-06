@@ -100,7 +100,7 @@ con resultados esperados. Usa la identidad de [entidad] y pide los datos
 esenciales que falten para describir el funcionamiento real.
 ```
 
-La entrega incluye PDF, fuente JSON editable y los activos necesarios para regenerarlo. El motor incluido produce PDF; para un DOCX se utiliza el flujo específico de Word. La información disponible determina el alcance: no se inventan permisos, funciones ni resultados de validación.
+El motor PDF usa una fuente JSON editable y los activos del documento. El acta de reunión también se puede exportar como Word editable desde el mismo JSON. [Instrucciones de exportación a Word](skills/informe-tecnico/references/actas.md#acta-de-reunión-en-word)
 
 La estructura base del informe comprende preliminares y siete capítulos:
 
@@ -169,7 +169,7 @@ La regresión APA mide en el PDF la sangría de 36 pt y la distancia de 22 pt en
 
 Las pruebas de procedimientos comprueban navegación, continuidad entre páginas, posición del aviso antes de la acción y rechazo de pasos sin resultado esperado. Los avisos y resultados esperados no registran una ejecución de la aplicación ni una aprobación.
 
-El motor incluido produce PDF A4/Carta en vertical. El contenido se mantiene en JSON editable; no genera DOCX. Las comprobaciones automáticas no verifican los hechos técnicos, las aprobaciones institucionales ni la conformidad PDF/UA. La entrega requiere abrir las páginas renderizadas y revisar su composición.
+El motor PDF produce documentos A4 o Carta en vertical. El exportador Word cubre actas de reunión con perfil institucional. La revisión de las páginas renderizadas complementa las comprobaciones automáticas de composición.
 
 ## Licencia y atribuciones
 

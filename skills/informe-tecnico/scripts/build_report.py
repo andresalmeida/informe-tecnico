@@ -188,7 +188,10 @@ class Document(BaseDocTemplate):
         canvas.line(x, 18*mm, x+w, 18*mm)
         self.box_text(brand.get("unit") or brand["entity"], x, 8*mm, w*.49, 9*mm,
                       self.styles["footer"])
-        self.box_text(f'{m["code"]} · {m["status"]}', x+w*.51, 8*mm,
+        footer_text = m["code"]
+        if m.get("show_status_in_footer", True):
+            footer_text += f' · {m["status"]}'
+        self.box_text(footer_text, x+w*.51, 8*mm,
                       w*.49, 9*mm, self.styles["footer_right"])
         if brand.get("frame", False):
             canvas.setStrokeColor(colors.HexColor(brand.get("rule", "#CFD6DD")))
@@ -424,6 +427,8 @@ def compile_report(source, output):
                 if block["type"] in ("table", "figure", "procedure"):
                     reference_labels[block["id"]] = block["_number_label"]
     styles = styles_for(spec["brand"], base, layout)
+    if document_kind == "acta-reunion":
+        styles["header"].alignment = TA_CENTER
     if document_kind != "informe":
         styles["h1"] = ParagraphStyle("acta-heading", parent=styles["h1"], spaceBefore=9, spaceAfter=6)
     accent = colors.HexColor(spec["brand"]["accent"])

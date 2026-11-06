@@ -23,6 +23,19 @@ Si el formato institucional incluye una declaración fija de conformidad, compro
 
 En sesiones breves se pueden reunir la agenda y el desarrollo en una tabla con una fila por punto. Cuando haya varios temas, acuerdos o anexos, separar las secciones como en el ejemplo de dos páginas. En ambos casos, la lectura debe permitir pasar de cada tema a su resultado y, cuando corresponda, a la acción de seguimiento.
 
+## Acta de reunión en Word
+
+Usar `document.kind` igual a `acta-reunion` y `format.profile` igual a `institucional`. El exportador genera un `.docx` con tablas y texto editables, referencias internas y campos de página. Admite párrafos, listas, tablas y saltos de página. Usar un logo PNG o JPEG cuando se requiera. La fuente JSON sirve para regenerar el documento y los cambios manuales en Word se conservan en el archivo Word.
+
+Desde la raíz del repositorio, instalar las dependencias y ejecutar el exportador sobre una copia de la fuente:
+
+```sh
+python -m pip install -r requirements.txt python-docx
+python skills/informe-tecnico/scripts/build_acta_docx.py acta.json --output acta.docx
+```
+
+Abrir el Word o renderizarlo para comprobar la paginación, las tablas y los saltos. Si se exige un formato oficial de Word, preparar el acta sobre una copia de ese formato.
+
 ## Criterios de redacción y cierre
 
 - Minto orienta la lectura. Presentar primero el estado de recepción o la decisión del punto tratado y después el antecedente necesario. Conservar el orden oficial de una plantilla obligatoria.

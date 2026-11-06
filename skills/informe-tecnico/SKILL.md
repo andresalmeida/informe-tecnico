@@ -1,6 +1,6 @@
 ---
 name: informe-tecnico
-description: Redacta informes técnicos, manuales, catálogos y actas de entrega o reunión con identidad institucional. Genera PDF con control documental y aplica criterios APA 7 cuando corresponda.
+description: Redacta informes técnicos, manuales, catálogos y actas con identidad institucional. Genera PDF con control documental y criterios APA 7, y exporta actas de reunión a Word.
 license: MIT
 metadata:
   version: "0.5.0"
@@ -19,6 +19,8 @@ Esta composición se ejecuta por el agente que lee ambas skills. El script Pytho
 ## Decidir antes de redactar
 
 Para **actas de entrega y recepción** o **actas de reunión**, seguir [actas.md](references/actas.md) y partir de `assets/ejemplo-acta-entrega.json` o `assets/ejemplo-acta-reunion.json`. Aplicar la estructura compacta y el perfil institucional de esos ejemplos. Si el usuario aporta un formato obligatorio, trabajar sobre una copia y conservar su estructura. Para los demás documentos, seguir el flujo de informe a continuación.
+
+Para un **acta de reunión en Word**, exportar la fuente `acta-reunion` con `scripts/build_acta_docx.py` y revisar el archivo renderizado. El comando y los bloques admitidos figuran en [actas.md](references/actas.md#acta-de-reunión-en-word).
 
 Leer los archivos suministrados y revisar páginas representativas si hay PDF. Distinguir entre **recomponer contenido existente**, **actualizar una edición** y **redactar desde evidencia**. Conservar los originales. No convertir automáticamente todo un PDF cuando el encargo solo pide una plantilla.
 
@@ -60,7 +62,7 @@ python3 <skill>/scripts/check_report.py <informe.pdf>
 
 El motor genera portada, encabezado institucional, fecha/versión/estado, `Página X de Y`, historial, contenido, índices condicionales de tablas/figuras/procedimientos, marcadores, referencias internas y manifiesto `.manifest.json`. Compila hasta estabilizar índices y total. Falla si una fila no cabe o un objeto carece de referencia; no reduce la letra silenciosamente.
 
-Para un DOCX solicitado explícitamente, usar campos nativos de tabla de contenido, títulos y referencias cruzadas, además de PAGE/NUMPAGES en encabezados/pies. Recalcular los campos con una herramienta compatible y exportar/revisar el resultado. El motor incluido produce PDF, no DOCX. No entregar una maqueta de texto plano como equivalente editable.
+Para otros documentos Word, usar un flujo de autoría DOCX con estilos nativos, referencias cruzadas y campos PAGE y NUMPAGES según el formato. Recalcular los campos y revisar la composición en un render compatible.
 
 ## Comprobar y entregar
 
