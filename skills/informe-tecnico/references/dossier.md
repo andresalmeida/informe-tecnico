@@ -48,6 +48,28 @@ Cabecera de cada página: el número del documento, el nombre del programa («Si
 
 `nasa-handbook` trae páginas de contenido, no una portada. La del dossier es propia: título corto, código y mes, título completo, subtítulo en cursiva, autoría, y cuatro bloques con su encabezado subrayado (CONCLUSIÓN, POR QUÉ, EVIDENCIA y TÉRMINOS). Cabe en una página y en blanco y negro. Su CSS está en [dossier-portada.css](dossier-portada.css) y su estructura se ve en la muestra.
 
+Esqueleto del HTML. Se parte de la plantilla de `nasa-handbook`: se conserva su `<head>` (con `lang="es"`) y su script final de ajuste, se agrega el CSS de la portada antes de `</head>` y se reemplaza el contenido de la página por este:
+
+```html
+<div class="page cover">
+  <div class="top">TÍTULO CORTO DEL SISTEMA</div>
+  <div class="nro">SIS MÓD-AAMM &nbsp;·&nbsp; MES DE AAAA</div>
+  <div class="linea"></div>
+  <div class="titulo">TÍTULO COMPLETO EN MAYÚSCULAS</div>
+  <div class="sub">Subtítulo en cursiva</div>
+  <div class="aut">AUTORÍA</div>
+  <h4>CONCLUSIÓN</h4>
+  <p>Un párrafo.</p>
+  <h4>POR QUÉ</h4>
+  <ol class="why"><li><span>1.</span><span>Frase con su sección.</span></li></ol>
+  <h4>EVIDENCIA</h4>
+  <ol class="idx"><li><span>4.1&nbsp;&nbsp;&nbsp;Título de la subsección</span><span class="d"></span><span>4.1-1</span></li></ol>
+  <h4>TÉRMINOS</h4>
+  <dl class="term"><dt>Término</dt><dd>Definición corta.</dd></dl>
+  <div class="foot pie"><div class="r"></div>ENTIDAD<br>PAÍS &nbsp;·&nbsp; MES DE AAAA</div>
+</div>
+```
+
 - **Conclusión:** un párrafo.
 - **Por qué:** una lista numerada de tres frases, cada una con la sección donde está la evidencia.
 - **Evidencia:** el índice de subsecciones, con línea de puntos y el código de su primera figura.
@@ -59,7 +81,7 @@ De cuatro a cinco subsecciones de una página A4. Cada una lleva introducción, 
 
 ## Ciclo de revisión
 
-Renderizar cada página con `render.sh` (el chequeo de ajuste no debe decir OVERFLOW), mirar el PNG, corregir, pasar `check.py` y unir las páginas en un solo PDF. Entregar el PDF y un README que diga de dónde sale cada cifra y cómo regenerar el documento.
+Renderizar cada página con `render.sh` (el chequeo de ajuste no debe decir OVERFLOW), mirar el PNG, corregir, pasar `check.py` y unir las páginas en un solo PDF (por ejemplo con `pypdf` o `pymupdf`). Esperar de dos a cuatro pasadas por página: los solapes de etiquetas y los desbordes de tablas casi siempre aparecen en la primera. Entregar el PDF y un README que diga de dónde sale cada cifra y cómo regenerar el documento.
 
 ## Lecciones
 
