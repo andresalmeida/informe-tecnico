@@ -3,7 +3,7 @@ name: informe-tecnico
 description: Redacta informes técnicos, manuales, catálogos y actas con identidad institucional. Genera PDF con control documental y criterios APA 7, y exporta actas de reunión a Word.
 license: MIT
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
 ---
 
 # Informe técnico institucional
@@ -22,7 +22,7 @@ Para **actas de entrega y recepción** o **actas de reunión**, seguir [actas.md
 
 Para un **acta de reunión en Word**, exportar la fuente `acta-reunion` con `scripts/build_acta_docx.py` y revisar el archivo renderizado. El comando y los bloques admitidos figuran en [actas.md](references/actas.md#acta-de-reunión-en-word).
 
-Para un **dossier** (el usuario dice «informe-dossier», «modo nasa dossier» o «flow NASA»), seguir [dossier.md](references/dossier.md). No usa el motor JSON: requiere el skill `nasa-handbook` instalado y aplica `minto-pyramid`, `unicorntext` y `diagram-design`.
+Para un **dossier** (el usuario dice «informe-dossier», «modo nasa dossier» o «flow NASA»), seguir [dossier.md](references/dossier.md). No usa el motor JSON ni scripts propios: leer `minto-pyramid`, `unicorntext` y `diagram-design` y las reglas de la guía (códigos propios en lugar de los del Apolo, portada, páginas y lecciones), y después armar las páginas con el skill `nasa-handbook` instalado, en su versión congelada.
 
 Leer los archivos suministrados y revisar páginas representativas si hay PDF. Distinguir entre **recomponer contenido existente**, **actualizar una edición** y **redactar desde evidencia**. Conservar los originales. No convertir automáticamente todo un PDF cuando el encargo solo pide una plantilla.
 

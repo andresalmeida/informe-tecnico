@@ -2,7 +2,7 @@
 
 Skill para crear informes técnicos, manuales de sistemas, catálogos de datos y actas institucionales a partir de fuentes del proyecto. La entidad, el logo y los colores se configuran para cada documento.
 
-**Versión 0.5.0.** Incorpora las actas de entrega y recepción y de reunión. Los tres tipos comparten la cabecera institucional, el pie y la paginación.
+**Versión 0.6.0.** Incorpora el dossier de sistema y la exportación de actas de reunión a Word. Los tipos con motor JSON comparten la cabecera institucional, el pie y la paginación.
 
 ## Elige la plantilla
 
@@ -13,7 +13,7 @@ Skill para crear informes técnicos, manuales de sistemas, catálogos de datos y
 | **Acta de reunión** (`acta-reunion`) | Para dejar constancia de lo tratado y seguir las decisiones y compromisos de una sesión. | Fecha, participantes, agenda, notas de la reunión, responsables y plazos acordados. | [Ejemplo editable](skills/informe-tecnico/assets/ejemplo-acta-reunion.json) · [PDF de muestra](docs/muestra-acta-reunion.pdf) |
 | **Dossier de sistema** (flujo `informe-dossier`) | Para presentar en 6 a 8 páginas cómo funciona un sistema y qué tan confiable es, con la conclusión primero y figuras en estilo de manual de operaciones del Apolo. | Una conclusión, de tres a cinco argumentos y las cifras que los sostienen, cada una con su fuente. Requiere el skill `nasa-handbook` de R44VC0RP instalado (versión probada: commit `e6f8682d1`). | No usa JSON. [Guía del dossier](skills/informe-tecnico/references/dossier.md) · [PDF de muestra](docs/muestra-dossier.pdf) |
 
-El informe organiza el desarrollo técnico en el capítulo 4 y usa portada, historial e índices. Las actas empiezan con el contenido en la primera página y conservan el historial en la fuente editable. La de entrega separa la recepción de la conformidad. La de reunión conecta cada punto de la agenda con su resultado y, cuando corresponde, con el compromiso de seguimiento. [Guía de actas](skills/informe-tecnico/references/actas.md) El dossier no pasa por el motor JSON: combina `nasa-handbook` con `minto-pyramid`, `unicorntext` y `diagram-design`, y se describe en su guía.
+El informe organiza el desarrollo técnico en el capítulo 4 y usa portada, historial e índices. Las actas empiezan con el contenido en la primera página y conservan el historial en la fuente editable. La de entrega separa la recepción de la conformidad. La de reunión conecta cada punto de la agenda con su resultado y, cuando corresponde, con el compromiso de seguimiento. [Guía de actas](skills/informe-tecnico/references/actas.md) El dossier no pasa por el motor JSON ni trae scripts: el agente lee `minto-pyramid`, `unicorntext`, `diagram-design` y las reglas de su guía, y arma las páginas con `nasa-handbook` en la versión congelada.
 
 ## Ejemplos de informes y manuales
 
