@@ -11,19 +11,20 @@ Skill para crear informes técnicos, manuales de sistemas, catálogos de datos y
 | **Informe técnico** (`informe`) | Para explicar un sistema, documentar trabajo o presentar resultados. La estructura se adapta a manuales y catálogos. | Propósito, alcance y fuentes como código, documentación o evidencias. | [Plantilla base](skills/informe-tecnico/assets/plantilla-base.json) · [PDF de muestra](docs/muestra-perfil-apa.pdf) |
 | **Acta de entrega y recepción** (`acta-entrega`) | Para dejar constancia de qué se entregó, a quién y con qué estado de recepción o conformidad. | Partes, fecha efectiva, inventario, versiones, comprobaciones y roles de firma. | [Ejemplo editable](skills/informe-tecnico/assets/ejemplo-acta-entrega.json) · [PDF de muestra](docs/muestra-acta-entrega.pdf) |
 | **Acta de reunión** (`acta-reunion`) | Para dejar constancia de lo tratado y seguir las decisiones y compromisos de una sesión. | Fecha, participantes, agenda, notas de la reunión, responsables y plazos acordados. | [Ejemplo editable](skills/informe-tecnico/assets/ejemplo-acta-reunion.json) · [PDF de muestra](docs/muestra-acta-reunion.pdf) |
-| **Dossier de sistema** (flujo `informe-dossier`) | Para presentar en 6 a 8 páginas cómo funciona un sistema y qué tan confiable es, con la conclusión primero y figuras en estilo de manual de operaciones del Apolo. | Una conclusión, de tres a cinco argumentos y las cifras que los sostienen, cada una con su fuente. Requiere el skill `nasa-handbook` de R44VC0RP instalado (versión probada: commit `e6f8682d1`). | No usa JSON. [Guía del dossier](skills/informe-tecnico/references/dossier.md) |
+| **Dossier de sistema** (flujo `informe-dossier`) | Para presentar en 6 a 8 páginas cómo funciona un sistema y qué tan confiable es, con la conclusión primero y figuras en estilo de manual de operaciones del Apolo. | Una conclusión, de tres a cinco argumentos y las cifras que los sostienen, cada una con su fuente. Requiere el skill `nasa-handbook` de R44VC0RP instalado (versión probada: commit `e6f8682d1`). | No usa JSON. [Guía del dossier](skills/informe-tecnico/references/dossier.md) · [PDF de muestra](docs/muestra-dossier.pdf) |
 
 El informe organiza el desarrollo técnico en el capítulo 4 y usa portada, historial e índices. Las actas empiezan con el contenido en la primera página y conservan el historial en la fuente editable. La de entrega separa la recepción de la conformidad. La de reunión conecta cada punto de la agenda con su resultado y, cuando corresponde, con el compromiso de seguimiento. [Guía de actas](skills/informe-tecnico/references/actas.md) El dossier no pasa por el motor JSON: combina `nasa-handbook` con `minto-pyramid`, `unicorntext` y `diagram-design`, y se describe en su guía.
 
 ## Ejemplos de informes y manuales
 
-![Muestra de manual con condiciones iniciales, resultado esperado y aviso de precaución](skills/informe-tecnico/assets/procedimientos-preview.png)
+![Una página de cada tipo de documento: informe técnico, acta de reunión y dossier de sistema](skills/informe-tecnico/assets/muestras-collage.png)
 
 | Muestra | Qué permite revisar | PDF y fuente |
 | --- | --- | --- |
 | Procedimientos y avisos | Perfil APA, pasos con resultados esperados, notas y precauciones, índice de procedimientos y pie alineado. | [PDF](docs/muestra-procedimientos-avisos.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo-procedimientos.json) |
 | Formato con criterios APA 7 | Sangrías, interlineado, cursivas, referencias y presentación de tablas y figuras. | [PDF](docs/muestra-perfil-apa.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo-apa.json) |
 | Perfil institucional original | Composición anterior y ejemplo de integración con diagram-design. Se conserva para comparar perfiles. | [PDF](docs/muestra-informe-tecnico.pdf) · [JSON](skills/informe-tecnico/assets/ejemplo.json) |
+| Dossier de sistema | Portada con la pirámide y una subsección con diagrama funcional, gráficas de barras, tabla, aviso y tarjeta de procedimiento. Sistema ficticio. | [PDF](docs/muestra-dossier.pdf) (sin fuente JSON) |
 
 ## Qué resuelve
 

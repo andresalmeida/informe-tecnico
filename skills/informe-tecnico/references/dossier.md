@@ -38,7 +38,7 @@ Las cifras se escriben con su fuente. No se inventan datos para llenar una figur
 
 ## Estado
 
-Esta guía describe el método. Los scripts de armado (portada, páginas, unión del PDF) todavía no están en este repositorio y se añadirán, junto con un PDF de muestra sin datos reales.
+Esta guía describe el método. Hay un [PDF de muestra](../../../docs/muestra-dossier.pdf) con un sistema ficticio (portada y una subsección) que sirve de referencia visual. Los scripts de armado (portada, páginas, unión del PDF) todavía no están en este repositorio y se añadirán.
 
 ## Créditos
 
