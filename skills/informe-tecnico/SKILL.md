@@ -22,6 +22,8 @@ Para **actas de entrega y recepción** o **actas de reunión**, seguir [actas.md
 
 Para un **acta de reunión en Word**, exportar la fuente `acta-reunion` con `scripts/build_acta_docx.py` y revisar el archivo renderizado. El comando y los bloques admitidos figuran en [actas.md](references/actas.md#acta-de-reunión-en-word).
 
+Para un **dossier** (el usuario dice «informe-dossier», «modo nasa dossier» o «flow NASA»), seguir [dossier.md](references/dossier.md). No usa el motor JSON: requiere el skill `nasa-handbook` instalado y aplica `minto-pyramid`, `unicorntext` y `diagram-design`.
+
 Leer los archivos suministrados y revisar páginas representativas si hay PDF. Distinguir entre **recomponer contenido existente**, **actualizar una edición** y **redactar desde evidencia**. Conservar los originales. No convertir automáticamente todo un PDF cuando el encargo solo pide una plantilla.
 
 Identificar audiencia, uso y clase documental: informe técnico de actividad/entrega, manual de usuario/técnico/de operación, evaluación solicitada o catálogo/diccionario. Un encargo de «hacer un informe» produce por defecto un documento de presentación; no convertirlo en auditoría ni en relato de la investigación del agente. Leer [redaccion.md](references/redaccion.md) antes de redactar y [estructura.md](references/estructura.md) para seleccionar los módulos necesarios.
