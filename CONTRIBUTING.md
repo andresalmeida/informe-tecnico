@@ -17,6 +17,7 @@ No se trabaja directamente en `main` ni en `develop`: todo entra por una rama y 
 1. Crear `release/<x.y.z>` desde `develop`. Subir `metadata.version` en `skills/informe-tecnico/SKILL.md` y la versión del README. Correr `python tests/self_test.py`.
 2. Abrir un pull request contra `main`. Cuando la CI pase, fusionarlo (merge commit, sin squash) y etiquetar `v<x.y.z>` sobre `main`.
 3. Fusionar `main` en `develop` para que la versión publicada vuelva a la integración, y borrar la rama `release/<x.y.z>`.
+4. Actualizar las copias instaladas con `git fetch` y `python tools/instalar.py`.
 
 ## Antes de abrir un pull request
 
