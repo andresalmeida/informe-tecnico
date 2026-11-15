@@ -2055,6 +2055,9 @@ def main():
         from test_instalar import run_checks as check_instalar
         check_instalar(example, root, checks, build)
 
+        from test_apa_rotulos import run_checks as check_apa_rotulos
+        check_apa_rotulos(example, root, checks, build)
+
         from test_heading_case import run_checks as check_heading_case
         check_heading_case(example, root, checks, build, rejected_with)
 

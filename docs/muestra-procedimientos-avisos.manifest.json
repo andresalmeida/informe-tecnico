@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-procedimientos.json",
   "source_sha256": "389c71a467b57f03057eb9eefe6ec446d427f665bda19ea322767f7f97f558e2",
-  "pdf_sha256": "91aa27fa89ca1bc53951fe10e0d31c002b1f3ddfc6eef1121c2eea11c566f79a",
+  "pdf_sha256": "29c9b8ad38b0589a765e5613069a4beb221232b4cfa51bb9d96a8b427bc62812",
   "assets": [],
   "pages": 7,
   "passes": 2,
