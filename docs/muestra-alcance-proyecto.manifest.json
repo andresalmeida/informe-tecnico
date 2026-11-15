@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-alcance-proyecto.json",
+  "source_sha256": "85e4de13a2b8fec3ddc72382d1620317f13932108963103aa6911b3f48212444",
+  "pdf_sha256": "ece0b2aaf76446ac3640ee0330b3112f123861076034f4549957a59a16dff55b",
+  "assets": [
+    {
+      "path": "diagrams/alcance-pagos.png",
+      "sha256": "7d1ad21e5a916c7a28b2ec40dd5833ada9ce9d29279edbed3f69381b9b6efbbe"
+    }
+  ],
+  "pages": 6,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "alcance-proyecto",
+    "code": "DEMO-ALC-01",
+    "title": "Enunciado del alcance del proyecto",
+    "short_title": "Alcance del proyecto",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-16",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia y antecedentes",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "objetivos",
+      "label": "2. Objetivo del proyecto",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "alcance",
+      "label": "3. Definición del alcance técnico",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "arquitectura",
+      "label": "3.1. Arquitectura propuesta",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "perimetro",
+      "label": "Figura 1. Perímetro del alcance del módulo de pagos",
+      "kind": "figure",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "entregables",
+      "label": "3.2. Entregables incluidos",
+      "kind": "section",
+      "level": 1,
+      "page": 3
+    },
+    {
+      "id": "entregas",
+      "label": "Tabla 1. Funcionalidades, módulos y entregables",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "criterios",
+      "label": "3.3. Criterios de aceptación",
+      "kind": "section",
+      "level": 1,
+      "page": 3
+    },
+    {
+      "id": "restricciones",
+      "label": "4. Restricciones",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "condiciones",
+      "label": "4.1. Condiciones de la aprobación",
+      "kind": "section",
+      "level": 1,
+      "page": 4
+    },
+    {
+      "id": "lista-condiciones",
+      "label": "Tabla 2. Condiciones del Comité de proyectos y sus responsables",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "cronograma",
+      "label": "5. Cronograma de trabajo",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "fases",
+      "label": "Tabla 3. Cronograma estimado por fase",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "matriz",
+      "label": "6. Matriz de responsabilidades",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "responsables",
+      "label": "Tabla 4. Responsabilidades por actividad",
+      "kind": "table",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "aceptacion",
+      "label": "7. Firmas de aceptación",
+      "kind": "section",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "partes",
+      "label": "Tabla 5. Aceptación del alcance por las dos partes",
+      "kind": "table",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "responsabilidad",
+      "label": "8. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 6. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 6
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia y antecedentes",
+    "objetivos": "2. Objetivo del proyecto",
+    "alcance": "3. Definición del alcance técnico",
+    "arquitectura": "3.1. Arquitectura propuesta",
+    "perimetro": "Figura 1. Perímetro del alcance del módulo de pagos",
+    "entregables": "3.2. Entregables incluidos",
+    "entregas": "Tabla 1. Funcionalidades, módulos y entregables",
+    "criterios": "3.3. Criterios de aceptación",
+    "restricciones": "4. Restricciones",
+    "condiciones": "4.1. Condiciones de la aprobación",
+    "lista-condiciones": "Tabla 2. Condiciones del Comité de proyectos y sus responsables",
+    "cronograma": "5. Cronograma de trabajo",
+    "fases": "Tabla 3. Cronograma estimado por fase",
+    "matriz": "6. Matriz de responsabilidades",
+    "responsables": "Tabla 4. Responsabilidades por actividad",
+    "aceptacion": "7. Firmas de aceptación",
+    "partes": "Tabla 5. Aceptación del alcance por las dos partes",
+    "responsabilidad": "8. Firmas de responsabilidad",
+    "firmas": "Tabla 6. Registro de firmas"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia y antecedentes",
+    "objetivos": "2. Objetivo del proyecto",
+    "alcance": "3. Definición del alcance técnico",
+    "arquitectura": "3.1. Arquitectura propuesta",
+    "perimetro": "Figura 1. Perímetro del alcance del módulo de pagos",
+    "entregables": "3.2. Entregables incluidos",
+    "entregas": "Tabla 1. Funcionalidades, módulos y entregables",
+    "criterios": "3.3. Criterios de aceptación",
+    "restricciones": "4. Restricciones",
+    "condiciones": "4.1. Condiciones de la aprobación",
+    "lista-condiciones": "Tabla 2. Condiciones del Comité de proyectos y sus responsables",
+    "cronograma": "5. Cronograma de trabajo",
+    "fases": "Tabla 3. Cronograma estimado por fase",
+    "matriz": "6. Matriz de responsabilidades",
+    "responsables": "Tabla 4. Responsabilidades por actividad",
+    "aceptacion": "7. Firmas de aceptación",
+    "partes": "Tabla 5. Aceptación del alcance por las dos partes",
+    "responsabilidad": "8. Firmas de responsabilidad",
+    "firmas": "Tabla 6. Registro de firmas"
+  }
+}

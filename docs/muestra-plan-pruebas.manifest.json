@@ -1,0 +1,235 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-plan-pruebas.json",
+  "source_sha256": "ecb2299045d89326d80cf6eb613a6faae347da4ad6b2ad59973b87d2272aaa71",
+  "pdf_sha256": "23ee584845860c6898c8eccbbae76d74e339ea426f8cfabcb3a9dd7cdb1280f9",
+  "assets": [],
+  "pages": 8,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "plan-pruebas",
+    "code": "DEMO-ATP-01",
+    "title": "Plan y registro de pruebas de aceptación",
+    "short_title": "Plan de pruebas de aceptación",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2026-11-17",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true,
+    "notice": "Entidad, personas, códigos, cifras y fechas ficticios. Casos sin ejecutar; aprobaciones, firmas y certificado pendientes."
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "definicion",
+      "label": "2. Definición de aceptación",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "ejecutores",
+      "label": "2.1. Responsables en la ejecución del ATP",
+      "kind": "section",
+      "level": 1,
+      "page": 1
+    },
+    {
+      "id": "equipo-atp",
+      "label": "Tabla 1. Participación en la ejecución",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "resultados",
+      "label": "2.2. Tipos de resultados por caso",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "prerrequisitos",
+      "label": "3. Prerrequisitos para la ejecución",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "accesos",
+      "label": "3.1. Comunicación y accesos",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "usuarios",
+      "label": "3.2. Usuarios de prueba",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "cuentas",
+      "label": "Tabla 2. Cuentas requeridas",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "datos",
+      "label": "3.3. Datos para prueba",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "aplicacion",
+      "label": "4. Aplicación: sistema de reservas",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "modulo-pagos",
+      "label": "4.1. Módulo de pagos",
+      "kind": "section",
+      "level": 1,
+      "page": 3
+    },
+    {
+      "id": "CP-01",
+      "label": "Caso CP-01. Rendimiento",
+      "kind": "testcase",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "CP-02",
+      "label": "Caso CP-02. Seguridad",
+      "kind": "testcase",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "CP-03",
+      "label": "Caso CP-03. Fiabilidad",
+      "kind": "testcase",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "CP-04",
+      "label": "Caso CP-04. Compatibilidad",
+      "kind": "testcase",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "CP-05",
+      "label": "Caso CP-05. Conciliación",
+      "kind": "testcase",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "certificado",
+      "label": "5. Certificado de aceptación de pruebas (ATR)",
+      "kind": "section",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "aceptacion",
+      "label": "6. Firmas de aceptación",
+      "kind": "section",
+      "level": 0,
+      "page": 8
+    },
+    {
+      "id": "partes",
+      "label": "Tabla 3. Aceptación de pruebas por las dos partes",
+      "kind": "table",
+      "level": 0,
+      "page": 8
+    },
+    {
+      "id": "responsabilidad",
+      "label": "7. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 8
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 4. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 8
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "definicion": "2. Definición de aceptación",
+    "ejecutores": "2.1. Responsables en la ejecución del ATP",
+    "equipo-atp": "Tabla 1. Participación en la ejecución",
+    "resultados": "2.2. Tipos de resultados por caso",
+    "prerrequisitos": "3. Prerrequisitos para la ejecución",
+    "accesos": "3.1. Comunicación y accesos",
+    "usuarios": "3.2. Usuarios de prueba",
+    "cuentas": "Tabla 2. Cuentas requeridas",
+    "datos": "3.3. Datos para prueba",
+    "aplicacion": "4. Aplicación: sistema de reservas",
+    "modulo-pagos": "4.1. Módulo de pagos",
+    "CP-01": "Caso CP-01. Rendimiento",
+    "CP-02": "Caso CP-02. Seguridad",
+    "CP-03": "Caso CP-03. Fiabilidad",
+    "CP-04": "Caso CP-04. Compatibilidad",
+    "CP-05": "Caso CP-05. Conciliación",
+    "certificado": "5. Certificado de aceptación de pruebas (ATR)",
+    "aceptacion": "6. Firmas de aceptación",
+    "partes": "Tabla 3. Aceptación de pruebas por las dos partes",
+    "responsabilidad": "7. Firmas de responsabilidad",
+    "firmas": "Tabla 4. Registro de firmas"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "definicion": "2. Definición de aceptación",
+    "ejecutores": "2.1. Responsables en la ejecución del ATP",
+    "equipo-atp": "Tabla 1. Participación en la ejecución",
+    "resultados": "2.2. Tipos de resultados por caso",
+    "prerrequisitos": "3. Prerrequisitos para la ejecución",
+    "accesos": "3.1. Comunicación y accesos",
+    "usuarios": "3.2. Usuarios de prueba",
+    "cuentas": "Tabla 2. Cuentas requeridas",
+    "datos": "3.3. Datos para prueba",
+    "aplicacion": "4. Aplicación: sistema de reservas",
+    "modulo-pagos": "4.1. Módulo de pagos",
+    "CP-01": "Caso CP-01. Rendimiento",
+    "CP-02": "Caso CP-02. Seguridad",
+    "CP-03": "Caso CP-03. Fiabilidad",
+    "CP-04": "Caso CP-04. Compatibilidad",
+    "CP-05": "Caso CP-05. Conciliación",
+    "certificado": "5. Certificado de aceptación de pruebas (ATR)",
+    "aceptacion": "6. Firmas de aceptación",
+    "partes": "Tabla 3. Aceptación de pruebas por las dos partes",
+    "responsabilidad": "7. Firmas de responsabilidad",
+    "firmas": "Tabla 4. Registro de firmas"
+  }
+}

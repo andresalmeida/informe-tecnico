@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "descripcion-arquitectura",
+    "code": "DEMO-ARQ-01",
+    "title": "Descripción de la arquitectura",
+    "short_title": "Descripción de arquitectura",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2026-11-18",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true,
+    "indexes": [
+      "contents",
+      "figures"
+    ]
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-18",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "N.º de descripción",
+              "value": "DEMO-ARQ-01"
+            },
+            {
+              "label": "Fecha de corte",
+              "value": "18/11/2026"
+            },
+            {
+              "label": "Sistema o módulo",
+              "value": "Módulo de pagos para el sistema de reservas"
+            },
+            {
+              "label": "Versión del sistema",
+              "value": "Por confirmar con Iván Salas"
+            },
+            {
+              "label": "Responsable",
+              "value": "Marta Quiroga, arquitecta de software"
+            },
+            {
+              "label": "Naturaleza del corte",
+              "value": "Diseño de referencia basado en DEMO-FAC-01 y DEMO-ALC-01. Implementación y despliegue: Pendiente."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La descripción conserva las decisiones y restricciones conocidas del diseño. No hay evidencia de una versión desplegada; los casos de DEMO-ATP-01 y su certificado siguen pendientes. Todas las personas, cifras y fechas pertenecen al escenario ficticio de la cadena."
+        }
+      ]
+    },
+    {
+      "id": "proposito",
+      "title": "Propósito y partes interesadas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Esta descripción permite preparar la operación, revisar la custodia de datos y extender el módulo sin perder sus restricciones. Organiza partes interesadas, preocupaciones y vistas como orientación de estructura asociada a ISO/IEC/IEEE 42010:2022; no declara conformidad con la norma."
+        },
+        {
+          "type": "table",
+          "id": "interesados",
+          "title": "Partes interesadas y preocupaciones",
+          "headers": [
+            "Parte interesada",
+            "Preocupación principal"
+          ],
+          "rows": [
+            [
+              "Operaciones de reservas; Soledad Paredes",
+              "Confirmar reservas después del pago y conciliar lo recibido."
+            ],
+            [
+              "Desarrollo; Camila Ortega y Julián Benítez",
+              "Integrar el flujo sin duplicar cobros ni reservas."
+            ],
+            [
+              "Arquitectura; Marta Quiroga",
+              "Conservar la frontera de datos de tarjeta y el contrato de la API."
+            ],
+            [
+              "Pruebas; Diego Arce",
+              "Comprobar los criterios de DEMO-ATP-01 con evidencia."
+            ],
+            [
+              "Implementación y despliegue; responsable por confirmar",
+              "Preparar entornos y acordar una ventana fuera de la mayor demanda."
+            ]
+          ],
+          "widths": [
+            2.8,
+            4.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contexto",
+      "title": "Contexto del sistema",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quien reserva inicia el pago en el cliente web. Operaciones consulta los pagos y la conciliación. El módulo se comunica con la pasarela y con el servicio de notificaciones existente, que avisa solo después del pago confirmado. Los pagos en efectivo y los recurrentes quedan fuera. El contexto se muestra en {{ref:contexto-sistema}}, sin descomponer el módulo."
+        },
+        {
+          "type": "figure",
+          "id": "contexto-sistema",
+          "title": "Actores y sistemas vecinos del módulo de pagos",
+          "path": "diagrams/contexto-arquitectura-pagos.png",
+          "max_height_mm": 110,
+          "description": "Agrega quién usa el módulo y qué vecinos participan; la factibilidad ya explica la integración y el alcance delimita los componentes.",
+          "source": "Diseño del equipo de arquitectura. Diagrama demostrativo de un sistema ficticio."
+        }
+      ]
+    },
+    {
+      "id": "componentes",
+      "title": "Vista de componentes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El diseño separa el cliente web de los servidores propios y del dominio de la pasarela. Los campos alojados capturan allí los datos de tarjeta; el servicio propio recibe estados y referencias de transacción. La separación de dominios y el paso de estados se muestran en {{ref:frontera-tarjeta}}."
+        },
+        {
+          "type": "figure",
+          "id": "frontera-tarjeta",
+          "title": "Componentes y frontera de los datos de tarjeta",
+          "path": "diagrams/componentes-frontera-pagos.png",
+          "max_height_mm": 145,
+          "description": "Agrega la captura en el dominio de la pasarela y la ruta de tarjeta detenida antes de los servidores propios. Los flujos internos llevan reservas, estados y referencias de transacción.",
+          "source": "Diseño del equipo de arquitectura a partir de DEMO-ADR-01. Diagrama demostrativo de un sistema ficticio."
+        },
+        {
+          "type": "table",
+          "id": "componentes-detalle",
+          "title": "Responsabilidad e interfaces de los componentes",
+          "headers": [
+            "Componente",
+            "Responsabilidad",
+            "Tecnología",
+            "Interfaces",
+            "Responsable"
+          ],
+          "rows": [
+            [
+              "E4: cliente web",
+              "Paso de pago; muestra campos de la pasarela.",
+              "Cliente web; framework y versión por confirmar.",
+              "API de reservas y campos externos.",
+              "Camila Ortega, desarrollo."
+            ],
+            [
+              "E3: API de reservas",
+              "Estado de pago pendiente; liberación sin pago a los 15 minutos.",
+              "REST con token; lenguaje y versión por confirmar.",
+              "Cliente web, servicio de pagos y notificaciones.",
+              "Desarrollo; reparto por confirmar."
+            ],
+            [
+              "E1: servicio de pagos",
+              "Cobro, confirmación única y reembolso completo dentro del plazo.",
+              "SDK de pasarela y HTTPS; versión por confirmar.",
+              "API de reservas, pasarela, webhook y registro.",
+              "Julián Benítez, desarrollo."
+            ],
+            [
+              "E2: registro de pagos",
+              "Transacciones con estado y reserva; informe diario de conciliación.",
+              "Tabla SQL; motor y esquema físico por confirmar.",
+              "Servicio de pagos; extracto de pasarela.",
+              "Desarrollo; reparto por confirmar."
+            ],
+            [
+              "Pasarela externa",
+              "Campos alojados, cobro, reembolso y confirmaciones.",
+              "API externa; contrato de versión pendiente.",
+              "Campos del cliente, SDK y webhook.",
+              "Proveedor; contacto por confirmar."
+            ],
+            [
+              "Notificaciones, sin cambios",
+              "Aviso de reserva tras pago confirmado.",
+              "Servicio existente; detalle por confirmar.",
+              "API de reservas.",
+              "Equipo del servicio; por confirmar."
+            ]
+          ],
+          "widths": [
+            1.7,
+            2.5,
+            2.1,
+            2.0,
+            1.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datos",
+      "title": "Vista de datos",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "datos-guardados",
+          "title": "Datos, ubicación y conservación",
+          "headers": [
+            "Datos",
+            "Dónde",
+            "Sensibilidad",
+            "Conservación"
+          ],
+          "rows": [
+            [
+              "Transacción, estado y reserva vinculada",
+              "Registro de pagos, tabla SQL. Esquema físico por confirmar.",
+              "Información de pagos vinculada a reservas; clasificación por confirmar.",
+              "Por confirmar con Operaciones de reservas."
+            ],
+            [
+              "Informe diario y extracto de contraste",
+              "Informe del registro y extracto externo. Ubicación por confirmar.",
+              "Información de pagos; clasificación por confirmar.",
+              "Por confirmar con Operaciones de reservas."
+            ],
+            [
+              "Registros de operación",
+              "Ubicación y formato por confirmar con ingeniería.",
+              "Deben excluir datos de tarjeta; revisar código y registros.",
+              "Por confirmar con ingeniería y operaciones."
+            ],
+            [
+              "Datos de tarjeta",
+              "Campos alojados por la pasarela. No pasan por los servidores propios.",
+              "Custodia externa; fuera del almacenamiento de la entidad.",
+              "Entidad: no almacena. Proveedor: por confirmar."
+            ]
+          ],
+          "widths": [
+            1.8,
+            2.5,
+            2.5,
+            1.8
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "DEMO-ADR-01 conserva la captura externa para evitar la custodia de tarjetas. El cierre de R-07 en DEMO-RIE-01 corresponde a esa alternativa descartada; comprobar que el código y los registros respeten la frontera sigue pendiente bajo R-05 y CP-02 de DEMO-ATP-01."
+        }
+      ]
+    },
+    {
+      "id": "operacion",
+      "title": "Despliegue y operación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "entornos",
+          "title": "Entornos y condiciones operativas",
+          "headers": [
+            "Aspecto",
+            "Diseño conocido o pendiente"
+          ],
+          "rows": [
+            [
+              "Pruebas y producción",
+              "Una instancia de servicio de pagos por entorno, de 2 vCPU y 4 GB de memoria: dos instancias en total, no dos réplicas de producción."
+            ],
+            [
+              "Plataforma",
+              "Sistema operativo, alojamiento, dominio de webhook y versión de SDK: Por confirmar con infraestructura e ingeniería."
+            ],
+            [
+              "Quién despliega",
+              "Responsable de implementación y despliegue: Por confirmar. Iván Salas coordina el proyecto."
+            ],
+            [
+              "Ventana",
+              "Fuera de la mayor demanda; Soledad Paredes confirma la ventana. Calendario de DEMO-ALC-01 propuesto del 23/11/2026 al 10/01/2027."
+            ],
+            [
+              "Vigilancia propuesta",
+              "Medir tiempos de confirmación, detectar confirmaciones repetidas y revisar conciliación diaria. Herramientas, alertas, umbrales operativos y responsables: Por confirmar."
+            ],
+            [
+              "Paso a producción",
+              "Revisión externa de seguridad y decisión de aceptación pendientes. La capacitación DEMO-CAP-01 y la entrega DEMO-ENT-01 son hitos posteriores del escenario, no evidencia de este corte."
+            ]
+          ],
+          "widths": [
+            1.7,
+            5.3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decisiones",
+      "title": "Decisiones y restricciones",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "decisiones-adr",
+          "title": "Decisiones registradas",
+          "headers": [
+            "Código",
+            "Decisión",
+            "Estado"
+          ],
+          "rows": [
+            [
+              "DEMO-ADR-01",
+              "Capturar los datos de tarjeta en campos alojados por la pasarela",
+              "Aceptada; firmas del documento pendientes."
+            ]
+          ],
+          "widths": [
+            1.6,
+            4.3,
+            2.1
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La fase admite tarjeta de crédito y débito en una moneda; excluye efectivo y pagos recurrentes. La versión de API, el plazo de cancelación con reembolso total y la revisión externa son condiciones pendientes de DEMO-ALC-01 y DEMO-RIE-01. La descripción registra esas restricciones sin convertirlas en ADR adicionales inexistentes."
+        }
+      ]
+    },
+    {
+      "id": "calidad",
+      "title": "Atributos de calidad",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Los mecanismos de diseño pretenden satisfacer los criterios del alcance. El cumplimiento queda pendiente de los casos de DEMO-ATP-01; no hay resultados ejecutados en ese ejemplo."
+        },
+        {
+          "type": "table",
+          "id": "calidad-criterios",
+          "title": "Criterios, mecanismos y comprobación",
+          "headers": [
+            "Atributo",
+            "Criterio medible",
+            "Mecanismo de arquitectura",
+            "Comprobación"
+          ],
+          "rows": [
+            [
+              "Rendimiento",
+              "el 95 % de los pagos de prueba se confirma en menos de 5 segundos desde el envío.",
+              "Servicio de pagos y confirmación externa. Presupuesto de latencia: Por confirmar; el diseño no demuestra el umbral.",
+              "DEMO-ATP-01 / CP-01. Pendiente de ejecución."
+            ],
+            [
+              "Seguridad",
+              "ningún dato de tarjeta queda almacenado ni registrado en los servidores propios, comprobado con revisión de código y de registros.",
+              "Campos alojados por la pasarela; frontera de DEMO-ADR-01. Revisión externa pendiente.",
+              "DEMO-ATP-01 / CP-02. Pendiente de ejecución."
+            ],
+            [
+              "Fiabilidad",
+              "100 confirmaciones duplicadas enviadas en la prueba generan un solo cobro y una sola reserva.",
+              "Tratamiento único de cada confirmación y estado de pago vinculado a la reserva.",
+              "DEMO-ATP-01 / CP-03. Pendiente de ejecución."
+            ],
+            [
+              "Compatibilidad",
+              "el flujo de pago funciona en las dos últimas versiones de los navegadores admitidos y en pantallas de 360 píxeles de ancho.",
+              "Cliente web con paso de pago y campos alojados; matriz de navegadores por confirmar.",
+              "DEMO-ATP-01 / CP-04. Pendiente de ejecución."
+            ],
+            [
+              "Conciliación",
+              "el informe diario coincide con el extracto de la pasarela en todas las transacciones de la prueba piloto.",
+              "Registro de transacciones e informe diario contrastado con el extracto de la pasarela.",
+              "DEMO-ATP-01 / CP-05. Pendiente de ejecución."
+            ]
+          ],
+          "widths": [
+            1.6,
+            2.9,
+            2.9,
+            1.8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riesgos",
+      "title": "Riesgos y pendientes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se conserva el corte del 16/11/2026 de DEMO-RIE-01. R-07 está cerrado por evitar la custodia de tarjetas; los demás riesgos mantienen el estado del registro y no se dan por resueltos al dibujar el diseño."
+        },
+        {
+          "type": "table",
+          "id": "riesgos-arquitectura",
+          "title": "Riesgos de DEMO-RIE-01 que afectan al diseño",
+          "headers": [
+            "Riesgo",
+            "Evento",
+            "Estado",
+            "Responsable"
+          ],
+          "rows": [
+            [
+              "R-01",
+              "El servicio registra dos cobros para una sola reserva.",
+              "En mitigación",
+              "Julián Benítez, desarrollo"
+            ],
+            [
+              "R-02",
+              "La confirmación tarda más de 5 segundos, que es el umbral del criterio de rendimiento.",
+              "Abierto",
+              "Camila Ortega, desarrollo"
+            ],
+            [
+              "R-03",
+              "Llega un cobro de una reserva que ya se liberó o se canceló.",
+              "Abierto",
+              "Julián Benítez, desarrollo"
+            ],
+            [
+              "R-04",
+              "La pasarela publica un cambio incompatible antes de cerrar el diseño.",
+              "Abierto",
+              "Marta Quiroga, arquitecta de software"
+            ],
+            [
+              "R-05",
+              "La revisión externa no está hecha antes del paso a producción.",
+              "Abierto",
+              "Marta Quiroga, arquitecta de software"
+            ],
+            [
+              "R-06",
+              "El paso de pago no cabe en esa anchura.",
+              "Abierto",
+              "Camila Ortega, desarrollo"
+            ],
+            [
+              "R-07",
+              "El módulo persiste o registra datos de tarjeta en servidores propios.",
+              "Cerrado",
+              "Marta Quiroga, arquitecta de software"
+            ],
+            [
+              "R-08",
+              "El módulo se despliega durante uno de esos periodos.",
+              "Abierto",
+              "Soledad Paredes, jefa de operaciones de reservas"
+            ]
+          ],
+          "widths": [
+            0.9,
+            3.7,
+            1.4,
+            2.2
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Quedan por confirmar la versión del sistema, la plataforma, el contrato de API, la retención de datos y el reparto de operación. Marta Quiroga coordina el diseño; Soledad Paredes acuerda los datos de operación y el plazo de cancelación. La revisión externa y los cinco casos de aceptación siguen pendientes."
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Marta Quiroga\nArquitecta de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Rafael Mena\nComité de calidad",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

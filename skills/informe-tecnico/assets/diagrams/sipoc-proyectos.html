@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Adapted from diagram-design minimal scaffold; MIT attribution in LICENSE-diagram-design.txt.
+Minimum workflow: flowchart reference, left-to-right five-block SIPOC required by the catalog.
+Static print layout: identity from JSON, local fonts, no network. Geometry: 5 nodes of 104 x 62,
+4 gaps of 16, canvas 600 x 100, margin 8. No system architecture is asserted. -->
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SIPOC de proyectos tecnológicos</title><style>
+:root { --color-paper:#FFFFFF; --color-ink:#17232F; --color-muted:#4F6070; --color-accent:#155D86; --font-sans:Helvetica,Arial,sans-serif; --font-serif:Helvetica,Arial,sans-serif; --font-mono:'Courier New',monospace; }
+body { margin:0; padding:32px; background:var(--color-paper); color:var(--color-ink); font-family:var(--font-sans); }
+.frame { width:760px; max-width:100%; } .eyebrow { font:11px var(--font-mono); } h1 { font-size:24px; font-weight:400; }
+.diagram-container { width:100%; overflow-x:auto; } svg { display:block; width:100%; min-width:600px; }
+@media print { .diagram-container { overflow-x:visible; } svg { min-width:0; } }
+</style></head><body><main class="frame"><p class="eyebrow">Entidad de demostración</p><h1>Gestión y entrega de proyectos tecnológicos</h1><div class="diagram-container"><svg viewBox="0 0 600 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="sipoc-title sipoc-desc">
+<title id="sipoc-title">Mapa SIPOC del proceso</title><desc id="sipoc-desc">Parte solicitante aporta necesidad y restricciones al proceso de gestión y entrega; produce entrega y registros para solicitante y operación. Diagrama demostrativo.</desc>
+<defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><polygon points="0 0, 6 3, 0 6" fill="#4F6070"/></marker></defs>
+<rect width="600" height="100" fill="#FFFFFF"/>
+<text x="592" y="13" font-family="Courier New,monospace" font-size="10" text-anchor="end" fill="#4F6070">DIAGRAMA DEMOSTRATIVO</text>
+<path d="M 112,61 H 124" fill="none" stroke="#4F6070" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="8" y="30" width="104" height="62" rx="6" fill="#FFFFFF" stroke="#4F6070" stroke-width="1.4"/>
+<text x="60" y="46" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#17232F">Proveedores</text>
+<text x="60" y="66" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">Parte</text>
+<text x="60" y="82" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">solicitante</text>
+<path d="M 232,61 H 244" fill="none" stroke="#4F6070" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="128" y="30" width="104" height="62" rx="6" fill="#FFFFFF" stroke="#4F6070" stroke-width="1.4"/>
+<text x="180" y="46" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#17232F">Entradas</text>
+<text x="180" y="66" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">Necesidad y</text>
+<text x="180" y="82" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">restricciones</text>
+<path d="M 352,61 H 364" fill="none" stroke="#4F6070" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="248" y="30" width="104" height="62" rx="6" fill="#EDF4F8" stroke="#155D86" stroke-width="1.4"/>
+<text x="300" y="46" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#17232F">Proceso</text>
+<text x="300" y="66" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">Gestión y</text>
+<text x="300" y="82" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">entrega</text>
+<path d="M 472,61 H 484" fill="none" stroke="#4F6070" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="368" y="30" width="104" height="62" rx="6" fill="#FFFFFF" stroke="#4F6070" stroke-width="1.4"/>
+<text x="420" y="46" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#17232F">Salidas</text>
+<text x="420" y="66" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">Entrega y</text>
+<text x="420" y="82" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">registros</text>
+<rect x="488" y="30" width="104" height="62" rx="6" fill="#FFFFFF" stroke="#4F6070" stroke-width="1.4"/>
+<text x="540" y="46" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#17232F">Clientes</text>
+<text x="540" y="66" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">Solicitante</text>
+<text x="540" y="82" text-anchor="middle" font-family="Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#17232F">y operación</text>
+</svg></div></main></body></html>

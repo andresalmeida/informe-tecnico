@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "plan-pruebas",
+    "code": "DEMO-ATP-01",
+    "title": "Plan y registro de pruebas de aceptación",
+    "short_title": "Plan de pruebas de aceptación",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2026-11-17",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true,
+    "notice": "Entidad, personas, códigos, cifras y fechas ficticios. Casos sin ejecutar; aprobaciones, firmas y certificado pendientes."
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-17",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Diego Arce"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "Nombre del proyecto",
+              "value": "Módulo de pagos para el sistema de reservas"
+            },
+            {
+              "label": "Parte solicitante",
+              "value": "Operaciones de reservas"
+            },
+            {
+              "label": "Equipo ejecutor",
+              "value": "Unidad de Ingeniería de Software"
+            },
+            {
+              "label": "Líder de proyecto",
+              "value": "Iván Salas, responsable de ingeniería de software"
+            },
+            {
+              "label": "Fecha de ejecución",
+              "value": "Pendiente"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Este plan deriva de los cinco criterios de aceptación de DEMO-ALC-01, elaborado el 16/11/2026, y conserva los antecedentes DEMO-FAC-01 y DEMO-REQ-014. La elaboración del plan corresponde al 17/11/2026; la ejecución se programará dentro de las dos semanas de pruebas del cronograma de siete semanas."
+        }
+      ]
+    },
+    {
+      "id": "definicion",
+      "title": "Definición de aceptación",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La parte solicitante revisa la cobertura y el método antes de ejecutar. La aprobación del diseño se registra cuando conste; aceptar el diseño permite iniciar las pruebas y la aceptación del producto depende de sus resultados."
+        },
+        {
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "Responsable de aprobar el diseño",
+              "value": "Soledad Paredes, jefa de operaciones de reservas"
+            },
+            {
+              "label": "Fecha de aprobación del diseño",
+              "value": "Pendiente"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ejecutores",
+      "title": "Responsables en la ejecución del ATP",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "equipo-atp",
+          "title": "Participación en la ejecución",
+          "headers": [
+            "Parte solicitante: ejecución",
+            "Equipo ejecutor",
+            "Parte solicitante: aceptación"
+          ],
+          "rows": [
+            [
+              "Por confirmar",
+              "Diego Arce, pruebas; Marta Quiroga, arquitecta de software",
+              "Soledad Paredes, jefa de operaciones de reservas"
+            ]
+          ]
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "resultados",
+      "title": "Tipos de resultados por caso",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Sin ejecución, las tres casillas quedan vacías. Al ejecutar se marca una sola opción y se registra la evidencia en el resultado real y en observaciones."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Conforme: cumple el criterio con evidencia suficiente.",
+            "Conforme con observaciones: hay una objeción documentada, con responsable y tratamiento acordado. La aceptación sigue pendiente de la decisión de la parte solicitante.",
+            "No conforme: incumple el criterio y bloquea la aceptación hasta corregir y repetir la prueba."
+          ]
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "prerrequisitos",
+      "title": "Prerrequisitos para la ejecución",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Antes de ejecutar deben estar disponibles el entorno de pruebas de la pasarela y la versión del módulo que se verificará. Versión del módulo: Por confirmar con Iván Salas. Se conservan las condiciones de DEMO-ALC-01: revisión externa de seguridad, versión de la API y plazo de cancelación, todas pendientes."
+        }
+      ]
+    },
+    {
+      "id": "accesos",
+      "title": "Comunicación y accesos",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "Accesos requeridos",
+              "value": "Pasarela de pruebas, aplicación de reservas, código y registros de pagos. Sin credenciales en este documento."
+            },
+            {
+              "label": "Canal de coordinación",
+              "value": "Por confirmar con Iván Salas"
+            }
+          ]
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "usuarios",
+      "title": "Usuarios de prueba",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "cuentas",
+          "title": "Cuentas requeridas",
+          "headers": [
+            "Uso",
+            "Usuario"
+          ],
+          "rows": [
+            [
+              "Pago desde el cliente web",
+              "Por confirmar"
+            ],
+            [
+              "Revisión de conciliación y registros",
+              "Por confirmar"
+            ]
+          ]
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "datos",
+      "title": "Datos para prueba",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Reservas y tarjetas de prueba facilitadas por la pasarela, sin datos personales reales.",
+            "Una transacción con 100 confirmaciones duplicadas y un lote propuesto de 100 pagos para medir tiempos.",
+            "Extracto e informe diario del mismo piloto; matriz de navegadores y versiones por confirmar."
+          ]
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "aplicacion",
+      "title": "Aplicación: sistema de reservas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El módulo de pagos se verifica mediante {{ref:CP-01}}, {{ref:CP-02}}, {{ref:CP-03}}, {{ref:CP-04}} y {{ref:CP-05}}. Cada caso cubre el criterio del mismo ordinal en DEMO-ALC-01."
+        }
+      ]
+    },
+    {
+      "id": "modulo-pagos",
+      "title": "Módulo de pagos",
+      "blocks": [
+        {
+          "type": "testcase",
+          "id": "CP-01",
+          "title": "Rendimiento",
+          "description": "Criterio 1 de DEMO-ALC-01: Rendimiento: el 95 % de los pagos de prueba se confirma en menos de 5 segundos desde el envío.",
+          "preconditions": "Entorno de pruebas de la pasarela disponible; 100 pagos propuestos para esta demostración, por confirmar con Operaciones de reservas.",
+          "expected": "el 95 % de los pagos de prueba se confirma en menos de 5 segundos desde el envío.",
+          "steps": [
+            {
+              "task": "Medir tiempos",
+              "activity": "Enviar 100 pagos de demostración y medir desde el envío hasta la confirmación.",
+              "expected": "Al menos 95 pagos se confirman en menos de 5 segundos.",
+              "actual": "Pendiente"
+            },
+            {
+              "task": "Contrastar evidencia",
+              "activity": "Adjuntar la distribución de tiempos y revisar los pagos fuera del umbral.",
+              "expected": "La evidencia identifica cada pago, su tiempo y el porcentaje bajo 5 segundos.",
+              "actual": "Pendiente"
+            }
+          ],
+          "options": [
+            "Conforme",
+            "Conforme con observaciones",
+            "No conforme"
+          ],
+          "executed": false,
+          "responsible": "Soledad Paredes, jefa de operaciones de reservas",
+          "observations": "Pendiente de ejecución y de registro de evidencia."
+        },
+        {
+          "type": "testcase",
+          "id": "CP-02",
+          "title": "Seguridad",
+          "description": "Criterio 2 de DEMO-ALC-01: Seguridad: ningún dato de tarjeta queda almacenado ni registrado en los servidores propios, comprobado con revisión de código y de registros.",
+          "preconditions": "Código y registros accesibles; solo tarjetas de prueba de la pasarela; revisión externa de seguridad pendiente.",
+          "expected": "ningún dato de tarjeta queda almacenado ni registrado en los servidores propios, comprobado con revisión de código y de registros.",
+          "steps": [
+            {
+              "task": "Revisar tratamiento",
+              "activity": "Revisar el código del flujo con campos alojados por la pasarela.",
+              "expected": "Los datos de tarjeta no llegan a los servidores propios.",
+              "actual": "Pendiente"
+            },
+            {
+              "task": "Inspeccionar registros",
+              "activity": "Buscar datos de tarjeta de prueba en almacenamiento y registros tras el flujo.",
+              "expected": "Ningún dato de tarjeta queda almacenado ni registrado en servidores propios.",
+              "actual": "Pendiente"
+            }
+          ],
+          "options": [
+            "Conforme",
+            "Conforme con observaciones",
+            "No conforme"
+          ],
+          "executed": false,
+          "responsible": "Soledad Paredes, jefa de operaciones de reservas",
+          "observations": "Pendiente de ejecución y de registro de evidencia."
+        },
+        {
+          "type": "testcase",
+          "id": "CP-03",
+          "title": "Fiabilidad",
+          "description": "Criterio 3 de DEMO-ALC-01: Fiabilidad: 100 confirmaciones duplicadas enviadas en la prueba generan un solo cobro y una sola reserva.",
+          "preconditions": "Reserva de prueba y transacción identificadas; acceso al emisor de confirmaciones y a los registros.",
+          "expected": "100 confirmaciones duplicadas enviadas en la prueba generan un solo cobro y una sola reserva.",
+          "steps": [
+            {
+              "task": "Repetir confirmación",
+              "activity": "Enviar 100 confirmaciones duplicadas de la misma transacción.",
+              "expected": "Se registra un solo cobro y una sola reserva.",
+              "actual": "Pendiente"
+            },
+            {
+              "task": "Verificar persistencia",
+              "activity": "Consultar la pasarela y el registro de pagos vinculados a la reserva.",
+              "expected": "La transacción y la reserva son únicas después de las 100 confirmaciones.",
+              "actual": "Pendiente"
+            }
+          ],
+          "options": [
+            "Conforme",
+            "Conforme con observaciones",
+            "No conforme"
+          ],
+          "executed": false,
+          "responsible": "Soledad Paredes, jefa de operaciones de reservas",
+          "observations": "Pendiente de ejecución y de registro de evidencia."
+        },
+        {
+          "type": "testcase",
+          "id": "CP-04",
+          "title": "Compatibilidad",
+          "description": "Criterio 4 de DEMO-ALC-01: Compatibilidad: el flujo de pago funciona en las dos últimas versiones de los navegadores admitidos y en pantallas de 360 píxeles de ancho.",
+          "preconditions": "Navegadores admitidos y versiones: Por confirmar con Operaciones de reservas; pantalla de 360 píxeles disponible.",
+          "expected": "el flujo de pago funciona en las dos últimas versiones de los navegadores admitidos y en pantallas de 360 píxeles de ancho.",
+          "steps": [
+            {
+              "task": "Preparar matriz",
+              "activity": "Anotar las dos últimas versiones de cada navegador admitido y fijar el ancho en 360 píxeles.",
+              "expected": "La matriz contiene las versiones exactas acordadas y el ancho de pantalla.",
+              "actual": "Pendiente"
+            },
+            {
+              "task": "Completar el pago",
+              "activity": "Recorrer el pago en cada combinación y adjuntar las evidencias.",
+              "expected": "El flujo se completa sin controles inaccesibles ni desbordamiento en toda la matriz.",
+              "actual": "Pendiente"
+            }
+          ],
+          "options": [
+            "Conforme",
+            "Conforme con observaciones",
+            "No conforme"
+          ],
+          "executed": false,
+          "responsible": "Soledad Paredes, jefa de operaciones de reservas",
+          "observations": "Pendiente de ejecución y de registro de evidencia."
+        },
+        {
+          "type": "testcase",
+          "id": "CP-05",
+          "title": "Conciliación",
+          "description": "Criterio 5 de DEMO-ALC-01: Conciliación: el informe diario coincide con el extracto de la pasarela en todas las transacciones de la prueba piloto.",
+          "preconditions": "Prueba piloto preparada; extracto de la pasarela e informe diario del mismo periodo disponibles.",
+          "expected": "el informe diario coincide con el extracto de la pasarela en todas las transacciones de la prueba piloto.",
+          "steps": [
+            {
+              "task": "Conciliar el piloto",
+              "activity": "Generar el informe diario y obtener el extracto del mismo periodo y moneda.",
+              "expected": "El informe y el extracto cubren las mismas transacciones del piloto.",
+              "actual": "Pendiente"
+            },
+            {
+              "task": "Comparar transacciones",
+              "activity": "Contrastar identificador, estado e importe de cada transacción.",
+              "expected": "Todas las transacciones coinciden, sin faltantes ni diferencias de importe.",
+              "actual": "Pendiente"
+            }
+          ],
+          "options": [
+            "Conforme",
+            "Conforme con observaciones",
+            "No conforme"
+          ],
+          "executed": false,
+          "responsible": "Soledad Paredes, jefa de operaciones de reservas",
+          "observations": "Pendiente de ejecución y de registro de evidencia."
+        }
+      ],
+      "level": 2
+    },
+    {
+      "id": "certificado",
+      "title": "Certificado de aceptación de pruebas (ATR)",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "Proyecto",
+              "value": "Módulo de pagos para el sistema de reservas"
+            },
+            {
+              "label": "Estado del certificado",
+              "value": "Pendiente"
+            },
+            {
+              "label": "Fecha de aceptación",
+              "value": "Pendiente"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La aceptación queda pendiente de ejecutar los cinco casos y examinar su evidencia. La parte solicitante documentará su decisión y el tratamiento de las observaciones antes de autorizar la puesta en producción. Ningún caso conforme por sí solo cierra este certificado."
+        }
+      ]
+    },
+    {
+      "id": "aceptacion",
+      "title": "Firmas de aceptación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "partes",
+          "title": "Aceptación de pruebas por las dos partes",
+          "headers": [
+            "",
+            "Parte solicitante",
+            "Equipo ejecutor"
+          ],
+          "widths": [
+            1.2,
+            2.4,
+            2.4
+          ],
+          "rows": [
+            [
+              "Nombre y cargo",
+              "Soledad Paredes\nJefa de operaciones de reservas",
+              "Iván Salas\nResponsable de ingeniería de software"
+            ],
+            [
+              "Firma",
+              "\n\n________________",
+              "\n\n________________"
+            ],
+            [
+              "Fecha",
+              "Pendiente",
+              "Pendiente"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Diego Arce\nPruebas",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Rafael Mena\nComité de calidad",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

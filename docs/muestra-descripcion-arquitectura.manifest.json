@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-descripcion-arquitectura.json",
+  "source_sha256": "5fa4938ca7e54bbbf723fbdce16e234ea80d35117bc0198addc97f86b58aba43",
+  "pdf_sha256": "083f79acfb58a4ce5e9d987e64bf06641141191ecd265a1f58bb3faffef1f5fd",
+  "assets": [
+    {
+      "path": "diagrams/contexto-arquitectura-pagos.png",
+      "sha256": "bcb2daf1bd2b0151e80e8448fb158019616876e46be9e8bd53450278f319acfd"
+    },
+    {
+      "path": "diagrams/componentes-frontera-pagos.png",
+      "sha256": "0597998dadd44fc7b5b34b7292e582cbb188ffc8acd4d6c65112a4b5dfd0e2de"
+    }
+  ],
+  "pages": 9,
+  "passes": 3,
+  "paper": "A4",
+  "document": {
+    "kind": "descripcion-arquitectura",
+    "code": "DEMO-ARQ-01",
+    "title": "Descripción de la arquitectura",
+    "short_title": "Descripción de arquitectura",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2026-11-18",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true,
+    "indexes": [
+      "contents",
+      "figures"
+    ]
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "proposito",
+      "label": "2. Propósito y partes interesadas",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "interesados",
+      "label": "Tabla 1. Partes interesadas y preocupaciones",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "contexto",
+      "label": "3. Contexto del sistema",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "contexto-sistema",
+      "label": "Figura 1. Actores y sistemas vecinos del módulo de pagos",
+      "kind": "figure",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "componentes",
+      "label": "4. Vista de componentes",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "frontera-tarjeta",
+      "label": "Figura 2. Componentes y frontera de los datos de tarjeta",
+      "kind": "figure",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "componentes-detalle",
+      "label": "Tabla 2. Responsabilidad e interfaces de los componentes",
+      "kind": "table",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "datos",
+      "label": "5. Vista de datos",
+      "kind": "section",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "datos-guardados",
+      "label": "Tabla 3. Datos, ubicación y conservación",
+      "kind": "table",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "operacion",
+      "label": "6. Despliegue y operación",
+      "kind": "section",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "entornos",
+      "label": "Tabla 4. Entornos y condiciones operativas",
+      "kind": "table",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "decisiones",
+      "label": "7. Decisiones y restricciones",
+      "kind": "section",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "decisiones-adr",
+      "label": "Tabla 5. Decisiones registradas",
+      "kind": "table",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "calidad",
+      "label": "8. Atributos de calidad",
+      "kind": "section",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "calidad-criterios",
+      "label": "Tabla 6. Criterios, mecanismos y comprobación",
+      "kind": "table",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "riesgos",
+      "label": "9. Riesgos y pendientes",
+      "kind": "section",
+      "level": 0,
+      "page": 8
+    },
+    {
+      "id": "riesgos-arquitectura",
+      "label": "Tabla 7. Riesgos de DEMO-RIE-01 que afectan al diseño",
+      "kind": "table",
+      "level": 0,
+      "page": 8
+    },
+    {
+      "id": "responsabilidad",
+      "label": "10. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 9
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 8. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 9
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "proposito": "2. Propósito y partes interesadas",
+    "interesados": "Tabla 1. Partes interesadas y preocupaciones",
+    "contexto": "3. Contexto del sistema",
+    "contexto-sistema": "Figura 1. Actores y sistemas vecinos del módulo de pagos",
+    "componentes": "4. Vista de componentes",
+    "frontera-tarjeta": "Figura 2. Componentes y frontera de los datos de tarjeta",
+    "componentes-detalle": "Tabla 2. Responsabilidad e interfaces de los componentes",
+    "datos": "5. Vista de datos",
+    "datos-guardados": "Tabla 3. Datos, ubicación y conservación",
+    "operacion": "6. Despliegue y operación",
+    "entornos": "Tabla 4. Entornos y condiciones operativas",
+    "decisiones": "7. Decisiones y restricciones",
+    "decisiones-adr": "Tabla 5. Decisiones registradas",
+    "calidad": "8. Atributos de calidad",
+    "calidad-criterios": "Tabla 6. Criterios, mecanismos y comprobación",
+    "riesgos": "9. Riesgos y pendientes",
+    "riesgos-arquitectura": "Tabla 7. Riesgos de DEMO-RIE-01 que afectan al diseño",
+    "responsabilidad": "10. Firmas de responsabilidad",
+    "firmas": "Tabla 8. Registro de firmas"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "proposito": "2. Propósito y partes interesadas",
+    "interesados": "Tabla 1. Partes interesadas y preocupaciones",
+    "contexto": "3. Contexto del sistema",
+    "contexto-sistema": "Figura 1. Actores y sistemas vecinos del módulo de pagos",
+    "componentes": "4. Vista de componentes",
+    "frontera-tarjeta": "Figura 2. Componentes y frontera de los datos de tarjeta",
+    "componentes-detalle": "Tabla 2. Responsabilidad e interfaces de los componentes",
+    "datos": "5. Vista de datos",
+    "datos-guardados": "Tabla 3. Datos, ubicación y conservación",
+    "operacion": "6. Despliegue y operación",
+    "entornos": "Tabla 4. Entornos y condiciones operativas",
+    "decisiones": "7. Decisiones y restricciones",
+    "decisiones-adr": "Tabla 5. Decisiones registradas",
+    "calidad": "8. Atributos de calidad",
+    "calidad-criterios": "Tabla 6. Criterios, mecanismos y comprobación",
+    "riesgos": "9. Riesgos y pendientes",
+    "riesgos-arquitectura": "Tabla 7. Riesgos de DEMO-RIE-01 que afectan al diseño",
+    "responsabilidad": "10. Firmas de responsabilidad",
+    "firmas": "Tabla 8. Registro de firmas"
+  }
+}

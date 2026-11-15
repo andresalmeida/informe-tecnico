@@ -1,4 +1,4 @@
 interface:
   display_name: "Informe técnico institucional"
-  short_description: "Informes institucionales con criterios APA 7"
-  default_prompt: "Usa $informe-tecnico para preparar un documento listo para presentar, con redacción técnica impersonal, formato institucional con criterios APA 7, referencias documentales y control de cambios."
+  short_description: "Informes, manuales, actas y documentos de proyecto en PDF con la identidad de tu entidad"
+  default_prompt: "Usa $informe-tecnico para preparar un documento listo para presentar (informe, manual, acta, factibilidad, propuesta, alcance, requisitos, pruebas, riesgos, cambio, traspaso, cierre, evaluación de impacto en datos, ficha de modelo o de proceso). Elige el tipo con la tabla de SKILL.md y lee solo la guía de ese tipo. Deja lo que no conste como Pendiente, Por confirmar o Por estimar, y no inventes firmas, aprobaciones ni cifras. Compila, pasa el comprobador y revisa todas las páginas."

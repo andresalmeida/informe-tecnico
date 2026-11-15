@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "acta-capacitacion",
+    "code": "DEMO-CAP-01",
+    "title": "Acta de capacitación",
+    "short_title": "Acta de capacitación",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-07",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2027-01-05",
+      "version": "0.1",
+      "summary": "Primera versión con la información general, los objetivos, los contenidos y la lista de asistentes previstos.",
+      "author": "Iván Salas"
+    },
+    {
+      "date": "2027-01-07",
+      "version": "0.2",
+      "summary": "Se añaden los materiales entregados, la hoja de evaluación y la constancia de ejecución.",
+      "author": "Iván Salas",
+      "affects": ["materiales", "evaluacion", "constancia"]
+    }
+  ],
+  "sections": [
+    {
+      "id": "informacion",
+      "title": "Información general",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Proyecto", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Parte solicitante", "value": "Operaciones de reservas"},
+            {"label": "Equipo ejecutor", "value": "Unidad de Ingeniería de Software"},
+            {"label": "Tema de la capacitación", "value": "Operación del módulo de pagos: cobro, reembolso y conciliación diaria"},
+            {"label": "Modalidad", "options": ["Presencial", "Virtual"], "selected": "Presencial"},
+            {"label": "Lugar o enlace", "value": "Sala de capacitación 2, sede central de la entidad"},
+            {"label": "Instructores", "value": "Marta Quiroga, arquitecta de software\nCamila Ortega, desarrollo"},
+            {"label": "Líder de proyecto", "value": "Iván Salas, responsable de ingeniería de software"}
+          ]
+        },
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {"label": "N.º de acta", "value": "DEMO-CAP-01"},
+            {"label": "Fecha de capacitación", "value": "07/01/2027"},
+            {"label": "Duración total", "value": "3 horas, de 09:00 a 12:00"},
+            {"label": "Alcance asociado", "value": "DEMO-ALC-01"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivos de la capacitación",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Al terminar la sesión, cada asistente del equipo de operaciones de reservas puede:"
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Seguir una reserva desde la solicitud hasta la confirmación del pago y reconocer el estado de pago en cada paso.",
+            "Atender una reserva con pago pendiente, sabiendo que se libera sola a los 15 minutos si no se paga.",
+            "Comprobar que una reserva cancelada dentro del plazo de cancelación se reembolsa por completo.",
+            "Revisar el informe diario de conciliación y señalar las diferencias con el extracto de la pasarela."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contenidos",
+      "title": "Contenidos abordados",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "El cobro con tarjeta de la reserva: el paso de pago con campos alojados por la pasarela y la confirmación solo después del pago confirmado.",
+            "Los estados de la reserva y de la transacción, y la liberación de la reserva sin pago a los 15 minutos.",
+            "La confirmación repetida de la pasarela: por qué genera un solo cobro y una sola reserva.",
+            "El reembolso completo por cancelación dentro del plazo acordado y cómo verificarlo en el registro de pagos.",
+            "El informe diario de conciliación: cómo leerlo y qué hacer con una diferencia.",
+            "Lo que el módulo no cubre en esta fase: los pagos en efectivo y los recurrentes siguen el procedimiento actual.",
+            "Práctica guiada en el entorno de pruebas con tres casos: un pago confirmado, un pago sin completar y una cancelación."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "asistentes",
+      "title": "Lista de asistentes y firmas",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "lista-asistentes",
+          "title": "Asistentes a la capacitación",
+          "headers": ["N.º", "Nombre y apellido", "Cargo o área", "Firma"],
+          "widths": [0.6, 2.2, 2.4, 2.0],
+          "rows": [
+            ["1", "Soledad Paredes", "Jefa de operaciones de reservas", "\n________________"],
+            ["2", "Teresa Villalba", "Coordinadora de reservas", "\n________________"],
+            ["3", "Andrés Cordero", "Operador de reservas", "\n________________"],
+            ["4", "Paula Lozano", "Operadora de reservas", "\n________________"],
+            ["5", "Héctor Reyes", "Analista de conciliación", "\n________________"],
+            ["6", "Valeria Núñez", "Operadora de reservas", "\n________________"],
+            ["7", "", "", "\n________________"],
+            ["8", "", "", "\n________________"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "materiales",
+      "title": "Materiales entregados",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cada asistente recibió los materiales marcados."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Materiales",
+              "options": [
+                "Manual de usuario del módulo",
+                "Ficha técnica del módulo",
+                "Presentación de la sesión",
+                "Acceso al entorno de pruebas",
+                "Otro: guía rápida de conciliación diaria"
+              ],
+              "multiple": true,
+              "selected": [
+                "Manual de usuario del módulo",
+                "Presentación de la sesión",
+                "Acceso al entorno de pruebas",
+                "Otro: guía rápida de conciliación diaria"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evaluacion",
+      "title": "Evaluación y retroalimentación",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cada asistente califica la capacitación de 1 (deficiente) a 5 (excelente) y marca una nota por aspecto."
+        },
+        {
+          "type": "table",
+          "id": "evaluacion-aspectos",
+          "title": "Evaluación de la capacitación por aspecto",
+          "headers": ["Aspecto a evaluar", "1", "2", "3", "4", "5"],
+          "widths": [3.6, 0.6, 0.6, 0.6, 0.6, 0.6],
+          "rows": [
+            ["Claridad de la exposición", "", "", "", "", ""],
+            ["Utilidad de los contenidos", "", "", "", "", ""],
+            ["Calidad de los materiales", "", "", "", "", ""],
+            ["Atención a las preguntas", "", "", "", "", ""],
+            ["Práctica guiada con el módulo", "", "", "", "", ""]
+          ]
+        },
+        {
+          "type": "table",
+          "id": "comentarios",
+          "title": "Comentarios y sugerencias de los asistentes",
+          "headers": ["Comentario o sugerencia para mejorar la capacitación"],
+          "rows": [
+            ["\n\n\n"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constancia",
+      "title": "Constancia de ejecución y cierre",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quien firma certifica que la capacitación se realizó en la fecha y con los asistentes registrados en este documento, y que se cubrieron los contenidos del apartado {{ref:contenidos}}."
+        },
+        {
+          "type": "table",
+          "id": "constancia-firma",
+          "title": "Constancia de ejecución",
+          "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.1, 2.3, 1.8, 1.1],
+          "rows": [
+            ["Instructor principal", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.1, 2.3, 1.8, 1.1],
+          "rows": [
+            ["Elaborado por", "Iván Salas\nResponsable de ingeniería de software", "\n\n________________", "Pendiente"],
+            ["Revisado por", "Rafael Mena\nComité de calidad", "\n\n________________", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "brand": {
     "entity": "Entidad de demostración",
-    "unit": "Proyecto Atlas",
+    "unit": "Unidad de Ingeniería de Software",
     "accent": "#155D86"
   },
   "document": {
@@ -10,40 +10,76 @@
     "code": "DEMO-ENT-01",
     "title": "Acta de entrega y recepción",
     "short_title": "Acta de entrega y recepción",
-    "subtitle": "Proyecto Atlas · Ejemplo ficticio",
-    "date": "2026-11-03",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2027-01-08",
     "version": "0.1",
-    "status": "Demostración"
+    "status": "Demostración",
+    "notice": "Entidad, personas, códigos, cifras y fechas ficticios. Recepción para revisión; conformidad y firmas pendientes.",
+    "show_changes": true
   },
   "format": {
     "profile": "institucional"
   },
   "changes": [
     {
-      "date": "2026-11-03",
+      "date": "2027-01-08",
       "version": "0.1",
-      "summary": "Ejemplo inicial.",
-      "author": "Equipo de demostración"
+      "summary": "Primera versión.",
+      "author": "Iván Salas"
     }
   ],
   "sections": [
     {
-      "id": "recepcion",
-      "title": "Objeto y estado de recepción",
+      "id": "informacion",
+      "title": "Información general",
       "blocks": [
         {
-          "type": "paragraph",
-          "text": "El Equipo de Implementación entrega el módulo de consultas Atlas 1.4 al Área de Operaciones el 3 de noviembre de 2026. Se registra la recepción para revisión. La conformidad queda pendiente de la comprobación del Área de Operaciones."
-        }
-      ]
-    },
-    {
-      "id": "antecedentes",
-      "title": "Antecedentes y trabajo realizado",
-      "blocks": [
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "Proyecto",
+              "value": "Módulo de pagos para el sistema de reservas"
+            },
+            {
+              "label": "Parte solicitante",
+              "value": "Operaciones de reservas"
+            },
+            {
+              "label": "Equipo ejecutor",
+              "value": "Unidad de Ingeniería de Software"
+            },
+            {
+              "label": "Líder de proyecto",
+              "value": "Iván Salas, responsable de ingeniería de software"
+            }
+          ]
+        },
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {
+              "label": "N.º de acta",
+              "value": "DEMO-ENT-01"
+            },
+            {
+              "label": "Fecha de entrega",
+              "value": "08/01/2027"
+            },
+            {
+              "label": "Alcance asociado",
+              "value": "DEMO-ALC-01"
+            },
+            {
+              "label": "Pruebas de aceptación",
+              "value": "DEMO-ATP-01"
+            }
+          ]
+        },
         {
           "type": "paragraph",
-          "text": "La solicitud AT-17 requirió filtrar las consultas por período. Se implementó el filtro y se incorporó la exportación de los resultados visibles. El alcance entregado se identifica en {{ref:entregables}}."
+          "text": "La Unidad de Ingeniería de Software entrega E1 a E5 a Operaciones de reservas el 08/01/2027 para revisión. La entrega cae en la semana de implementación del 04/01/2027 al 10/01/2027 del calendario propuesto de DEMO-ALC-01, sin ampliar las siete semanas ni los 50 días-persona. El requerimiento DEMO-REQ-014 y la factibilidad DEMO-FAC-01 dieron origen al alcance DEMO-ALC-01. Se presentan los componentes del módulo de pagos y la capacitación E5, registrada en DEMO-CAP-01 el 07/01/2027. El inventario está en {{ref:entregables}}."
         }
       ]
     },
@@ -56,68 +92,208 @@
           "id": "entregables",
           "title": "Inventario de entrega",
           "headers": [
+            "Ítem",
             "Entregable",
-            "Identificación",
-            "Comprobación"
+            "Formato o ubicación",
+            "Comprobación y observaciones"
           ],
           "rows": [
             [
-              "Módulo de consultas",
-              "Atlas 1.4",
-              "Verificar que el archivo exportado incluya solo los registros del período seleccionado."
+              "E1",
+              "Servicio de pagos",
+              "Paquete del servicio. Versión y ubicación: Por confirmar con Iván Salas.",
+              "Criterio: un solo cobro ante 100 confirmaciones duplicadas. Resultado: Pendiente; CP-03 de DEMO-ATP-01 sin ejecutar."
             ],
             [
-              "Guía de usuario",
-              "GU-AT-04, rev. 1",
-              "Incluye instrucciones de consulta y exportación."
+              "E2",
+              "Registro de pagos",
+              "Esquema SQL e informe diario. Versión y ubicación: Por confirmar con Iván Salas.",
+              "Criterio: conciliación completa con el extracto del piloto. Resultado: Pendiente; CP-05 de DEMO-ATP-01 sin ejecutar."
+            ],
+            [
+              "E3",
+              "Ajuste de la API de reservas",
+              "Paquete de la API. Versión y ubicación: Por confirmar con Iván Salas.",
+              "Criterio: una sola reserva por pago confirmado. Resultado: Pendiente; CP-03 de DEMO-ATP-01 sin ejecutar. Revisión funcional pendiente."
+            ],
+            [
+              "E4",
+              "Paso de pago en el cliente web",
+              "Paquete del cliente web. Versión y ubicación: Por confirmar con Iván Salas.",
+              "Criterio: flujo en los navegadores admitidos a 360 píxeles. Resultado: Pendiente; CP-04 de DEMO-ATP-01 sin ejecutar."
+            ],
+            [
+              "E5",
+              "Capacitación del equipo de operaciones",
+              "Acta DEMO-CAP-01 y materiales de la sesión. Ubicación: Por confirmar con Iván Salas.",
+              "Sesión consignada el 07/01/2027 en DEMO-CAP-01. Constancia de ejecución y firmas pendientes."
             ]
           ],
           "widths": [
-            1.2,
-            1,
-            2.5
+            0.65,
+            1.65,
+            2.35,
+            3.5
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "El Área de Operaciones comunicará el resultado de la revisión el 6 de noviembre de 2026."
         }
       ]
     },
     {
-      "id": "firmas",
-      "title": "Registro de firmas",
+      "id": "capacitacion",
+      "title": "Capacitación realizada",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Capacitación",
+              "options": [
+                "Con capacitación",
+                "Sin capacitación"
+              ],
+              "selected": "Con capacitación"
+            },
+            {
+              "label": "Fecha",
+              "value": "07/01/2027"
+            },
+            {
+              "label": "Acta de capacitación N.º",
+              "value": "DEMO-CAP-01"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "DEMO-CAP-01 registra la sesión de operación del cobro, el reembolso y la conciliación diaria. La constancia y las firmas de ese registro siguen pendientes."
+        }
+      ]
+    },
+    {
+      "id": "observaciones",
+      "title": "Observaciones generales",
       "blocks": [
         {
           "type": "table",
-          "id": "registro-firmas",
-          "title": "Intervinientes",
+          "id": "pendientes",
+          "title": "Pendientes de la entrega",
           "headers": [
-            "Nombre",
-            "Rol",
-            "Firma"
+            "Pendiente",
+            "Responsable",
+            "Plazo"
           ],
           "rows": [
             [
-              "Elena Ríos",
-              "Entrega · Desarrollo",
-              "\n\n________________"
+              "Ejecutar los casos de DEMO-ATP-01 y registrar su evidencia.",
+              "Diego Arce, pruebas",
+              "Por confirmar"
             ],
             [
-              "Tomás Valle",
-              "Coordinación técnica",
-              "\n\n________________"
+              "Completar la constancia de capacitación.",
+              "Marta Quiroga, arquitecta de software",
+              "Por confirmar"
             ],
             [
-              "Nora Vidal",
-              "Recepción · Operaciones",
-              "\n\n________________"
+              "Confirmar versiones y ubicación de los paquetes y materiales.",
+              "Iván Salas, responsable de ingeniería de software",
+              "Por confirmar"
             ]
           ],
           "widths": [
-            1,
-            1.6,
-            1.15
+            3.6,
+            2.5,
+            1.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conformidad",
+      "title": "Conformidad y cierre",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se recibieron E1 a E5 para revisión. Los casos de DEMO-ATP-01 están sin ejecutar y su certificado de aceptación está pendiente. Soledad Paredes, jefa de operaciones de reservas, decidirá la conformidad cuando disponga de los resultados y del tratamiento de los pendientes de {{ref:pendientes}}. El cierre queda pendiente de esa decisión."
+        }
+      ]
+    },
+    {
+      "id": "aceptacion",
+      "title": "Firmas de aceptación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "partes",
+          "title": "Aceptación de la entrega por las dos partes",
+          "headers": [
+            "",
+            "Parte solicitante",
+            "Equipo ejecutor"
+          ],
+          "widths": [
+            1.2,
+            2.4,
+            2.4
+          ],
+          "rows": [
+            [
+              "Nombre y cargo",
+              "Soledad Paredes\nJefa de operaciones de reservas",
+              "Iván Salas\nResponsable de ingeniería de software"
+            ],
+            [
+              "Firma",
+              "\n\n________________",
+              "\n\n________________"
+            ],
+            [
+              "Fecha",
+              "Pendiente",
+              "Pendiente"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Iván Salas\nResponsable de ingeniería de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Rafael Mena\nComité de calidad",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
           ]
         }
       ]

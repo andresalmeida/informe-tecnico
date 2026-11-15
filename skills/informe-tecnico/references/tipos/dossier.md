@@ -2,7 +2,9 @@
 
 Un dossier presenta en 6 a 8 páginas A4 cómo funciona un sistema y qué tan confiable es. Lleva la conclusión primero y figuras de ingeniería con el aspecto de un manual de operaciones del Apolo. No usa el motor JSON de este skill ni `document.kind`, y tampoco trae scripts propios: el agente decide el contenido con esta guía y los skills de apoyo, y luego arma las páginas con el skill `nasa-handbook`.
 
-Se activa cuando el usuario dice «informe-dossier», «modo nasa dossier» o «flow NASA». Ver una muestra en [muestra-dossier.pdf](../../../docs/muestra-dossier.pdf).
+**Contenido:** Orden de trabajo; Requisito: nasa-handbook congelado; Contenido y redacción; Códigos propios, no los del Apolo; Portada; Páginas; Ciclo de revisión; Lecciones; Créditos.
+
+Se activa cuando el usuario dice «informe-dossier», «modo nasa dossier» o «flow NASA». Ver una muestra en [muestra-dossier.pdf](../../../../docs/muestra-dossier.pdf).
 
 ## Orden de trabajo
 

@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-informe-factibilidad.json",
+  "source_sha256": "33a62a5a2aa240aaeea641179daf5040173f0933b53c5366ba991f000221bf0c",
+  "pdf_sha256": "a0bb4d5e6ec6bd533b6598995e4561454b04752f636797599899b553b515bb79",
+  "assets": [
+    {
+      "path": "diagrams/arquitectura-pagos.png",
+      "sha256": "aaaff384b994683f6b18c904dfcba8eb60a466e7c7dd4355252f4b5209bca674"
+    }
+  ],
+  "pages": 5,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "informe-factibilidad",
+    "code": "DEMO-FAC-01",
+    "title": "Informe de factibilidad técnica y operativa",
+    "short_title": "Informe de factibilidad",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-09",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "evaluacion",
+      "label": "2. Evaluación de factibilidad técnica",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "impacto",
+      "label": "2.1. Impacto en procesos y sistemas existentes",
+      "kind": "section",
+      "level": 1,
+      "page": 1
+    },
+    {
+      "id": "supuestos",
+      "label": "2.2. Supuestos y restricciones técnicas",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "alcance",
+      "label": "3. Definición del alcance técnico",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "arquitectura",
+      "label": "Figura 1. Arquitectura propuesta del módulo de pagos",
+      "kind": "figure",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "objetivos",
+      "label": "3.1. Objetivos técnicos del desarrollo",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "criterios",
+      "label": "3.2. Criterios de aceptación mínimos",
+      "kind": "section",
+      "level": 1,
+      "page": 3
+    },
+    {
+      "id": "recursos",
+      "label": "4. Evaluación y asignación de recursos",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "humanos",
+      "label": "Tabla 1. Recursos humanos estimados",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "tecnicos",
+      "label": "Tabla 2. Recursos técnicos y herramientas",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "externos",
+      "label": "Tabla 3. Perfiles externos",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "tiempo",
+      "label": "5. Estimación preliminar de tiempo",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "fases",
+      "label": "Tabla 4. Estimación por fase",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "conclusiones",
+      "label": "6. Conclusiones y recomendaciones",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "aprobaciones",
+      "label": "7. Aprobaciones y firmas",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 5. Firmas de responsabilidad",
+      "kind": "table",
+      "level": 0,
+      "page": 5
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "evaluacion": "2. Evaluación de factibilidad técnica",
+    "impacto": "2.1. Impacto en procesos y sistemas existentes",
+    "supuestos": "2.2. Supuestos y restricciones técnicas",
+    "alcance": "3. Definición del alcance técnico",
+    "arquitectura": "Figura 1. Arquitectura propuesta del módulo de pagos",
+    "objetivos": "3.1. Objetivos técnicos del desarrollo",
+    "criterios": "3.2. Criterios de aceptación mínimos",
+    "recursos": "4. Evaluación y asignación de recursos",
+    "humanos": "Tabla 1. Recursos humanos estimados",
+    "tecnicos": "Tabla 2. Recursos técnicos y herramientas",
+    "externos": "Tabla 3. Perfiles externos",
+    "tiempo": "5. Estimación preliminar de tiempo",
+    "fases": "Tabla 4. Estimación por fase",
+    "conclusiones": "6. Conclusiones y recomendaciones",
+    "aprobaciones": "7. Aprobaciones y firmas",
+    "firmas": "Tabla 5. Firmas de responsabilidad"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "evaluacion": "2. Evaluación de factibilidad técnica",
+    "impacto": "2.1. Impacto en procesos y sistemas existentes",
+    "supuestos": "2.2. Supuestos y restricciones técnicas",
+    "alcance": "3. Definición del alcance técnico",
+    "arquitectura": "Figura 1. Arquitectura propuesta del módulo de pagos",
+    "objetivos": "3.1. Objetivos técnicos del desarrollo",
+    "criterios": "3.2. Criterios de aceptación mínimos",
+    "recursos": "4. Evaluación y asignación de recursos",
+    "humanos": "Tabla 1. Recursos humanos estimados",
+    "tecnicos": "Tabla 2. Recursos técnicos y herramientas",
+    "externos": "Tabla 3. Perfiles externos",
+    "tiempo": "5. Estimación preliminar de tiempo",
+    "fases": "Tabla 4. Estimación por fase",
+    "conclusiones": "6. Conclusiones y recomendaciones",
+    "aprobaciones": "7. Aprobaciones y firmas",
+    "firmas": "Tabla 5. Firmas de responsabilidad"
+  }
+}

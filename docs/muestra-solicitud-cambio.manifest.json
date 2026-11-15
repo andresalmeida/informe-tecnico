@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-solicitud-cambio.json",
+  "source_sha256": "849b6dd7f1ed9938e2466df78bd32e8ce11001167c83c88872c7dd8f8a19a62a",
+  "pdf_sha256": "42bacfb29ca7e09142aabed91fcca1d5ca684c0128e2836788b11e45cadd2323",
+  "assets": [],
+  "pages": 4,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "solicitud-cambio",
+    "code": "DEMO-SCM-01",
+    "title": "Solicitud de cambio",
+    "short_title": "Solicitud de cambio",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-20",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "pedido",
+      "label": "2. Cambio solicitado",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "impacto",
+      "label": "3. Análisis de impacto",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "diferencia",
+      "label": "Tabla 1. Antes y después del compromiso de esta fase",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "opciones",
+      "label": "4. Opciones",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "efectos",
+      "label": "Tabla 2. Opciones y su efecto en el compromiso",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "decision",
+      "label": "5. Decisión",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "papeles",
+      "label": "Tabla 3. Quién decide y a quién se consulta",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "efecto",
+      "label": "6. Efecto en los documentos",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "documentos",
+      "label": "Tabla 4. Documentos afectados mientras la decisión sigue diferida",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "firmas",
+      "label": "7. Firmas",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "responsables",
+      "label": "Tabla 5. Firmas de la solicitud",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "pedido": "2. Cambio solicitado",
+    "impacto": "3. Análisis de impacto",
+    "diferencia": "Tabla 1. Antes y después del compromiso de esta fase",
+    "opciones": "4. Opciones",
+    "efectos": "Tabla 2. Opciones y su efecto en el compromiso",
+    "decision": "5. Decisión",
+    "papeles": "Tabla 3. Quién decide y a quién se consulta",
+    "efecto": "6. Efecto en los documentos",
+    "documentos": "Tabla 4. Documentos afectados mientras la decisión sigue diferida",
+    "firmas": "7. Firmas",
+    "responsables": "Tabla 5. Firmas de la solicitud"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "pedido": "2. Cambio solicitado",
+    "impacto": "3. Análisis de impacto",
+    "diferencia": "Tabla 1. Antes y después del compromiso de esta fase",
+    "opciones": "4. Opciones",
+    "efectos": "Tabla 2. Opciones y su efecto en el compromiso",
+    "decision": "5. Decisión",
+    "papeles": "Tabla 3. Quién decide y a quién se consulta",
+    "efecto": "6. Efecto en los documentos",
+    "documentos": "Tabla 4. Documentos afectados mientras la decisión sigue diferida",
+    "firmas": "7. Firmas",
+    "responsables": "Tabla 5. Firmas de la solicitud"
+  }
+}

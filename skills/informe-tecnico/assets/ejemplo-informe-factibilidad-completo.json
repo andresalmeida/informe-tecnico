@@ -1,0 +1,504 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "informe-factibilidad",
+    "code": "DEMO-FAC-01",
+    "title": "Informe de factibilidad técnica y operativa",
+    "short_title": "Informe de factibilidad",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-12",
+    "version": "0.3",
+    "status": "Demostración",
+    "show_changes": true,
+    "indexes": [
+      "contents",
+      "tables",
+      "figures"
+    ]
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-05",
+      "version": "0.1",
+      "summary": "Primera versión con la evaluación técnica y el alcance.",
+      "author": "Marta Quiroga"
+    },
+    {
+      "date": "2026-11-09",
+      "version": "0.2",
+      "summary": "Se añaden la estimación de recursos y de tiempo, las conclusiones y el registro de firmas.",
+      "author": "Marta Quiroga",
+      "affects": [
+        "recursos",
+        "tiempo",
+        "conclusiones",
+        "aprobaciones"
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "version": "0.3",
+      "summary": "Se añaden la introducción y los objetivos del informe, y los índices de contenido, de tablas y de figuras.",
+      "author": "Marta Quiroga",
+      "affects": [
+        "introduccion"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {
+              "label": "N.º de informe",
+              "value": "DEMO-FAC-01"
+            },
+            {
+              "label": "Fecha de elaboración",
+              "value": "09/11/2026"
+            },
+            {
+              "label": "Requerimiento asociado",
+              "value": "DEMO-REQ-014"
+            },
+            {
+              "label": "Elaborado por",
+              "value": "Marta Quiroga, arquitecta de software"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "introduccion",
+      "title": "Introducción y objetivos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Este informe evalúa si el sistema de reservas puede cobrar con tarjeta al confirmar una reserva, con la arquitectura y el equipo actuales. La respuesta es afirmativa con observaciones: la propuesta cabe en la arquitectura, requiere siete semanas y 50 días-persona, y se recomienda continuar si se cumplen las tres condiciones de las conclusiones (ver {{ref:conclusiones}})."
+        },
+        {
+          "type": "paragraph",
+          "text": "El informe tiene cuatro objetivos."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Determinar si el cobro en línea cabe en la arquitectura actual y con qué observaciones.",
+            "Fijar el alcance técnico y los criterios mínimos de aceptación.",
+            "Estimar los recursos y el tiempo necesarios.",
+            "Proponer si se continúa a la siguiente etapa y bajo qué condiciones."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evaluacion",
+      "title": "Evaluación de factibilidad técnica",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Viabilidad técnica",
+              "options": [
+                "Factible",
+                "Factible con observaciones",
+                "No factible"
+              ],
+              "selected": "Factible con observaciones"
+            },
+            {
+              "label": "Justificación",
+              "value": "El módulo de pagos se puede integrar con la arquitectura actual, con dos observaciones que el plan de trabajo ya cubre. La API de reservas expone servicios REST con autenticación por token, y la pasarela evaluada ofrece un SDK para el lenguaje del servidor y un entorno de pruebas. En ese entorno, una prueba de concepto de dos días procesó 50 cobros y 10 reembolsos sin errores de integración. Los datos de tarjeta se capturan en campos alojados por la pasarela, de modo que no pasan por los servidores de la entidad. Las observaciones son esperar el pago confirmado antes de emitir la reserva y conciliar los pagos con las reservas canceladas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impacto",
+      "title": "Impacto en procesos y sistemas existentes",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La reserva pasa a tener un estado intermedio de pago pendiente entre la solicitud y la confirmación. Los componentes nuevos y los que se mantienen se muestran en {{ref:arquitectura}}."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Procesos: la confirmación de una reserva depende del pago. Una reserva sin pagar en 15 minutos vuelve a estar disponible.",
+            "Integraciones: el servicio de notificaciones envía el aviso de confirmación solo después del pago confirmado.",
+            "Arquitectura: se añade un servicio de pagos que llama a la pasarela por HTTPS y recibe sus confirmaciones en una URL de retorno (webhook).",
+            "Riesgos técnicos: confirmaciones repetidas de la pasarela, tiempos de espera en el cobro y pagos recibidos para reservas ya canceladas."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supuestos",
+      "title": "Supuestos y restricciones técnicas",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "Supuesto: la pasarela mantiene la versión actual de su API durante el proyecto.",
+            "Supuesto: el entorno de pruebas de la pasarela reproduce los rechazos y los reembolsos.",
+            "Restricción: esta fase admite solo tarjeta de crédito y de débito, en una moneda.",
+            "Restricción: el despliegue se hace fuera de los periodos de mayor demanda de reservas."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alcance",
+      "title": "Definición del alcance técnico",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El alcance cubre el cobro de la reserva con tarjeta, desde la solicitud hasta la confirmación, y comprende el reembolso por cancelación y la conciliación diaria. Quedan fuera los pagos en efectivo y los pagos recurrentes."
+        },
+        {
+          "type": "figure",
+          "id": "arquitectura",
+          "title": "Arquitectura propuesta del módulo de pagos",
+          "path": "diagrams/arquitectura-pagos.png",
+          "description": "Desde los servidores de la entidad, solo el servicio de pagos llama a la pasarela. La API de reservas lo invoca y las confirmaciones vuelven por webhook.",
+          "source": "Diseño preliminar del equipo de arquitectura. Diagrama demostrativo de un sistema ficticio."
+        }
+      ]
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivos técnicos del desarrollo",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Cobrar la tarifa de la reserva mediante la pasarela, desde la solicitud hasta la confirmación.",
+            "Registrar cada transacción con su estado y vincularla a su reserva.",
+            "Procesar cada confirmación de la pasarela una sola vez, aunque llegue repetida.",
+            "Reembolsar por completo las reservas canceladas dentro del plazo de cancelación.",
+            "Generar cada día un informe de conciliación entre pagos y reservas."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "criterios",
+      "title": "Criterios de aceptación mínimos",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Rendimiento: el 95 % de los pagos de prueba se confirma en menos de 5 segundos desde el envío.",
+            "Seguridad: ningún dato de tarjeta queda almacenado ni registrado en los servidores propios, comprobado con revisión de código y de registros.",
+            "Fiabilidad: 100 confirmaciones duplicadas enviadas en la prueba generan un solo cobro y una sola reserva.",
+            "Compatibilidad: el flujo de pago funciona en las dos últimas versiones de los navegadores admitidos y en pantallas de 360 píxeles de ancho.",
+            "Conciliación: el informe diario coincide con el extracto de la pasarela en todas las transacciones de la prueba piloto."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recursos",
+      "title": "Evaluación y asignación de recursos",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "humanos",
+          "title": "Recursos humanos estimados",
+          "headers": [
+            "Rol",
+            "Cantidad",
+            "Esfuerzo"
+          ],
+          "widths": [
+            3,
+            1,
+            2.4
+          ],
+          "rows": [
+            [
+              "Arquitectura",
+              "1",
+              "5 días-persona"
+            ],
+            [
+              "Desarrollo",
+              "2",
+              "30 días-persona (15 días cada una)"
+            ],
+            [
+              "Pruebas (QA)",
+              "1",
+              "10 días-persona"
+            ],
+            [
+              "Implementación y despliegue",
+              "1",
+              "3 días-persona"
+            ],
+            [
+              "Otro: responsable de operaciones de reservas",
+              "1",
+              "2 días-persona, para validar el flujo"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "id": "tecnicos",
+          "title": "Recursos técnicos y herramientas",
+          "headers": [
+            "Tipo",
+            "Cantidad",
+            "Detalle"
+          ],
+          "widths": [
+            2,
+            1,
+            4.2
+          ],
+          "rows": [
+            [
+              "Licencias",
+              "1",
+              "Cuenta comercial en la pasarela de pagos, con comisión por transacción y sin cuota fija."
+            ],
+            [
+              "Servidores",
+              "2",
+              "Una instancia para el servicio de pagos en pruebas y otra en producción, de 2 vCPU y 4 GB de memoria."
+            ],
+            [
+              "Equipos",
+              "4",
+              "Estaciones de trabajo del equipo, ya disponibles."
+            ],
+            [
+              "Dispositivos",
+              "3",
+              "Teléfonos de prueba: dos con Android y uno con iOS."
+            ],
+            [
+              "Otro: certificado TLS",
+              "1",
+              "Certificado para el dominio que recibe las confirmaciones de la pasarela."
+            ]
+          ]
+        },
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Recursos externos",
+              "options": [
+                "No",
+                "Sí"
+              ],
+              "selected": "Sí"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "id": "externos",
+          "title": "Perfiles externos",
+          "headers": [
+            "Perfil",
+            "Justificación"
+          ],
+          "widths": [
+            2.4,
+            3.8
+          ],
+          "rows": [
+            [
+              "Especialista en seguridad de pagos (1 persona, 3 días)",
+              "Revisa el flujo antes del paso a producción. El equipo no dispone de ese perfil."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tiempo",
+      "title": "Estimación preliminar de tiempo",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "fases",
+          "title": "Estimación por fase",
+          "headers": [
+            "Hito o fase",
+            "Duración estimada",
+            "Observaciones"
+          ],
+          "widths": [
+            2.4,
+            1.5,
+            3.2
+          ],
+          "rows": [
+            [
+              "Análisis y diseño detallado",
+              "1 semana",
+              "Incluye el contrato de la API con la pasarela."
+            ],
+            [
+              "Desarrollo y configuración",
+              "3 semanas",
+              "Dos personas en paralelo."
+            ],
+            [
+              "Pruebas (QA)",
+              "2 semanas",
+              "Incluye la prueba piloto en el entorno de pruebas de la pasarela."
+            ],
+            [
+              "Implementación y despliegue",
+              "1 semana",
+              "Fuera de los periodos de mayor demanda."
+            ]
+          ]
+        },
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Tiempo total estimado",
+              "value": "7 semanas, con 50 días-persona del equipo interno. La revisión externa de seguridad se hace dentro de las pruebas."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusiones",
+      "title": "Conclusiones y recomendaciones",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Decisión de factibilidad final",
+              "options": [
+                "Continuar a la siguiente etapa",
+                "Continuar con condiciones",
+                "No continuar (rechazar o archivar)"
+              ],
+              "selected": "Continuar con condiciones"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "runs": [
+            {
+              "text": "Recomendaciones y observaciones finales. ",
+              "bold": true
+            },
+            {
+              "text": "Se recomienda continuar si se cumplen estas condiciones:"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Contratar la revisión externa de seguridad antes del paso a producción.",
+            "Confirmar con el proveedor la versión de la API que se mantendrá durante el proyecto.",
+            "Acordar el plazo de cancelación con reembolso total antes de iniciar el desarrollo."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Para el área que prepara el presupuesto: la comisión de la pasarela se paga por transacción y no forma parte de la estimación de esfuerzo de este informe."
+        }
+      ]
+    },
+    {
+      "id": "aprobaciones",
+      "title": "Aprobaciones y firmas",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Firmas de responsabilidad",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Marta Quiroga\nArquitecta de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Iván Salas\nResponsable de ingeniería de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
+          ]
+        },
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {
+              "label": "Remitido a",
+              "value": "Área de Planificación y Presupuesto"
+            },
+            {
+              "label": "Fecha de remisión",
+              "value": "Pendiente"
+            },
+            {
+              "label": "Remitido por",
+              "value": "Pendiente"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

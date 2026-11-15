@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-notas-version.json",
+  "source_sha256": "70f34e22aae3017361df9ffc6ed319da8269829a1d5463dfb9370d516f8425f9",
+  "pdf_sha256": "b4b90b0da6b2ef83a4b3e4147ea9e68ff5ff2b88e47fe5cd1e4a6a928a8d6d1d",
+  "assets": [],
+  "pages": 2,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "notas-version",
+    "code": "DEMO-NOV-01",
+    "title": "Notas de la versión 1.0.0",
+    "short_title": "Notas de la versión",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-08",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Versión y fecha",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "cambios",
+      "label": "2. Cambios",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "lista",
+      "label": "Tabla 1. Cambios de la versión 1.0.0",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "compatibilidad",
+      "label": "3. Compatibilidad y actualización",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "problemas",
+      "label": "4. Problemas conocidos",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "conocidos",
+      "label": "Tabla 2. Problemas que siguen abiertos",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "pruebas",
+      "label": "5. Estado de las pruebas",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "casos",
+      "label": "Tabla 3. Casos del plan en esta versión",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    }
+  ],
+  "labels": {
+    "referencia": "1. Versión y fecha",
+    "cambios": "2. Cambios",
+    "lista": "Tabla 1. Cambios de la versión 1.0.0",
+    "compatibilidad": "3. Compatibilidad y actualización",
+    "problemas": "4. Problemas conocidos",
+    "conocidos": "Tabla 2. Problemas que siguen abiertos",
+    "pruebas": "5. Estado de las pruebas",
+    "casos": "Tabla 3. Casos del plan en esta versión"
+  },
+  "reference_labels": {
+    "referencia": "1. Versión y fecha",
+    "cambios": "2. Cambios",
+    "lista": "Tabla 1. Cambios de la versión 1.0.0",
+    "compatibilidad": "3. Compatibilidad y actualización",
+    "problemas": "4. Problemas conocidos",
+    "conocidos": "Tabla 2. Problemas que siguen abiertos",
+    "pruebas": "5. Estado de las pruebas",
+    "casos": "Tabla 3. Casos del plan en esta versión"
+  }
+}

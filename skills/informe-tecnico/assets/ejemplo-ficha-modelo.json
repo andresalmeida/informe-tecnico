@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "ficha-modelo",
+    "code": "DEMO-MOD-01",
+    "title": "Ficha del modelo de revisión de pagos",
+    "short_title": "Ficha del modelo",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-03",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2027-01-03",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Esta ficha acompaña a un modelo de demostración. Las cifras miden datos sintéticos generados a partir de DEMO-ATP-01. No describen pagos reales ni el negocio."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Nombre", "value": "Revisión de pagos en la conciliación diaria"},
+            {"label": "Versión del modelo", "value": "0.1, de demostración"},
+            {"label": "Fecha", "value": "03/01/2027"},
+            {"label": "Responsable", "value": "Marta Quiroga, arquitecta de software"},
+            {"label": "Estado del modelo", "options": ["En desarrollo", "En validación", "En uso", "Retirado"], "selected": "En validación"},
+            {"label": "Documentos relacionados", "value": "DEMO-ATP-01. DEMO-ERS-01. DEMO-ALC-01. DEMO-RIE-01."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uso",
+      "title": "Uso previsto",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El modelo marca, en el informe diario de conciliación, los pagos con alta probabilidad de necesitar revisión manual. Recomienda. No confirma ni rechaza el pago."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Quién lo usa", "value": "Operaciones de reservas, al leer el informe diario. Responsable del área: Soledad Paredes."},
+            {"label": "Quién decide al final", "value": "Una persona de operaciones. El modelo no decide."},
+            {"label": "Para qué no debe usarse", "value": "No sirve para denegar un pago, para guardar datos de tarjeta ni para pagos en efectivo o recurrentes, que están fuera del módulo."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datos",
+      "title": "Datos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Los datos son sintéticos. Se generaron a partir de los casos de DEMO-ATP-01, sin clientes ni tarjetas reales. Una cifra sobre estos datos mide el generador, no el negocio."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Origen", "value": "Sintéticos, de demostración, a partir de DEMO-ATP-01."},
+            {"label": "Periodo", "value": "Del 21/12/2026 al 02/01/2027."},
+            {"label": "Fecha de corte", "value": "02/01/2027"},
+            {"label": "Tamaño", "value": "100 registros sintéticos: 50 del canal web de escritorio y 50 del canal móvil."},
+            {"label": "Variable objetivo", "value": "Revisión manual. Vale sí cuando el generador marca el pago para la cola del informe diario, y no en el resto."},
+            {"label": "Sesgo de selección", "value": "El generador solo emite tarjeta, en una moneda, por escritorio o móvil. No hay canal telefónico ni efectivo."},
+            {"label": "Datos personales", "value": "No hay datos personales reales ni número de tarjeta. Evaluación de impacto en datos: DEMO-EID-01, del módulo de pagos."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modelo",
+      "title": "Modelo",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Algoritmo", "value": "Regresión logística, de demostración."},
+            {"label": "Variables", "value": "Canal, tramo del importe, confirmación duplicada y segundos hasta la confirmación. Sin datos de tarjeta."},
+            {"label": "Librerías", "value": "scikit-learn, versión de demostración. No describe un entorno real."},
+            {"label": "Reproducir el entrenamiento", "value": "Por confirmar. Este ejemplo no incluye un script ejecutable."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "evaluacion",
+      "title": "Evaluación",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Todas las cifras de esta sección salen del conjunto sintético de 100 registros descrito arriba. Son de demostración."
+        },
+        {
+          "type": "table",
+          "id": "metricas",
+          "title": "Métricas de demostración",
+          "headers": ["Métrica", "Valor", "Conjunto", "Intervalo", "Procedencia"],
+          "widths": [1.5, 0.7, 1.5, 1.2, 2.1],
+          "rows": [
+            ["Recall de revisión manual", "0,80", "Evaluación sintética", "0,72 a 0,88", "Datos sintéticos de DEMO-ATP-01"]
+          ]
+        },
+        {
+          "type": "table",
+          "id": "grupos",
+          "title": "Recall por canal, datos sintéticos",
+          "headers": ["Grupo", "Tamaño", "Métrica", "Diferencia respecto del total", "Procedencia"],
+          "widths": [1.3, 0.8, 0.8, 1.6, 2.5],
+          "rows": [
+            ["Web de escritorio", "50", "0,84", "+0,04", "Datos sintéticos de DEMO-ATP-01"],
+            ["Móvil", "50", "0,76", "-0,04", "Datos sintéticos de DEMO-ATP-01"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "No se midió el canal telefónico: el módulo no lo admite. Su tamaño es Por confirmar, porque no hay registros de ese canal, ni sintéticos."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Umbral de aceptación", "value": "Recall de revisión manual de al menos 0,75 en el conjunto sintético. Umbral propuesto, por confirmar con Operaciones de reservas."},
+            {"label": "Decisión", "value": "El 0,80 sintético queda por encima de ese umbral. El modelo sigue en validación. No hay decisión de uso en producción."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limitaciones",
+      "title": "Limitaciones y riesgos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El modelo no decide el reembolso ni lee datos de tarjeta. El registro DEMO-RIE-01 sigue abierto: R-06 trata la pantalla móvil y R-08 la ventana de despliegue. Una marca del modelo no sustituye esa lectura. Si la pasarela cambia la conexión, el resultado sintético deja de servir y el entrenamiento se revisa."
+        }
+      ]
+    },
+    {
+      "id": "monitoreo",
+      "title": "Monitoreo y mantenimiento",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Qué se vigila", "value": "El porcentaje diario de pagos marcados y la diferencia entre escritorio y móvil."},
+            {"label": "Umbral de alerta", "value": "Texto de demostración: más del 40 % de los pagos del día marcados, o una diferencia entre canales mayor de 15 puntos. Por confirmar con Operaciones de reservas."},
+            {"label": "Reentrenamiento", "value": "Cuando la pasarela cambie la conexión, o en la próxima revisión. Fecha: Por confirmar."},
+            {"label": "Quién puede retirarlo", "value": "Lo propone Marta Quiroga y lo confirma la revisión independiente. La fecha de ese acto es Pendiente."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aprobacion",
+      "title": "Aprobaciones",
+      "new_page": true,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Falta la aprobación del responsable y la de la revisión independiente. Las fechas quedan en Pendiente."
+        },
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.6, 2.4, 1.5, 1.1],
+          "rows": [
+            ["Responsable del modelo", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
+            ["Revisión independiente", "Rafael Mena\nComité de calidad", "\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

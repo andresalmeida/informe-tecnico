@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "decision-arquitectura",
+    "code": "DEMO-ADR-01",
+    "title": "Decisión de arquitectura",
+    "short_title": "Decisión de arquitectura",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2026-11-10",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-10",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {
+              "label": "N.º de decisión",
+              "value": "DEMO-ADR-01"
+            },
+            {
+              "label": "Fecha de decisión",
+              "value": "10/11/2026"
+            }
+          ]
+        },
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Título",
+              "value": "Capturar los datos de tarjeta en campos alojados por la pasarela"
+            },
+            {
+              "label": "Estado",
+              "options": [
+                "Propuesta",
+                "Aceptada",
+                "Rechazada",
+                "Sustituida"
+              ],
+              "selected": "Aceptada"
+            },
+            {
+              "label": "Quién decide",
+              "value": "Marta Quiroga, arquitecta de software"
+            },
+            {
+              "label": "Documentos relacionados",
+              "value": "DEMO-REQ-014; DEMO-FAC-01, versión 0.2; DEMO-RIE-01, R-07."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contexto",
+      "title": "Contexto y problema",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La entidad necesita cobrar reservas sin custodiar tarjetas. DEMO-FAC-01 documentó el 09/11/2026 una prueba de concepto con 50 cobros y 10 reembolsos usando campos de la pasarela. R-07 de DEMO-RIE-01 identifica el riesgo de guardar números de tarjeta para facilitar reintentos."
+        }
+      ]
+    },
+    {
+      "id": "opciones",
+      "title": "Opciones consideradas",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "alternativas",
+          "title": "Alternativas de captura",
+          "headers": [
+            "Opción",
+            "Ventajas",
+            "Desventajas",
+            "Riesgo o costo"
+          ],
+          "widths": [
+            1.8,
+            2.1,
+            2.1,
+            2.2
+          ],
+          "rows": [
+            [
+              "Campos alojados por la pasarela",
+              "Evita que la tarjeta pase por el servidor propio.",
+              "Depende de los campos y de la API externa.",
+              "Versión de API por confirmar; R-04."
+            ],
+            [
+              "Captura y almacenamiento en servidores propios",
+              "Facilita los reintentos de cobro.",
+              "Exige custodiar los datos de tarjeta.",
+              "R-07: custodia fuera de lo admitido por la factibilidad."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decision",
+      "title": "Decisión",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se decide mantener los campos alojados por la pasarela, opción de {{ref:alternativas}} ya usada en la prueba de concepto. Evita la custodia que exige la captura propia. La aceptación técnica de esta decisión no firma el documento ni acredita la aceptación del software."
+        }
+      ]
+    },
+    {
+      "id": "consecuencias",
+      "title": "Consecuencias",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se evita almacenar tarjetas en la entidad; R-07 quedó cerrado por este mecanismo el 09/11/2026 según DEMO-RIE-01. Aumenta la dependencia de la API externa (R-04). La revisión externa R-05 sigue pendiente: debe comprobar código y registros, además de la frontera de captura."
+        }
+      ]
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Marta Quiroga revisará la decisión al confirmar la versión de la API o si cambia la captura. Si se adopta otra opción, se redacta otro ADR y este pasa a Sustituida con su código. Se conserva la decisión original y se actualiza su estado."
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Firmas de responsabilidad",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Marta Quiroga\nArquitecta de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Iván Salas\nResponsable de ingeniería de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

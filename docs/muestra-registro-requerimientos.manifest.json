@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-registro-requerimientos.json",
+  "source_sha256": "e8286a9ba487c5a30814530a21ca54b1991ccaf629b8ce442a94f95ca208ec63",
+  "pdf_sha256": "f9d8fbcff08729575a92b6dc1f9f997290dd229d7ee5aab1c5c958d3a3fa4f56",
+  "assets": [],
+  "pages": 2,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "registro-requerimientos",
+    "code": "DEMO-REQ-014",
+    "title": "Registro de requerimiento",
+    "short_title": "Registro de requerimiento",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-10-29",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "datos",
+      "label": "1. Datos generales del requerimiento",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "descripcion",
+      "label": "2. Descripción del requerimiento",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "adicional",
+      "label": "3. Información adicional",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "recepcion",
+      "label": "4. Recepción y asignación",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "aprobaciones",
+      "label": "5. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 1. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    }
+  ],
+  "labels": {
+    "datos": "1. Datos generales del requerimiento",
+    "descripcion": "2. Descripción del requerimiento",
+    "adicional": "3. Información adicional",
+    "recepcion": "4. Recepción y asignación",
+    "aprobaciones": "5. Firmas de responsabilidad",
+    "firmas": "Tabla 1. Registro de firmas"
+  },
+  "reference_labels": {
+    "datos": "1. Datos generales del requerimiento",
+    "descripcion": "2. Descripción del requerimiento",
+    "adicional": "3. Información adicional",
+    "recepcion": "4. Recepción y asignación",
+    "aprobaciones": "5. Firmas de responsabilidad",
+    "firmas": "Tabla 1. Registro de firmas"
+  }
+}

@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "especificacion-requisitos",
+    "code": "DEMO-ERS-01",
+    "title": "Especificación de requisitos",
+    "short_title": "Especificación de requisitos",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-18",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-18",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Esta especificación dice qué debe hacer y cumplir el módulo de pagos. El alcance DEMO-ALC-01 es del 16/11/2026 y el plan de pruebas DEMO-ATP-01 es del 17/11/2026. Esta versión es del 18/11/2026."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Número", "value": "DEMO-ERS-01"},
+            {"label": "Sistema", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Versión del producto", "value": "Por confirmar"},
+            {"label": "Documentos relacionados", "value": "DEMO-REQ-014, recibido el 27/10/2026. DEMO-FAC-01. DEMO-ALC-01. DEMO-ATP-01. DEMO-RIE-01."},
+            {"label": "Fecha del documento", "value": "18/11/2026"},
+            {"label": "Versión del documento", "value": "0.1"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "proposito",
+      "title": "Propósito, alcance y definiciones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El módulo cobra la reserva con tarjeta, reembolsa la cancelación dentro del plazo y concilia cada día los pagos con las reservas. Quedan fuera los pagos en efectivo, los pagos recurrentes y cualquier cambio en los avisos que la reserva ya envía."
+        },
+        {
+          "type": "table",
+          "id": "glosario",
+          "title": "Definiciones",
+          "headers": ["Término", "Definición"],
+          "widths": [1.6, 5.2],
+          "rows": [
+            ["Pasarela", "Servicio externo que recoge la tarjeta y confirma el cobro."],
+            ["Campos alojados", "Campos de la tarjeta que muestra la pasarela, sin que el dato pase por los servidores de la entidad."],
+            ["Conciliación", "Contraste diario entre los pagos registrados y el extracto de la pasarela."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "partes",
+      "title": "Partes interesadas y usuarios",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "usuarios",
+          "title": "Partes interesadas y su necesidad",
+          "headers": ["Parte", "Necesidad principal"],
+          "widths": [2.8, 4.2],
+          "rows": [
+            ["Soledad Paredes, jefa de operaciones de reservas", "Confirmar cada reserva solo cuando el pago esté recibido y operar la conciliación diaria."],
+            ["Quien reserva", "Pagar la tarifa con tarjeta y recibir la confirmación de la reserva."],
+            ["Iván Salas, responsable de ingeniería de software", "Entregar el módulo que cumple los requisitos de este documento."],
+            ["Lucía Ferrer, Comité de proyectos", "Sostener las condiciones de aprobación ya fijadas en DEMO-ALC-01."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "funcionales",
+      "title": "Requisitos funcionales",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Salen del registro DEMO-REQ-014 y de los objetivos de DEMO-ALC-01. Cada enunciado pide una sola cosa."
+        },
+        {
+          "type": "requirements",
+          "id": "requisitos-funcionales",
+          "items": [
+            {
+              "id": "RF-01",
+              "statement": "El sistema debe confirmar cada reserva solo cuando el pago esté recibido.",
+              "priority": "Alta",
+              "source": "DEMO-REQ-014, recibido el 27/10/2026.",
+              "method": "Prueba",
+              "tests": ["CP-03"],
+              "deliverable": "E3",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RF-02",
+              "statement": "El sistema debe cobrar la tarifa de la reserva con tarjeta desde la solicitud hasta la confirmación.",
+              "priority": "Alta",
+              "source": "Objetivo 1 de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-01"],
+              "deliverable": "E1",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RF-03",
+              "statement": "El sistema debe registrar cada transacción con su estado y vincularla a su reserva.",
+              "priority": "Alta",
+              "source": "Objetivo 2 de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-05"],
+              "deliverable": "E2",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RF-04",
+              "statement": "El sistema debe procesar una sola vez cada confirmación de la pasarela, aunque llegue repetida.",
+              "priority": "Alta",
+              "source": "Objetivo 3 de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-03"],
+              "deliverable": "E1",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RF-05",
+              "statement": "El sistema debe reembolsar por completo las reservas canceladas dentro del plazo de cancelación.",
+              "priority": "Alta",
+              "source": "Objetivo 4 de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-05"],
+              "deliverable": "E1",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RF-06",
+              "statement": "El sistema debe generar cada día un informe de conciliación entre los pagos y las reservas.",
+              "priority": "Alta",
+              "source": "Objetivo 5 de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-05"],
+              "deliverable": "E2",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RF-07",
+              "statement": "El sistema debe dejar documentada la operación del módulo para el equipo de operaciones.",
+              "priority": "Media",
+              "source": "Objetivo 6 de DEMO-ALC-01. Entregable E5.",
+              "method": "Por definir",
+              "tests": ["Por definir"],
+              "deliverable": "E5",
+              "state": "Propuesto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "no-funcionales",
+      "title": "Requisitos no funcionales",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Salen de los cinco criterios de aceptación de DEMO-ALC-01. El criterio de compatibilidad se parte en dos requisitos porque cada uno pide una sola cosa y los dos se comprueban con CP-04."
+        },
+        {
+          "type": "requirements",
+          "id": "requisitos-no-funcionales",
+          "items": [
+            {
+              "id": "RNF-01",
+              "statement": "El sistema debe confirmar el 95 % de los pagos de prueba en menos de 5 segundos desde el envío.",
+              "priority": "Alta",
+              "source": "Criterio de rendimiento de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-01"],
+              "deliverable": "E1",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RNF-02",
+              "statement": "El sistema debe impedir que un dato de tarjeta quede almacenado o registrado en los servidores propios.",
+              "priority": "Alta",
+              "source": "Criterio de seguridad de DEMO-ALC-01.",
+              "method": "Inspección",
+              "tests": ["CP-02"],
+              "deliverable": "E4",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RNF-03",
+              "statement": "El sistema debe registrar un solo cobro y una sola reserva ante 100 confirmaciones duplicadas.",
+              "priority": "Alta",
+              "source": "Criterio de fiabilidad de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-03"],
+              "deliverable": "E1",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RNF-04",
+              "statement": "El sistema debe completar el flujo de pago en las dos últimas versiones de los navegadores admitidos.",
+              "priority": "Alta",
+              "source": "Criterio de compatibilidad de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-04"],
+              "deliverable": "E4",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RNF-05",
+              "statement": "El sistema debe completar el flujo de pago en pantallas de 360 píxeles de ancho.",
+              "priority": "Media",
+              "source": "Criterio de compatibilidad de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-04"],
+              "deliverable": "E4",
+              "state": "Aprobado"
+            },
+            {
+              "id": "RNF-06",
+              "statement": "El sistema debe hacer coincidir el informe diario con el extracto de la pasarela en todas las transacciones de la prueba piloto.",
+              "priority": "Alta",
+              "source": "Criterio de conciliación de DEMO-ALC-01.",
+              "method": "Prueba",
+              "tests": ["CP-05"],
+              "deliverable": "E2",
+              "state": "Aprobado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restricciones",
+      "title": "Restricciones, supuestos y dependencias",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Medio de pago", "value": "Solo tarjeta de crédito y de débito, en una moneda."},
+            {"label": "Despliegue", "value": "Fuera de los periodos de mayor demanda. Semana: Por confirmar."},
+            {"label": "Plazo de cancelación", "value": "Por confirmar. Condición de DEMO-ALC-01. Estado: Pendiente."},
+            {"label": "Versión de la API", "value": "Por confirmar con el proveedor. Condición de DEMO-ALC-01. Estado: Pendiente."},
+            {"label": "Revisión de seguridad", "value": "Externa, antes del paso a producción. Condición de DEMO-ALC-01. Estado: Pendiente."},
+            {"label": "Capacitación", "value": "Entregable E5. Sesión DEMO-CAP-01, prevista el 07/01/2027."},
+            {"label": "Supuesto", "value": "La pasarela mantiene la forma de conexión durante el proyecto. Riesgo en DEMO-RIE-01."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trazabilidad",
+      "title": "Trazabilidad",
+      "blocks": [
+        {
+          "type": "requirements",
+          "id": "matriz-trazabilidad",
+          "title": "Matriz de trazabilidad",
+          "matrix": true
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Aprobación",
+      "new_page": true,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La aprobación de esta especificación queda en Pendiente. Las firmas no constan."
+        },
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.3, 2.5, 1.6, 1.2],
+          "rows": [
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
+            ["Revisado por", "Rafael Mena\nComité de calidad", "\n________________", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

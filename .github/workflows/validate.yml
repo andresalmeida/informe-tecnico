@@ -21,7 +21,7 @@ jobs:
       - name: Instalar dependencias
         run: python -m pip install -r requirements.txt
       - name: Validar ejemplo y regresiones
-        run: python skills/informe-tecnico/scripts/self_test.py
+        run: python tests/self_test.py
       - name: Comprobar muestra publicada
         run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-informe-tecnico.pdf
       - name: Comprobar muestra institucional con criterios APA
@@ -32,7 +32,143 @@ jobs:
         run: |
           python skills/informe-tecnico/scripts/check_report.py docs/muestra-acta-entrega.pdf
           python skills/informe-tecnico/scripts/check_report.py docs/muestra-acta-reunion.pdf
+      - name: Comprobar la muestra publicada del informe de factibilidad
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-informe-factibilidad.pdf
+      - name: Comprobar la muestra publicada del informe de factibilidad completo
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-informe-factibilidad-completo.pdf
+      - name: Comprobar la muestra publicada del registro de requerimientos
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-registro-requerimientos.pdf
+      - name: Comprobar la muestra publicada del alcance del proyecto
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-alcance-proyecto.pdf
+      - name: Comprobar la muestra publicada del acta de capacitación
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-acta-capacitacion.pdf
+      - name: Comprobar la muestra publicada del plan de pruebas
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-plan-pruebas.pdf
+      - name: Compilar y comprobar ejemplo del acta de entrega
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-acta-entrega.json --output output/entrega.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/entrega.pdf
+      - name: Compilar y comprobar ejemplo del plan de pruebas
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-plan-pruebas.json --output output/plan-pruebas.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/plan-pruebas.pdf
       - name: Compilar y comprobar ejemplo de procedimientos y avisos
         run: |
           python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-procedimientos.json --output output/procedimientos.pdf
           python skills/informe-tecnico/scripts/check_report.py output/procedimientos.pdf
+      - name: Compilar y comprobar ejemplo del informe de factibilidad
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-informe-factibilidad.json --output output/factibilidad.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/factibilidad.pdf
+      - name: Compilar y comprobar ejemplo del informe de factibilidad completo
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-informe-factibilidad-completo.json --output output/factibilidad-completo.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/factibilidad-completo.pdf
+      - name: Compilar y comprobar ejemplo del registro de requerimientos
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-registro-requerimientos.json --output output/registro.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/registro.pdf
+      - name: Compilar y comprobar ejemplo del alcance del proyecto
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-alcance-proyecto.json --output output/alcance.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/alcance.pdf
+      - name: Compilar y comprobar ejemplo del acta de capacitación
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-acta-capacitacion.json --output output/capacitacion.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/capacitacion.pdf
+      - name: Comprobar la muestra publicada del registro de riesgos
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-registro-riesgos.pdf
+      - name: Compilar y comprobar ejemplo del registro de riesgos
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-registro-riesgos.json --output output/riesgos.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/riesgos.pdf
+      - name: Comprobar la muestra publicada de la propuesta de servicio
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-propuesta-servicio.pdf
+      - name: Compilar y comprobar ejemplo de la propuesta de servicio
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-propuesta-servicio.json --output output/propuesta.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/propuesta.pdf
+      - name: Comprobar la muestra publicada de decision-arquitectura
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-decision-arquitectura.pdf
+      - name: Compilar y comprobar ejemplo de decision-arquitectura
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-decision-arquitectura.json --output output/decision-arquitectura.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/decision-arquitectura.pdf
+      - name: Comprobar la muestra publicada de descripcion-arquitectura
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-descripcion-arquitectura.pdf
+      - name: Compilar y comprobar ejemplo de descripcion-arquitectura
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-descripcion-arquitectura.json --output output/descripcion-arquitectura.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/descripcion-arquitectura.pdf
+      - name: Comprobar la muestra publicada de la especificación de requisitos
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-especificacion-requisitos.pdf
+      - name: Compilar y comprobar ejemplo de la especificación de requisitos
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-especificacion-requisitos.json --output output/requisitos.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/requisitos.pdf
+      - name: Comprobar la muestra publicada de la ficha de modelo
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-ficha-modelo.pdf
+      - name: Compilar y comprobar ejemplo de la ficha de modelo
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-ficha-modelo.json --output output/modelo.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/modelo.pdf
+      - name: Comprobar la muestra publicada de la evaluación de impacto en datos
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-evaluacion-impacto-datos.pdf
+      - name: Compilar y comprobar ejemplo de la evaluación de impacto en datos
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-evaluacion-impacto-datos.json --output output/evaluacion-impacto-datos.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/evaluacion-impacto-datos.pdf
+      - name: Comprobar la muestra publicada de propuesta-sustituida
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-propuesta-sustituida.pdf
+      - name: Compilar y comprobar ejemplo de propuesta-sustituida
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-propuesta-sustituida.json --output output/propuesta-sustituida.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/propuesta-sustituida.pdf
+      - name: Comprobar la muestra publicada de propuesta-retiro-programado
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-propuesta-retiro-programado.pdf
+      - name: Compilar y comprobar ejemplo de propuesta-retiro-programado
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-propuesta-retiro-programado.json --output output/propuesta-retiro-programado.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/propuesta-retiro-programado.pdf
+      - name: Comprobar la muestra publicada de informe-cierre
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-informe-cierre.pdf
+      - name: Compilar y comprobar ejemplo de informe-cierre
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-informe-cierre.json --output output/informe-cierre.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/informe-cierre.pdf
+      - name: Comprobar la muestra publicada de acta-baja
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-acta-baja.pdf
+      - name: Compilar y comprobar ejemplo de acta-baja
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-acta-baja.json --output output/acta-baja.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/acta-baja.pdf
+      - name: Comprobar la muestra publicada de ficha-proceso
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-ficha-proceso.pdf
+      - name: Compilar y comprobar ejemplo de ficha-proceso
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-ficha-proceso.json --output output/ficha-proceso.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/ficha-proceso.pdf
+      - name: Comprobar la muestra publicada de la solicitud de cambio
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-solicitud-cambio.pdf
+      - name: Compilar y comprobar ejemplo de la solicitud de cambio
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-solicitud-cambio.json --output output/solicitud.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/solicitud.pdf
+      - name: Comprobar la muestra publicada del plan de proyecto
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-plan-proyecto.pdf
+      - name: Compilar y comprobar ejemplo del plan de proyecto
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-plan-proyecto.json --output output/plan.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/plan.pdf
+      - name: Comprobar la muestra publicada del traspaso a operación
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-traspaso-operacion.pdf
+      - name: Compilar y comprobar ejemplo del traspaso a operación
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-traspaso-operacion.json --output output/traspaso.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/traspaso.pdf
+      - name: Comprobar la muestra publicada de las notas de versión
+        run: python skills/informe-tecnico/scripts/check_report.py docs/muestra-notas-version.pdf
+      - name: Compilar y comprobar ejemplo de las notas de versión
+        run: |
+          python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-notas-version.json --output output/notas.pdf
+          python skills/informe-tecnico/scripts/check_report.py output/notas.pdf

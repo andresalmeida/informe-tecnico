@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "solicitud-cambio",
+    "code": "DEMO-SCM-01",
+    "title": "Solicitud de cambio",
+    "short_title": "Solicitud de cambio",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-20",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-20",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Esta solicitud registra un pedido posterior al alcance ya aceptado. Las cifras de impacto son de demostración. La marca de la decisión muestra el formulario; la fecha de firma sigue pendiente."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Número", "value": "DEMO-SCM-01"},
+            {"label": "Proyecto", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Fecha", "value": "20/11/2026"},
+            {"label": "Quién lo pide", "value": "Soledad Paredes, jefa de operaciones de reservas"},
+            {"label": "Documento que se modificaría", "value": "DEMO-ALC-01, versión 0.2, del 16/11/2026"},
+            {"label": "Prioridad", "value": "Media"},
+            {"label": "Documentos relacionados", "value": "DEMO-FAC-01. DEMO-ERS-01. DEMO-ATP-01. DEMO-RIE-01. DEMO-PRO-01."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pedido",
+      "title": "Cambio solicitado",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Operaciones de reservas pide añadir el cobro recurrente de una reserva. DEMO-ALC-01, en su versión 0.2, deja fuera los pagos recurrentes y los pagos en efectivo. El pedido llega el 20/11/2026, después de ese alcance y antes del inicio propuesto del 23/11/2026."
+        },
+        {
+          "type": "paragraph",
+          "text": "El motivo es cobrar una serie de reservas con un solo acuerdo de pago. Un defecto sobre el cobro con tarjeta ya acordado se corrige en el documento que lo contiene. Este registro guarda un pedido nuevo."
+        }
+      ]
+    },
+    {
+      "id": "impacto",
+      "title": "Análisis de impacto",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Mientras la decisión siga diferida, el pedido no forma parte del compromiso. El esfuerzo y la duración de esta fase salen de DEMO-FAC-01 y de DEMO-ALC-01 y no se mueven. El esfuerzo del pedido queda por estimar. Si al aceptarlo cambiara la viabilidad, se volvería a la factibilidad."
+        },
+        {
+          "type": "paragraph",
+          "text": "La diferencia de cada fila la calcula el motor. «Por estimar» en el antes o en el después deja la diferencia en «Por estimar». Las cifras son de demostración."
+        },
+        {
+          "type": "impact",
+          "id": "diferencia",
+          "title": "Antes y después del compromiso de esta fase",
+          "rows": [
+            {"aspect": "Esfuerzo del equipo interno en esta fase", "before": 50, "after": 50, "unit": "días-persona"},
+            {"aspect": "Esfuerzo del pedido de pagos recurrentes", "before": 0, "after": "Por estimar", "unit": "días-persona"},
+            {"aspect": "Duración de esta fase", "before": 7, "after": 7, "unit": "semanas"}
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Alcance: hoy quedan fuera los pagos recurrentes. Si se aceptara el pedido, entrarían en una fase posterior, con su propia estimación. Plazo de esta fase: inicio 23/11/2026 y fin 10/01/2027, ambos propuestos en DEMO-ALC-01. Pruebas: ningún caso de DEMO-ATP-01 cubre el cobro recurrente; CP-01 a CP-05 siguen siendo los de esta fase. Riesgos: DEMO-RIE-01 no gana un riesgo nuevo. Si el pedido se acepta más adelante, se revisa R-04, porque un cobro recurrente puede pedir otro contrato con la pasarela. R-08 sigue igual: la ventana de esta fase queda fuera de los periodos de mayor demanda."
+        }
+      ]
+    },
+    {
+      "id": "opciones",
+      "title": "Opciones",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "efectos",
+          "title": "Opciones y su efecto en el compromiso",
+          "headers": ["Opción", "Efecto"],
+          "widths": [2.2, 4.6],
+          "rows": [
+            ["Aceptar", "El alcance, el plazo y el esfuerzo se reabren. Si cambia la viabilidad, se vuelve a DEMO-FAC-01."],
+            ["Aceptar por fases", "Haría falta un corte acordado entre esta fase y la siguiente. Ese corte no consta."],
+            ["Diferir", "El pedido entra al registro de requerimientos. DEMO-ALC-01, versión 0.2, sigue igual."],
+            ["Rechazar", "El pedido se cierra y no entra al registro."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decision",
+      "title": "Decisión",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La decisión de demostración es diferir el pedido a una segunda fase. Así entra al registro y queda fuera del compromiso de DEMO-ALC-01. La fecha en que el comité firme esta marca es Pendiente."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Decisión",
+              "options": ["Aprobada", "Aprobada con condiciones", "Diferida", "Rechazada"],
+              "selected": "Diferida"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "id": "papeles",
+          "title": "Quién decide y a quién se consulta",
+          "headers": ["Papel", "Quién"],
+          "widths": [2.4, 4.4],
+          "rows": [
+            ["Decide", "Lucía Ferrer, Comité de proyectos"],
+            ["Reúne la información", "Marta Quiroga, arquitecta de software"],
+            ["Se consulta", "Soledad Paredes, jefa de operaciones de reservas. Iván Salas, responsable de ingeniería de software."],
+            ["Se informa", "Rafael Mena, Comité de calidad"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "efecto",
+      "title": "Efecto en los documentos",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "documentos",
+          "title": "Documentos afectados mientras la decisión sigue diferida",
+          "headers": ["Documento", "Versión o estado que recibe"],
+          "widths": [2.2, 4.6],
+          "rows": [
+            ["DEMO-ALC-01", "Sigue en la versión 0.2. Los pagos recurrentes continúan fuera."],
+            ["Registro de requerimientos", "Se abre una ficha nueva. Número: Por registrar. Estado: Pendiente."],
+            ["DEMO-ERS-01", "Sin cambio de versión."],
+            ["DEMO-ATP-01", "Sin caso nuevo. Siguen CP-01 a CP-05."],
+            ["DEMO-FAC-01", "No se reabre. La viabilidad de esta fase no cambia."],
+            ["DEMO-RIE-01", "Sin riesgo nuevo. R-04 y R-08 quedan citados y en su estado."],
+            ["DEMO-PRO-01", "Sin cambio. La propuesta no se reabre mientras el pedido esté diferido."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "firmas",
+      "title": "Firmas",
+      "new_page": true,
+      "blocks": [
+        {
+          "type": "table",
+          "id": "responsables",
+          "title": "Firmas de la solicitud",
+          "headers": ["Papel", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.6, 2.2, 1.8, 1.2],
+          "rows": [
+            ["Quien pide", "Soledad Paredes\nJefa de operaciones de reservas", "\n________________", "Pendiente"],
+            ["Quien reúne", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
+            ["Quien decide", "Lucía Ferrer\nComité de proyectos", "\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

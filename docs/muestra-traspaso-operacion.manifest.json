@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-traspaso-operacion.json",
+  "source_sha256": "c45d7f3fab116b2a2ea84d739c8266275c3f986335de0e75adbeb005f13b94a5",
+  "pdf_sha256": "6c7c3090307fb9c3ff3eece14b9d3c16efc1c747cdd6fa6204a6636124506483",
+  "assets": [],
+  "pages": 4,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "traspaso-operacion",
+    "code": "DEMO-TRA-01",
+    "title": "Traspaso a operación",
+    "short_title": "Traspaso a operación",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-08",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "componentes",
+      "label": "2. Qué pasa a operación",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "inventario",
+      "label": "Tabla 1. Componentes y quién responde después del paso",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "soporte",
+      "label": "3. Quién opera y quién da soporte",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "verificacion",
+      "label": "4. Verificación posterior",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "comprobaciones",
+      "label": "Tabla 2. Comprobaciones del paso",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "reversa",
+      "label": "5. Plan de reversa",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "monitoreo",
+      "label": "6. Monitoreo y alertas",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "accesos",
+      "label": "7. Accesos",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "pendientes",
+      "label": "8. Pendientes conocidos y soporte posterior",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "abiertos",
+      "label": "Tabla 3. Pendientes que pasan con la operación",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "firmas",
+      "label": "9. Firmas",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "responsables",
+      "label": "Tabla 4. Firmas de quien entrega y de quien recibe",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "componentes": "2. Qué pasa a operación",
+    "inventario": "Tabla 1. Componentes y quién responde después del paso",
+    "soporte": "3. Quién opera y quién da soporte",
+    "verificacion": "4. Verificación posterior",
+    "comprobaciones": "Tabla 2. Comprobaciones del paso",
+    "reversa": "5. Plan de reversa",
+    "monitoreo": "6. Monitoreo y alertas",
+    "accesos": "7. Accesos",
+    "pendientes": "8. Pendientes conocidos y soporte posterior",
+    "abiertos": "Tabla 3. Pendientes que pasan con la operación",
+    "firmas": "9. Firmas",
+    "responsables": "Tabla 4. Firmas de quien entrega y de quien recibe"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "componentes": "2. Qué pasa a operación",
+    "inventario": "Tabla 1. Componentes y quién responde después del paso",
+    "soporte": "3. Quién opera y quién da soporte",
+    "verificacion": "4. Verificación posterior",
+    "comprobaciones": "Tabla 2. Comprobaciones del paso",
+    "reversa": "5. Plan de reversa",
+    "monitoreo": "6. Monitoreo y alertas",
+    "accesos": "7. Accesos",
+    "pendientes": "8. Pendientes conocidos y soporte posterior",
+    "abiertos": "Tabla 3. Pendientes que pasan con la operación",
+    "firmas": "9. Firmas",
+    "responsables": "Tabla 4. Firmas de quien entrega y de quien recibe"
+  }
+}

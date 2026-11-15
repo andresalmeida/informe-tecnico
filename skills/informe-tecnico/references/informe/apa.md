@@ -34,7 +34,7 @@ Conservar códigos existentes dentro del título o identificación, por ejemplo 
 
 Ordenar las referencias alfabéticamente por autor o por el título que lo sustituya; resolver obras del mismo autor y año mediante sufijos coherentes con las citas. Las comunicaciones no recuperables no se convierten automáticamente en entradas bibliográficas. Mantener DOI como enlace `https://doi.org/...` cuando exista y no añadir un punto después de DOI o URL. Las entradas no son una lista numerada ni una tabla. Fuentes: [principios de las referencias](https://apastyle.apa.org/style-grammar-guidelines/references/basic-principles) y [orden alfabético](https://apastyle.apa.org/instructional-aids/creating-reference-list.pdf).
 
-El bloque `reference` implementa la sangría francesa. El agente prepara y comprueba la entrada bibliográfica; el motor no busca autores, ordena entradas, genera citas autor-fecha ni comprueba su correspondencia. Usar `runs` para cursivas reales en títulos de obras independientes o en los elementos que correspondan; el texto no admite HTML libre. Ver [contrato.md](contrato.md).
+El bloque `reference` implementa la sangría francesa. El agente prepara y comprueba la entrada bibliográfica; el motor no busca autores, ordena entradas, genera citas autor-fecha ni comprueba su correspondencia. Usar `runs` para cursivas reales en títulos de obras independientes o en los elementos que correspondan; el texto no admite HTML libre. Ver [secciones.md](../contrato/secciones.md).
 
 ## Citas textuales
 

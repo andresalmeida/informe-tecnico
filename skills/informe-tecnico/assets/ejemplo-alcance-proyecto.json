@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "alcance-proyecto",
+    "code": "DEMO-ALC-01",
+    "title": "Enunciado del alcance del proyecto",
+    "short_title": "Alcance del proyecto",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-16",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-13",
+      "version": "0.1",
+      "summary": "Primera versión con la información de referencia, los objetivos y el alcance técnico.",
+      "author": "Marta Quiroga"
+    },
+    {
+      "date": "2026-11-16",
+      "version": "0.2",
+      "summary": "Se añaden las restricciones, el cronograma con la capacitación E5 dentro de la implementación, la matriz de responsabilidades y las firmas.",
+      "author": "Marta Quiroga",
+      "affects": ["entregables", "restricciones", "cronograma", "matriz", "aceptacion"]
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia y antecedentes",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Nombre del proyecto", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Parte solicitante", "value": "Operaciones de reservas"},
+            {"label": "Equipo ejecutor", "value": "Unidad de Ingeniería de Software"},
+            {"label": "Patrocinador", "value": "Soledad Paredes, jefa de operaciones de reservas"},
+            {"label": "Líder de proyecto", "value": "Iván Salas, responsable de ingeniería de software"},
+            {"label": "Líder técnico", "value": "Marta Quiroga, arquitecta de software"},
+            {"label": "Miembros del equipo", "value": "Camila Ortega y Julián Benítez (desarrollo)\nDiego Arce (pruebas)\nImplementación y despliegue: Por confirmar"},
+            {"label": "Versión del documento", "value": "0.2"}
+          ]
+        },
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {"label": "N.º de alcance", "value": "DEMO-ALC-01"},
+            {"label": "Fecha de elaboración", "value": "16/11/2026"},
+            {"label": "Propuesta técnica aprobada", "value": "Módulo de pagos, evaluada en DEMO-FAC-01"},
+            {"label": "Requerimiento asociado", "value": "DEMO-REQ-014"}
+          ]
+        },
+        {
+          "type": "paragraph",
+          "runs": [
+            {"text": "Antecedentes. ", "bold": true},
+            {"text": "Operaciones de reservas pidió confirmar cada reserva solo cuando el pago esté recibido (DEMO-REQ-014, recibido el 27/10/2026). El informe de factibilidad DEMO-FAC-01 concluyó que el módulo es factible con observaciones y lo estimó en siete semanas y 50 días-persona del equipo interno. El Comité de proyectos aprobó, el 13/11/2026, continuar con tres condiciones ({{ref:condiciones}}). Este documento fija lo que se construye, con qué límites, en qué tiempo y quién responde de cada actividad."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivo del proyecto",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El proyecto entrega el cobro con tarjeta de la reserva y deja el módulo listo para operar en producción. Sus objetivos de desarrollo y de implementación son:"
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Cobrar la tarifa de la reserva mediante la pasarela, desde la solicitud hasta la confirmación.",
+            "Registrar cada transacción con su estado y vincularla a su reserva.",
+            "Procesar una sola vez cada confirmación de la pasarela, aunque llegue repetida.",
+            "Reembolsar por completo las reservas canceladas dentro del plazo de cancelación.",
+            "Generar cada día un informe de conciliación entre pagos y reservas.",
+            "Poner el módulo en producción fuera de los periodos de mayor demanda, con revisión externa de seguridad completada y capacitación del equipo de operaciones."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alcance",
+      "title": "Definición del alcance técnico",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El alcance cubre el cobro de la reserva con tarjeta, desde la solicitud hasta la confirmación, y comprende el reembolso por cancelación y la conciliación diaria. Quedan fuera los pagos en efectivo, los pagos recurrentes y cualquier cambio en el servicio de notificaciones. Incluye capacitación operativa en la implementación."
+        }
+      ]
+    },
+    {
+      "id": "arquitectura",
+      "title": "Arquitectura propuesta",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se añaden un servicio de pagos, que llama a la pasarela por HTTPS con su SDK y recibe sus confirmaciones por webhook, y un registro de pagos en una tabla SQL. La API de reservas incorpora un estado intermedio de pago pendiente y el cliente web suma un paso de pago con campos alojados por la pasarela, de modo que ningún dato de tarjeta pasa por los servidores de la entidad. El perímetro, con lo que se construye, lo que se ajusta y lo que queda fuera, se muestra en {{ref:perimetro}}."
+        },
+        {
+          "type": "figure",
+          "id": "perimetro",
+          "title": "Perímetro del alcance del módulo de pagos",
+          "path": "diagrams/alcance-pagos.png",
+          "description": "Dentro del perímetro, el equipo construye el servicio y el registro de pagos y ajusta la API de reservas y el cliente web. La pasarela y las notificaciones quedan fuera, igual que los pagos en efectivo y los recurrentes.",
+          "source": "Diseño del equipo de arquitectura. Diagrama demostrativo de un sistema ficticio."
+        }
+      ]
+    },
+    {
+      "id": "entregables",
+      "title": "Entregables incluidos",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "table",
+          "id": "entregas",
+          "title": "Funcionalidades, módulos y entregables",
+          "headers": ["Código", "Entregable", "Qué incluye"],
+          "widths": [0.9, 2.1, 4.2],
+          "rows": [
+            ["E1", "Servicio de pagos", "Cobro con tarjeta mediante la pasarela, recepción de sus confirmaciones por webhook sin duplicar el cobro y reembolso completo por cancelación."],
+            ["E2", "Registro de pagos", "Tabla de transacciones con su estado y su reserva, e informe diario de conciliación con el extracto de la pasarela."],
+            ["E3", "Ajuste de la API de reservas", "Estado intermedio de pago pendiente, liberación de la reserva sin pago a los 15 minutos y aviso de confirmación solo después del pago confirmado."],
+            ["E4", "Paso de pago en el cliente web", "Pantalla de pago con campos alojados por la pasarela, utilizable desde 360 píxeles de ancho."],
+            ["E5", "Capacitación del equipo de operaciones", "Sesión de operación del cobro, el reembolso y la conciliación diaria, con materiales y acta de capacitación. Se realiza dentro de la fase de implementación."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "criterios",
+      "title": "Criterios de aceptación",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La parte solicitante acepta el módulo cuando se cumplen estos cinco criterios, comprobados en el entorno de pruebas de la pasarela y en la prueba piloto:"
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Rendimiento: el 95 % de los pagos de prueba se confirma en menos de 5 segundos desde el envío.",
+            "Seguridad: ningún dato de tarjeta queda almacenado ni registrado en los servidores propios, comprobado con revisión de código y de registros.",
+            "Fiabilidad: 100 confirmaciones duplicadas enviadas en la prueba generan un solo cobro y una sola reserva.",
+            "Compatibilidad: el flujo de pago funciona en las dos últimas versiones de los navegadores admitidos y en pantallas de 360 píxeles de ancho.",
+            "Conciliación: el informe diario coincide con el extracto de la pasarela en todas las transacciones de la prueba piloto."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "restricciones",
+      "title": "Restricciones",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Hardware mínimo", "value": "Dos instancias del servicio de pagos, una de pruebas y otra de producción, de 2 vCPU y 4 GB de memoria cada una."},
+            {"label": "Sistema operativo", "value": "Por confirmar con el equipo de infraestructura."},
+            {"label": "Software adicional", "value": "SDK de la pasarela para el lenguaje del servidor, en la versión que confirme el proveedor, y certificado TLS para el dominio que recibe las confirmaciones."},
+            {"label": "Consideraciones especiales", "value": "Esta fase admite solo tarjeta de crédito y de débito, en una moneda. El despliegue se hace fuera de los periodos de mayor demanda de reservas."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "condiciones",
+      "title": "Condiciones de la aprobación",
+      "level": 2,
+      "blocks": [
+        {
+          "type": "table",
+          "id": "lista-condiciones",
+          "title": "Condiciones del Comité de proyectos y sus responsables",
+          "headers": ["Condición", "Responsable", "Se cumple", "Estado"],
+          "widths": [3.4, 1.6, 1.8, 1.0],
+          "rows": [
+            ["Revisión externa de seguridad contratada para el paso a producción.", "Marta Quiroga", "Antes del paso a producción", "Pendiente"],
+            ["Versión de la API de la pasarela confirmada con el proveedor para toda la duración del proyecto.", "Marta Quiroga", "Antes de cerrar el diseño detallado", "Pendiente"],
+            ["Plazo de cancelación con reembolso total acordado con Operaciones de reservas. Plazo: Por confirmar.", "Soledad Paredes", "Antes de iniciar el desarrollo", "Pendiente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cronograma",
+      "title": "Cronograma de trabajo",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "fases",
+          "title": "Cronograma estimado por fase",
+          "headers": ["Hito o fase", "Duración estimada", "Observaciones"],
+          "widths": [2.4, 1.5, 3.2],
+          "rows": [
+            ["Análisis y diseño detallado", "1 semana", "Incluye el contrato de la API con la pasarela."],
+            ["Desarrollo y configuración", "3 semanas", "Dos personas en paralelo."],
+            ["Pruebas (QA)", "2 semanas", "Incluye la prueba piloto en el entorno de pruebas de la pasarela."],
+            ["Implementación y despliegue", "1 semana", "Incluye la capacitación E5 dentro de la duración y el esfuerzo ya estimados. Fuera de los periodos de mayor demanda."]
+          ]
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Tiempo total estimado", "value": "7 semanas, con 50 días-persona del equipo interno. La revisión externa de seguridad, de 3 días de un especialista externo, se hace dentro de las pruebas y no suma a esa cifra."},
+            {"label": "Inicio propuesto", "value": "23/11/2026"},
+            {"label": "Fin propuesto", "value": "10/01/2027"},
+            {"label": "Semana de implementación", "value": "Del 04/01/2027 al 10/01/2027. Calendario de demostración propuesto; fechas por confirmar con las partes."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "matriz",
+      "title": "Matriz de responsabilidades",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "responsables",
+          "title": "Responsabilidades por actividad",
+          "headers": ["Actividad", "Arquitectura", "Desarrollo", "Pruebas", "Despliegue", "Solicitante"],
+          "widths": [3.0, 1.5, 1.4, 1.1, 1.4, 1.5],
+          "rows": [
+            ["Diseño detallado y contrato de la API", "R/A", "C", "I", "I", "C"],
+            ["Acuerdo del plazo de cancelación con reembolso total", "C", "I", "I", "I", "R/A"],
+            ["Desarrollo de E1 a E4", "A", "R", "I", "I", "I"],
+            ["Pruebas y prueba piloto", "C", "C", "R", "I", "A"],
+            ["Contratación y coordinación de la revisión externa de seguridad", "R/A", "C", "C", "I", "I"],
+            ["Puesta en producción", "C", "C", "C", "R", "A"],
+            ["Capacitación del equipo de operaciones (E5)", "R", "R", "C", "I", "A"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "runs": [
+            {"text": "R", "bold": true},
+            {"text": ": responsable de hacer la actividad. "},
+            {"text": "A", "bold": true},
+            {"text": ": aprueba el resultado y responde de él; cada actividad tiene una sola A. "},
+            {"text": "C", "bold": true},
+            {"text": ": consultado antes de decidir. "},
+            {"text": "I", "bold": true},
+            {"text": ": informado del resultado. "},
+            {"text": "R/A", "bold": true},
+            {"text": ": la misma parte hace y aprueba."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aceptacion",
+      "title": "Firmas de aceptación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "partes",
+          "title": "Aceptación del alcance por las dos partes",
+          "headers": ["", "Parte solicitante", "Equipo ejecutor"],
+          "widths": [1.2, 2.4, 2.4],
+          "rows": [
+            ["Nombre y cargo", "Soledad Paredes\nJefa de operaciones de reservas", "Iván Salas\nResponsable de ingeniería de software"],
+            ["Firma", "\n\n________________", "\n\n________________"],
+            ["Fecha", "Pendiente", "Pendiente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.1, 2.3, 1.8, 1.1],
+          "rows": [
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"],
+            ["Revisado por", "Rafael Mena\nComité de calidad", "\n\n________________", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

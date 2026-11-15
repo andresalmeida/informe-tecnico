@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-plan-proyecto.json",
+  "source_sha256": "f34f25fa5219d4b893d9cc15099740daa9042e598efbed9ea4efdbe5a260edf0",
+  "pdf_sha256": "a292a0545903cfa32755a13eb6f054a5aceaedbd691e91fd10e95d3745bdb3bd",
+  "assets": [],
+  "pages": 5,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "plan-proyecto",
+    "code": "DEMO-PPR-01",
+    "title": "Plan de proyecto",
+    "short_title": "Plan de proyecto",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-21",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "objetivos",
+      "label": "2. Objetivos y alcance",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "edt",
+      "label": "3. Estructura de desglose del trabajo",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "desglose",
+      "label": "Tabla 1. EDT del módulo de pagos",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "hitos",
+      "label": "4. Hitos y calendario",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "calendario",
+      "label": "Tabla 2. Hitos del calendario propuesto",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "roles",
+      "label": "5. Roles y decisiones",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "equipo",
+      "label": "Tabla 3. Roles del equipo",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "decisiones",
+      "label": "Tabla 4. Tipos de decisión",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "cadencia",
+      "label": "6. Cadencia de seguimiento",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "riesgos",
+      "label": "7. Riesgos clave",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "clave",
+      "label": "Tabla 5. Riesgos que vigila el plan",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "herramientas",
+      "label": "8. Herramientas y comunicación",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "firmas",
+      "label": "9. Firmas",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "responsables",
+      "label": "Tabla 6. Firmas del plan",
+      "kind": "table",
+      "level": 0,
+      "page": 5
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "objetivos": "2. Objetivos y alcance",
+    "edt": "3. Estructura de desglose del trabajo",
+    "desglose": "Tabla 1. EDT del módulo de pagos",
+    "hitos": "4. Hitos y calendario",
+    "calendario": "Tabla 2. Hitos del calendario propuesto",
+    "roles": "5. Roles y decisiones",
+    "equipo": "Tabla 3. Roles del equipo",
+    "decisiones": "Tabla 4. Tipos de decisión",
+    "cadencia": "6. Cadencia de seguimiento",
+    "riesgos": "7. Riesgos clave",
+    "clave": "Tabla 5. Riesgos que vigila el plan",
+    "herramientas": "8. Herramientas y comunicación",
+    "firmas": "9. Firmas",
+    "responsables": "Tabla 6. Firmas del plan"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "objetivos": "2. Objetivos y alcance",
+    "edt": "3. Estructura de desglose del trabajo",
+    "desglose": "Tabla 1. EDT del módulo de pagos",
+    "hitos": "4. Hitos y calendario",
+    "calendario": "Tabla 2. Hitos del calendario propuesto",
+    "roles": "5. Roles y decisiones",
+    "equipo": "Tabla 3. Roles del equipo",
+    "decisiones": "Tabla 4. Tipos de decisión",
+    "cadencia": "6. Cadencia de seguimiento",
+    "riesgos": "7. Riesgos clave",
+    "clave": "Tabla 5. Riesgos que vigila el plan",
+    "herramientas": "8. Herramientas y comunicación",
+    "firmas": "9. Firmas",
+    "responsables": "Tabla 6. Firmas del plan"
+  }
+}

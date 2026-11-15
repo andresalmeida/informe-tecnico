@@ -1,0 +1,397 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "informe-cierre",
+    "code": "DEMO-CIE-01",
+    "title": "Informe de cierre y lecciones aprendidas",
+    "short_title": "Informe de cierre",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2027-01-18",
+    "version": "0.1",
+    "status": "Demostración",
+    "notice": "Entidad, personas, códigos, cifras y fechas ficticios. Plazo y esfuerzo reales de demostración; conformidad y cierre definitivo pendientes.",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2027-01-18",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Iván Salas"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "Proyecto",
+              "value": "Módulo de pagos para el sistema de reservas"
+            },
+            {
+              "label": "Período informado",
+              "value": "23/11/2026 al 17/01/2027; intervalo real de demostración"
+            },
+            {
+              "label": "Responsable",
+              "value": "Iván Salas, responsable de ingeniería de software"
+            },
+            {
+              "label": "Documentos relacionados",
+              "value": "DEMO-REQ-014, DEMO-FAC-01, DEMO-ALC-01, DEMO-PRO-01, DEMO-RIE-01, DEMO-ADR-01, DEMO-ARQ-01, DEMO-ERS-01, DEMO-ATP-01, DEMO-CAP-01 y DEMO-ENT-01"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "resumen",
+      "title": "Resumen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Entregado con pendientes. E1 a E5 se recibieron para revisión el 08/01/2027 según DEMO-ENT-01. La conformidad de Soledad Paredes y el cierre definitivo siguen pendientes: los cinco casos de DEMO-ATP-01 están sin ejecutar y su certificado de aceptación no está firmado. Este informe consolida el balance interno sin autorizar la puesta en producción."
+        }
+      ]
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivos y resultados",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "resultados",
+          "title": "Balance de objetivos",
+          "headers": [
+            "Objetivo",
+            "Resultado documentado",
+            "Evidencia"
+          ],
+          "rows": [
+            [
+              "Cobrar antes de confirmar la reserva",
+              "E1 y E3 recibidos; cobro único ante duplicados pendiente de comprobar.",
+              "DEMO-ALC-01; DEMO-ENT-01; CP-03 de DEMO-ATP-01"
+            ],
+            [
+              "Registrar y conciliar los pagos",
+              "E2 recibido; conciliación completa pendiente de comprobar.",
+              "DEMO-ENT-01; CP-05 de DEMO-ATP-01"
+            ],
+            [
+              "Ofrecer el pago web y preparar la operación",
+              "E4 recibido; prueba a 360 píxeles pendiente. E5 consignado; constancia pendiente.",
+              "DEMO-ENT-01; CP-04 de DEMO-ATP-01; DEMO-CAP-01"
+            ]
+          ],
+          "widths": [
+            2,
+            3,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entregables",
+      "title": "Entregables",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "inventario",
+          "title": "Entregables recibidos para revisión",
+          "headers": [
+            "Ítem",
+            "Entregable",
+            "Acta y estado"
+          ],
+          "rows": [
+            [
+              "E1",
+              "Servicio de pagos",
+              "DEMO-ENT-01; recibido para revisión; comprobación pendiente en DEMO-ATP-01"
+            ],
+            [
+              "E2",
+              "Registro de pagos",
+              "DEMO-ENT-01; recibido para revisión; comprobación pendiente en DEMO-ATP-01"
+            ],
+            [
+              "E3",
+              "Ajuste de la API de reservas",
+              "DEMO-ENT-01; recibido para revisión; comprobación pendiente en DEMO-ATP-01"
+            ],
+            [
+              "E4",
+              "Paso de pago en el cliente web",
+              "DEMO-ENT-01; recibido para revisión; comprobación pendiente en DEMO-ATP-01"
+            ],
+            [
+              "E5",
+              "Capacitación del equipo de operaciones",
+              "DEMO-ENT-01; constancia pendiente en DEMO-CAP-01"
+            ]
+          ],
+          "widths": [
+            0.5,
+            2.4,
+            3.4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plazo",
+      "title": "Plazo y esfuerzo",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Las cifras reales siguientes son de demostración y no se deducen de una aceptación firmada. El estimado de DEMO-FAC-01 y DEMO-ALC-01 se conserva: siete semanas y 50 días-persona. La entrega del 08/01/2027 permanece dentro de la implementación propuesta del 04 al 10/01/2027. El período adicional del balance no modifica ese compromiso."
+        },
+        {
+          "type": "table",
+          "id": "variaciones",
+          "title": "Estimación frente a real de demostración",
+          "headers": [
+            "Magnitud",
+            "Estimado",
+            "Real",
+            "Variación absoluta",
+            "Variación relativa"
+          ],
+          "rows": [
+            [
+              "Plazo (semanas)",
+              "7",
+              "8",
+              "+1",
+              "+14,29 %"
+            ],
+            [
+              "Esfuerzo (días-persona)",
+              "50",
+              "54",
+              "+4",
+              "+8,00 %"
+            ]
+          ],
+          "widths": [
+            2,
+            1,
+            1,
+            1.5,
+            1.5
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Variación absoluta = real menos estimado. Variación relativa = 100 × (real menos estimado) / estimado, redondeada a dos decimales. Las ocho semanas equivalen a los 56 días calendario del período informado, contando ambos extremos. Los 54 días-persona son esfuerzo acumulado, no duración."
+        }
+      ]
+    },
+    {
+      "id": "cambios",
+      "title": "Cambios aprobados",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "No constan solicitudes de cambio aprobadas en la cadena. No se asigna un código de solicitud inexistente. La diferencia real de demostración se muestra como desviación del balance; su autorización sigue Por confirmar con Iván Salas. DEMO-PRO-01 conserva pendiente su aceptación comercial."
+        }
+      ]
+    },
+    {
+      "id": "riesgos",
+      "title": "Riesgos materializados y abiertos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La materialización de los riesgos está Por confirmar. Se conserva el último estado documentado de DEMO-RIE-01, con corte al 16/11/2026; este informe no supone una actualización del registro."
+        },
+        {
+          "type": "table",
+          "id": "riesgos-abiertos",
+          "title": "Riesgos que requieren seguimiento",
+          "headers": [
+            "Registro / riesgo",
+            "Último estado",
+            "Responsable"
+          ],
+          "rows": [
+            [
+              "DEMO-RIE-01 / R-01: avisos duplicados",
+              "En mitigación",
+              "Julián Benítez"
+            ],
+            [
+              "DEMO-RIE-01 / R-02: latencia; R-06: pantalla de 360 píxeles",
+              "Abierto",
+              "Camila Ortega"
+            ],
+            [
+              "DEMO-RIE-01 / R-03: pago tras liberar reserva",
+              "Abierto",
+              "Julián Benítez"
+            ],
+            [
+              "DEMO-RIE-01 / R-04: versión de API; R-05: revisión externa",
+              "Abierto",
+              "Marta Quiroga"
+            ],
+            [
+              "DEMO-RIE-01 / R-08: despliegue en alta demanda",
+              "Abierto",
+              "Soledad Paredes"
+            ],
+            [
+              "DEMO-RIE-01 / R-07: custodia propia de tarjeta",
+              "Cerrado el 09/11/2026 por campos alojados",
+              "Marta Quiroga"
+            ]
+          ],
+          "widths": [
+            3.2,
+            2,
+            1.6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lecciones",
+      "title": "Lecciones aprendidas",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "aprendizajes",
+          "title": "Lecciones y acciones",
+          "headers": [
+            "Hallazgo y base",
+            "Qué se hará distinto",
+            "Acción y responsable"
+          ],
+          "rows": [
+            [
+              "Funcionó como base de diseño: la prueba de concepto de DEMO-FAC-01 y los campos alojados de DEMO-ADR-01 acotan la custodia de tarjeta. No equivalen a aceptación.",
+              "Mantener esa evidencia vinculada a los criterios de seguridad.",
+              "Marta Quiroga: aportar revisión externa de R-05 y evidencia de CP-02."
+            ],
+            [
+              "Sigue sin resolverse: la versión de la API externa de R-04 y la autorización del despliegue de R-08.",
+              "Confirmar dependencias antes de comprometer una fecha operativa.",
+              "Marta Quiroga confirma API; Soledad Paredes confirma ventana. Plazos: Por confirmar."
+            ],
+            [
+              "No hay verificación concluida del cobro único ni de la conciliación: CP-03 y CP-05 de DEMO-ATP-01 siguen pendientes.",
+              "Separar el resultado esperado de la evidencia observada en el cierre.",
+              "Diego Arce: ejecutar casos y conservar resultados antes de solicitar conformidad."
+            ]
+          ],
+          "widths": [
+            2.8,
+            2,
+            2.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soporte",
+      "title": "Pendientes y soporte",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "pendientes",
+          "title": "Traspaso de pendientes",
+          "headers": [
+            "Pendiente",
+            "Quién lo toma",
+            "Plazo"
+          ],
+          "rows": [
+            [
+              "Ejecutar los cinco casos y completar el certificado de DEMO-ATP-01.",
+              "Diego Arce, pruebas",
+              "Por confirmar"
+            ],
+            [
+              "Completar constancia de DEMO-CAP-01 y revisión externa de seguridad.",
+              "Marta Quiroga, arquitecta de software",
+              "Por confirmar"
+            ],
+            [
+              "Confirmar versiones, ubicaciones y canal de soporte; tramitar desviación del balance.",
+              "Iván Salas, responsable de ingeniería de software",
+              "Por confirmar"
+            ],
+            [
+              "Resolver conformidad tras revisar evidencia y acordar ventana operativa.",
+              "Soledad Paredes, jefa de operaciones de reservas",
+              "Por confirmar"
+            ]
+          ],
+          "widths": [
+            3.5,
+            2.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Iván Salas\nResponsable de ingeniería de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Rafael Mena\nComité de calidad",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}
