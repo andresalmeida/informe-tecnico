@@ -4,7 +4,11 @@ Una skill para agentes (Claude Code, Codex, Cursor y otros) que redacta y compil
 
 **Versión 0.8.0** · licencia MIT · Python 3.10 o posterior
 
-![Una página de cada tipo de documento: informe técnico, acta de reunión y dossier de sistema](skills/informe-tecnico/assets/muestras-collage.png)
+[![CI](https://github.com/andresalmeida/informe-tecnico/actions/workflows/validate.yml/badge.svg)](https://github.com/andresalmeida/informe-tecnico/actions/workflows/validate.yml)
+
+![Primera página de los seis documentos del núcleo: acta de reunión, factibilidad, propuesta, alcance, plan de pruebas y acta de entrega](docs/muestras-collage.png)
+
+<sub>Muestras con una entidad ficticia. Cada PDF completo está en [`docs/`](docs/).</sub>
 
 ## Qué produce
 
@@ -74,6 +78,21 @@ python skills/informe-tecnico/scripts/check_report.py output/acta.pdf
 Copia el JSON de partida del tipo que necesites, cambia los datos de demostración y conserva los activos junto a la fuente. El acta de reunión también se exporta a Word. Si falta una dependencia, el script termina con un mensaje que dice qué instalar.
 
 Para modificar el motor o añadir un tipo: `python tests/self_test.py` ejecuta las pruebas, [docs/nuevo-tipo.md](docs/nuevo-tipo.md) explica los pasos y [CONTRIBUTING.md](CONTRIBUTING.md) describe las ramas.
+
+## Qué hay en el repositorio
+
+```text
+skills/informe-tecnico/   la skill que se instala
+  SKILL.md                lo que lee el agente: elige el tipo y enruta
+  references/             guías por tipo (tipos/), del informe (informe/) y comunes
+  assets/                 JSON de partida de cada tipo
+  scripts/                el motor: compila el PDF y lo comprueba
+tests/                    pruebas del motor
+tools/                    regresión entre versiones
+docs/                     muestras en PDF y guía para añadir un tipo
+```
+
+Este README es para quien llega al repositorio. El agente lee `SKILL.md` y las guías; quien mantiene la skill lee [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Lo que esta skill no hace
 
