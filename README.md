@@ -58,7 +58,7 @@ Los documentos de un proyecto forman una cadena: cada uno cita a los anteriores 
 
 ## Instalar y actualizar
 
-La versión instalada está en `metadata.version` de `SKILL.md` y debe coincidir con la de este README. Una copia antigua enruta un proyecto a un informe genérico. Para actualizar, guarda tus JSON fuera de la carpeta de la skill, bórrala y vuelve a instalar.
+La versión instalada está en `metadata.version` de `SKILL.md` y debe coincidir con la de este README. Una copia antigua enruta un proyecto a un informe genérico. Para actualizar, guarda tus JSON fuera de la carpeta de la skill, bórrala y vuelve a instalar. Con el repositorio clonado, `python tools/instalar.py` hace todo eso por ti: instala la versión publicada en Claude Code y en Codex, deja un respaldo de la anterior y comprueba que las copias quedaron idénticas (`--simular` muestra lo que haría).
 
 - **Claude Code.** Copia `skills/informe-tecnico` a `~/.claude/skills/informe-tecnico` (para todos tus proyectos) o a `.claude/skills/informe-tecnico` (para uno).
 - **Codex.** Pide al agente: «Instala la skill informe-tecnico desde https://github.com/andresalmeida/informe-tecnico, ruta skills/informe-tecnico».
