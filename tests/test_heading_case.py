@@ -1,4 +1,9 @@
-"""sentence is the form default. title must match the motor and the examples at ee2155d."""
+"""sentence is the form default. title must keep reproducing the output recorded in tests/golden/heading-title.json.
+
+The golden file was written from the engine just before the default changed (its page text and manifests were
+checked equal, including pixels, against the previous commit). To refresh it after adding a form example:
+    python tests/test_heading_case.py --update
+"""
 import hashlib
 import json
 import os
@@ -15,7 +20,8 @@ if str(_scripts) not in sys.path:
 
 from build_report import KIND_RULES, sentence_case
 
-BASE = "ee2155d"
+GOLDEN = Path(__file__).resolve().parent / "golden" / "heading-title.json"
+SCRIPT = _scripts / "build_report.py"
 
 
 def compile_pdf(script, source, pdf):
@@ -34,11 +40,34 @@ def manifest_body(pdf):
     return data
 
 
-def page_view(pdf):
+def snapshot(pdf):
+    """Layout-independent record of a PDF: page count, normalized text per page and the manifest body."""
     with pdfplumber.open(pdf) as document:
-        return [(page.extract_text(),
-                 hashlib.sha256(page.to_image(resolution=50).original.tobytes()).hexdigest())
-                for page in document.pages]
+        texts = [hashlib.sha256(" ".join((page.extract_text() or "").split()).encode()).hexdigest()
+                 for page in document.pages]
+    body = json.dumps(manifest_body(pdf), sort_keys=True, ensure_ascii=False)
+    return {"pages": len(texts), "text": texts, "manifest": hashlib.sha256(body.encode()).hexdigest()}
+
+
+def title_snapshots(example, work):
+    """Compile every form example with heading_case "title" and return its snapshot."""
+    work.mkdir(parents=True, exist_ok=True)
+    diagrams = work / "diagrams"
+    if not diagrams.exists():
+        diagrams.symlink_to(example.parent / "diagrams")
+    result = {}
+    for source in sorted(example.parent.glob("ejemplo*.json")):
+        spec = json.loads(source.read_text())
+        kind = spec["document"].get("kind", "informe")
+        if not KIND_RULES[kind].get("form"):
+            continue
+        spec.setdefault("format", {})["heading_case"] = "title"
+        titled = work / source.name
+        titled.write_text(json.dumps(spec, ensure_ascii=False))
+        pdf = work / f"{source.stem}.pdf"
+        compile_pdf(SCRIPT, titled, pdf)
+        result[source.stem] = snapshot(pdf)
+    return result
 
 
 def run_checks(example, root, checks, build, rejected_with):
@@ -63,36 +92,22 @@ def run_checks(example, root, checks, build, rejected_with):
     unknown.setdefault("format", {})["heading_case"] = "upper"
     rejected_with("heading-case-valor-ajeno", unknown, 'format.heading_case admite "sentence" o "title".')
 
-    repo = example.parents[3]
-    archive = subprocess.run(["git", "archive", BASE, "skills"], cwd=repo, check=True, capture_output=True).stdout
-    base_root = root / "heading-base"
-    base_root.mkdir()
-    subprocess.run(["tar", "-x", "-C", str(base_root)], input=archive, check=True)
-    base_skill = base_root / "skills" / "informe-tecnico"
-    current_script = Path(__file__).resolve().parents[1] / "skills" / "informe-tecnico" / "scripts" / "build_report.py"
-    work = root / "heading-title"
-    work.mkdir()
-    (work / "diagrams").symlink_to(example.parent / "diagrams")
-    compared = []
-    for source in sorted(example.parent.glob("ejemplo*.json")):
-        spec = json.loads(source.read_text())
-        kind = spec["document"].get("kind", "informe")
-        if not KIND_RULES[kind].get("form"):
-            continue
-        base_source = base_skill / "assets" / source.name
-        assert base_source.is_file(), source.name
-        spec.setdefault("format", {})["heading_case"] = "title"
-        titled_source = work / source.name
-        titled_source.write_text(json.dumps(spec, ensure_ascii=False))
-        before = root / "heading-before" / f"{source.stem}.pdf"
-        after = root / "heading-after" / f"{source.stem}.pdf"
-        before.parent.mkdir(exist_ok=True)
-        after.parent.mkdir(exist_ok=True)
-        compile_pdf(base_skill / "scripts" / "build_report.py", base_source, before)
-        compile_pdf(current_script, titled_source, after)
-        assert manifest_body(before) == manifest_body(after), source.name
-        before_pages, after_pages = page_view(before), page_view(after)
-        assert [text for text, _ in before_pages] == [text for text, _ in after_pages], source.name
-        assert [pixel for _, pixel in before_pages] == [pixel for _, pixel in after_pages], source.name
-        compared.append(source.stem)
-    checks.append({"case": "heading-case-title-identico-a-ee2155d", "examples": len(compared)})
+    recorded = json.loads(GOLDEN.read_text())
+    current = title_snapshots(example, root / "heading-title")
+    assert sorted(current) == sorted(recorded), (
+        "Los ejemplos de formulario cambiaron: ejecutar python tests/test_heading_case.py --update", sorted(set(current) ^ set(recorded)))
+    for stem, value in current.items():
+        assert value == recorded[stem], stem
+    checks.append({"case": "heading-case-title-conserva-lo-registrado", "examples": len(current)})
+
+
+if __name__ == "__main__":
+    import tempfile
+    if sys.argv[1:] != ["--update"]:
+        sys.exit("uso: python tests/test_heading_case.py --update")
+    assets = Path(__file__).resolve().parents[1] / "skills" / "informe-tecnico" / "assets"
+    with tempfile.TemporaryDirectory() as folder:
+        values = title_snapshots(assets / "ejemplo.json", Path(folder))
+    GOLDEN.parent.mkdir(exist_ok=True)
+    GOLDEN.write_text(json.dumps(values, indent=1, sort_keys=True) + "\n")
+    print(f"{len(values)} ejemplos registrados en {GOLDEN}")

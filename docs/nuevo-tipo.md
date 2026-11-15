@@ -19,7 +19,7 @@ Un tipo es una guía (`references/tipos/<tipo>.md`), un ejemplo (`assets/ejemplo
 | 3. Guía | `references/tipos/<tipo>.md`, con el esquema de abajo. |
 | 4. Contrato | Solo lo propio del tipo: un bloque o campo nuevo con sus límites y rechazos. |
 | 5. Figura | Solo si el tipo la lleva, con el flujo completo de `diagram-design` (ver `references/diagramas.md`). |
-| 6. Pruebas | En `tests/`, ver «Pruebas mínimas». |
+| 6. Pruebas | En `tests/`, ver «Pruebas mínimas». Si el tipo es de formulario, registrar su salida en `tests/golden/heading-title.json` con `python tests/test_heading_case.py --update`. |
 | 7. Muestra | `python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-<tipo>.json --output docs/muestra-<tipo>.pdf`. |
 | 8. Ajustar la guía | Con la muestra final: páginas reales, huecos de página y descripción de la figura. |
 | 9. Ruteo | Un solo commit: fila en la tabla de `SKILL.md` y la descripción si cambia, línea en el README, entrada en `references/fuentes.md`, fila en `references/codigos.md`, una frase en `references/diagramas.md` y los dos pasos de CI (comprobar la muestra; compilar y comprobar el ejemplo). |
