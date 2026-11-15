@@ -19,7 +19,7 @@ def cargar():
 
 def silenciosa(funcion, argumentos):
     """Las instalaciones imprimen su resultado; la salida de self_test es solo su JSON."""
-    with contextlib.redirect_stdout(io.StringIO()):
+    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
         funcion(argumentos)
 
 
@@ -53,6 +53,16 @@ def run_checks(example, root, checks, build):
     assert len(list(respaldos.glob("*.tar.gz"))) == 1
     assert herramienta.version_de(destino) == esperada
     checks.append({"case": "instalar-reemplaza-y-respalda"})
+
+    otro = root / "instalar" / ".otro" / "skills"
+    ambos = ["--ref", "HEAD", "--destino", str(base), "--destino", str(otro), "--respaldos", str(respaldos)]
+    silenciosa(herramienta.main, ["--ref", "HEAD", "--destino", str(otro), "--respaldos", str(respaldos)])
+    for carpeta in (base, otro):
+        (carpeta / herramienta.NOMBRE / "SKILL.md").write_text("alterada en " + carpeta.parent.name)
+    antes = len(list(respaldos.glob("*.tar.gz")))
+    silenciosa(herramienta.main, ambos)
+    assert len(list(respaldos.glob("*.tar.gz"))) == antes + 2, "dos destinos distintos en el mismo segundo no comparten respaldo"
+    checks.append({"case": "instalar-un-respaldo-por-destino"})
 
     try:
         silenciosa(herramienta.main, ["--ref", "no-existe-esta-referencia", "--destino", str(base)])
