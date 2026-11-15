@@ -2052,6 +2052,9 @@ def main():
         from test_deps import run_checks as check_deps
         check_deps(example, root, checks, build)
 
+        from test_instalar import run_checks as check_instalar
+        check_instalar(example, root, checks, build)
+
         from test_heading_case import run_checks as check_heading_case
         check_heading_case(example, root, checks, build, rejected_with)
 
