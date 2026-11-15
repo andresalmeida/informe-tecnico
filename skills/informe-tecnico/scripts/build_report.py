@@ -673,7 +673,7 @@ def validate_risks(block):
     block["_open_states"] = list(open_states)
 
 
-def bind_risk_block(block, section, counters, table_n, form, mode):
+def bind_risk_block(block, section, counters, table_n, form, mode, separator=". "):
     """Number the register and the summary under the section that holds the block, and number their two tables."""
     parent = section.get("level", 1)
     require(parent in (1, 2),
@@ -695,13 +695,13 @@ def bind_risk_block(block, section, counters, table_n, form, mode):
     matrix_title = block.get("matrix_title", "Matriz de niveles")
     block["_matrix_number_label"] = f"Tabla {table_n}"
     block["_matrix_title"] = matrix_title
-    block["_matrix_label"] = f"Tabla {table_n}. {matrix_title}"
+    block["_matrix_label"] = f"Tabla {table_n}{separator}{matrix_title}"
     table_n += 1
     block["_summary_id"] = block.get("summary_id", block["id"] + "-resumen")
     summary_title = block.get("summary_table_title", "Riesgos abiertos por nivel")
     block["_summary_number_label"] = f"Tabla {table_n}"
     block["_summary_table_title"] = summary_title
-    block["_summary_label"] = f"Tabla {table_n}. {summary_title}"
+    block["_summary_label"] = f"Tabla {table_n}{separator}{summary_title}"
     synthetic = [block["id"], block["_register_id"], block["_summary_heading_id"], block["_summary_id"]]
     require(len(set(synthetic)) == len(synthetic),
             "Riesgos: summary_id coincide con un id que el bloque reserva (" + ", ".join(synthetic) + "). Elegir otro.")
@@ -1412,6 +1412,8 @@ def registry(spec):
     # A form prints «1. Título»; heading_case chooses the capitals. Other kinds keep «1 Título» as written.
     form = KIND_RULES[spec["document"].get("kind", "informe")].get("form", False)
     mode = heading_mode_for(spec)
+    # In the APA profile the printed caption is «Tabla 1» above the title, so the label has no period.
+    separator = " " if spec.get("format", {}).get("profile") == "institucional-apa" else ". "
     labels, counters, table_n, figure_n, procedure_n = {}, [0, 0, 0], 0, 0, 0
     used_numbers = {"table": set(), "figure": set()}
     seen_requirement_ids, requirement_items, matrix_seen = set(), [], False
@@ -1438,7 +1440,7 @@ def registry(spec):
                 items.append((block, block["_label"]))
             if kind == "risks":
                 validate_risks(block)
-                table_n = bind_risk_block(block, section, counters, table_n, form, mode)
+                table_n = bind_risk_block(block, section, counters, table_n, form, mode, separator)
                 items.append(({"id": block["id"]}, block["_matrix_label"]))
                 items.append(({"id": block["_register_id"]}, block["_register_label"]))
                 items.append(({"id": block["_summary_heading_id"]}, block["_summary_heading"]))
@@ -1449,26 +1451,26 @@ def registry(spec):
                 validate_quote(block)
                 table_n += 1
                 block["_number_label"] = f"Tabla {table_n}"
-                block["_label"] = f'Tabla {table_n}. {block["title"]}'
+                block["_label"] = f'Tabla {table_n}{separator}{block["title"]}'
                 items.append((block, block["_label"]))
             if kind == "impact":
                 validate_impact(block)
                 table_n += 1
                 block["_number_label"] = f"Tabla {table_n}"
-                block["_label"] = f'Tabla {table_n}. {block["title"]}'
+                block["_label"] = f'Tabla {table_n}{separator}{block["title"]}'
                 items.append((block, block["_label"]))
             if kind == "wbs":
                 validate_wbs(block)
                 table_n += 1
                 block["_number_label"] = f"Tabla {table_n}"
-                block["_label"] = f'Tabla {table_n}. {block["title"]}'
+                block["_label"] = f'Tabla {table_n}{separator}{block["title"]}'
                 items.append((block, block["_label"]))
             if kind == "requirements":
                 matrix_seen = validate_requirements(block, seen_requirement_ids, requirement_items, matrix_seen) or matrix_seen
                 if block.get("matrix"):
                     table_n += 1
                     block["_number_label"] = f"Tabla {table_n}"
-                    block["_label"] = f'Tabla {table_n}. {block["title"]}'
+                    block["_label"] = f'Tabla {table_n}{separator}{block["title"]}'
                     items.append((block, block["_label"]))
                 else:
                     for requirement in block["items"]:
@@ -1491,7 +1493,6 @@ def registry(spec):
                 require(str(number) not in used_numbers[kind], f"Número duplicado: {kind} {number}")
                 used_numbers[kind].add(str(number))
                 block["_number_label"] = f'{"Tabla" if kind == "table" else "Figura"} {number}'
-                separator = " " if spec.get("format", {}).get("profile") == "institucional-apa" else ". "
                 block["_label"] = block["_number_label"] + separator + block["title"]
                 items.append((block, block["_label"]))
         for item, label in items:
@@ -1848,19 +1849,20 @@ def compile_report(source, output):
             require(key in change, f"Cambio sin {key}")
         date.fromisoformat(change["date"])
         affects = "; ".join("{{ref:"+key+"}}" for key in change.get("affects", []))
-        history.append([change["version"], change["date"], change["summary"]+("\n"+affects if affects else ""), change["author"]])
+        history.append([change["version"], date.fromisoformat(change["date"]).strftime("%d/%m/%Y"),
+                        change["summary"]+("\n"+affects if affects else ""), change["author"]])
     if document_kind == "informe":
         story = [probe, Spacer(1,22*mm), p(m["code"], "kicker"), p(m["title"], "title")]
         if m.get("subtitle"):
             story += [p(m["subtitle"], "plain")]
         story += [Spacer(1,12*mm), p(spec["brand"]["entity"], "h2"),
                   p(spec["brand"].get("unit", ""), "plain"), Spacer(1,14*mm),
-                  p(f'Versión {m["version"]} · {m["date"]} · {m["status"]}', "small")]
+                  p(f'Versión {m["version"]} · {date.fromisoformat(m["date"]).strftime("%d/%m/%Y")} · {m["status"]}', "small")]
         if m.get("notice"):
             story += [p(m["notice"], "small")]
         story += [PageBreak(), p("Control de cambios", "h1")]
         # The APA header is 11 pt bold: reserve enough width to keep «Versión» whole.
-        history_widths = [1.15,1.5,4.85,2] if apa else [1,1.5,5,2]
+        history_widths = [1.4,1.5,4.6,2] if apa else [1,1.5,5,2]
         story += [table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], history, history_widths)]
         if m.get("control_note"):
             story += [p(m["control_note"], "small")]
@@ -1994,7 +1996,7 @@ def compile_report(source, output):
                         components += [p(f'Fuente: {block["source"]}',"small")]
                 story += [KeepTogether(components)]
     if show_changes:
-        dated = [[row[0], date.fromisoformat(row[1]).strftime("%d/%m/%Y")]+row[2:] for row in history]
+        dated = history
         closing = [p(heading_text("Histórico de revisiones", mode) if form else "Histórico de revisiones", "h1"),
                    table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], dated, [1,1.5,5,2])]
         story = append_closing(story, closing, doc.width, doc.height) if form else story + closing

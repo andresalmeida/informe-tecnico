@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo.json",
   "source_sha256": "82740e3267e8b9038d0b292a2b54ea17e956f7809e7efc63d7070ac650edbaf9",
-  "pdf_sha256": "2050ed548112f8ef43e0360b2ab6c15fe4e733c9a6cd325cdd0d1abc3b4d5afa",
+  "pdf_sha256": "1ee655c3df4a093c321762f7f983ed017937d4f6073df796b6451a035df22009",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",
@@ -24,6 +24,15 @@
     "author": "Demostración de la skill informe-tecnico",
     "notice": "Muestra ficticia para evaluar estructura y composición. No describe un sistema desplegado ni acredita aprobación institucional.",
     "control_note": "Los localizadores enlazan a objetos de esta edición. Las páginas se calculan al compilar; no se registran manualmente en el historial."
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
   },
   "entries": [
     {
@@ -126,6 +135,22 @@
     }
   ],
   "labels": {
+    "introduccion": "1 Introducción",
+    "objetivos": "2 Objetivos",
+    "alcance": "3 Alcance y límites",
+    "desarrollo": "4 Desarrollo técnico",
+    "modelo": "4.1 Modelo documental",
+    "flujo": "Figura 1. Ciclo de revisión documental",
+    "convenciones": "4.2 Convenciones de contenido",
+    "catalogo": "4.3 Catálogo de campos documentales",
+    "campos": "Tabla 1. Campos y controles de la fuente documental",
+    "revision": "4.4 Preparación de una nueva revisión",
+    "validacion": "5 Resultados y validación",
+    "criterios": "Tabla 2. Comprobaciones antes de entregar",
+    "conclusiones": "6 Conclusiones y recomendaciones",
+    "referencias": "7 Referencias de diseño"
+  },
+  "reference_labels": {
     "introduccion": "1 Introducción",
     "objetivos": "2 Objetivos",
     "alcance": "3 Alcance y límites",

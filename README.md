@@ -12,26 +12,35 @@ Una skill para agentes (Claude Code, Codex, Cursor y otros) que redacta y compil
 
 ## Qué produce
 
-Veintidós tipos de documento y un dossier, pensados para seguir un proyecto del primer encuentro al cierre. Casi ningún proyecto los usa todos. Estos seis cubren la mayoría:
+Veintidós tipos de documento y un dossier, ordenados por la fase del proyecto en la que se usan. Casi ningún proyecto los usa todos: los seis en **negrita** son el núcleo que cubre la mayoría. Cada nombre enlaza a su PDF de muestra.
 
-| Documento | Para qué |
-|---|---|
-| [Acta de reunión](docs/muestra-acta-reunion.pdf) | Dejar constancia de lo tratado y de los compromisos |
-| [Informe de factibilidad](docs/muestra-informe-factibilidad.pdf) | Decidir si una propuesta técnica se puede asumir |
-| [Propuesta de servicio](docs/muestra-propuesta-servicio.pdf) | Ofrecer qué se hace, en qué plazo y por cuánto |
-| [Alcance del proyecto](docs/muestra-alcance-proyecto.pdf) | Fijar qué se construye y quién lo acepta |
-| [Plan de pruebas de aceptación](docs/muestra-plan-pruebas.pdf) | Acordar casos, registrar resultados y cerrar con un certificado |
-| [Acta de entrega y recepción](docs/muestra-acta-entrega.pdf) | Registrar qué se entregó y con qué conformidad |
+| Fase | Documento | Para qué |
+|---|---|---|
+| **Levantamiento** | **[Acta de reunión](docs/muestra-acta-reunion.pdf)** | Dejar constancia de lo tratado y de los compromisos |
+|  | [Registro de requerimientos](docs/muestra-registro-requerimientos.pdf) | Anotar un pedido recibido antes de evaluarlo |
+| **Factibilidad** | **[Informe de factibilidad](docs/muestra-informe-factibilidad.pdf)** | Decidir si una propuesta técnica se puede asumir |
+|  | [Registro de riesgos](docs/muestra-registro-riesgos.pdf) | Seguir los riesgos, con el nivel calculado desde una matriz |
+|  | [Evaluación de impacto en datos](docs/muestra-evaluacion-impacto-datos.pdf) | Valorar qué datos personales se tratan y qué medidas los protegen |
+| **Propuesta** | **[Propuesta de servicio](docs/muestra-propuesta-servicio.pdf)** | Ofrecer qué se hace, en qué plazo y por cuánto |
+| **Arranque y planificación** | **[Alcance del proyecto](docs/muestra-alcance-proyecto.pdf)** | Fijar qué se construye y quién lo acepta |
+|  | **[Plan de pruebas de aceptación](docs/muestra-plan-pruebas.pdf)** | Acordar los casos al arrancar y registrar los resultados en la validación |
+|  | [Especificación de requisitos](docs/muestra-especificacion-requisitos.pdf) | Qué debe cumplir el sistema, cada requisito trazado a su origen y a su prueba |
+|  | [Decisión de arquitectura](docs/muestra-decision-arquitectura.pdf) | Registrar una decisión con sus opciones y sus razones |
+|  | [Descripción de arquitectura](docs/muestra-descripcion-arquitectura.pdf) | Las vistas del sistema para operarlo o extenderlo |
+|  | [Plan de proyecto](docs/muestra-plan-proyecto.pdf) | Qué se entrega, en qué hitos y con qué esfuerzo |
+|  | [Ficha de modelo](docs/muestra-ficha-modelo.pdf) | Acompañar un modelo estadístico o de aprendizaje automático |
+| **Construcción** | [Solicitud de cambio](docs/muestra-solicitud-cambio.pdf) | Pedir un cambio sobre lo ya aprobado, con su impacto y la decisión |
+| **Entrega y cierre** | **[Acta de entrega y recepción](docs/muestra-acta-entrega.pdf)** | Registrar qué se entregó y con qué conformidad |
+|  | [Acta de capacitación](docs/muestra-acta-capacitacion.pdf) | Constancia de la capacitación a quienes usarán el sistema |
+|  | [Traspaso a operación](docs/muestra-traspaso-operacion.pdf) | Quién opera, cómo se comprueba y cómo se vuelve atrás |
+|  | [Informe de cierre](docs/muestra-informe-cierre.pdf) | Balance interno del proyecto |
+| **Operación y evolución** | [Notas de versión](docs/muestra-notas-version.pdf) | Qué cambia en cada versión que se publica |
+| **Retiro** | [Acta de baja](docs/muestra-acta-baja.pdf) | Retirar un sistema, un módulo o un procedimiento, con autorización |
+| **Fuera del proyecto** | [Informe, manual o catálogo](docs/muestra-informe-tecnico.pdf) | Documentación técnica de un sistema, con criterios APA 7 |
+|  | [Ficha de proceso](docs/muestra-ficha-proceso.pdf) | Cómo trabaja un proceso de la entidad (SIPOC) |
+|  | [Dossier de sistema](docs/muestra-dossier.pdf) | Cómo funciona un sistema y qué tan confiable es, en 6 a 8 páginas (flujo aparte, con la skill `nasa-handbook`) |
 
-<details>
-<summary>Los otros dieciséis tipos</summary>
-
-Informe, manual o catálogo; registro de requerimientos; registro de riesgos; evaluación de impacto en datos; especificación de requisitos; decisión de arquitectura; descripción de arquitectura; plan de proyecto; solicitud de cambio; acta de capacitación; traspaso a operación; notas de versión; informe de cierre; acta de baja; ficha de modelo; ficha de proceso. El dossier de sistema es un flujo aparte que no usa el motor JSON.
-
-Cada uno tiene su guía en [`skills/informe-tecnico/references/`](skills/informe-tecnico/references/), un JSON de partida en `assets/` y un PDF de muestra en [`docs/`](docs/).
-</details>
-
-Qué documento va en cada fase y cuáles son indispensables: [mapa de uso](skills/informe-tecnico/references/flujo-proyecto.md).
+Cada tipo tiene su guía en [`skills/informe-tecnico/references/tipos/`](skills/informe-tecnico/references/tipos/) y un JSON de partida en `assets/`. El [mapa de uso](skills/informe-tecnico/references/flujo-proyecto.md) explica además quién ve cada documento y cuándo se versiona.
 
 ## Cómo se usa
 
