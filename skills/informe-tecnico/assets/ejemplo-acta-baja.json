@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "acta-baja",
+    "code": "DEMO-BAJ-01",
+    "title": "Acta de baja del procedimiento manual de cobro",
+    "short_title": "Acta de baja",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2027-01-19",
+    "version": "0.1",
+    "status": "Demostración",
+    "notice": "Entidad, personas, códigos y fechas ficticios. Borrador de baja prevista; autorización, producción y ejecución pendientes.",
+    "show_changes": true,
+    "lifecycle": {
+      "state": "borrador"
+    }
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2027-01-19",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Iván Salas"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 1,
+          "items": [
+            {
+              "label": "Objeto de baja",
+              "value": "Procedimiento manual de cobro por teléfono posterior a la reserva"
+            },
+            {
+              "label": "Tipo e identificación",
+              "value": "Procedimiento; documento heredado sin código. Versión: Por confirmar con Operaciones de reservas."
+            },
+            {
+              "label": "Fecha efectiva prevista",
+              "value": "20/01/2027 (prevista), solo después de la entrega y de una puesta en producción verificada. Fecha efectiva real: Pendiente."
+            },
+            {
+              "label": "Motivo",
+              "value": "Sustituir la coordinación telefónica y conciliación manual descritas en DEMO-REQ-014 por el módulo de pagos de DEMO-ALC-01."
+            },
+            {
+              "label": "Autoriza la baja",
+              "value": "Por confirmar. La aprobación de esta acta y la autoridad competente siguen pendientes."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Baja prevista, sin ejecutar. DEMO-ENT-01 recibió E1 a E5 para revisión el 08/01/2027. DEMO-ATP-01 sigue sin ejecutar y DEMO-CIE-01 conserva la conformidad pendiente. No consta puesta en producción. La fecha prevista se reprogramará si esas condiciones no se cumplen; esta acta no ordena retirar el procedimiento mientras falte la autorización."
+        }
+      ]
+    },
+    {
+      "id": "alcance",
+      "title": "Alcance de la baja",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "perimetro",
+          "title": "Qué sale y qué se mantiene",
+          "headers": [
+            "Tratamiento",
+            "Alcance"
+          ],
+          "rows": [
+            [
+              "Sale cuando se autorice",
+              "Coordinación del cobro por teléfono después de reservar y conciliación manual del circuito sustituido. Se suspende la distribución de instrucciones antiguas."
+            ],
+            [
+              "Se mantiene",
+              "Atención de consultas e incidencias, conservación de evidencia y tratamiento de operaciones históricas hasta completar su conciliación."
+            ],
+            [
+              "Fuera de esta baja",
+              "Pagos en efectivo y pagos recurrentes, excluidos de DEMO-ALC-01. Sus procedimientos aplicables se confirman con Operaciones; esta acta no los retira."
+            ]
+          ],
+          "widths": [
+            1.5,
+            5.5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "impacto",
+      "title": "Dependencias e impacto",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "dependencias",
+          "title": "Dependencias, impacto y aviso",
+          "headers": [
+            "Dependencia / afectado",
+            "Condición o impacto",
+            "Aviso y responsable"
+          ],
+          "rows": [
+            [
+              "Operaciones de reservas y atención telefónica",
+              "Cambiar instrucciones solo tras aceptación, formación acreditada y fecha autorizada.",
+              "Soledad Paredes coordina aviso previo; fecha y constancia: Pendiente."
+            ],
+            [
+              "Módulo de pagos, API y pasarela",
+              "Necesita evidencia de puesta en producción, revisión externa y tratamiento de R-04, R-05 y R-08 de DEMO-RIE-01.",
+              "Iván Salas coordina con Marta Quiroga; autorización y evidencia: Pendiente."
+            ],
+            [
+              "Personas con operaciones históricas abiertas",
+              "Mantener un canal de atención y conciliar saldos sin perder trazabilidad.",
+              "Soledad Paredes confirma afectados y canal; aviso: Pendiente."
+            ]
+          ],
+          "widths": [
+            2,
+            2.8,
+            2.7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datos",
+      "title": "Datos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El siguiente tratamiento está propuesto. No se ha migrado ni eliminado información por efecto de este documento. Los plazos de conservación proceden de la política de la entidad y están Por confirmar."
+        },
+        {
+          "type": "table",
+          "id": "tratamiento",
+          "title": "Conservación, migración y eliminación previstas",
+          "headers": [
+            "Datos",
+            "Tratamiento previsto",
+            "Plazo",
+            "Responsable"
+          ],
+          "rows": [
+            [
+              "Instrucciones y registros históricos del cobro manual",
+              "Conservar copia identificada, registros y evidencia de conciliación. Ubicación: Por confirmar.",
+              "Por confirmar según política",
+              "Soledad Paredes"
+            ],
+            [
+              "Operaciones abiertas y saldos pendientes",
+              "Evaluar migración; conciliar origen y destino antes de cerrar el circuito. Sin ejecución acreditada.",
+              "Por confirmar antes de la baja efectiva",
+              "Iván Salas con Operaciones"
+            ],
+            [
+              "Copias operativas redundantes",
+              "Inventariar. Eliminación no autorizada; conservar hasta decisión expresa y registro de disposición.",
+              "Por confirmar; sin fecha de borrado",
+              "Soledad Paredes con custodia documental"
+            ]
+          ],
+          "widths": [
+            1.7,
+            3,
+            1.5,
+            1.6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sustituto",
+      "title": "Sustituto o alternativa",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El sustituto previsto es el módulo de pagos definido por DEMO-ALC-01 y descrito en DEMO-ARQ-01, con requisitos en DEMO-ERS-01 y recepción para revisión en DEMO-ENT-01. Sus versiones y ubicaciones siguen Por confirmar con Iván Salas. La alternativa transitoria es mantener el procedimiento manual bajo Operaciones hasta que consten las condiciones de baja. No se inventa un código del sistema ni una puesta en producción."
+        }
+      ]
+    },
+    {
+      "id": "plan",
+      "title": "Plan y verificación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "pasos",
+          "title": "Plan propuesto y evidencia de baja",
+          "headers": [
+            "Paso",
+            "Fecha",
+            "Comprobación / resultado",
+            "Responsable"
+          ],
+          "rows": [
+            [
+              "1. Resolver aceptación y condiciones de salida",
+              "Antes de la baja; Por confirmar",
+              "ATP ejecutado, conformidad y revisión externa. Resultado: Pendiente.",
+              "Diego Arce / Marta Quiroga / Soledad Paredes"
+            ],
+            [
+              "2. Verificar producción y autorizar fecha efectiva",
+              "Después de la entrega; Por confirmar",
+              "Registro de producción y autorización por autoridad confirmada. Resultado: Pendiente.",
+              "Iván Salas; autoridad: Por confirmar"
+            ],
+            [
+              "3. Avisar, conciliar y retirar instrucciones de uso",
+              "20/01/2027 (prevista y condicionada)",
+              "Constancia de aviso, saldos conciliados y puntos de uso revisados. Resultado: Pendiente.",
+              "Soledad Paredes"
+            ],
+            [
+              "4. Marcar copias y conservar el expediente",
+              "Después del retiro efectivo; Por confirmar",
+              "Cada copia con banda de retirado; custodia y política de conservación acordadas antes de archivar. Resultado: Pendiente.",
+              "Custodia documental: Por confirmar"
+            ]
+          ],
+          "widths": [
+            2.1,
+            1.5,
+            3,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "documentos",
+      "title": "Documentos afectados",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Los estados siguientes son destinos propuestos del ciclo de vida documental; no han sido aplicados. El acta permanece en borrador. Los códigos DEMO-ALC-01, DEMO-ARQ-01 y DEMO-ENT-01 se conservan como evidencia y no se retiran por esta propuesta."
+        },
+        {
+          "type": "table",
+          "id": "afectados",
+          "title": "Transiciones documentales previstas",
+          "headers": [
+            "Código o identificación",
+            "Estado nuevo propuesto",
+            "Fecha efectiva",
+            "Condición"
+          ],
+          "rows": [
+            [
+              "Documento heredado sin código: instrucciones de cobro por teléfono",
+              "retirado",
+              "Pendiente",
+              "Baja autorizada y ejecutada; identificar todas las copias y su versión."
+            ],
+            [
+              "Misma copia heredada, después de retirada",
+              "archivado",
+              "Pendiente",
+              "Plazo y ubicación de conservación acordados. No borrar."
+            ]
+          ],
+          "widths": [
+            2.5,
+            1.8,
+            1.3,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Iván Salas\nResponsable de ingeniería de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Rafael Mena\nComité de calidad",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "La firma de aprobación documental no acredita por sí sola la ejecución de la baja. Identificar además a la autoridad competente y conservar su decisión antes de aplicar las transiciones."
+        }
+      ]
+    }
+  ]
+}

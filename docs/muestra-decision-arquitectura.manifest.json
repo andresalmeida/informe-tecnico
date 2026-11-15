@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-decision-arquitectura.json",
+  "source_sha256": "d7e345e30dc9c29128f351e0a55a7c01b509c50a51d153b6e7f5605aaad3c8d2",
+  "pdf_sha256": "bac56603bd4f59024c4dad8da5ae83693152c3d6911b5b36aa76cbd32bf0d2c9",
+  "assets": [],
+  "pages": 2,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "decision-arquitectura",
+    "code": "DEMO-ADR-01",
+    "title": "Decisión de arquitectura",
+    "short_title": "Decisión de arquitectura",
+    "subtitle": "Módulo de pagos · Ejemplo ficticio",
+    "date": "2026-11-10",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "contexto",
+      "label": "2. Contexto y problema",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "opciones",
+      "label": "3. Opciones consideradas",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "alternativas",
+      "label": "Tabla 1. Alternativas de captura",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "decision",
+      "label": "4. Decisión",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "consecuencias",
+      "label": "5. Consecuencias",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "seguimiento",
+      "label": "6. Seguimiento",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "responsabilidad",
+      "label": "7. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 2. Firmas de responsabilidad",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "contexto": "2. Contexto y problema",
+    "opciones": "3. Opciones consideradas",
+    "alternativas": "Tabla 1. Alternativas de captura",
+    "decision": "4. Decisión",
+    "consecuencias": "5. Consecuencias",
+    "seguimiento": "6. Seguimiento",
+    "responsabilidad": "7. Firmas de responsabilidad",
+    "firmas": "Tabla 2. Firmas de responsabilidad"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "contexto": "2. Contexto y problema",
+    "opciones": "3. Opciones consideradas",
+    "alternativas": "Tabla 1. Alternativas de captura",
+    "decision": "4. Decisión",
+    "consecuencias": "5. Consecuencias",
+    "seguimiento": "6. Seguimiento",
+    "responsabilidad": "7. Firmas de responsabilidad",
+    "firmas": "Tabla 2. Firmas de responsabilidad"
+  }
+}

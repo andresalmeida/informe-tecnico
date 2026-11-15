@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-propuesta-sustituida.json",
+  "source_sha256": "f3d61aec818e38a2ff71ea9aabd712a1addf616f95e85efa493dff8548504abe",
+  "pdf_sha256": "261165f6f4c2cc4d0aeea9488e77da823d252d8f69e38038862d43d4458c4852",
+  "assets": [],
+  "pages": 4,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "propuesta-servicio",
+    "code": "DEMO-PRO-01",
+    "title": "Propuesta de servicio",
+    "short_title": "Propuesta de servicio",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-12",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true,
+    "lifecycle": {
+      "state": "sustituido",
+      "superseded_by": "DEMO-PRO-01",
+      "superseded_by_version": "0.2"
+    },
+    "notice": "Ejemplo ficticio de sustitución entre versiones del mismo documento. Se conserva la propuesta 0.1; no acredita aceptación comercial ni firmas."
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "resumen",
+      "label": "1. Resumen",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "necesidad",
+      "label": "2. Necesidad y objetivo",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "solucion",
+      "label": "3. Solución propuesta",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "alcance",
+      "label": "4. Alcance y exclusiones",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "entregables",
+      "label": "Tabla 1. Entregables",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "cronograma",
+      "label": "5. Cronograma",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "fases",
+      "label": "Tabla 2. Fases e hitos de la parte solicitante",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "solicitud",
+      "label": "6. Lo que necesitamos de la parte solicitante",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "aportes",
+      "label": "Tabla 3. Aportes de Operaciones de reservas",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "riesgos",
+      "label": "7. Supuestos y riesgos relevantes",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "inversion",
+      "label": "8. Inversión",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "cotizacion",
+      "label": "Tabla 4. Cotización del módulo de pagos",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "condiciones",
+      "label": "9. Condiciones",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "aceptacion",
+      "label": "10. Aceptación",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 5. Aceptación de las dos partes",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    }
+  ],
+  "labels": {
+    "resumen": "1. Resumen",
+    "necesidad": "2. Necesidad y objetivo",
+    "solucion": "3. Solución propuesta",
+    "alcance": "4. Alcance y exclusiones",
+    "entregables": "Tabla 1. Entregables",
+    "cronograma": "5. Cronograma",
+    "fases": "Tabla 2. Fases e hitos de la parte solicitante",
+    "solicitud": "6. Lo que necesitamos de la parte solicitante",
+    "aportes": "Tabla 3. Aportes de Operaciones de reservas",
+    "riesgos": "7. Supuestos y riesgos relevantes",
+    "inversion": "8. Inversión",
+    "cotizacion": "Tabla 4. Cotización del módulo de pagos",
+    "condiciones": "9. Condiciones",
+    "aceptacion": "10. Aceptación",
+    "firmas": "Tabla 5. Aceptación de las dos partes"
+  },
+  "reference_labels": {
+    "resumen": "1. Resumen",
+    "necesidad": "2. Necesidad y objetivo",
+    "solucion": "3. Solución propuesta",
+    "alcance": "4. Alcance y exclusiones",
+    "entregables": "Tabla 1. Entregables",
+    "cronograma": "5. Cronograma",
+    "fases": "Tabla 2. Fases e hitos de la parte solicitante",
+    "solicitud": "6. Lo que necesitamos de la parte solicitante",
+    "aportes": "Tabla 3. Aportes de Operaciones de reservas",
+    "riesgos": "7. Supuestos y riesgos relevantes",
+    "inversion": "8. Inversión",
+    "cotizacion": "Tabla 4. Cotización del módulo de pagos",
+    "condiciones": "9. Condiciones",
+    "aceptacion": "10. Aceptación",
+    "firmas": "Tabla 5. Aceptación de las dos partes"
+  },
+  "lifecycle": {
+    "state": "sustituido",
+    "superseded_by": "DEMO-PRO-01",
+    "superseded_by_version": "0.2"
+  }
+}

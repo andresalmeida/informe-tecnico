@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "traspaso-operacion",
+    "code": "DEMO-TRA-01",
+    "title": "Traspaso a operación",
+    "short_title": "Traspaso a operación",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-08",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2027-01-08",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Iván Salas"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Este traspaso acompaña la entrega DEMO-ENT-01 del 08/01/2027. La ventana es la semana del 04/01/2027 al 10/01/2027, fuera de los periodos de mayor demanda, como fijan DEMO-ALC-01 y el riesgo R-08. Las comprobaciones no se dan por hechas: los casos de DEMO-ATP-01 siguen sin ejecutar."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Número", "value": "DEMO-TRA-01"},
+            {"label": "Sistema", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Versión desplegada", "value": "1.0.0, de demostración. La versión de la plataforma sigue Por confirmar, como en la descripción de arquitectura."},
+            {"label": "Fecha", "value": "08/01/2027"},
+            {"label": "Ventana", "value": "Del 04/01/2027 al 10/01/2027. Soledad Paredes confirma la ventana. Estado de R-08: Abierto."},
+            {"label": "Entorno", "value": "Producción. Dos instancias del servicio, de 2 vCPU y 4 GB, como en DEMO-ALC-01. El sistema operativo sigue Por confirmar."},
+            {"label": "Documentos relacionados", "value": "DEMO-ENT-01. DEMO-ALC-01. DEMO-ATP-01. DEMO-CAP-01. DEMO-RIE-01. DEMO-PPR-01."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "componentes",
+      "title": "Qué pasa a operación",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "inventario",
+          "title": "Componentes y quién responde después del paso",
+          "headers": ["Componente", "Quién responde"],
+          "widths": [2.6, 4.2],
+          "rows": [
+            ["E1. Servicio de pagos", "Soledad Paredes, operaciones de reservas. El soporte de desarrollo lo da Julián Benítez."],
+            ["E2. Registro de pagos", "Soledad Paredes, operaciones de reservas."],
+            ["E3. Ajuste de la API de reservas", "Julián Benítez, desarrollo, durante el soporte posterior."],
+            ["E4. Paso de pago en el cliente web", "Camila Ortega, desarrollo, durante el soporte posterior."],
+            ["E5. Capacitación", "Hecha el 07/01/2027, según DEMO-CAP-01. La constancia sigue por completar, a cargo de Marta Quiroga."],
+            ["Pasarela", "Fuera del módulo. Responde el proveedor."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soporte",
+      "title": "Quién opera y quién da soporte",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Quién opera", "value": "Operaciones de reservas. Responsable: Soledad Paredes."},
+            {"label": "Quién da soporte de desarrollo", "value": "Camila Ortega y Julián Benítez, con coordinación de Iván Salas."},
+            {"label": "Horario", "value": "Por confirmar con Operaciones de reservas."},
+            {"label": "Vía de contacto", "value": "El canal de operaciones de reservas. La dirección queda Por confirmar."},
+            {"label": "Límites del soporte", "value": "Cubre el cobro con tarjeta, el reembolso y la conciliación diaria. No cubre pagos en efectivo ni pagos recurrentes, que DEMO-ALC-01 deja fuera. No cubre una caída de la pasarela."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "verificacion",
+      "title": "Verificación posterior",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ninguna comprobación de esta tabla está hecha. El resultado de partida es Pendiente. Diego Arce, pruebas, ejecuta los casos de DEMO-ATP-01. El plazo de esa ejecución queda Por confirmar, como en DEMO-ENT-01."
+        },
+        {
+          "type": "table",
+          "id": "comprobaciones",
+          "title": "Comprobaciones del paso",
+          "headers": ["Comprobación", "Método", "Resultado"],
+          "widths": [3.2, 2.2, 1.4],
+          "rows": [
+            ["CP-01. El 95 % de los pagos de prueba se confirma en menos de 5 segundos.", "Prueba, DEMO-ATP-01", "Pendiente"],
+            ["CP-02. Ningún dato de tarjeta queda en los servidores propios.", "Inspección, DEMO-ATP-01", "Pendiente"],
+            ["CP-05. El informe diario coincide con el extracto del piloto.", "Prueba, DEMO-ATP-01", "Pendiente"],
+            ["R-05. Revisión externa de seguridad antes del paso.", "Inspección externa", "Pendiente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reversa",
+      "title": "Plan de reversa",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La reversa se dispara si el servicio de reservas se interrumpe durante la ventana, o si Soledad Paredes la ordena. Quien decide es Soledad Paredes. El tiempo máximo queda Por confirmar."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Detener el servicio de pagos en las dos instancias de producción.",
+            "Dejar la reserva sin el paso de pago, como estaba antes de esta ventana.",
+            "Conservar la tabla de transacciones para la conciliación. No se borra."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoreo",
+      "title": "Monitoreo y alertas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se vigila el informe diario de conciliación y la disponibilidad del servicio de pagos durante la ventana de R-08. El umbral de alerta queda Por confirmar. Lo que no consta no se rellena con una cifra."
+        }
+      ]
+    },
+    {
+      "id": "accesos",
+      "title": "Accesos",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Los accesos se entregan fuera de este documento, en el depósito de secretos del equipo. La herramienta de ese depósito queda Por confirmar. Este documento no lleva claves, tokens ni secretos. Quien los entrega es Iván Salas. Quien los recibe es Soledad Paredes."
+        }
+      ]
+    },
+    {
+      "id": "pendientes",
+      "title": "Pendientes conocidos y soporte posterior",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "abiertos",
+          "title": "Pendientes que pasan con la operación",
+          "headers": ["Pendiente", "Dónde consta", "Estado"],
+          "widths": [3.4, 2.0, 1.4],
+          "rows": [
+            ["Ejecutar CP-01 a CP-05 y registrar la evidencia.", "DEMO-ATP-01 y DEMO-ENT-01", "Pendiente"],
+            ["Completar la revisión externa de seguridad.", "R-05 de DEMO-RIE-01", "Pendiente"],
+            ["Completar la constancia de capacitación.", "DEMO-CAP-01 y DEMO-ENT-01", "Pendiente"],
+            ["Confirmar la versión de la plataforma y la de la API.", "DEMO-ALC-01 y R-04", "Por confirmar"],
+            ["Acordar el plazo de cancelación con reembolso total.", "DEMO-ALC-01", "Por confirmar"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "El soporte posterior empieza el 08/01/2027, con la entrega. La fecha en que termina queda Por confirmar."
+        }
+      ]
+    },
+    {
+      "id": "firmas",
+      "title": "Firmas",
+      "new_page": true,
+      "blocks": [
+        {
+          "type": "table",
+          "id": "responsables",
+          "title": "Firmas de quien entrega y de quien recibe",
+          "headers": ["Papel", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.5, 2.4, 1.6, 1.2],
+          "rows": [
+            ["Entrega", "Iván Salas\nResponsable de ingeniería de software", "\n________________", "Pendiente"],
+            ["Recibe", "Soledad Paredes\nJefa de operaciones de reservas", "\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

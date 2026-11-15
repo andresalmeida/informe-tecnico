@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "notas-version",
+    "code": "DEMO-NOV-01",
+    "title": "Notas de la versión 1.0.0",
+    "short_title": "Notas de la versión",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-08",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2027-01-08",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Iván Salas"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Versión y fecha",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La versión 1.0.0 entrega el cobro con tarjeta del módulo de pagos. Los pagos recurrentes pedidos en DEMO-SCM-01 no entran: esa solicitud quedó diferida. Las pruebas de DEMO-ATP-01 siguen sin ejecutar y el certificado de aceptación está pendiente."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Producto", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Versión", "value": "1.0.0, de demostración"},
+            {"label": "Fecha", "value": "08/01/2027"},
+            {"label": "Quién publica", "value": "Iván Salas, responsable de ingeniería de software"},
+            {"label": "Documentos relacionados", "value": "DEMO-ENT-01. DEMO-TRA-01. DEMO-ALC-01. DEMO-ATP-01. DEMO-CAP-01. DEMO-SCM-01. DEMO-RIE-01."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cambios",
+      "title": "Cambios",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Cada fila dice el tipo de cambio y el documento que lo originó. El identificador de tarea del tablero queda Por registrar: DEMO-PPR-01 no fija la herramienta. Un tipo sin filas no se imprime. Esta versión no trae cambios mejorados, corregidos ni retirados."
+        },
+        {
+          "type": "table",
+          "id": "lista",
+          "title": "Cambios de la versión 1.0.0",
+          "headers": ["Tipo", "Cambio", "Origen"],
+          "widths": [1.2, 3.2, 2.4],
+          "rows": [
+            ["Nuevo", "Servicio de pagos, registro de transacciones e informe diario de conciliación.", "DEMO-ALC-01, E1 y E2. Tarea: Por registrar."],
+            ["Nuevo", "Estado de pago pendiente en la API de reservas y paso de pago en el cliente web.", "DEMO-ALC-01, E3 y E4. Tarea: Por registrar."],
+            ["Nuevo", "Capacitación de operaciones sobre el cobro, el reembolso y la conciliación.", "DEMO-CAP-01, E5, del 07/01/2027."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "compatibilidad",
+      "title": "Compatibilidad y actualización",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La versión usa los campos alojados por la pasarela. La versión de la API sigue Por confirmar, como la condición de DEMO-ALC-01 y el riesgo R-04. No admite pagos en efectivo ni pagos recurrentes."
+        },
+        {
+          "type": "list",
+          "ordered": true,
+          "items": [
+            "Desplegar en la ventana del 04/01/2027 al 10/01/2027, fuera de la mayor demanda, según DEMO-TRA-01.",
+            "Usar las dos instancias de producción descritas en DEMO-ALC-01.",
+            "No almacenar datos de tarjeta en los servidores de la entidad."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "problemas",
+      "title": "Problemas conocidos",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "conocidos",
+          "title": "Problemas que siguen abiertos",
+          "headers": ["Problema", "Dónde consta", "Estado"],
+          "widths": [3.4, 2.2, 1.2],
+          "rows": [
+            ["La revisión externa de seguridad no está hecha.", "R-05 de DEMO-RIE-01", "Pendiente"],
+            ["La ventana de despliegue debe quedar fuera de la mayor demanda.", "R-08 de DEMO-RIE-01", "Abierto"],
+            ["El plazo de cancelación con reembolso total no está acordado.", "DEMO-ALC-01", "Por confirmar"],
+            ["Los casos de aceptación no están ejecutados.", "DEMO-ATP-01", "Pendiente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pruebas",
+      "title": "Estado de las pruebas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El plan es DEMO-ATP-01, del 17/11/2026. Ningún caso está ejecutado. El certificado de aceptación sigue pendiente, igual que en DEMO-ENT-01."
+        },
+        {
+          "type": "table",
+          "id": "casos",
+          "title": "Casos del plan en esta versión",
+          "headers": ["Caso", "Estado"],
+          "widths": [1.4, 5.4],
+          "rows": [
+            ["CP-01", "Sin ejecutar. Rendimiento."],
+            ["CP-02", "Sin ejecutar. Seguridad."],
+            ["CP-03", "Sin ejecutar. Fiabilidad."],
+            ["CP-04", "Sin ejecutar. Compatibilidad."],
+            ["CP-05", "Sin ejecutar. Conciliación."]
+          ]
+        }
+      ]
+    }
+  ]
+}

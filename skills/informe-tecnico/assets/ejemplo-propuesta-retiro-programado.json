@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "propuesta-servicio",
+    "code": "DEMO-PRO-02",
+    "title": "Propuesta con retiro programado",
+    "short_title": "Propuesta con retiro programado",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-12",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true,
+    "lifecycle": {
+      "state": "vigente",
+      "supersedes": [
+        "DEMO-PRO-01"
+      ],
+      "retire_on": "2026-12-11"
+    },
+    "notice": "Simulación independiente de vigencia y retiro programado. No acredita que la propuesta de la cadena haya sido aceptada."
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-12",
+      "version": "0.2",
+      "summary": "Escenario de demostración de un retiro programado.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Código y versión",
+              "value": "DEMO-PRO-02 · 0.2"
+            },
+            {
+              "label": "Fecha del corte",
+              "value": "12/11/2026"
+            },
+            {
+              "label": "Sustituye a",
+              "value": "DEMO-PRO-01"
+            },
+            {
+              "label": "Retiro previsto",
+              "value": "11/12/2026"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Este ejemplo breve ilustra una versión vigente con fecha de retiro anunciada. Es un escenario de demostración del motor. Las condiciones económicas y los compromisos del proyecto se consultan en su expediente; este ejemplo no crea una aprobación ni una puesta en producción."
+        }
+      ]
+    }
+  ]
+}

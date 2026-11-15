@@ -5,6 +5,9 @@ import json
 from datetime import date
 from pathlib import Path
 
+import deps
+deps.check(('docx',), 'build_acta_docx.py')
+
 from docx import Document
 from docx.document import Document as WordDocument
 from docx.enum.table import WD_CELL_VERTICAL_ALIGNMENT

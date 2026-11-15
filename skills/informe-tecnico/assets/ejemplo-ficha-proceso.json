@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "ficha-proceso",
+    "code": "DEMO-FPR-01",
+    "title": "Ficha de proceso",
+    "short_title": "Ficha de proceso",
+    "subtitle": "Gestión y entrega de proyectos tecnológicos · Ejemplo ficticio",
+    "date": "2027-01-20",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 9.5,
+    "line_spacing": 1.2,
+    "paragraph_space_after_pt": 4
+  },
+  "changes": [
+    {
+      "date": "2027-01-20",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Gestión de proyectos (rol)"
+    }
+  ],
+  "sections": [
+    {
+      "id": "informacion",
+      "title": "Información del proceso",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Dueño: responsable de gestión de proyectos. Código: DEMO-FPR-01. Versión: 0.1. Objetivo: entregar proyectos verificables. Inicio: solicitud recibida. Fin: conformidad registrada y pendientes asignados."
+        }
+      ]
+    },
+    {
+      "id": "sipoc",
+      "title": "Mapa SIPOC",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La {{ref:sipoc-mapa}} relaciona los cinco bloques del proceso."
+        },
+        {
+          "type": "figure",
+          "id": "sipoc-mapa",
+          "title": "Mapa SIPOC del proceso",
+          "path": "diagrams/sipoc-proyectos.png",
+          "description": "Proveedores → entradas → proceso → salidas → clientes.",
+          "source": "Elaboración propia. Diagrama demostrativo; flujo mínimo de diagram-design.",
+          "max_height_mm": 28
+        },
+        {
+          "type": "table",
+          "id": "sipoc-texto",
+          "title": "Equivalente textual del mapa",
+          "headers": [
+            "Proveedores",
+            "Entradas",
+            "Proceso",
+            "Salidas",
+            "Clientes"
+          ],
+          "rows": [
+            [
+              "Parte solicitante",
+              "Necesidad y restricciones",
+              "Gestión y entrega",
+              "Entrega y registros",
+              "Solicitante y operación"
+            ]
+          ],
+          "widths": [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etapas",
+      "title": "Etapas",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "flujo",
+          "title": "Etapas y registros del catálogo",
+          "headers": [
+            "#",
+            "Etapa",
+            "Qué se hace",
+            "Quién (rol)",
+            "Tipo y código del registro"
+          ],
+          "rows": [
+            [
+              "1",
+              "Solicitud",
+              "Registrar pedido",
+              "Solicitante",
+              "Registro de requerimientos · DEMO-REQ-014"
+            ],
+            [
+              "2",
+              "Factibilidad",
+              "Evaluar viabilidad",
+              "Arquitectura",
+              "Informe de factibilidad · DEMO-FAC-01"
+            ],
+            [
+              "3",
+              "Propuesta",
+              "Ofertar solución",
+              "Líder",
+              "Propuesta de servicio · DEMO-PRO-01"
+            ],
+            [
+              "4",
+              "Aceptación",
+              "Aceptar",
+              "Solicitante",
+              "Propuesta de servicio · DEMO-PRO-01"
+            ],
+            [
+              "5",
+              "Arranque",
+              "Acordar alcance",
+              "Líder",
+              "Alcance de proyecto · DEMO-ALC-01"
+            ],
+            [
+              "6",
+              "Construcción",
+              "Construir",
+              "Desarrollo",
+              "Especificación de requisitos · DEMO-ERS-01"
+            ],
+            [
+              "7",
+              "Validación",
+              "Probar",
+              "Pruebas",
+              "Plan de pruebas · DEMO-ATP-01"
+            ],
+            [
+              "8",
+              "Entrega",
+              "Entregar y formar",
+              "Operaciones",
+              "Acta de entrega · DEMO-ENT-01"
+            ]
+          ],
+          "widths": [
+            0.4,
+            1.25,
+            1.5,
+            1.3,
+            4.2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "controles",
+      "title": "Controles y registros",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "PRO y ALC: acepta la parte solicitante. La autoridad documental autoriza la vigencia y custodia congela esa versión. Ciclo por registro: borrador, en-revision, vigente; al sustituir, sustituido con sucesor; tras baja, retirado y archivado con conservación acordada. Apoyos: DEMO-ADR-01, DEMO-ARQ-01, DEMO-RIE-01, DEMO-CAP-01 y DEMO-CIE-01. Flujo propuesto; no acredita aprobaciones de los ejemplos."
+        }
+      ]
+    },
+    {
+      "id": "roles",
+      "title": "Roles y decisiones",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "decisiones",
+          "title": "Quién decide, consulta e informa",
+          "headers": [
+            "Decisión",
+            "Decide (rol)",
+            "Consulta a",
+            "Informa a"
+          ],
+          "rows": [
+            [
+              "Técnica",
+              "Arquitectura",
+              "Desarrollo y pruebas",
+              "Líder de proyecto"
+            ],
+            [
+              "Alcance y costo",
+              "Parte solicitante",
+              "Líder de proyecto",
+              "Equipo ejecutor"
+            ],
+            [
+              "Conformidad de la entrega",
+              "Operaciones solicitantes",
+              "Pruebas y líder",
+              "Equipo ejecutor"
+            ]
+          ],
+          "widths": [
+            1.9,
+            1.8,
+            1.9,
+            1.8
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indicadores",
+      "title": "Indicadores",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "medidas",
+          "title": "Indicadores propuestos",
+          "headers": [
+            "Nombre",
+            "Qué mide",
+            "Fórmula",
+            "Meta",
+            "Frecuencia",
+            "Fuente"
+          ],
+          "rows": [
+            [
+              "Entrega con evidencia (%)",
+              "Cobertura de comprobación",
+              "100 × entregas con evidencia / entregas totales",
+              "Por definir",
+              "Por entrega",
+              "ENT y ATP"
+            ],
+            [
+              "Cierre de pendientes (%)",
+              "Resolución de pendientes",
+              "100 × pendientes cerrados / pendientes registrados",
+              "Por definir",
+              "Mensual",
+              "CIE: pendientes"
+            ]
+          ],
+          "widths": [
+            1.4,
+            1.4,
+            2.3,
+            1,
+            1.1,
+            1.2
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Entregas con evidencia: comprobaciones de aceptación registradas. Pendientes: contar por identificador de seguimiento. Denominador cero: No aplica."
+        }
+      ]
+    },
+    {
+      "id": "firmas",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "responsabilidad",
+          "title": "Responsabilidad documental por rol",
+          "headers": [
+            "Elaboración",
+            "Revisión",
+            "Aprobación"
+          ],
+          "rows": [
+            [
+              "Gestión de proyectos (rol)\n\n________________\nFecha: Pendiente",
+              "Calidad (rol)\n\n________________\nFecha: Pendiente",
+              "Autoridad de procesos (rol)\n\n________________\nFecha: Pendiente"
+            ]
+          ],
+          "widths": [
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

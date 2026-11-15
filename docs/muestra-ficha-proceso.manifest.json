@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-ficha-proceso.json",
+  "source_sha256": "593ee3874accf008d6e1301967bdba52b90315085e056847e048f8a7403706a6",
+  "pdf_sha256": "a89592f48e14ddd22de3df6f1a91cba1be028eccae2bce1b332867648036e6fa",
+  "assets": [
+    {
+      "path": "diagrams/sipoc-proyectos.png",
+      "sha256": "d41ebb6743e04da72108c17a5d5c28106cdd0689d1b970df027deb8bd73d0d03"
+    }
+  ],
+  "pages": 2,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "ficha-proceso",
+    "code": "DEMO-FPR-01",
+    "title": "Ficha de proceso",
+    "short_title": "Ficha de proceso",
+    "subtitle": "Gestión y entrega de proyectos tecnológicos · Ejemplo ficticio",
+    "date": "2027-01-20",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 9.5,
+    "line_spacing": 1.2,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 4.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "informacion",
+      "label": "1. Información del proceso",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "sipoc",
+      "label": "2. Mapa SIPOC",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "sipoc-mapa",
+      "label": "Figura 1. Mapa SIPOC del proceso",
+      "kind": "figure",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "sipoc-texto",
+      "label": "Tabla 1. Equivalente textual del mapa",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "etapas",
+      "label": "3. Etapas",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "flujo",
+      "label": "Tabla 2. Etapas y registros del catálogo",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "controles",
+      "label": "4. Controles y registros",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "roles",
+      "label": "5. Roles y decisiones",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "decisiones",
+      "label": "Tabla 3. Quién decide, consulta e informa",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "indicadores",
+      "label": "6. Indicadores",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "medidas",
+      "label": "Tabla 4. Indicadores propuestos",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "firmas",
+      "label": "7. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "responsabilidad",
+      "label": "Tabla 5. Responsabilidad documental por rol",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    }
+  ],
+  "labels": {
+    "informacion": "1. Información del proceso",
+    "sipoc": "2. Mapa SIPOC",
+    "sipoc-mapa": "Figura 1. Mapa SIPOC del proceso",
+    "sipoc-texto": "Tabla 1. Equivalente textual del mapa",
+    "etapas": "3. Etapas",
+    "flujo": "Tabla 2. Etapas y registros del catálogo",
+    "controles": "4. Controles y registros",
+    "roles": "5. Roles y decisiones",
+    "decisiones": "Tabla 3. Quién decide, consulta e informa",
+    "indicadores": "6. Indicadores",
+    "medidas": "Tabla 4. Indicadores propuestos",
+    "firmas": "7. Firmas de responsabilidad",
+    "responsabilidad": "Tabla 5. Responsabilidad documental por rol"
+  },
+  "reference_labels": {
+    "informacion": "1. Información del proceso",
+    "sipoc": "2. Mapa SIPOC",
+    "sipoc-mapa": "Figura 1. Mapa SIPOC del proceso",
+    "sipoc-texto": "Tabla 1. Equivalente textual del mapa",
+    "etapas": "3. Etapas",
+    "flujo": "Tabla 2. Etapas y registros del catálogo",
+    "controles": "4. Controles y registros",
+    "roles": "5. Roles y decisiones",
+    "decisiones": "Tabla 3. Quién decide, consulta e informa",
+    "indicadores": "6. Indicadores",
+    "medidas": "Tabla 4. Indicadores propuestos",
+    "firmas": "7. Firmas de responsabilidad",
+    "responsabilidad": "Tabla 5. Responsabilidad documental por rol"
+  }
+}

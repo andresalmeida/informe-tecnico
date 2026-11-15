@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "registro-riesgos",
+    "code": "DEMO-RIE-01",
+    "title": "Registro de riesgos del proyecto",
+    "short_title": "Registro de riesgos",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-16",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-09",
+      "version": "0.1",
+      "summary": "Primera versión, abierta con el informe de factibilidad DEMO-FAC-01.",
+      "author": "Marta Quiroga"
+    },
+    {
+      "date": "2026-11-16",
+      "version": "0.2",
+      "summary": "Se cierra R-07, R-01 pasa a en mitigación y el registro cita el alcance DEMO-ALC-01.",
+      "author": "Marta Quiroga",
+      "affects": ["R-07", "R-01", "seguimiento"]
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El registro está abierto. Se abrió el 09/11/2026 con el informe de factibilidad DEMO-FAC-01 y este corte es el 16/11/2026, el mismo día del alcance DEMO-ALC-01. Recoge los riesgos técnicos, los supuestos y las restricciones de ese informe, y las condiciones de la aprobación del 13/11/2026."
+        },
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {"label": "N.º de registro", "value": "DEMO-RIE-01"},
+            {"label": "Fecha de corte", "value": "16/11/2026"},
+            {"label": "Proyecto", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Requerimiento", "value": "DEMO-REQ-014, recibido el 27/10/2026"},
+            {"label": "Documento relacionado", "value": "DEMO-FAC-01. Alcance vigente: DEMO-ALC-01."},
+            {"label": "Responsable del registro", "value": "Marta Quiroga, arquitecta de software"},
+            {"label": "Próxima revisión", "value": "30/11/2026"},
+            {"label": "Versión del documento", "value": "0.2"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "criterios",
+      "title": "Análisis de riesgos del proyecto",
+      "blocks": [
+        {
+          "type": "risks",
+          "id": "matriz-niveles",
+          "summary_id": "resumen-niveles",
+          "matrix_title": "Matriz de niveles",
+          "summary_table_title": "Riesgos abiertos por nivel",
+          "scale": {
+            "probability": ["Baja", "Media", "Alta"],
+            "impact": ["Bajo", "Medio", "Alto"],
+            "matrix": [
+              ["Bajo", "Bajo", "Medio"],
+              ["Bajo", "Medio", "Alto"],
+              ["Medio", "Alto", "Crítico"]
+            ]
+          },
+          "items": [
+            {
+              "id": "R-01",
+              "cause": "La pasarela puede enviar más de una vez la confirmación del mismo cobro.",
+              "event": "El servicio registra dos cobros para una sola reserva.",
+              "consequence": "El cliente paga dos veces y la conciliación diaria deja de cuadrar.",
+              "probability": "Media",
+              "impact": "Alto",
+              "response": "Mitigar",
+              "action": "Tratar cada confirmación una sola vez. El criterio de fiabilidad de DEMO-FAC-01 pide que 100 confirmaciones duplicadas generen un solo cobro y una sola reserva.",
+              "owner": "Julián Benítez, desarrollo",
+              "state": "En mitigación"
+            },
+            {
+              "id": "R-02",
+              "cause": "La pasarela o la red superan el tiempo previsto en el cobro.",
+              "event": "La confirmación tarda más de 5 segundos, que es el umbral del criterio de rendimiento.",
+              "consequence": "La reserva sigue pendiente y, a los 15 minutos, vuelve a estar disponible mientras el cobro sigue en curso.",
+              "probability": "Media",
+              "impact": "Medio",
+              "response": "Mitigar",
+              "action": "Medir el tiempo de confirmación en la prueba piloto y acordar con la pasarela el tiempo de espera máximo.",
+              "owner": "Camila Ortega, desarrollo",
+              "state": "Abierto"
+            },
+            {
+              "id": "R-03",
+              "cause": "La confirmación del pago y la liberación de la reserva a los 15 minutos no están ordenadas entre sí.",
+              "event": "Llega un cobro de una reserva que ya se liberó o se canceló.",
+              "consequence": "Queda un pago sin reserva vigente y hay que reembolsarlo por completo.",
+              "probability": "Alta",
+              "impact": "Medio",
+              "response": "Mitigar",
+              "action": "Reembolsar ese cobro y dejarlo identificado en el informe diario de conciliación.",
+              "owner": "Julián Benítez, desarrollo",
+              "state": "Abierto"
+            },
+            {
+              "id": "R-04",
+              "cause": "El proyecto supone que la pasarela mantiene la versión actual de su API durante las siete semanas.",
+              "event": "La pasarela publica un cambio incompatible antes de cerrar el diseño.",
+              "consequence": "El SDK deja de servir y el desarrollo se detiene hasta adaptar la integración.",
+              "probability": "Baja",
+              "impact": "Alto",
+              "response": "Aceptar",
+              "action": "Confirmar con el proveedor la versión que se mantendrá durante el proyecto. Condición de DEMO-ALC-01. Estado: Pendiente.",
+              "owner": "Marta Quiroga, arquitecta de software",
+              "state": "Abierto"
+            },
+            {
+              "id": "R-05",
+              "cause": "El equipo no dispone del perfil de seguridad de pagos. La revisión depende de un especialista externo, una persona durante 3 días, dentro de las pruebas.",
+              "event": "La revisión externa no está hecha antes del paso a producción.",
+              "consequence": "El despliegue queda frenado. Es condición de la aprobación del Comité de proyectos del 13/11/2026.",
+              "probability": "Alta",
+              "impact": "Alto",
+              "response": "Transferir",
+              "action": "Contratar al especialista y coordinar la revisión dentro de las pruebas. La contratación la tiene Marta Quiroga en DEMO-ALC-01. Estado: Pendiente.",
+              "owner": "Marta Quiroga, arquitecta de software",
+              "state": "Abierto"
+            },
+            {
+              "id": "R-06",
+              "cause": "El cliente web se ajusta para añadir el paso de pago, y el criterio de compatibilidad exige que funcione a 360 píxeles de ancho.",
+              "event": "El paso de pago no cabe en esa anchura.",
+              "consequence": "Quien reserva desde el teléfono no puede completar el pago.",
+              "probability": "Baja",
+              "impact": "Bajo",
+              "response": "Mitigar",
+              "action": "Comprobar el paso de pago a 360 píxeles durante la prueba piloto.",
+              "owner": "Camila Ortega, desarrollo",
+              "state": "Abierto"
+            },
+            {
+              "id": "R-07",
+              "cause": "Guardar el número de tarjeta en los servidores de la entidad simplificaría los reintentos de cobro.",
+              "event": "El módulo persiste o registra datos de tarjeta en servidores propios.",
+              "consequence": "La entidad pasaría a custodiar datos de tarjeta, fuera de lo que admite DEMO-FAC-01.",
+              "probability": "Baja",
+              "impact": "Alto",
+              "response": "Evitar",
+              "action": "Capturar la tarjeta en campos alojados por la pasarela. DEMO-FAC-01 lo fija y la prueba de concepto de ese informe usó ese mecanismo. La comprobación de que ningún dato queda almacenado sigue en la revisión externa de {{ref:R-05}}.",
+              "owner": "Marta Quiroga, arquitecta de software",
+              "state": "Cerrado"
+            },
+            {
+              "id": "R-08",
+              "cause": "La ventana de despliegue la marca Operaciones de reservas y esta fase solo admite salir a producción fuera de los periodos de mayor demanda.",
+              "event": "El módulo se despliega durante uno de esos periodos.",
+              "consequence": "El servicio de reservas se interrumpe en el momento de más reservas.",
+              "probability": "Baja",
+              "impact": "Alto",
+              "response": "Evitar",
+              "action": "Reservar la semana de implementación fuera de esos periodos y confirmar la fecha con Soledad Paredes antes del despliegue.",
+              "owner": "Soledad Paredes, jefa de operaciones de reservas",
+              "state": "Abierto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seguimiento",
+      "title": "Seguimiento",
+      "new_page": true,
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La responsable del registro revisa en la fecha indicada en {{ref:referencia}} y también cuando un riesgo cambia de estado. En el corte del 16/11/2026 cambiaron dos riesgos."
+        },
+        {
+          "type": "table",
+          "id": "cambios",
+          "title": "Riesgos que cambiaron de estado",
+          "headers": ["Riesgo", "Qué cambió", "Fecha", "Quién"],
+          "widths": [0.9, 3.6, 1.2, 1.5],
+          "rows": [
+            ["{{ref:R-07}}", "Se cierra. DEMO-FAC-01 fija la captura de la tarjeta en campos de la pasarela.", "09/11/2026", "Marta Quiroga"],
+            ["{{ref:R-01}}", "Pasa a en mitigación. El diseño trata cada confirmación de la pasarela una sola vez.", "16/11/2026", "Marta Quiroga"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Los demás riesgos siguen en el estado con el que se abrió el registro, el 09/11/2026. Un riesgo cerrado permanece en el registro y sale del recuento de abiertos."
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.2, 2.4, 1.6, 1.1],
+          "rows": [
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"],
+            ["Revisado por", "Rafael Mena\nComité de calidad", "\n\n________________", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

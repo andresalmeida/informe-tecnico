@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-propuesta-retiro-programado.json",
+  "source_sha256": "ae0c842522384d3b1b9e724b7f6af37e6010aa058bb38427e982e16b45b6d8e3",
+  "pdf_sha256": "512cc2dc4324ae5a8e69f065e5ea58ac0134405855ba136831bcae6fcb311d99",
+  "assets": [],
+  "pages": 1,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "propuesta-servicio",
+    "code": "DEMO-PRO-02",
+    "title": "Propuesta con retiro programado",
+    "short_title": "Propuesta con retiro programado",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-12",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true,
+    "lifecycle": {
+      "state": "vigente",
+      "supersedes": [
+        "DEMO-PRO-01"
+      ],
+      "retire_on": "2026-12-11"
+    },
+    "notice": "Simulación independiente de vigencia y retiro programado. No acredita que la propuesta de la cadena haya sido aceptada."
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia"
+  },
+  "lifecycle": {
+    "state": "vigente",
+    "supersedes": [
+      "DEMO-PRO-01"
+    ],
+    "retire_on": "2026-12-11"
+  }
+}

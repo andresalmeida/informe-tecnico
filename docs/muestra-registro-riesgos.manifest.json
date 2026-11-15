@@ -1,0 +1,198 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-registro-riesgos.json",
+  "source_sha256": "f056d04b1eec7b482cb3fbc95bdfb8a844a47449039db1a13416f53aa6526b94",
+  "pdf_sha256": "7de5677dd41d3e2e0b86b8e52726738a7a45d5139e05d4c35bd6f1e39b1a5951",
+  "assets": [],
+  "pages": 5,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "registro-riesgos",
+    "code": "DEMO-RIE-01",
+    "title": "Registro de riesgos del proyecto",
+    "short_title": "Registro de riesgos",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-16",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "criterios",
+      "label": "2. Análisis de riesgos del proyecto",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "matriz-niveles",
+      "label": "Tabla 1. Matriz de niveles",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "matriz-niveles-registro",
+      "label": "2.1. Registro de riesgos",
+      "kind": "section",
+      "level": 1,
+      "page": 2
+    },
+    {
+      "id": "R-01",
+      "label": "R-01",
+      "kind": "risk",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "R-02",
+      "label": "R-02",
+      "kind": "risk",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "R-03",
+      "label": "R-03",
+      "kind": "risk",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "R-04",
+      "label": "R-04",
+      "kind": "risk",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "R-05",
+      "label": "R-05",
+      "kind": "risk",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "R-06",
+      "label": "R-06",
+      "kind": "risk",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "R-07",
+      "label": "R-07",
+      "kind": "risk",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "R-08",
+      "label": "R-08",
+      "kind": "risk",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "matriz-niveles-resumen-apartado",
+      "label": "2.2. Resumen por nivel",
+      "kind": "section",
+      "level": 1,
+      "page": 4
+    },
+    {
+      "id": "resumen-niveles",
+      "label": "Tabla 2. Riesgos abiertos por nivel",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "seguimiento",
+      "label": "3. Seguimiento",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "cambios",
+      "label": "Tabla 3. Riesgos que cambiaron de estado",
+      "kind": "table",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "responsabilidad",
+      "label": "4. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 4. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 5
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "criterios": "2. Análisis de riesgos del proyecto",
+    "matriz-niveles": "Tabla 1. Matriz de niveles",
+    "matriz-niveles-registro": "2.1. Registro de riesgos",
+    "matriz-niveles-resumen-apartado": "2.2. Resumen por nivel",
+    "resumen-niveles": "Tabla 2. Riesgos abiertos por nivel",
+    "R-01": "R-01",
+    "R-02": "R-02",
+    "R-03": "R-03",
+    "R-04": "R-04",
+    "R-05": "R-05",
+    "R-06": "R-06",
+    "R-07": "R-07",
+    "R-08": "R-08",
+    "seguimiento": "3. Seguimiento",
+    "cambios": "Tabla 3. Riesgos que cambiaron de estado",
+    "responsabilidad": "4. Firmas de responsabilidad",
+    "firmas": "Tabla 4. Registro de firmas"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "criterios": "2. Análisis de riesgos del proyecto",
+    "matriz-niveles": "Tabla 1. Matriz de niveles",
+    "matriz-niveles-registro": "2.1. Registro de riesgos",
+    "matriz-niveles-resumen-apartado": "2.2. Resumen por nivel",
+    "resumen-niveles": "Tabla 2. Riesgos abiertos por nivel",
+    "R-01": "R-01",
+    "R-02": "R-02",
+    "R-03": "R-03",
+    "R-04": "R-04",
+    "R-05": "R-05",
+    "R-06": "R-06",
+    "R-07": "R-07",
+    "R-08": "R-08",
+    "seguimiento": "3. Seguimiento",
+    "cambios": "Tabla 3. Riesgos que cambiaron de estado",
+    "responsabilidad": "4. Firmas de responsabilidad",
+    "firmas": "Tabla 4. Registro de firmas"
+  }
+}

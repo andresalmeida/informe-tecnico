@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "plan-proyecto",
+    "code": "DEMO-PPR-01",
+    "title": "Plan de proyecto",
+    "short_title": "Plan de proyecto",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-21",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-21",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Este plan describe el trabajo ya aceptado en DEMO-ALC-01, versión 0.2. El total de la EDT son los 50 días-persona de DEMO-FAC-01. Las fechas siguen el calendario propuesto del 23/11/2026 al 10/01/2027. DEMO-SCM-01, del 20/11/2026, pide pagos recurrentes y quedó diferida: ese pedido no entra en este plan."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Número", "value": "DEMO-PPR-01"},
+            {"label": "Proyecto", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Fecha", "value": "21/11/2026"},
+            {"label": "Responsable del plan", "value": "Marta Quiroga, arquitecta de software"},
+            {"label": "Alcance", "value": "DEMO-ALC-01, versión 0.2, del 16/11/2026"},
+            {"label": "Documentos relacionados", "value": "DEMO-FAC-01. DEMO-RIE-01. DEMO-SCM-01. DEMO-ERS-01. DEMO-ATP-01. DEMO-CAP-01."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "objetivos",
+      "title": "Objetivos y alcance",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El equipo entrega E1 a E5 de DEMO-ALC-01: el servicio de pagos, el registro, el ajuste de la API de reservas, el paso de pago en el cliente web y la capacitación de operaciones. Quedan fuera los pagos en efectivo, los pagos recurrentes y cualquier cambio en el servicio de notificaciones. La revisión externa de seguridad, de 3 días de un especialista, se hace dentro de las pruebas y no suma a los 50 días-persona."
+        }
+      ]
+    },
+    {
+      "id": "edt",
+      "title": "Estructura de desglose del trabajo",
+      "blocks": [
+        {
+          "type": "wbs",
+          "id": "desglose",
+          "title": "EDT del módulo de pagos",
+          "unit": "días-persona",
+          "nodes": [
+            {
+              "id": "E1",
+              "title": "Servicio de pagos",
+              "children": [
+                {"id": "E1-1", "title": "Contrato con la pasarela", "effort": 3},
+                {"id": "E1-2", "title": "Cobro y confirmaciones", "effort": 12},
+                {"id": "E1-3", "title": "Reembolso", "effort": 5}
+              ]
+            },
+            {
+              "id": "E2",
+              "title": "Registro de pagos",
+              "children": [
+                {"id": "E2-1", "title": "Tabla de transacciones", "effort": 6},
+                {"id": "E2-2", "title": "Informe diario de conciliación", "effort": 4}
+              ]
+            },
+            {
+              "id": "E3",
+              "title": "Ajuste de la API de reservas",
+              "children": [
+                {"id": "E3-1", "title": "Estado de pago pendiente", "effort": 5},
+                {"id": "E3-2", "title": "Liberación a los 15 minutos", "effort": 3}
+              ]
+            },
+            {
+              "id": "E4",
+              "title": "Paso de pago en el cliente web",
+              "children": [
+                {"id": "E4-1", "title": "Pantalla con campos de la pasarela", "effort": 6},
+                {"id": "E4-2", "title": "Comprobación a 360 píxeles", "effort": 2}
+              ]
+            },
+            {
+              "id": "E5",
+              "title": "Capacitación del equipo de operaciones",
+              "children": [
+                {"id": "E5-1", "title": "Sesión de operación", "effort": 2},
+                {"id": "E5-2", "title": "Materiales y acta", "effort": 2},
+                {"id": "E5-3", "title": "Guía del plazo de cancelación", "effort": "Por estimar"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hitos",
+      "title": "Hitos y calendario",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Las fechas son las del calendario propuesto de DEMO-ALC-01. Siguen por confirmar con las partes. La semana de implementación es la del 04/01/2027 al 10/01/2027."
+        },
+        {
+          "type": "table",
+          "id": "calendario",
+          "title": "Hitos del calendario propuesto",
+          "headers": ["Hito", "Fecha", "Responsable", "Depende de"],
+          "widths": [2.2, 1.5, 1.8, 2.1],
+          "rows": [
+            ["Análisis y diseño detallado", "29/11/2026", "Marta Quiroga", "DEMO-ALC-01"],
+            ["Desarrollo y configuración", "20/12/2026", "Camila Ortega", "Análisis y diseño"],
+            ["Pruebas y prueba piloto", "03/01/2027", "Por confirmar", "Desarrollo de E1 a E4"],
+            ["Capacitación E5", "07/01/2027", "Marta Quiroga", "DEMO-CAP-01, dentro de la implementación"],
+            ["Paso a producción", "10/01/2027", "Soledad Paredes confirma la ventana", "R-08. R-05 sigue Pendiente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roles",
+      "title": "Roles y decisiones",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "equipo",
+          "title": "Roles del equipo",
+          "headers": ["Rol", "Quién"],
+          "widths": [2.4, 4.4],
+          "rows": [
+            ["Arquitectura", "Marta Quiroga, arquitecta de software"],
+            ["Desarrollo", "Camila Ortega y Julián Benítez"],
+            ["Pruebas", "Por confirmar. Iván Salas coordina el proyecto."],
+            ["Despliegue", "Por confirmar. La ventana la confirma Soledad Paredes."],
+            ["Parte solicitante", "Soledad Paredes, jefa de operaciones de reservas"]
+          ]
+        },
+        {
+          "type": "table",
+          "id": "decisiones",
+          "title": "Tipos de decisión",
+          "headers": ["Decisión", "Quién decide", "A quién se consulta"],
+          "widths": [2.2, 2.3, 2.3],
+          "rows": [
+            ["Alcance y condiciones", "Lucía Ferrer, Comité de proyectos", "Soledad Paredes"],
+            ["Diseño de la integración", "Marta Quiroga", "Iván Salas"],
+            ["Ventana de despliegue", "Soledad Paredes", "Marta Quiroga"],
+            ["Conformidad de la entrega", "Soledad Paredes", "Rafael Mena, Comité de calidad"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cadencia",
+      "title": "Cadencia de seguimiento",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La revisión del plan es semanal. Participan Marta Quiroga y Soledad Paredes. El equipo puede trabajar en flujo continuo o en sprints. Este plan no fija la duración de un sprint ni impone una herramienta de seguimiento."
+        }
+      ]
+    },
+    {
+      "id": "riesgos",
+      "title": "Riesgos clave",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El registro completo es DEMO-RIE-01. Aquí se vigilan los tres riesgos que mueven el calendario de este plan."
+        },
+        {
+          "type": "table",
+          "id": "clave",
+          "title": "Riesgos que vigila el plan",
+          "headers": ["Riesgo", "Qué vigila el plan", "Estado en DEMO-RIE-01"],
+          "widths": [1.0, 4.2, 1.6],
+          "rows": [
+            ["R-04", "La versión de la API de la pasarela sigue por confirmar antes de cerrar el diseño.", "Abierto"],
+            ["R-05", "La revisión externa de seguridad sigue pendiente antes del paso a producción.", "Abierto"],
+            ["R-08", "La ventana es la semana del 04/01/2027 al 10/01/2027, fuera de la mayor demanda.", "Abierto"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "herramientas",
+      "title": "Herramientas y comunicación",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El tablero de tareas vive con el repositorio del equipo. Una tarea se cita en los documentos con un identificador de la forma T- seguido de un número. La herramienta concreta queda Por confirmar. Este plan no nombra un producto."
+        }
+      ]
+    },
+    {
+      "id": "firmas",
+      "title": "Firmas",
+      "new_page": true,
+      "blocks": [
+        {
+          "type": "table",
+          "id": "responsables",
+          "title": "Firmas del plan",
+          "headers": ["Papel", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.8, 2.2, 1.6, 1.2],
+          "rows": [
+            ["Arquitectura", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
+            ["Ingeniería", "Iván Salas\nResponsable de ingeniería de software", "\n________________", "Pendiente"],
+            ["Parte solicitante", "Soledad Paredes\nJefa de operaciones de reservas", "\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

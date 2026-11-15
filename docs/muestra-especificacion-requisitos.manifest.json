@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-especificacion-requisitos.json",
+  "source_sha256": "970d1e8fdb25ff1b9a4045e1eafa51406ec564e2ebfb415fd5b9fa7fd1282d9f",
+  "pdf_sha256": "6b8df2a8b24c12c3e859cc581796fa989145742f8a0cdcb1e8bc58f9c2756f1b",
+  "assets": [],
+  "pages": 7,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "especificacion-requisitos",
+    "code": "DEMO-ERS-01",
+    "title": "Especificación de requisitos",
+    "short_title": "Especificación de requisitos",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-18",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "proposito",
+      "label": "2. Propósito, alcance y definiciones",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "glosario",
+      "label": "Tabla 1. Definiciones",
+      "kind": "table",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "partes",
+      "label": "3. Partes interesadas y usuarios",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "usuarios",
+      "label": "Tabla 2. Partes interesadas y su necesidad",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "funcionales",
+      "label": "4. Requisitos funcionales",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "RF-01",
+      "label": "RF-01",
+      "kind": "requirement",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "RF-02",
+      "label": "RF-02",
+      "kind": "requirement",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "RF-03",
+      "label": "RF-03",
+      "kind": "requirement",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "RF-04",
+      "label": "RF-04",
+      "kind": "requirement",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "RF-05",
+      "label": "RF-05",
+      "kind": "requirement",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "RF-06",
+      "label": "RF-06",
+      "kind": "requirement",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "RF-07",
+      "label": "RF-07",
+      "kind": "requirement",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "no-funcionales",
+      "label": "5. Requisitos no funcionales",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "RNF-01",
+      "label": "RNF-01",
+      "kind": "requirement",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "RNF-02",
+      "label": "RNF-02",
+      "kind": "requirement",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "RNF-03",
+      "label": "RNF-03",
+      "kind": "requirement",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "RNF-04",
+      "label": "RNF-04",
+      "kind": "requirement",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "RNF-05",
+      "label": "RNF-05",
+      "kind": "requirement",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "RNF-06",
+      "label": "RNF-06",
+      "kind": "requirement",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "restricciones",
+      "label": "6. Restricciones, supuestos y dependencias",
+      "kind": "section",
+      "level": 0,
+      "page": 5
+    },
+    {
+      "id": "trazabilidad",
+      "label": "7. Trazabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "matriz-trazabilidad",
+      "label": "Tabla 3. Matriz de trazabilidad",
+      "kind": "table",
+      "level": 0,
+      "page": 6
+    },
+    {
+      "id": "responsabilidad",
+      "label": "8. Aprobación",
+      "kind": "section",
+      "level": 0,
+      "page": 7
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 4. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 7
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "proposito": "2. Propósito, alcance y definiciones",
+    "glosario": "Tabla 1. Definiciones",
+    "partes": "3. Partes interesadas y usuarios",
+    "usuarios": "Tabla 2. Partes interesadas y su necesidad",
+    "funcionales": "4. Requisitos funcionales",
+    "RF-01": "RF-01",
+    "RF-02": "RF-02",
+    "RF-03": "RF-03",
+    "RF-04": "RF-04",
+    "RF-05": "RF-05",
+    "RF-06": "RF-06",
+    "RF-07": "RF-07",
+    "no-funcionales": "5. Requisitos no funcionales",
+    "RNF-01": "RNF-01",
+    "RNF-02": "RNF-02",
+    "RNF-03": "RNF-03",
+    "RNF-04": "RNF-04",
+    "RNF-05": "RNF-05",
+    "RNF-06": "RNF-06",
+    "restricciones": "6. Restricciones, supuestos y dependencias",
+    "trazabilidad": "7. Trazabilidad",
+    "matriz-trazabilidad": "Tabla 3. Matriz de trazabilidad",
+    "responsabilidad": "8. Aprobación",
+    "firmas": "Tabla 4. Registro de firmas"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "proposito": "2. Propósito, alcance y definiciones",
+    "glosario": "Tabla 1. Definiciones",
+    "partes": "3. Partes interesadas y usuarios",
+    "usuarios": "Tabla 2. Partes interesadas y su necesidad",
+    "funcionales": "4. Requisitos funcionales",
+    "RF-01": "RF-01",
+    "RF-02": "RF-02",
+    "RF-03": "RF-03",
+    "RF-04": "RF-04",
+    "RF-05": "RF-05",
+    "RF-06": "RF-06",
+    "RF-07": "RF-07",
+    "no-funcionales": "5. Requisitos no funcionales",
+    "RNF-01": "RNF-01",
+    "RNF-02": "RNF-02",
+    "RNF-03": "RNF-03",
+    "RNF-04": "RNF-04",
+    "RNF-05": "RNF-05",
+    "RNF-06": "RNF-06",
+    "restricciones": "6. Restricciones, supuestos y dependencias",
+    "trazabilidad": "7. Trazabilidad",
+    "matriz-trazabilidad": "Tabla 3. Matriz de trazabilidad",
+    "responsabilidad": "8. Aprobación",
+    "firmas": "Tabla 4. Registro de firmas"
+  }
+}

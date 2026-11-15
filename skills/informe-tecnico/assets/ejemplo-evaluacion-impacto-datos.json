@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "evaluacion-impacto-datos",
+    "code": "DEMO-EID-01",
+    "title": "Evaluación de impacto en la protección de datos",
+    "short_title": "Evaluación de impacto en datos",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-19",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-19",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "referencia",
+      "title": "Información de referencia",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La evaluación se abre antes de construir el módulo de pagos y propone consultar a asesoría legal antes de pasar a producción. El módulo trata nombre, correo y teléfono de quien reserva y el estado de sus pagos; la tarjeta la captura la pasarela. Faltan por confirmar el marco aplicable, la base de licitud, la retención y las transferencias."
+        },
+        {
+          "type": "note",
+          "label": "Alcance de este documento",
+          "text": "Este documento ordena la información de un tratamiento y valora sus riesgos para las personas. No es asesoría legal ni acredita el cumplimiento de ninguna norma, y no dice si esta evaluación es obligatoria u opcional en un país. Todo campo normativo sin respaldo queda «Por confirmar con asesoría legal»."
+        },
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {"label": "N.º de evaluación", "value": "DEMO-EID-01"},
+            {"label": "Fecha", "value": "19/11/2026"}
+          ]
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Sistema o proyecto", "value": "Módulo de pagos para el sistema de reservas"},
+            {"label": "Responsable del tratamiento", "value": "Jefatura de operaciones de reservas, por la Entidad de demostración"},
+            {"label": "Encargados del tratamiento", "value": "Proveedor de la pasarela de pagos, para la captura de la tarjeta y el cobro"},
+            {"label": "Delegado de protección de datos", "value": "Por confirmar"},
+            {"label": "Marco normativo aplicable", "value": "Por confirmar con asesoría legal"},
+            {"label": "Autoridad de protección de datos", "value": "Por confirmar con asesoría legal"},
+            {"label": "Documentos relacionados", "value": "DEMO-REQ-014. DEMO-FAC-01. DEMO-ALC-01. DEMO-ADR-01. DEMO-ARQ-01. DEMO-RIE-01. DEMO-ATP-01."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tamizaje",
+      "title": "Tamizaje de datos personales",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El tamizaje concluye por confirmar, y por eso se elabora la evaluación completa. El módulo trata datos personales y cuatro respuestas siguen sin confirmar. Si la pregunta 1 es No, la evaluación completa no es necesaria. Un Sí en las preguntas 2 a 7 la hace necesaria. Con la pregunta 1 en Sí y las demás en No, no es necesaria. En cualquier otro caso la conclusión es por confirmar y la evaluación se elabora igualmente. Esta regla es de la plantilla y no define si la evaluación es obligatoria en un país."
+        },
+        {
+          "type": "table",
+          "id": "preguntas",
+          "title": "Preguntas del tamizaje",
+          "headers": ["N.º", "Pregunta", "Respuesta", "Qué la sostiene"],
+          "widths": [0.4, 2.6, 1.1, 3.1],
+          "rows": [
+            ["1", "¿Trata datos personales?", "Sí", "Quien reserva da nombre, correo y teléfono. El servicio registra estados y referencias de transacción vinculados a la reserva."],
+            ["2", "¿Trata datos sensibles o de menores?", "Por confirmar", "El módulo no pide más datos que los de la pregunta 1. Si quien reserva puede ser menor de edad: Por confirmar con Operaciones de reservas."],
+            ["3", "¿Los trata a gran escala?", "Por confirmar", "Ningún documento del proyecto da el número de reservas ni de personas. Volumen: Por estimar."],
+            ["4", "¿Hay perfilamiento o decisiones automatizadas con efectos sobre las personas?", "No", "El módulo no perfila. Liberar la reserva sin pago a los 15 minutos es una regla fija, igual para todas las reservas."],
+            ["5", "¿Trata datos de personas vulnerables?", "Por confirmar", "Ningún documento del proyecto lo indica. Por confirmar con Operaciones de reservas."],
+            ["6", "¿Transfiere datos fuera del país?", "Por confirmar", "La pasarela es un proveedor externo. Dónde trata los datos: Por confirmar con asesoría legal."],
+            ["7", "¿Usa tecnología nueva sobre datos personales?", "No", "Usa el SDK y los campos alojados de la pasarela y una tabla SQL, sin análisis de los datos personales."]
+          ]
+        },
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Conclusión del tamizaje",
+              "options": ["Evaluación completa necesaria", "Evaluación completa no necesaria", "Evaluación completa por confirmar"],
+              "selected": "Evaluación completa por confirmar"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tratamiento",
+      "title": "Descripción del tratamiento",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El módulo trata el nombre, el correo y el teléfono de quien reserva y guarda el estado y la referencia de cada transacción. Los datos de la tarjeta no pasan por los servidores de la entidad: los captura la pasarela. El flujo está en la Figura 2 de DEMO-ARQ-01, «Componentes y frontera de los datos de tarjeta»."
+        },
+        {
+          "type": "table",
+          "id": "datos-tratados",
+          "title": "Datos personales del tratamiento",
+          "headers": ["Dato", "Quién lo da", "Dónde queda", "Quién accede"],
+          "widths": [1.9, 1.7, 2.3, 2.2],
+          "rows": [
+            ["Nombre, correo y teléfono", "Quien reserva, en el cliente web", "Sistema de reservas. Ubicación y copias: Por confirmar con ingeniería.", "Operaciones de reservas. Otros accesos: Por confirmar con ingeniería."],
+            ["Estado y referencia de la transacción, vinculados a la reserva", "El servicio de pagos, con lo que informa la pasarela", "Registro de pagos, una tabla SQL (E2 de DEMO-ALC-01).", "Operaciones de reservas, para consultar pagos y conciliar. Desarrollo: Por confirmar."],
+            ["Datos de la tarjeta", "Quien reserva, en campos alojados por la pasarela", "En la pasarela. No pasan por los servidores propios (DEMO-ADR-01).", "La pasarela. La entidad no accede."],
+            ["Informe diario de conciliación", "El registro de pagos y el extracto de la pasarela", "Informe del registro. Ubicación: Por confirmar.", "Operaciones de reservas."]
+          ]
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Finalidad", "value": "Cobrar la reserva con tarjeta y confirmarla solo con el pago recibido, reembolsarla si se cancela dentro del plazo y conciliar cada día los pagos con las reservas (DEMO-ALC-01)."},
+            {"label": "Titulares", "value": "Personas que reservan y pagan en el sistema de reservas. Si entre ellas hay menores o personas vulnerables: Por confirmar con Operaciones de reservas."},
+            {"label": "Volumen aproximado", "value": "Por estimar. Ningún documento del proyecto da el número de reservas ni de personas."},
+            {"label": "Encargados y terceros", "value": "La pasarela de pagos captura la tarjeta y cobra. Su calificación jurídica en el tratamiento y el contrato o acuerdo de encargo: Por confirmar con asesoría legal. No consta otro tercero. El servicio de notificaciones es de la entidad y avisa solo tras el pago confirmado."},
+            {"label": "Flujo de los datos", "value": "Figura 2 de DEMO-ARQ-01. La tarjeta se captura en el dominio de la pasarela y los servidores propios reciben estados y referencias de transacción."},
+            {"label": "Retención y supresión", "value": "Por confirmar con asesoría legal. DEMO-ARQ-01 deja el plazo por confirmar con Operaciones de reservas."},
+            {"label": "Transferencias fuera del país", "value": "Por confirmar con asesoría legal. Falta saber dónde trata los datos la pasarela."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "necesidad",
+      "title": "Necesidad y proporcionalidad",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El diseño reduce lo que se guarda: la tarjeta no se almacena y el informe diario puede prescindir de nombre y contacto. Falta decidir si el teléfono sigue haciendo falta, y confirmar la base de licitud y el canal para ejercer los derechos."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Por qué estos datos y no menos", "value": "El nombre identifica la reserva y el correo recibe el aviso de confirmación, que sale solo tras el pago confirmado (DEMO-FAC-01). El teléfono sirve hoy para coordinar el cobro (DEMO-REQ-014) y con el cobro en línea puede dejar de hacer falta. Qué datos se piden lo decide Operaciones de reservas: Por confirmar."},
+            {"label": "Alternativas menos intrusivas", "value": "Minimización: no guardar datos de tarjeta, que capta la pasarela (DEMO-ADR-01), y valorar dejar de pedir el teléfono.\nAnonimización: el informe diario usa la referencia de la reserva, sin nombre ni contacto (M-05).\nDatos sintéticos: las pruebas usan reservas y tarjetas de prueba de la pasarela, sin datos personales reales (DEMO-ATP-01)."},
+            {"label": "Base de licitud", "value": "Por confirmar con asesoría legal"},
+            {"label": "Información a los titulares", "value": "Aviso en el paso de pago del cliente web (E4 de DEMO-ALC-01), antes de pedir los datos. Texto y versión: Por confirmar con asesoría legal."},
+            {"label": "Cómo ejercen los derechos que reconozca el marco aplicable (por ejemplo, acceso, rectificación u oposición)", "value": "Por un canal de Operaciones de reservas. Canal, plazo y responsable: Por confirmar con asesoría legal."},
+            {"label": "Intervención humana", "value": "No aplica: el módulo no toma decisiones automatizadas sobre las personas. Ver {{ref:supervision}}."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riesgos",
+      "title": "Análisis de riesgos del tratamiento",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Seis riesgos alcanzan a las personas titulares: cinco siguen abiertos, uno está cerrado y el más alto es de nivel Alto. La probabilidad y el impacto son una valoración del equipo, por confirmar con quien responda por la protección de datos, y se leen sin contar las medidas previstas o pendientes de {{ref:medidas}}. El impacto mide lo que sufre la persona titular: leve, importante o grave."
+        },
+        {
+          "type": "risks",
+          "id": "matriz-riesgos",
+          "summary_id": "resumen-riesgos",
+          "matrix_title": "Matriz de niveles de riesgo para las personas",
+          "register_title": "Riesgos para las personas titulares",
+          "summary_table_title": "Riesgos abiertos para las personas, por nivel",
+          "scale": {
+            "probability": ["Remota", "Posible", "Probable"],
+            "impact": ["Leve", "Importante", "Grave"],
+            "matrix": [
+              ["Bajo", "Bajo", "Medio"],
+              ["Bajo", "Medio", "Alto"],
+              ["Medio", "Alto", "Muy alto"]
+            ]
+          },
+          "responses": ["Reducir", "Evitar", "Aceptar", "Consultar a asesoría legal"],
+          "states": ["Abierto", "En reducción", "Ocurrido", "Cerrado"],
+          "open_states": ["Abierto", "En reducción"],
+          "items": [
+            {
+              "id": "RD-01",
+              "cause": "Contacto y estado del cobro quedan juntos y no hay una lista de quién accede a ellos.",
+              "event": "Una persona que no necesita conocer esos datos los consulta o los copia.",
+              "consequence": "La persona recibe contactos que no pidió o queda expuesto que reservó y pagó.",
+              "probability": "Posible",
+              "impact": "Importante",
+              "response": "Reducir",
+              "action": "Dar acceso por rol y registrar las consultas: M-01 y M-02.",
+              "owner": "Arquitectura de software",
+              "state": "En reducción"
+            },
+            {
+              "id": "RD-02",
+              "cause": "Otras áreas podrían usar el correo y el teléfono para avisos ajenos a la reserva.",
+              "event": "Los datos de contacto se usan para un fin distinto del cobro y la confirmación.",
+              "consequence": "La persona recibe mensajes para los que no fue informada.",
+              "probability": "Posible",
+              "impact": "Leve",
+              "response": "Reducir",
+              "action": "Fijar por escrito la finalidad y dar un canal de oposición: M-01, M-03 y M-08.",
+              "owner": "Operaciones de reservas",
+              "state": "En reducción"
+            },
+            {
+              "id": "RD-03",
+              "cause": "Sin plazo de retención confirmado ni regla de supresión en el registro de pagos.",
+              "event": "Los datos de una reserva se guardan más tiempo del necesario.",
+              "consequence": "Los datos siguen expuestos a los demás riesgos cuando ya no hacen falta.",
+              "probability": "Probable",
+              "impact": "Importante",
+              "response": "Consultar a asesoría legal",
+              "action": "Confirmar el plazo y programar la supresión: M-04. Estado: Pendiente.",
+              "owner": "Operaciones de reservas",
+              "state": "Abierto"
+            },
+            {
+              "id": "RD-04",
+              "cause": "La referencia de la reserva en informes y extractos permite llegar a la persona.",
+              "event": "Alguien vincula un informe o un dato de prueba con la persona que reservó.",
+              "consequence": "Se revela quién pagó y cuándo a quien solo debía ver cifras de conciliación.",
+              "probability": "Remota",
+              "impact": "Importante",
+              "response": "Reducir",
+              "action": "Quitar nombre y contacto del informe y probar con datos de prueba: M-05.",
+              "owner": "Arquitectura de software",
+              "state": "En reducción"
+            },
+            {
+              "id": "RD-05",
+              "cause": "La pasarela puede enviar más de una vez la confirmación del mismo cobro, y un cobro puede llegar para una reserva ya liberada. Coincide con R-01 y R-03 de DEMO-RIE-01.",
+              "event": "El servicio registra dos cobros para una reserva o vincula un pago con una reserva que ya no está vigente.",
+              "consequence": "La persona paga dos veces o queda con un pago sin reserva hasta que se reembolsa.",
+              "probability": "Posible",
+              "impact": "Importante",
+              "response": "Reducir",
+              "action": "Tratar cada confirmación una sola vez y reembolsar el cobro sin reserva: M-06 y M-08. R-01 de DEMO-RIE-01 sigue en mitigación.",
+              "owner": "Desarrollo",
+              "state": "En reducción"
+            },
+            {
+              "id": "RD-06",
+              "cause": "Guardar la tarjeta en servidores propios simplificaría los reintentos de cobro.",
+              "event": "El módulo guarda o registra datos de tarjeta en servidores propios.",
+              "consequence": "Quien reserva queda expuesto si esos datos se filtran.",
+              "probability": "Remota",
+              "impact": "Grave",
+              "response": "Evitar",
+              "action": "Capturar la tarjeta en campos alojados por la pasarela: M-07 y DEMO-ADR-01. Coincide con R-07 de DEMO-RIE-01, cerrado el 09/11/2026. La comprobación de código y registros sigue en la revisión externa, R-05 de DEMO-RIE-01.",
+              "owner": "Arquitectura de software",
+              "state": "Cerrado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "salvaguardas",
+      "title": "Medidas y salvaguardas",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Ocho medidas cubren los seis riesgos. Ninguna está implementada, porque el módulo todavía no se construye: cinco están previstas en el diseño y tres siguen pendientes de asignar o de asesoría legal."
+        },
+        {
+          "type": "table",
+          "id": "medidas",
+          "title": "Medidas y salvaguardas",
+          "headers": ["Medida", "Riesgo que reduce", "Responsable", "Estado"],
+          "widths": [4.2, 1.1, 1.6, 0.9],
+          "rows": [
+            ["M-01. Dar acceso por rol a los datos de reserva y de pago y revisar la lista en cada revisión de esta evaluación.", "{{ref:RD-01}}, {{ref:RD-02}}", "Arquitectura de software", "Prevista"],
+            ["M-02. Registrar las consultas y las exportaciones de datos personales del registro de pagos.", "{{ref:RD-01}}", "Desarrollo", "Prevista"],
+            ["M-03. Fijar por escrito para qué se usan el correo y el teléfono. Otro uso exige revisar esta evaluación.", "{{ref:RD-02}}", "Operaciones de reservas", "Pendiente"],
+            ["M-04. Confirmar con asesoría legal el plazo de retención y programar la supresión de los datos vencidos.", "{{ref:RD-03}}", "Operaciones de reservas", "Pendiente"],
+            ["M-05. Usar la referencia de la reserva, sin nombre ni contacto, en el informe diario y los extractos, y probar con datos de prueba.", "{{ref:RD-04}}", "Arquitectura de software", "Prevista"],
+            ["M-06. Tratar cada confirmación de la pasarela una sola vez y reembolsar los cobros que lleguen sin reserva vigente.", "{{ref:RD-05}}", "Desarrollo", "Prevista"],
+            ["M-07. Capturar la tarjeta en campos alojados por la pasarela y comprobar en la revisión externa que no queda ningún dato suyo en código ni registros.", "{{ref:RD-06}}", "Arquitectura de software", "Prevista"],
+            ["M-08. Informar en el paso de pago y dar un canal de acceso, rectificación y oposición.", "{{ref:RD-02}}, {{ref:RD-05}}", "Operaciones de reservas", "Pendiente"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supervision",
+      "title": "Supervisión humana y decisiones automatizadas",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Decisiones automatizadas", "value": "No aplica. El módulo cobra, registra y concilia, y su única regla automática, liberar la reserva sin pago a los 15 minutos, vale por igual para todas. Si se añade un modelo de apoyo, se revisa esta evaluación y se cita su ficha de modelo."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusión y decisión",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se propone consultar a asesoría legal, antes de pasar a producción, sobre el marco aplicable y la autoridad, la base de licitud, la retención, las transferencias y el delegado de protección de datos. Cinco riesgos siguen abiertos y el más alto es de nivel Alto, RD-03. El diseño avanza con las medidas de {{ref:medidas}} que no dependen de esa respuesta."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Decisión",
+              "options": [
+                "Continúa sin medidas adicionales",
+                "Continúa con medidas",
+                "No continúa hasta resolver",
+                "Consultar a asesoría legal o a la autoridad"
+              ],
+              "selected": "Consultar a asesoría legal o a la autoridad"
+            },
+            {"label": "Riesgo residual", "value": "Alto, por RD-03, el nivel más alto del resumen de riesgos abiertos, sin contar las medidas previstas. Con las medidas aplicadas: Por estimar."},
+            {"label": "Fecha de revisión", "value": "04/01/2027, antes del paso a producción. Propuesta, por confirmar."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "responsabilidad",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
+          "widths": [1.2, 2.4, 1.6, 1.1],
+          "rows": [
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"],
+            ["Revisado por", "Por confirmar\nDelegado de protección de datos, si se designa", "\n\n________________", "Pendiente"],
+            ["Aprobado por", "Soledad Paredes\nJefa de operaciones de reservas", "\n\n________________", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

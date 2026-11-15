@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "propuesta-servicio",
+    "code": "DEMO-PRO-01",
+    "title": "Propuesta de servicio",
+    "short_title": "Propuesta de servicio",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-11-11",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-11-11",
+      "version": "0.1",
+      "summary": "Primera versión.",
+      "author": "Marta Quiroga"
+    }
+  ],
+  "sections": [
+    {
+      "id": "resumen",
+      "title": "Resumen",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Se propone el cobro con tarjeta de cada reserva, en 7 semanas, por 26.565,00 USD con el impuesto de demostración incluido. Operaciones de reservas confirma el plazo de cancelación, designa a quien participará en la prueba piloto y señala una semana de puesta en producción fuera de los periodos de mayor demanda."
+        }
+      ]
+    },
+    {
+      "id": "necesidad",
+      "title": "Necesidad y objetivo",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Operaciones de reservas pidió, el 27/10/2026, confirmar cada reserva solo cuando el pago esté recibido (DEMO-REQ-014). El objetivo de esta propuesta es dejar ese cobro funcionando para tarjeta de crédito y de débito, en una moneda, y lista la operación en producción."
+        }
+      ]
+    },
+    {
+      "id": "solucion",
+      "title": "Solución propuesta",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Quien reserva paga la tarifa con tarjeta antes de que la reserva quede confirmada. El número de tarjeta lo recoge la pasarela en sus propios campos, y la entidad no lo guarda. Si la pasarela avisa más de una vez el mismo cobro, se registra un solo pago. Una reserva sin pagar vuelve a estar disponible a los 15 minutos. La cancelación dentro del plazo acordado se reembolsa por completo, y cada día se entrega un informe de conciliación entre los pagos y las reservas."
+        }
+      ]
+    },
+    {
+      "id": "alcance",
+      "title": "Alcance y exclusiones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La propuesta incluye el cobro, el reembolso por cancelación, el informe diario y la pantalla de pago. Quedan fuera los pagos en efectivo, los pagos recurrentes y cualquier cambio en los avisos que la reserva ya envía."
+        },
+        {
+          "type": "table",
+          "id": "entregables",
+          "title": "Entregables",
+          "headers": ["Entregable", "Qué recibe Operaciones de reservas"],
+          "widths": [2.2, 4.4],
+          "rows": [
+            ["Cobro de la reserva", "Pago con tarjeta desde la solicitud hasta la confirmación, con un solo cargo aunque la pasarela avise más de una vez."],
+            ["Reembolso", "Devolución completa de las reservas canceladas dentro del plazo acordado."],
+            ["Conciliación", "Informe diario de pagos y reservas, contrastado con el extracto de la pasarela."],
+            ["Pantalla de pago", "Paso de pago en el sitio de reservas, usable desde 360 píxeles de ancho, sin guardar la tarjeta en los servidores de la entidad."]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Operaciones de reservas acepta el módulo cuando, en la prueba piloto, el 95 % de los pagos de prueba se confirma en menos de 5 segundos, 100 avisos repetidos producen un solo cobro y el informe diario coincide con el extracto."
+        }
+      ]
+    },
+    {
+      "id": "cronograma",
+      "title": "Cronograma",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El trabajo dura 7 semanas. Las cuatro fases van una después de otra. Donde la fase depende de Operaciones de reservas, la tabla lo dice."
+        },
+        {
+          "type": "table",
+          "id": "fases",
+          "title": "Fases e hitos de la parte solicitante",
+          "headers": ["Fase", "Duración", "Hito de Operaciones de reservas"],
+          "widths": [2.2, 1.2, 3.6],
+          "rows": [
+            ["Análisis y diseño", "1 semana", "Plazo de cancelación con reembolso total acordado antes de construir."],
+            ["Construcción", "3 semanas", "No aplica."],
+            ["Pruebas y piloto", "2 semanas", "Una persona del área participa en la prueba piloto."],
+            ["Puesta en producción", "1 semana", "La semana queda fuera de los periodos de mayor demanda."]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solicitud",
+      "title": "Lo que necesitamos de la parte solicitante",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Los cuatro aportes están en Por confirmar."
+        },
+        {
+          "type": "table",
+          "id": "aportes",
+          "title": "Aportes de Operaciones de reservas",
+          "headers": ["Aporte", "Cuándo hace falta", "Estado"],
+          "widths": [3.2, 2.4, 1.4],
+          "rows": [
+            ["Decisión del plazo de cancelación con reembolso total", "Antes de la construcción", "Por confirmar"],
+            ["Persona del área en la prueba piloto", "Durante las 2 semanas de pruebas", "Por confirmar"],
+            ["Acceso de esa persona al entorno de pruebas de la pasarela", "Al empezar las pruebas", "Por confirmar"],
+            ["Semana de puesta en producción fuera de mayor demanda", "Antes de cerrar las pruebas", "Por confirmar"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "riesgos",
+      "title": "Supuestos y riesgos relevantes",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Los riesgos del proyecto están en el registro DEMO-RIE-01, abierto el 09/11/2026. Aquí solo los que cambian una fecha o una decisión de Operaciones de reservas."
+        },
+        {
+          "type": "list",
+          "items": [
+            "La salida a producción espera una revisión de seguridad hecha por alguien externo al equipo. Si esa revisión no está lista, la semana de despliegue se mueve.",
+            "El despliegue queda fuera de los periodos de mayor demanda. La semana la señala Operaciones de reservas.",
+            "El plazo de cancelación con reembolso total sigue sin acordar. Hasta que conste, el reembolso no tiene una fecha límite. Estado: Por confirmar.",
+            "Supuesto: la pasarela mantiene durante las 7 semanas la forma de conexión que se use al empezar. Si la cambia, el plazo se revisa con Operaciones de reservas."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "inversion",
+      "title": "Inversión",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "El total es 26.565,00 USD. Las cifras y la tasa son de demostración: no salen de una tarifa de la entidad ni describen un impuesto real."
+        },
+        {
+          "type": "quote",
+          "id": "cotizacion",
+          "title": "Cotización del módulo de pagos",
+          "currency": "USD",
+          "tax_rate": 0.15,
+          "tax_name": "Impuesto",
+          "items": [
+            {"concept": "Diseño y construcción del cobro con tarjeta", "quantity": 1, "unit_price": 16000},
+            {"concept": "Acompañamiento de la prueba piloto", "quantity": 2, "unit_price": 1800},
+            {"concept": "Puesta en producción", "quantity": 1, "unit_price": 3500}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "condiciones",
+      "title": "Condiciones",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "La propuesta vale hasta el 11/12/2026. La forma de pago y la garantía son texto de demostración: el lugar donde la entidad escribe las suyas."
+        },
+        {
+          "type": "fields",
+          "items": [
+            {"label": "Validez", "value": "Hasta el 11/12/2026"},
+            {"label": "Forma de pago", "value": "Texto de demostración: 40 % al aceptar esta propuesta y el resto al aceptar el módulo en la prueba piloto."},
+            {"label": "Garantía", "value": "Texto de demostración: 30 días de corrección de fallos del cobro, contados desde la puesta en producción."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aceptacion",
+      "title": "Aceptación",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Firmar acepta estos términos. La fecha de aceptación queda en Pendiente."
+        },
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Aceptación de las dos partes",
+          "headers": ["", "Parte solicitante", "Equipo ejecutor"],
+          "widths": [1.3, 2.6, 2.6],
+          "rows": [
+            ["Nombre y cargo", "Soledad Paredes\nJefa de operaciones de reservas", "Iván Salas\nResponsable de ingeniería de software"],
+            ["Firma", "\n________________", "\n________________"],
+            ["Fecha de aceptación", "Pendiente", "Pendiente"]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-acta-capacitacion.json",
+  "source_sha256": "7ec3f1a728d943b485147fb656b162ab9d0d4bad38569029424d04c46ab5cf8d",
+  "pdf_sha256": "be2fe2d560b3a5934a45d4ffa8de483d352818ccb2ba8afc5088cc2db54dcd4d",
+  "assets": [],
+  "pages": 4,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "acta-capacitacion",
+    "code": "DEMO-CAP-01",
+    "title": "Acta de capacitación",
+    "short_title": "Acta de capacitación",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-07",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "informacion",
+      "label": "1. Información general",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "objetivos",
+      "label": "2. Objetivos de la capacitación",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "contenidos",
+      "label": "3. Contenidos abordados",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "asistentes",
+      "label": "4. Lista de asistentes y firmas",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "lista-asistentes",
+      "label": "Tabla 1. Asistentes a la capacitación",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "materiales",
+      "label": "5. Materiales entregados",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "evaluacion",
+      "label": "6. Evaluación y retroalimentación",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "evaluacion-aspectos",
+      "label": "Tabla 2. Evaluación de la capacitación por aspecto",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "comentarios",
+      "label": "Tabla 3. Comentarios y sugerencias de los asistentes",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "constancia",
+      "label": "7. Constancia de ejecución y cierre",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "constancia-firma",
+      "label": "Tabla 4. Constancia de ejecución",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "responsabilidad",
+      "label": "8. Firmas de responsabilidad",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 5. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    }
+  ],
+  "labels": {
+    "informacion": "1. Información general",
+    "objetivos": "2. Objetivos de la capacitación",
+    "contenidos": "3. Contenidos abordados",
+    "asistentes": "4. Lista de asistentes y firmas",
+    "lista-asistentes": "Tabla 1. Asistentes a la capacitación",
+    "materiales": "5. Materiales entregados",
+    "evaluacion": "6. Evaluación y retroalimentación",
+    "evaluacion-aspectos": "Tabla 2. Evaluación de la capacitación por aspecto",
+    "comentarios": "Tabla 3. Comentarios y sugerencias de los asistentes",
+    "constancia": "7. Constancia de ejecución y cierre",
+    "constancia-firma": "Tabla 4. Constancia de ejecución",
+    "responsabilidad": "8. Firmas de responsabilidad",
+    "firmas": "Tabla 5. Registro de firmas"
+  },
+  "reference_labels": {
+    "informacion": "1. Información general",
+    "objetivos": "2. Objetivos de la capacitación",
+    "contenidos": "3. Contenidos abordados",
+    "asistentes": "4. Lista de asistentes y firmas",
+    "lista-asistentes": "Tabla 1. Asistentes a la capacitación",
+    "materiales": "5. Materiales entregados",
+    "evaluacion": "6. Evaluación y retroalimentación",
+    "evaluacion-aspectos": "Tabla 2. Evaluación de la capacitación por aspecto",
+    "comentarios": "Tabla 3. Comentarios y sugerencias de los asistentes",
+    "constancia": "7. Constancia de ejecución y cierre",
+    "constancia-firma": "Tabla 4. Constancia de ejecución",
+    "responsabilidad": "8. Firmas de responsabilidad",
+    "firmas": "Tabla 5. Registro de firmas"
+  }
+}

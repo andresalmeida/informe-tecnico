@@ -7,8 +7,12 @@ import re
 from datetime import date
 from pathlib import Path
 
+import deps
+deps.check(('pdfplumber', 'pypdf'), 'check_report.py')
+
 import pdfplumber
 from pypdf import PdfReader
+from lifecycle import validate_lifecycle, status_label, check_lifecycle_page
 
 
 def aligned_header(page):
@@ -43,6 +47,15 @@ def check(pdf):
     expected_size = (595.276,841.89) if manifest["paper"] == "A4" else (612,792)
     texts = []
     m = manifest["document"]
+    lifecycle_valid = False
+    if "lifecycle" in m or "lifecycle" in manifest:
+        expect("lifecycle" in m and manifest.get("lifecycle") == m.get("lifecycle"),
+               "Ciclo de vida distinto entre document y manifiesto")
+        try:
+            validate_lifecycle(m)
+            lifecycle_valid = "lifecycle" in m
+        except ValueError as error:
+            errors.append(str(error))
     printed_index = m.get("kind", "informe") == "informe"
     with pdfplumber.open(pdf) as document:
         for i, page in enumerate(document.pages,1):
@@ -53,8 +66,11 @@ def check(pdf):
             expect(f'Versión: {m["version"]}' in text, f"Versión ausente en {i}")
             expect(date.fromisoformat(m["date"]).strftime("%d/%m/%Y") in text, f"Fecha ausente en {i}")
             expect(m["code"] in text, f"Código ausente en {i}")
-            if m.get("show_status_in_footer", True):
-                expect(m["status"] in text, f"Estado ausente en {i}")
+            if m.get("show_status_in_footer", True) or lifecycle_valid:
+                label = status_label(m) if lifecycle_valid else m["status"]
+                expect(' '.join(label.split()) in ' '.join(text.split()), f"Estado ausente en {i}")
+            if lifecycle_valid:
+                errors.extend(f"{error} en página {i}" for error in check_lifecycle_page(page, m))
             expect(abs(page.width-expected_size[0])<1 and abs(page.height-expected_size[1])<1,
                    f"Papel incorrecto en {i}")
             expect(aligned_header(page), f"Desfase de retícula de cabecera en {i}")
@@ -74,7 +90,7 @@ def check(pdf):
             normalized = re.sub(r"\s+"," ",texts[page_n-1])
             expect(re.sub(r"\s+"," ",entry["label"]) in normalized,
                    f'Título ausente en destino: {entry["id"]}')
-        if printed_index:
+        if printed_index and entry["kind"] != "testcase":
             index_pattern = (re.escape(re.sub(r"\s+", " ", entry["label"])) +
                              r"(?:\s*\.)+\s*" + str(page_n) + r"\b")
             expect(re.search(index_pattern,index_text) is not None,
@@ -103,7 +119,8 @@ def check(pdf):
                     expect(any(dest[0] == pg.indirect_reference for pg in reader.pages),
                            f"Enlace sin página de destino en {i}")
     if printed_index:
-        expect(links >= len(manifest["entries"]), "Faltan enlaces de índices")
+        indexed_entries = [e for e in manifest["entries"] if e["kind"] != "testcase"]
+        expect(links >= len(indexed_entries), "Faltan enlaces de índices")
     return {"ok":not errors,"pages":n,"entries":len(manifest["entries"]),
             "internal_links":links,"format":manifest.get("format", {"profile":"institucional"}),"errors":errors,
             "limits":"Requiere revisión visual; no verifica hechos, ejecución de procedimientos, correspondencia bibliográfica, APA integral ni PDF/UA."}

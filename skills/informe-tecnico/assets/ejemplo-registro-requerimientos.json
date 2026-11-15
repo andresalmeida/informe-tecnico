@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "brand": {
+    "entity": "Entidad de demostración",
+    "unit": "Unidad de Ingeniería de Software",
+    "accent": "#155D86"
+  },
+  "document": {
+    "kind": "registro-requerimientos",
+    "code": "DEMO-REQ-014",
+    "title": "Registro de requerimiento",
+    "short_title": "Registro de requerimiento",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2026-10-29",
+    "version": "0.2",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional"
+  },
+  "changes": [
+    {
+      "date": "2026-10-28",
+      "version": "0.1",
+      "summary": "Primera versión con los datos generales, la descripción y la información adicional.",
+      "author": "Iván Salas"
+    },
+    {
+      "date": "2026-10-29",
+      "version": "0.2",
+      "summary": "Se añaden la asignación, las observaciones iniciales y el registro de firmas.",
+      "author": "Iván Salas",
+      "affects": [
+        "recepcion",
+        "aprobaciones"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "datos",
+      "title": "Datos generales del requerimiento",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {
+              "label": "N.º de registro",
+              "value": "DEMO-REQ-014"
+            },
+            {
+              "label": "Fecha de recepción",
+              "value": "27/10/2026"
+            },
+            {
+              "label": "Tipo de requerimiento",
+              "options": [
+                "Software",
+                "Infraestructura",
+                "Recursos"
+              ],
+              "selected": "Software"
+            },
+            {
+              "label": "Prioridad",
+              "options": [
+                "Alta",
+                "Media",
+                "Baja"
+              ],
+              "selected": "Alta"
+            },
+            {
+              "label": "Solicitante",
+              "value": "Soledad Paredes, jefa de operaciones de reservas"
+            },
+            {
+              "label": "Proceso de origen",
+              "options": [
+                "Operación",
+                "Proyectos",
+                "Atención a clientes"
+              ],
+              "selected": "Operación"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "descripcion",
+      "title": "Descripción del requerimiento",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Asunto",
+              "value": "Cobro en línea al confirmar una reserva"
+            },
+            {
+              "label": "Necesidad",
+              "value": "Operaciones necesita confirmar una reserva solo cuando el pago esté recibido. Hoy el cobro se coordina por teléfono después de reservar y el equipo concilia cada pago a mano. La reserva sin cobrar sigue ocupando cupo hasta que alguien la libera."
+            },
+            {
+              "label": "Resultado esperado",
+              "value": "La reserva se confirma al recibir el pago, y si no se paga libera su cupo por sí sola. El solicitante propone medirlo por las reservas sin pago que siguen ocupando cupo; la meta se fija al evaluar el requerimiento."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adicional",
+      "title": "Información adicional",
+      "blocks": [
+        {
+          "type": "fields",
+          "items": [
+            {
+              "label": "Proyecto o cliente",
+              "value": "Sistema de reservas en línea"
+            },
+            {
+              "label": "Documentos adjuntos",
+              "value": "Solicitud de operaciones de reservas, 27/10/2026.\nInforme mensual de reservas sin pago, septiembre de 2026."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recepcion",
+      "title": "Recepción y asignación",
+      "blocks": [
+        {
+          "type": "fields",
+          "columns": 2,
+          "items": [
+            {
+              "label": "Recibido por",
+              "value": "Iván Salas, responsable de ingeniería de software"
+            },
+            {
+              "label": "Fecha de registro",
+              "value": "28/10/2026"
+            },
+            {
+              "label": "Asignado a",
+              "value": "Marta Quiroga, arquitecta de software"
+            },
+            {
+              "label": "Fecha de asignación",
+              "value": "29/10/2026"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "runs": [
+            {
+              "text": "Observaciones iniciales. ",
+              "bold": true
+            },
+            {
+              "text": "Pasa a evaluación de factibilidad. Operaciones pide respuesta antes del próximo periodo de mayor demanda; aún no hay plazo acordado ni estimación."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aprobaciones",
+      "title": "Firmas de responsabilidad",
+      "blocks": [
+        {
+          "type": "table",
+          "id": "firmas",
+          "title": "Registro de firmas",
+          "headers": [
+            "Función",
+            "Nombre y cargo",
+            "Firma",
+            "Fecha"
+          ],
+          "widths": [
+            1.1,
+            2.3,
+            1.8,
+            1.1
+          ],
+          "rows": [
+            [
+              "Elaborado por",
+              "Iván Salas\nResponsable de ingeniería de software",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Revisado por",
+              "Rafael Mena\nComité de calidad",
+              "\n\n________________",
+              "Pendiente"
+            ],
+            [
+              "Aprobado por",
+              "Lucía Ferrer\nComité de proyectos",
+              "\n\n________________",
+              "Pendiente"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

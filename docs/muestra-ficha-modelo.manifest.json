@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "source": "ejemplo-ficha-modelo.json",
+  "source_sha256": "e480db6b94a7cbedb2f72391576bcdb6030d9af7b66df9315ebfe7242127530e",
+  "pdf_sha256": "fa5f28f6f24484b7ce68458b34386859dd94e5a14e7b6d3e8f49e48a701ce4b0",
+  "assets": [],
+  "pages": 4,
+  "passes": 2,
+  "paper": "A4",
+  "document": {
+    "kind": "ficha-modelo",
+    "code": "DEMO-MOD-01",
+    "title": "Ficha del modelo de revisión de pagos",
+    "short_title": "Ficha del modelo",
+    "subtitle": "Módulo de pagos para el sistema de reservas · Ejemplo ficticio",
+    "date": "2027-01-03",
+    "version": "0.1",
+    "status": "Demostración",
+    "show_changes": true
+  },
+  "format": {
+    "profile": "institucional",
+    "body_size_pt": 10.5,
+    "line_spacing": 1.380952380952381,
+    "first_line_indent_mm": 0.0,
+    "paragraph_space_after_pt": 8.0,
+    "reference_indent_mm": 12.7,
+    "table_line_spacing": 1.3333333333333333
+  },
+  "entries": [
+    {
+      "id": "referencia",
+      "label": "1. Información de referencia",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "uso",
+      "label": "2. Uso previsto",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "datos",
+      "label": "3. Datos",
+      "kind": "section",
+      "level": 0,
+      "page": 1
+    },
+    {
+      "id": "modelo",
+      "label": "4. Modelo",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "evaluacion",
+      "label": "5. Evaluación",
+      "kind": "section",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "metricas",
+      "label": "Tabla 1. Métricas de demostración",
+      "kind": "table",
+      "level": 0,
+      "page": 2
+    },
+    {
+      "id": "grupos",
+      "label": "Tabla 2. Recall por canal, datos sintéticos",
+      "kind": "table",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "limitaciones",
+      "label": "6. Limitaciones y riesgos",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "monitoreo",
+      "label": "7. Monitoreo y mantenimiento",
+      "kind": "section",
+      "level": 0,
+      "page": 3
+    },
+    {
+      "id": "aprobacion",
+      "label": "8. Aprobaciones",
+      "kind": "section",
+      "level": 0,
+      "page": 4
+    },
+    {
+      "id": "firmas",
+      "label": "Tabla 3. Registro de firmas",
+      "kind": "table",
+      "level": 0,
+      "page": 4
+    }
+  ],
+  "labels": {
+    "referencia": "1. Información de referencia",
+    "uso": "2. Uso previsto",
+    "datos": "3. Datos",
+    "modelo": "4. Modelo",
+    "evaluacion": "5. Evaluación",
+    "metricas": "Tabla 1. Métricas de demostración",
+    "grupos": "Tabla 2. Recall por canal, datos sintéticos",
+    "limitaciones": "6. Limitaciones y riesgos",
+    "monitoreo": "7. Monitoreo y mantenimiento",
+    "aprobacion": "8. Aprobaciones",
+    "firmas": "Tabla 3. Registro de firmas"
+  },
+  "reference_labels": {
+    "referencia": "1. Información de referencia",
+    "uso": "2. Uso previsto",
+    "datos": "3. Datos",
+    "modelo": "4. Modelo",
+    "evaluacion": "5. Evaluación",
+    "metricas": "Tabla 1. Métricas de demostración",
+    "grupos": "Tabla 2. Recall por canal, datos sintéticos",
+    "limitaciones": "6. Limitaciones y riesgos",
+    "monitoreo": "7. Monitoreo y mantenimiento",
+    "aprobacion": "8. Aprobaciones",
+    "firmas": "Tabla 3. Registro de firmas"
+  }
+}
