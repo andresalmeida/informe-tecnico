@@ -101,7 +101,7 @@ tools/                    regresión entre versiones
 docs/                     muestras en PDF y guía para añadir un tipo
 ```
 
-Este README es para quien llega al repositorio. El agente lee `SKILL.md` y las guías; quien mantiene la skill lee [CONTRIBUTING.md](CONTRIBUTING.md).
+Este README es para quien llega al repositorio. El agente que usa la skill lee `SKILL.md` y las guías; quien la mantiene, sea una persona o un agente, lee [AGENTS.md](AGENTS.md) y [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Lo que esta skill no hace
 
