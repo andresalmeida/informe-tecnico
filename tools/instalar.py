@@ -71,11 +71,17 @@ def iguales(a, b):
 
 
 def respaldar(instalada, respaldos):
+    """Cada destino tiene su propio respaldo: el nombre lleva la carpeta del agente (por ejemplo, claude)."""
     respaldos.mkdir(parents=True, exist_ok=True)
-    nombre = f"{NOMBRE}-{version_de(instalada)}-{datetime.now():%Y%m%d-%H%M%S}.tar.gz"
-    with tarfile.open(respaldos / nombre, "w:gz") as archivo:
+    agente = re.sub(r"[^A-Za-z0-9]+", "", instalada.parent.parent.name) or "destino"
+    base = f"{NOMBRE}-{version_de(instalada)}-{agente}-{datetime.now():%Y%m%d-%H%M%S}"
+    destino, numero = respaldos / f"{base}.tar.gz", 1
+    while destino.exists():
+        numero += 1
+        destino = respaldos / f"{base}-{numero}.tar.gz"
+    with tarfile.open(destino, "w:gz") as archivo:
         archivo.add(instalada, arcname=NOMBRE)
-    return respaldos / nombre
+    return destino
 
 
 def destinos_de(nombres):
