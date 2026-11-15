@@ -4,7 +4,7 @@ Esta guía es para quien mantiene o amplía la skill. Quien la usa para redactar
 
 ## Antes de empezar: ¿hace falta un tipo?
 
-Cada tipo cuesta una guía, un ejemplo, una muestra, pruebas, una fila de ruteo y un paso de CI, y cada cambio transversal del motor obliga a regenerar todas las muestras. El catálogo tiene 22 tipos y no crece sin un uso real que alguien pueda nombrar. Un documento ocasional se pide al agente con la skill y no necesita tipo propio. Antes de crear uno, comprobar que no solapa con uno existente (por ejemplo, el cronograma del alcance y los hitos del plan de proyecto) y que registra una decisión o un traspaso que otros documentos citan.
+Cada tipo cuesta una guía, un ejemplo, una muestra, pruebas, una fila de ruteo y un paso de CI, y cada cambio transversal del motor obliga a regenerar todas las muestras. El catálogo tiene 22 tipos y no crece sin un uso real que alguien pueda nombrar; descongelarlo lo decide quien mantiene el repositorio, y se pide en el pull request con ese uso concreto. Un documento ocasional se pide al agente con la skill y no necesita tipo propio. Antes de crear uno, comprobar que no solapa con uno existente (por ejemplo, el cronograma del alcance y los hitos del plan de proyecto) y que registra una decisión o un traspaso que otros documentos citan.
 
 ## Qué es un tipo
 
@@ -22,7 +22,7 @@ Un tipo es una guía (`references/tipos/<tipo>.md`), un ejemplo (`assets/ejemplo
 | 6. Pruebas | En `tests/`, ver «Pruebas mínimas». Si el tipo es de formulario, registrar su salida en `tests/golden/heading-title.json` con `python tests/test_heading_case.py --update`. |
 | 7. Muestra | `python skills/informe-tecnico/scripts/build_report.py skills/informe-tecnico/assets/ejemplo-<tipo>.json --output docs/muestra-<tipo>.pdf`. |
 | 8. Ajustar la guía | Con la muestra final: páginas reales, huecos de página y descripción de la figura. |
-| 9. Ruteo | Un solo commit: fila en la tabla de `SKILL.md` y la descripción si cambia, línea en el README, entrada en `references/fuentes.md`, fila en `references/codigos.md`, una frase en `references/diagramas.md` y los dos pasos de CI (comprobar la muestra; compilar y comprobar el ejemplo). |
+| 9. Ruteo | Un solo commit: fila en la tabla de `SKILL.md` y la descripción si cambia, fila en la tabla por fase del README, entrada en `references/fuentes.md`, fila en `references/codigos.md`, una frase en `references/diagramas.md`, el tipo en la fase que le toca de `references/flujo-proyecto.md`, los dos pasos de CI (comprobar la muestra; compilar y comprobar el ejemplo) y los conteos de tipos (`grep` de «22», «Veintidós» y «veintiún tipos compactos» en `SKILL.md`, `README.md`, `AGENTS.md` y `references/contrato/`). |
 
 ## Si el tipo amplía o reutiliza un bloque
 
