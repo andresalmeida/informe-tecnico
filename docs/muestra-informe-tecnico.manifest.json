@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "source": "ejemplo.json",
-  "source_sha256": "82740e3267e8b9038d0b292a2b54ea17e956f7809e7efc63d7070ac650edbaf9",
-  "pdf_sha256": "f9c09cedcdaa8c1179392d20cfdbe09a999f84504bcca2a40d579757bc1aebce",
+  "source_sha256": "bc0a12b6107c859c992505feaaccba38efb5f4119f2bb6c9f48f5a2e4e75f203",
+  "pdf_sha256": "ec5c9cab9a16455cd93b24e3e9a4e1da6c11b8555c97515e01609e6d0b82ce84",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",
       "sha256": "823fc270c7c7038f84ea85a16353bd7638c869dfa2d6d566190ea4b94e430f84"
     }
   ],
-  "pages": 13,
+  "pages": 11,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -76,63 +76,63 @@
       "label": "Figura 1 Ciclo de revisión documental",
       "kind": "figure",
       "level": 0,
-      "page": 7
+      "page": 6
     },
     {
       "id": "convenciones",
       "label": "4.2. Convenciones de contenido",
       "kind": "section",
       "level": 1,
-      "page": 8
+      "page": 7
     },
     {
       "id": "catalogo",
       "label": "4.3. Catálogo de campos documentales",
       "kind": "section",
       "level": 1,
-      "page": 9
+      "page": 7
     },
     {
       "id": "campos",
       "label": "Tabla 1 Campos y controles de la fuente documental",
       "kind": "table",
       "level": 0,
-      "page": 9
+      "page": 7
     },
     {
       "id": "revision",
       "label": "4.4. Preparación de una nueva revisión",
       "kind": "section",
       "level": 1,
-      "page": 12
+      "page": 10
     },
     {
       "id": "validacion",
       "label": "5. Resultados y validación",
       "kind": "section",
       "level": 0,
-      "page": 12
+      "page": 10
     },
     {
       "id": "criterios",
       "label": "Tabla 2 Comprobaciones antes de entregar",
       "kind": "table",
       "level": 0,
-      "page": 12
+      "page": 10
     },
     {
       "id": "conclusiones",
       "label": "6. Conclusiones y recomendaciones",
       "kind": "section",
       "level": 0,
-      "page": 13
+      "page": 11
     },
     {
       "id": "referencias",
       "label": "7. Referencias de diseño",
       "kind": "section",
       "level": 0,
-      "page": 13
+      "page": 11
     }
   ],
   "labels": {

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-informe-factibilidad.json",
   "source_sha256": "fb310ce6c998c2ec94fd26ae493ea5f44c11eff57ead61714cc76185724ddc1c",
-  "pdf_sha256": "744992bceef7b04461db0dbd56801c82c2e8bef1f0832025a90a2e7a5d24566f",
+  "pdf_sha256": "7233aa3a218333f56eb8c223be0e29bdfdce226d21b04a4271b0d19e8a29f2da",
   "assets": [
     {
       "path": "diagrams/arquitectura-pagos.png",
@@ -144,14 +144,14 @@
       "label": "7. Aprobaciones y firmas",
       "kind": "section",
       "level": 0,
-      "page": 6
+      "page": 5
     },
     {
       "id": "firmas",
       "label": "Tabla 5 Firmas de responsabilidad",
       "kind": "table",
       "level": 0,
-      "page": 6
+      "page": 5
     }
   ],
   "labels": {

@@ -13,7 +13,7 @@ import deps
 deps.check(('reportlab',), 'build_report.py')
 
 from lifecycle import validate_lifecycle, status_label, draw_lifecycle_band
-from closing import signature_rows, append_closing
+from closing import signature_rows, append_closing, keep_sections, FlexKeepTogether, FitFigure, SECTION_MAX_BLANK
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT, TA_RIGHT
@@ -174,53 +174,6 @@ def format_for(spec):
 
 
 SIGNATURE_SPACE = 11*mm
-SECTION_MAX_BLANK = .4  # share of the page a section may leave blank when it moves whole to the next one
-
-
-class KeepSection(Spacer):
-    """Zero-height marker before a section. A section that would be cut, fits on one page and leaves no more than
-    ``max_blank`` of the page empty if it moves, goes whole to the next page."""
-    locChanger = 1
-
-    def __init__(self, unit, page_height, max_blank=SECTION_MAX_BLANK):
-        Spacer.__init__(self, 0, 0)
-        self.unit, self.page_height, self.max_blank = unit, page_height, max_blank * page_height
-        self.needed = None
-
-    def measure(self, width):
-        total, previous_after = 0, 0
-        canvas = self._doctemplateAttr("canv")
-        for index, item in enumerate(self.unit):
-            _, height = item.wrapOn(canvas, width, self.page_height)
-            if isinstance(item, KeepTogether):
-                height = item._H  # KeepTogether reports a huge height to force a split; its content height is stored apart
-            before = item.getSpaceBefore()
-            total += height + (0 if index == 0 else max(before, previous_after))
-            previous_after = item.getSpaceAfter()
-        return total
-
-    def wrap(self, availWidth, availHeight):
-        if self.needed is None:
-            self.needed = self.measure(availWidth)
-        if self.needed > availHeight and self.needed <= self.page_height and availHeight <= self.max_blank:
-            frame = self._doctemplateAttr("frame")
-            if frame:
-                from reportlab.platypus.doctemplate import FrameBreak
-                frame.add_generated_content(FrameBreak)
-        return 0, 0
-
-
-def keep_sections(story, starts, page_height):
-    """Put a KeepSection before every section start, unless the section holds an authored page break."""
-    ends = starts[1:] + [len(story)]
-    for start, end in reversed(list(zip(starts, ends))):
-        unit = story[start:end]
-        while unit and isinstance(unit[-1], PageBreak):
-            unit.pop()  # the break that opens the next section (new_page) is not part of this one
-        if not any(isinstance(item, (PageBreak, CondPageBreak)) for item in unit):
-            story.insert(start, KeepSection(unit, page_height))
-
-
 def is_signature_label(value):
     return str(value).strip().casefold() in ("firma", "firmas")
 
@@ -316,14 +269,38 @@ class PageTotal(IndexingFlowable):
 class RegisteredTable(LongTable):
     """Retain the first-fragment anchor while repeating caption and headings."""
     keep_whole, page_height = False, 0
+    blank_limit = None  # share of the page above which a table that fits on one page is split instead of moved
 
     def split(self, available_width, available_height):
-        if self.keep_whole and self.wrap(available_width, available_height)[1] <= self.page_height:
+        if self.keep_whole and self.wrap(available_width, available_height)[1] <= self.page_height and (
+                self.blank_limit is None or available_height <= self.blank_limit * self.page_height):
             return []
         parts = super().split(available_width, available_height)
+        if self.keep_whole and self.blank_limit is not None and len(parts) == 2:
+            parts = self.without_orphan_row(parts, available_width, available_height)
         if parts and hasattr(self, "entry"):
             parts[0].entry = self.entry
         return parts
+
+    MIN_ROWS = 3  # a split never leaves fewer data rows than this on either page
+
+    def without_orphan_row(self, parts, available_width, available_height):
+        """Move the split earlier until both pages keep MIN_ROWS data rows; keep the table whole if that is impossible."""
+        first, rest = parts
+        repeated = self.repeatRows if isinstance(self.repeatRows, int) else len(self.repeatRows)
+        first.wrap(available_width, available_height)
+        heights = list(first._rowHeights)
+        taken = len(heights) - repeated
+        missing = self.MIN_ROWS - (len(rest._cellvalues) - repeated)
+        if missing <= 0 and taken >= self.MIN_ROWS:
+            return parts
+        keep = taken - max(missing, 0)
+        if keep < self.MIN_ROWS:
+            return []
+        retried = super().split(available_width, sum(heights[:repeated + keep]) + .5)
+        if len(retried) == 2 and len(retried[1]._cellvalues) - repeated >= self.MIN_ROWS:
+            return retried
+        return []
 
 
 class Document(BaseDocTemplate):
@@ -1817,6 +1794,9 @@ def compile_report(source, output):
     output.parent.mkdir(parents=True, exist_ok=True)
     doc = Document(output, spec, styles, probe, pagesize=paper, leftMargin=21*mm,
                    rightMargin=21*mm, topMargin=58*mm, bottomMargin=25*mm)
+    if apa:
+        # keepWithNext groups (a heading with its table, a sentence with its list) yield when much of the page is free.
+        doc.keepTogetherClass = lambda flowables: FlexKeepTogether(flowables, limit=SECTION_MAX_BLANK * doc.height)
 
     # A form-like report packs its rows and the space between tables more tightly.
     pad, before, after = (4, 6, 10) if form else (6, 7, 13)
@@ -1935,6 +1915,7 @@ def compile_report(source, output):
         result.setStyle(TableStyle(commands))
         # A form-like report keeps each table whole when it fits on one page.
         result.keep_whole, result.page_height = form, doc.height
+        result.blank_limit = SECTION_MAX_BLANK if apa else None
         result._closing_signature = signature_rows(headers, rows)
         return result
 
@@ -2132,14 +2113,14 @@ def compile_report(source, output):
                         components += [p(block["description"],"small")]
                     if block.get("source"):
                         components += [p(f'Fuente: {block["source"]}',"small")]
-                story += [KeepTogether(components)]
+                story += [FitFigure(components, figure, SECTION_MAX_BLANK * doc.height) if apa else KeepTogether(components)]
     if apa:
         keep_sections(story, section_starts, doc.height)
     if show_changes:
         dated = history
         closing = [p(heading_text("Histórico de revisiones", mode), "h1"),
                    table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], dated, history_widths)]
-        story = append_closing(story, closing, doc.width, doc.height) if form else story + closing
+        story = append_closing(story, closing, doc.width, doc.height, flexible=apa) if form else story + closing
     doc.multiBuild(story, maxPasses=10)
     assets = []
     asset_values = ([spec["brand"]["logo"]] if spec["brand"].get("logo") else [])

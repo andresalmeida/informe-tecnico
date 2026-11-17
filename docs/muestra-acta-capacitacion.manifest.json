@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-capacitacion.json",
   "source_sha256": "09eb47e93a3113e5e8a0670d1decced8f8d1fe679a3790e109171518dcf5ef4e",
-  "pdf_sha256": "ed9618f3b1352cdca74cfa4aa92c9f4bddaed67f3b164aef2f2ad5f2d7e10fb8",
+  "pdf_sha256": "edc691589b84f7a5c46edd62cf4c87b3a98313955aacd73d81bafa47a71520d9",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -55,14 +55,14 @@
       "label": "4. Lista de asistentes y firmas",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 2
     },
     {
       "id": "lista-asistentes",
       "label": "Tabla 1 Asistentes a la capacitación",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 2
     },
     {
       "id": "materiales",
@@ -76,14 +76,14 @@
       "label": "6. Evaluación y retroalimentación",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 3
     },
     {
       "id": "evaluacion-aspectos",
       "label": "Tabla 2 Evaluación de la capacitación por aspecto",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 3
     },
     {
       "id": "comentarios",
@@ -111,14 +111,14 @@
       "label": "8. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 5
+      "page": 4
     },
     {
       "id": "firmas",
       "label": "Tabla 5 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 5
+      "page": 4
     }
   ],
   "labels": {

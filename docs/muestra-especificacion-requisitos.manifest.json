@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-especificacion-requisitos.json",
   "source_sha256": "e2c08c3555f616fa4cd920bcd5544214e8ba2ae1839916f4e94f57ec9c19ca45",
-  "pdf_sha256": "8d22bb27ea3a5adf696d10ea2b5fe87362a4c87c89687bb81775da16ebe65f62",
+  "pdf_sha256": "ceb5340440f4df6e369ba10ddef6b63df50e23055bc35e92e354fe4751a9dde4",
   "assets": [],
   "pages": 7,
   "passes": 2,

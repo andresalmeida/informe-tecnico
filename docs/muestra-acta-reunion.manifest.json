@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-reunion.json",
   "source_sha256": "924bde069f068b301cef633fe2ec6564389551580c9254a982ce224f39710f59",
-  "pdf_sha256": "596a86045a3155bb7469c0cc178b07b6f884e930ee519d43a1c0b5117aaf583b",
+  "pdf_sha256": "1585f47fcb7a32a4a596f12d1d5a677498b5dbdeb3ade900efdd9321d00e8d88",
   "assets": [],
   "pages": 2,
   "passes": 2,

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-descripcion-arquitectura.json",
   "source_sha256": "d0c8ab3a040aeecbf45257f999cde06be7340494bdec7e7da589f8dde34e36e8",
-  "pdf_sha256": "5161908b35ae28fa836275c49c91365e85313e32f91bb213c8d45bffc016c80b",
+  "pdf_sha256": "9da3ccff9cdab7f7ae5caa5c24e285608835a3c46b95b9a741cdf4fe88e3b74c",
   "assets": [
     {
       "path": "diagrams/contexto-arquitectura-pagos.png",
@@ -117,7 +117,7 @@
       "label": "6. Despliegue y operación",
       "kind": "section",
       "level": 0,
-      "page": 7
+      "page": 6
     },
     {
       "id": "entornos",

@@ -182,3 +182,52 @@ def run_checks(example, root, checks, build, rejected_with):
     cortada = posiciones("seccion-hueco-grande", cantidad_para(.50))
     assert cortada["titulo"][0] == 0 and cortada["ultimo"][0] == 1, cortada
     checks.append({"case": "seccion-que-se-cortaria-pasa-entera-salvo-hueco-grande"})
+
+    # Una tabla que cabe en una página, pero no en el espacio que queda, se parte si ese espacio pasa del 40 % y se
+    # mueve entera si es menor; un fragmento nunca queda con menos de tres filas.
+    def con_tabla(cantidad):
+        spec = fuente(base, None)
+        spec["sections"] = [
+            {"id": "relleno", "title": "Relleno", "blocks": [
+                {"type": "paragraph", "text": texto_largo(f"RELLENO_{i:02d}")[:210]} for i in range(cantidad)]},
+            {"id": "tabla", "title": "Sección con tabla", "blocks": [
+                {"type": "table", "id": "larga", "title": "Tabla larga", "headers": ["Número", "Detalle"],
+                 "rows": [[f"FILA_{i:02d}", "Detalle de la fila de prueba"] for i in range(16)]}]}]
+        return spec
+
+    def tabla_en(nombre, cantidad):
+        _, pdf = build(nombre, con_tabla(cantidad))
+        with pdfplumber.open(pdf) as impreso:
+            por_pagina = [[w["text"] for w in p.extract_words()] for p in impreso.pages]
+            titulo = next((w["top"] for p in impreso.pages[:1] for w in p.extract_words() if w["text"] == "tabla"), None)
+        return por_pagina, titulo
+
+    pagina_cero, y_cero = tabla_en("tabla-medida-0", 0)
+    _, y_cuatro = tabla_en("tabla-medida-4", 4)
+    alto_relleno = (y_cuatro-y_cero)/4
+
+    def cantidad_tabla(hueco):
+        return round((fondo-hueco*util-y_cero)/alto_relleno)
+
+    partida, _ = tabla_en("tabla-hueco-grande", cantidad_tabla(.50))
+    con_filas = [sum(1 for t in pag if t.startswith("FILA_")) for pag in partida]
+    assert len(partida) >= 2 and con_filas[0] >= 3 and con_filas[1] >= 3 and sum(con_filas) == 16, con_filas
+    assert all("Número" in pag for pag in partida[:2]), "el encabezado se repite en la página que continúa"
+    entera, _ = tabla_en("tabla-hueco-chico", cantidad_tabla(.25))
+    filas_por_pagina = [sum(1 for t in pag if t.startswith("FILA_")) for pag in entera]
+    assert sorted(filas_por_pagina)[-1] == 16 and filas_por_pagina.count(0) == len(filas_por_pagina)-1, filas_por_pagina
+    checks.append({"case": "tabla-se-parte-solo-con-hueco-grande-y-sin-filas-sueltas", "filas": con_filas})
+
+    # Una figura a la que le faltan pocos puntos para caber en una página aún vacía en su mayor parte se ajusta
+    # (nunca menos del 88 %) en lugar de dejar el hueco: la Figura 1 del informe de muestra queda con su sección.
+    informe = json.loads((example.parent / "ejemplo.json").read_text())
+    manifiesto, pdf = build("figura-ajustada", informe)
+    paginas = {e["id"]: e["page"] for e in manifiesto["entries"]}
+    assert paginas["flujo"] == paginas["modelo"], "la figura queda en la página de su sección"
+    from PIL import Image
+    with Image.open(example.parent / "diagrams" / "ciclo-revision.png") as imagen:
+        nominal = min(168*MM/imagen.width, 115*MM/imagen.height)*imagen.height
+    with pdfplumber.open(pdf) as impreso:
+        alto = impreso.pages[paginas["flujo"]-1].images[0]["height"]
+    assert .88*nominal-1 <= alto < nominal-1, (alto, nominal)
+    checks.append({"case": "figura-se-ajusta-sin-pasar-del-12-por-ciento", "escala": round(alto/nominal, 3)})

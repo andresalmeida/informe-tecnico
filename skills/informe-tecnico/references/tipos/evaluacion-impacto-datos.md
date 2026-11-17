@@ -121,7 +121,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que cada casilla tenga una sola cruz (la conclusión del tamizaje y la decisión), que ninguna tabla ni ficha de riesgo quede partida, que el nivel de cada ficha sea la celda de la matriz, que el resumen no cuente un riesgo cerrado y que las firmas queden enteras, con el histórico, en el cierre. Entregar el PDF, su manifiesto `.manifest.json` (el comprobador lo exige junto al PDF) y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla o una ficha que cabe en una página no se parte. Los defectos habituales son:
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una ficha que cabe en una página no se parte. Una tabla tampoco, salvo que moverla dejara más del 40 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son:
 
 - **Hueco al pie de una página**, porque una ficha de riesgo o una tabla entera pasó a la siguiente. Se corrige cuando una frase de más lo causa, acortando el texto de la ficha o de la fila; un hueco de hasta un tercio de página es un compromiso del diseño y se acepta.
 - **Una página final con solo el histórico de revisiones.** El motor agrupa las firmas, la remisión y el histórico cuando caben juntos en una página, así que el caso ya no debería darse. Si aparece (el cierre no cabe en una página o hay un `new_page` escrito antes del histórico), se corrige acortando una sección anterior. Poner `new_page: true` en una sección suele empeorarlo.

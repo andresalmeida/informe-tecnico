@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-notas-version.json",
   "source_sha256": "dc8efd1fc4601463e23cce604a7d26db3244bf5322a10c91b23e3d1854b8d326",
-  "pdf_sha256": "43d528502cb7f5fe7996987e0ea42a8b32ce7e1b198e969162d68270f186a73a",
+  "pdf_sha256": "b983810839e25eb2f7b4c9daf9a7012996c03ba9ffd057d8ca4abf8a800b16ec",
   "assets": [],
   "pages": 3,
   "passes": 2,

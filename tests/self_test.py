@@ -347,7 +347,8 @@ def main():
                                         ("firmas", "Aprobado por")):
                 assert last_cell in texts[pages_of[table_id]-1], (table_id, pages_of[table_id])
             assert "Histórico de revisiones" in texts[-1] and "Marta Quiroga" in texts[-1]
-            assert pages_of["aprobaciones"] == feasibility["pages"], "Las firmas quedan en la última página"
+            # The closing splits from its history only when more than 40 % of the page would stay empty.
+            assert feasibility["pages"]-1 <= pages_of["aprobaciones"] <= feasibility["pages"], "Las firmas cierran el cuerpo"
         assert check(feasibility_pdf)["internal_links"] >= 2
         checks.append({"case": "informe-factibilidad", "pages": feasibility["pages"], "choices": len(expected_choices)})
 
@@ -851,17 +852,19 @@ def main():
         attendees = find_block(acta_source, "lista-asistentes")["rows"]
         with pdfplumber.open(capacitacion_pdf) as printed:
             texts = [pg.extract_text() or "" for pg in printed.pages]
-            # The attendee table is whole: every number and every signature line prints on the page of its title.
-            roll = texts[acta_pages["lista-asistentes"]-1]
-            assert all(re.search(rf"(?m)^{n}( |$)", roll) for n in range(1, len(attendees)+1)), roll
+            # The attendee table may split when much of the page is free, repeating its title and header; each
+            # number prints once, in the page of its title or the next one.
+            first = acta_pages["lista-asistentes"]-1
+            roll = "\n".join(texts[first:first+2])
+            assert all(len(re.findall(rf"(?m)^{n}( |$)", roll)) == 1 for n in range(1, len(attendees)+1)), roll
             assert "____" not in roll, "the signature cell is left empty: no printed line"
             for table_id, first, last in (("evaluacion-aspectos", "Claridad de la exposición", "Práctica guiada con el módulo"),
                                           ("constancia-firma", "Instructor", "Arquitecta de software"),
                                           ("firmas", "Elaborado por", "Aprobado por")):
                 assert first in texts[acta_pages[table_id]-1] and last in texts[acta_pages[table_id]-1], table_id
-            assert acta_pages["comentarios"] == acta_pages["evaluacion-aspectos"]
+            assert 0 <= acta_pages["comentarios"]-acta_pages["evaluacion-aspectos"] <= 1  # a small table may go to the next page
             # The signatures of responsibility close the document, before the history.
-            assert acta_pages["firmas"] == capacitacion["pages"] and "Histórico de revisiones" in texts[-1]
+            assert capacitacion["pages"]-1 <= acta_pages["firmas"] <= capacitacion["pages"] and "Histórico de revisiones" in texts[-1]
         assert check(capacitacion_pdf)["internal_links"] >= 2
         checks.append({"case": "acta-capacitacion", "pages": capacitacion["pages"], "choices": 2})
 
