@@ -592,16 +592,16 @@ def main():
             assert title_case(written) == printed, (written, title_case(written))
         checks.append({"case": "titulos-con-mayuscula-de-titulo", "samples": 8})
 
-        # A form-like kind prints «1. Título» and «2.1. Título»; the other kinds keep «1 Título».
+        # Every kind prints «1. Título» and «2.1. Título», the informe included.
         assert feasibility["labels"]["referencia"] == "1. Información de referencia", feasibility["labels"]["referencia"]
         assert feasibility["labels"]["impacto"] == "2.1. Impacto en procesos y sistemas existentes"
         assert feasibility["labels"]["tiempo"].startswith("5. ") and feasibility["labels"]["tiempo"].endswith("tiempo")
         first_label = next(iter(baseline["labels"].values()))
-        assert first_label[:2] == "1 " and first_label[:3] != "1. ", first_label
+        assert first_label[:3] == "1. ", first_label
         first_page_text = PdfReader(feasibility_pdf).pages[0].extract_text()
         assert "Informe de factibilidad técnica y operativa" in first_page_text
         assert "1. Información de referencia" in first_page_text
-        checks.append({"case": "numeracion-con-punto-solo-en-formularios"})
+        checks.append({"case": "numeracion-con-punto-en-todos-los-tipos"})
 
         # The optional indexes list every section, table and figure with the page where it is printed.
         complete_source = json.loads((example.parent/"ejemplo-informe-factibilidad-completo.json").read_text())

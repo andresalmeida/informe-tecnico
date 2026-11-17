@@ -109,5 +109,4 @@ Dos pruebas, ambas sin el contexto de quien escribió el tipo:
 ## Limitaciones conocidas
 
 - Un cierre (firmas, remisión e histórico) más largo que una página conserva la distribución anterior y puede dejar el histórico solo.
-- Con `format.profile: "institucional-apa"`, el comprobador falla con el rótulo de una cotización (`quote`). No afecta a la propuesta, que usa el perfil institucional.
 - El motor no comprueba referencias bibliográficas ni accesibilidad PDF/UA.

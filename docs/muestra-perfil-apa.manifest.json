@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-apa.json",
   "source_sha256": "a6d365f54eb8b837e028bd6022c4403c237b146602130794b4cdbd14689c0c43",
-  "pdf_sha256": "f86102922a05f4ad55daee1cadd5d2ec9f46848a843091c4de95f74e7c6f9f2c",
+  "pdf_sha256": "357e09aa9f32087484f1cdee33f7b967595100e9672b193d47d6dfa350cb9604",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",
@@ -36,42 +36,42 @@
   "entries": [
     {
       "id": "introduccion",
-      "label": "1 Introducción",
+      "label": "1. Introducción",
       "kind": "section",
       "level": 0,
       "page": 5
     },
     {
       "id": "objetivos",
-      "label": "2 Objetivos",
+      "label": "2. Objetivos",
       "kind": "section",
       "level": 0,
       "page": 5
     },
     {
       "id": "alcance",
-      "label": "3 Alcance",
+      "label": "3. Alcance",
       "kind": "section",
       "level": 0,
       "page": 5
     },
     {
       "id": "desarrollo",
-      "label": "4 Desarrollo técnico",
+      "label": "4. Desarrollo técnico",
       "kind": "section",
       "level": 0,
       "page": 6
     },
     {
       "id": "parrafos",
-      "label": "4.1 Párrafos y tipografía",
+      "label": "4.1. Párrafos y tipografía",
       "kind": "section",
       "level": 1,
       "page": 6
     },
     {
       "id": "tablas",
-      "label": "4.2 Tablas y figuras",
+      "label": "4.2. Tablas y figuras",
       "kind": "section",
       "level": 1,
       "page": 6
@@ -92,59 +92,59 @@
     },
     {
       "id": "referencias-aplicacion",
-      "label": "4.3 Citas y referencias",
+      "label": "4.3. Citas y referencias",
       "kind": "section",
       "level": 1,
       "page": 8
     },
     {
       "id": "resultados",
-      "label": "5 Resultados",
+      "label": "5. Resultados",
       "kind": "section",
       "level": 0,
       "page": 9
     },
     {
       "id": "conclusiones",
-      "label": "6 Conclusiones",
+      "label": "6. Conclusiones",
       "kind": "section",
       "level": 0,
       "page": 9
     },
     {
       "id": "referencias",
-      "label": "7 Referencias",
+      "label": "7. Referencias",
       "kind": "section",
       "level": 0,
       "page": 10
     }
   ],
   "labels": {
-    "introduccion": "1 Introducción",
-    "objetivos": "2 Objetivos",
-    "alcance": "3 Alcance",
-    "desarrollo": "4 Desarrollo técnico",
-    "parrafos": "4.1 Párrafos y tipografía",
-    "tablas": "4.2 Tablas y figuras",
+    "introduccion": "1. Introducción",
+    "objetivos": "2. Objetivos",
+    "alcance": "3. Alcance",
+    "desarrollo": "4. Desarrollo técnico",
+    "parrafos": "4.1. Párrafos y tipografía",
+    "tablas": "4.2. Tablas y figuras",
     "medidas": "Tabla 1 Medidas de composición del perfil",
     "ciclo": "Figura 1 Ciclo de revisión documental",
-    "referencias-aplicacion": "4.3 Citas y referencias",
-    "resultados": "5 Resultados",
-    "conclusiones": "6 Conclusiones",
-    "referencias": "7 Referencias"
+    "referencias-aplicacion": "4.3. Citas y referencias",
+    "resultados": "5. Resultados",
+    "conclusiones": "6. Conclusiones",
+    "referencias": "7. Referencias"
   },
   "reference_labels": {
-    "introduccion": "1 Introducción",
-    "objetivos": "2 Objetivos",
-    "alcance": "3 Alcance",
-    "desarrollo": "4 Desarrollo técnico",
-    "parrafos": "4.1 Párrafos y tipografía",
-    "tablas": "4.2 Tablas y figuras",
+    "introduccion": "1. Introducción",
+    "objetivos": "2. Objetivos",
+    "alcance": "3. Alcance",
+    "desarrollo": "4. Desarrollo técnico",
+    "parrafos": "4.1. Párrafos y tipografía",
+    "tablas": "4.2. Tablas y figuras",
     "medidas": "Tabla 1",
     "ciclo": "Figura 1",
-    "referencias-aplicacion": "4.3 Citas y referencias",
-    "resultados": "5 Resultados",
-    "conclusiones": "6 Conclusiones",
-    "referencias": "7 Referencias"
+    "referencias-aplicacion": "4.3. Citas y referencias",
+    "resultados": "5. Resultados",
+    "conclusiones": "6. Conclusiones",
+    "referencias": "7. Referencias"
   }
 }

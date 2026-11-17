@@ -4,7 +4,7 @@ Guía verificada con APA Style el 28 de octubre de 2026. La séptima edición se
 
 ## Perfil y límites
 
-Usar `"format": {"profile": "institucional-apa"}` para un documento nuevo. La plantilla base lo incluye. El motor aplica las medidas de la tabla y registra los valores efectivos en el manifiesto. Cambiar un valor para atender un requisito institucional es una adaptación que debe quedar identificada en el paquete de trabajo.
+Usar `"format": {"profile": "institucional-apa"}` solo cuando el usuario pida APA 7 o un trabajo académico lo exija; por omisión un informe nuevo usa `institucional`, como la plantilla base. El motor aplica las medidas de la tabla y registra los valores efectivos en el manifiesto. Cambiar un valor para atender un requisito institucional es una adaptación que debe quedar identificada en el paquete de trabajo.
 
 | Elemento | Tratamiento del perfil |
 | --- | --- |
