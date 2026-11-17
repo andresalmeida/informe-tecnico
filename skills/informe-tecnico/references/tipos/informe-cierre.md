@@ -1,6 +1,6 @@
 # Informe de cierre y lecciones aprendidas
 
-Elegir `document.kind: "informe-cierre"`, código `CIE`, para consolidar el balance interno de un proyecto. Partir de `assets/ejemplo-informe-cierre.json` con `format.profile: "institucional"`. La parte solicitante recibe el acta de entrega; este informe registra resultados, desviaciones y aprendizaje. Es un formulario sin elección obligatoria: la conclusión se escribe con su evidencia. No lleva diagrama porque las comparaciones y el traspaso de pendientes se leen en tablas.
+Elegir `document.kind: "informe-cierre"`, código `CIE`, para consolidar el balance interno de un proyecto. Partir de `assets/ejemplo-informe-cierre.json`. La parte solicitante recibe el acta de entrega; este informe registra resultados, desviaciones y aprendizaje. Es un formulario sin elección obligatoria: la conclusión se escribe con su evidencia. No lleva diagrama porque las comparaciones y el traspaso de pendientes se leen en tablas.
 
 El PDF es compacto, empieza directamente con contenido y termina con firmas de responsabilidad e histórico (`show_changes: true`). Los índices son opcionales y se omiten en el ejemplo. La muestra ocupa cuatro páginas; las tablas se mantienen enteras cuando caben en una página. Eso puede dejar espacio al pie. No reducir la letra ni agregar relleno para ocuparlo.
 

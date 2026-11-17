@@ -1,6 +1,6 @@
 # Solicitud de cambio
 
-Elegir `document.kind: "solicitud-cambio"` cuando alguien pide cambiar un documento ya aprobado: un alcance, una propuesta aceptada o unos requisitos. Empezar por `assets/ejemplo-solicitud-cambio.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. El antes y el después caben en la tabla de impacto.
+Elegir `document.kind: "solicitud-cambio"` cuando alguien pide cambiar un documento ya aprobado: un alcance, una propuesta aceptada o unos requisitos. Empezar por `assets/ejemplo-solicitud-cambio.json`. Diagrama: no lleva. El antes y el después caben en la tabla de impacto.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se escribe el impacto; Cómo se comprueba una solicitud; Personalizar; Qué no inventar; Texto de lo pendiente; Bloques opcionales; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

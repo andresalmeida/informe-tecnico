@@ -1,6 +1,6 @@
 # Plan de proyecto
 
-Elegir `document.kind: "plan-proyecto"` para el plan de un equipo pequeño: qué se entrega, en qué hitos, quién responde y cómo se sigue. Empezar por `assets/ejemplo-plan-proyecto.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. La EDT es la lectura del trabajo.
+Elegir `document.kind: "plan-proyecto"` para el plan de un equipo pequeño: qué se entrega, en qué hitos, quién responde y cómo se sigue. Empezar por `assets/ejemplo-plan-proyecto.json`. Diagrama: no lleva. La EDT es la lectura del trabajo.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se escribe la EDT; Cómo se comprueba un plan; Personalizar; Qué no inventar; Texto de lo pendiente; Bloques opcionales; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

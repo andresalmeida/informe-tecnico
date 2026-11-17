@@ -1,6 +1,6 @@
 # Registro de riesgos
 
-Elegir `document.kind: "registro-riesgos"` para llevar el registro vivo de los riesgos de un proyecto: cada riesgo con su probabilidad, su impacto, el nivel que sale de ambos, la respuesta, el responsable y el estado. Empezar por `assets/ejemplo-registro-riesgos.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. La matriz de niveles ya es la lectura del apartado, y un esquema del mismo sistema repetiría la arquitectura de la factibilidad o el perímetro del alcance.
+Elegir `document.kind: "registro-riesgos"` para llevar el registro vivo de los riesgos de un proyecto: cada riesgo con su probabilidad, su impacto, el nivel que sale de ambos, la respuesta, el responsable y el estado. Empezar por `assets/ejemplo-registro-riesgos.json`. Diagrama: no lleva. La matriz de niveles ya es la lectura del apartado, y un esquema del mismo sistema repetiría la arquitectura de la factibilidad o el perímetro del alcance.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se trata un riesgo cerrado o materializado; Cómo se comprueba un registro; Personalizar; Qué no inventar; Qué se elimina cuando algo no aplica; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

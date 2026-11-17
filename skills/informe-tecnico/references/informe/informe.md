@@ -18,11 +18,13 @@ Para un informe nuevo, partir de `assets/plantilla-base.json`: introducción, ob
 
 ## Formato del informe
 
-Un informe nuevo parte de `assets/plantilla-base.json`, con `format.profile: "institucional"`: interlineado sencillo, títulos a la izquierda, numeración «1. Título», mayúscula de oración y el mismo aspecto que las fichas y actas del catálogo. Con `format.heading_case: "title"` los títulos llevan mayúscula en cada palabra.
+Un informe nuevo parte de `assets/plantilla-base.json`, con `format.profile: "institucional-apa"`, el mismo perfil de todos los tipos: cuerpo justificado con sangría en la primera línea, interlineado 1,5, tablas y figuras con su rótulo y su nota, referencias con sangría francesa, títulos a la izquierda con numeración «1. Título» y mayúscula de oración. Con `format.heading_case: "title"` los títulos llevan mayúscula en cada palabra. Leer [apa.md](apa.md) para las medidas y los criterios de citas y referencias.
 
-**APA 7, solo si se pide.** Para un trabajo académico o una entidad que exija APA, usar `format.profile: "institucional-apa"` y leer [apa.md](apa.md). Aplica doble interlineado, sangría inicial de 1,27 cm, títulos centrados, referencias con sangría francesa, cursivas y títulos y notas de tablas y figuras. Mantiene la cabecera, la portada, los índices y los márgenes institucionales; denominarlo **formato institucional con criterios APA 7**, no APA integral. Un encargo académico que exija APA estricto necesita adaptar también esas diferencias o elegir otro motor.
+**Composición compacta.** `format.profile: "institucional"` da el aspecto anterior: interlineado sencillo, sin sangría ni justificado, tablas con cabecera de color. Se usa cuando el documento debe ocupar pocas páginas.
 
-Las fuentes antiguas sin `format` conservan su maquetación. Al actualizar un informe, mantener su perfil salvo que se solicite la adaptación. Aplicar citas autor-fecha y referencias cuando se use material ajeno; conservar los códigos documentales dentro de su título o identificación. No inventar autores, fechas, DOI ni validaciones para completar una referencia. El formato APA no cambia la voz técnica ni convierte un informe de sistema en una revisión bibliográfica.
+**APA estricto, solo si se exige.** El perfil mantiene la cabecera, la portada, los índices, los márgenes institucionales y los títulos a la izquierda; denominarlo **formato institucional con criterios APA 7**, no APA integral. Un encargo académico que exija doble interlineado y alineación izquierda fija `line_spacing: 2` y `justify: false`; si además exige títulos centrados o márgenes de 2,54 cm, el motor no lo cubre y hay que elegir otro.
+
+Una fuente anterior sin `format` se compila con el perfil por omisión; para conservar su aspecto compacto, añadir `"profile": "institucional"`. Al actualizar un informe, mantener su perfil salvo que se solicite la adaptación. Aplicar citas autor-fecha y referencias cuando se use material ajeno; conservar los códigos documentales dentro de su título o identificación. No inventar autores, fechas, DOI ni validaciones para completar una referencia. El formato APA no cambia la voz técnica ni convierte un informe de sistema en una revisión bibliográfica.
 
 ## Procedimientos y avisos
 

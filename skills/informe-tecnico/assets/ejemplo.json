@@ -124,7 +124,7 @@
           "description": "La revisión evalúa la edición generada. Si detecta defectos, se corrige la fuente y se vuelve a compilar; cuando cumple los criterios definidos, se prepara la entrega.",
           "source": "Demostración propia creada aplicando la skill diagram-design. Fuente HTML y exportación SVG conservadas junto al PNG de impresión.",
           "path": "diagrams/ciclo-revision.png",
-          "max_height_mm": 115
+          "max_height_mm": 105
         }
       ],
       "level": 2

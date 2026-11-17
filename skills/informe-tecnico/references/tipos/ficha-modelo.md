@@ -1,6 +1,6 @@
 # Ficha de modelo
 
-Elegir `document.kind: "ficha-modelo"` para acompañar un modelo estadístico o de aprendizaje automático: para qué sirve, con qué datos se hizo, cómo rinde, para quién, y qué no debe hacerse con él. Empezar por `assets/ejemplo-ficha-modelo.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. Quién decide y qué marca el modelo cabe en dos frases. La arquitectura del sistema ya está en la factibilidad.
+Elegir `document.kind: "ficha-modelo"` para acompañar un modelo estadístico o de aprendizaje automático: para qué sirve, con qué datos se hizo, cómo rinde, para quién, y qué no debe hacerse con él. Empezar por `assets/ejemplo-ficha-modelo.json`. Diagrama: no lleva. Quién decide y qué marca el modelo cabe en dos frases. La arquitectura del sistema ya está en la factibilidad.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Qué no afirma la ficha; Cómo se comprueba una ficha; Personalizar; Qué no inventar; Qué se elimina cuando algo no aplica; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

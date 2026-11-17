@@ -36,9 +36,11 @@ Veintidós tipos de documento y un dossier, ordenados por la fase del proyecto e
 |  | [Informe de cierre](docs/muestra-informe-cierre.pdf) | Balance interno del proyecto |
 | **Operación y evolución** | [Notas de versión](docs/muestra-notas-version.pdf) | Qué cambia en cada versión que se publica |
 | **Retiro** | [Acta de baja](docs/muestra-acta-baja.pdf) | Retirar un sistema, un módulo o un procedimiento, con autorización |
-| **Fuera del proyecto** | [Informe, manual o catálogo](docs/muestra-informe-tecnico.pdf) | Documentación técnica de un sistema, con APA 7 si se pide |
+| **Fuera del proyecto** | [Informe, manual o catálogo](docs/muestra-informe-tecnico.pdf) | Documentación técnica de un sistema, con citas y referencias APA 7 |
 |  | [Ficha de proceso](docs/muestra-ficha-proceso.pdf) | Cómo trabaja un proceso de la entidad (SIPOC) |
 |  | [Dossier de sistema](docs/muestra-dossier.pdf) | Cómo funciona un sistema y qué tan confiable es, en 6 a 8 páginas (flujo aparte, con la skill `nasa-handbook`) |
+
+Todos comparten un mismo aspecto: cuerpo justificado con sangría en la primera línea, tablas con reglas mínimas, rótulos «Tabla 1» y «Figura 1» sobre cada objeto y títulos a la izquierda numerados («1. Título»). Con `format.profile: "institucional"` el documento sale en la composición compacta anterior.
 
 Cada tipo tiene su guía en [`skills/informe-tecnico/references/tipos/`](skills/informe-tecnico/references/tipos/) y un JSON de partida en `assets/`. El [mapa de uso](skills/informe-tecnico/references/flujo-proyecto.md) explica además quién ve cada documento y cuándo se versiona.
 

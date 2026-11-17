@@ -1,6 +1,6 @@
 # Actas de capacitación
 
-Elegir `document.kind: "acta-capacitacion"` para dejar constancia de una capacitación dada a quienes usarán un sistema ya construido: quién la dio, cuándo y cómo, con qué objetivos y contenidos, qué asistentes firmaron, qué materiales recibieron, cómo evaluaron la sesión y quién certifica que se realizó. Empezar por `assets/ejemplo-acta-capacitacion.json`; al compilarlo se obtiene la muestra. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no, porque quien lee el acta comprueba asistencia, contenidos y firmas, y no necesita ver componentes (ver «¿Necesita un diagrama?»).
+Elegir `document.kind: "acta-capacitacion"` para dejar constancia de una capacitación dada a quienes usarán un sistema ya construido: quién la dio, cuándo y cómo, con qué objetivos y contenidos, qué asistentes firmaron, qué materiales recibieron, cómo evaluaron la sesión y quién certifica que se realizó. Empezar por `assets/ejemplo-acta-capacitacion.json`; al compilarlo se obtiene la muestra. Diagrama: no, porque quien lee el acta comprueba asistencia, contenidos y firmas, y no necesita ver componentes (ver «¿Necesita un diagrama?»).
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se comprueba un acta de capacitación; Personalizar; Qué no inventar; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

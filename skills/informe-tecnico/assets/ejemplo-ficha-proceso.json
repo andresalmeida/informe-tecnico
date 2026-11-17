@@ -17,10 +17,7 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 9.5,
-    "line_spacing": 1.2,
-    "paragraph_space_after_pt": 4
+    "profile": "institucional-apa"
   },
   "changes": [
     {

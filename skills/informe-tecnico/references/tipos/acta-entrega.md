@@ -1,6 +1,6 @@
 # Acta de entrega y recepción
 
-Elegir `document.kind: "acta-entrega"` para registrar qué se entrega, a quién y en qué estado se recibe. Partir de `assets/ejemplo-acta-entrega.json`, con `format.profile: "institucional"`. El acta identifica el inventario y su comprobación; la conformidad depende de la evidencia y de la decisión de quien acepta. Va después del alcance y puede citar la capacitación. Diagrama: no; el inventario, las comprobaciones y las firmas resuelven la finalidad del documento.
+Elegir `document.kind: "acta-entrega"` para registrar qué se entrega, a quién y en qué estado se recibe. Partir de `assets/ejemplo-acta-entrega.json`. El acta identifica el inventario y su comprobación; la conformidad depende de la evidencia y de la decisión de quien acepta. Va después del alcance y puede citar la capacitación. Diagrama: no; el inventario, las comprobaciones y las firmas resuelven la finalidad del documento.
 
 El PDF comienza con título y contenido en la primera página, sin portada. La cabecera, el pie, los marcadores y las referencias funcionan como en los informes. Usar `document.show_changes: true` para imprimir al final el histórico, conservando `changes` en la fuente. Los índices son opcionales; no se recomiendan para un acta breve. Si una entidad exige un formato oficial, trabajar sobre una copia y conservar sus campos y cláusulas, verificando que lo declarado tenga respaldo.
 

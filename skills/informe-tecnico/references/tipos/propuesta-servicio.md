@@ -1,6 +1,6 @@
 # Propuesta de servicio
 
-Elegir `document.kind: "propuesta-servicio"` para la propuesta técnico-económica que recibe quien contrata: qué se propone, en cuánto tiempo, a qué costo y qué se necesita de su parte. Empezar por `assets/ejemplo-propuesta-servicio.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. La solución de un módulo cabe en un párrafo y en la tabla de entregables; la arquitectura y el perímetro viven en los documentos internos.
+Elegir `document.kind: "propuesta-servicio"` para la propuesta técnico-económica que recibe quien contrata: qué se propone, en cuánto tiempo, a qué costo y qué se necesita de su parte. Empezar por `assets/ejemplo-propuesta-servicio.json`. Diagrama: no lleva. La solución de un módulo cabe en un párrafo y en la tabla de entregables; la arquitectura y el perímetro viven en los documentos internos.
 
 **Contenido:** Decidir antes de redactar; Qué se queda en la factibilidad; Voz; Completar cada campo; Cómo se comprueba una propuesta; Personalizar; Qué no inventar; Qué se elimina cuando algo no aplica; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

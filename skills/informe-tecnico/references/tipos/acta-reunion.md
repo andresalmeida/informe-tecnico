@@ -2,7 +2,7 @@
 
 Elegir `document.kind: "acta-reunion"` para registrar lo tratado y acordado. Empezar por `assets/ejemplo-acta-reunion.json`. Conservar código, fecha, versión y estado; indicar la fecha de la sesión en el cuerpo si difiere de la revisión. El ejemplo del Proyecto Atlas es independiente de la cadena del módulo de pagos que muestra el acta de entrega.
 
-El PDF empieza con título y contenido en la primera página. La cabecera, el pie, los marcadores y las referencias funcionan como en los informes. Mantener las revisiones en `changes` en la fuente editable. Usar el perfil `institucional` para una composición compacta; el ejemplo tiene dos páginas. Cuando la entidad exija un formato oficial, usar una copia y conservar sus campos y cláusulas, verificando la salida en el formato solicitado. El esquema está en [secciones.md](../contrato/secciones.md).
+El PDF empieza con título y contenido en la primera página. La cabecera, el pie, los marcadores y las referencias funcionan como en los informes. Mantener las revisiones en `changes` en la fuente editable. El ejemplo tiene dos páginas. Cuando la entidad exija un formato oficial, usar una copia y conservar sus campos y cláusulas, verificando la salida en el formato solicitado. El esquema está en [secciones.md](../contrato/secciones.md).
 
 ## Completar el acta de reunión
 
@@ -16,7 +16,7 @@ En sesiones breves se pueden reunir la agenda y el desarrollo en una tabla con u
 
 ## Acta de reunión en Word
 
-Usar `document.kind` igual a `acta-reunion` y `format.profile` igual a `institucional`. El exportador genera un `.docx` con tablas y texto editables, referencias internas y campos de página. Admite párrafos, listas, tablas y saltos de página. Usar un logo PNG o JPEG cuando se requiera. La fuente JSON sirve para regenerar el documento y los cambios manuales en Word se conservan en el archivo Word.
+Usar `document.kind` igual a `acta-reunion`. El exportador tiene su propio aspecto institucional y no aplica el perfil de la fuente (sin justificado ni rótulos APA). El exportador genera un `.docx` con tablas y texto editables, referencias internas y campos de página. Admite párrafos, listas, tablas y saltos de página. Usar un logo PNG o JPEG cuando se requiera. La fuente JSON sirve para regenerar el documento y los cambios manuales en Word se conservan en el archivo Word.
 
 Con el intérprete del entorno de la skill, comprobar `python3 -c "import docx"`; si falta, instalar `python-docx`. Ejecutar el exportador sobre una copia de la fuente:
 

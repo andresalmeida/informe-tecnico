@@ -1,6 +1,6 @@
 # Descripción de arquitectura
 
-Elegir `document.kind: "descripcion-arquitectura"` para explicar la arquitectura de un sistema a quienes lo operan, revisan o extienden. Partir de `assets/ejemplo-descripcion-arquitectura.json`, con `format.profile: "institucional"` y código ARQ de [codigos.md](../codigos.md). Es un formulario sin elección obligatoria: la decisión de mayor peso es qué decisiones y restricciones constan, y se escribe con sus códigos y evidencia.
+Elegir `document.kind: "descripcion-arquitectura"` para explicar la arquitectura de un sistema a quienes lo operan, revisan o extienden. Partir de `assets/ejemplo-descripcion-arquitectura.json`, con código ARQ de [codigos.md](../codigos.md). Es un formulario sin elección obligatoria: la decisión de mayor peso es qué decisiones y restricciones constan, y se escribe con sus códigos y evidencia.
 
 Usa título y contenido desde la primera página, histórico al final con `show_changes: true` y vistas enlazadas. Se recomiendan `document.indexes: ["contents", "figures"]` cuando el documento tiene varias vistas: permiten encontrar cada apartado y figura sin recorrer las tablas. El ejemplo usa ambos. Las tablas de firmas y de componentes no necesitan índice de tablas por defecto. Los bloques existentes bastan; el contrato está en [secciones.md](../contrato/secciones.md).
 

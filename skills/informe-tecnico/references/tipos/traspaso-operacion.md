@@ -1,6 +1,6 @@
 # Traspaso a operación
 
-Elegir `document.kind: "traspaso-operacion"` para el paso a producción: quién opera lo entregado, cómo se comprueba y cómo se vuelve atrás si falla. Empezar por `assets/ejemplo-traspaso-operacion.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. La ventana y la reversa caben en el texto.
+Elegir `document.kind: "traspaso-operacion"` para el paso a producción: quién opera lo entregado, cómo se comprueba y cómo se vuelve atrás si falla. Empezar por `assets/ejemplo-traspaso-operacion.json`. Diagrama: no lleva. La ventana y la reversa caben en el texto.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se comprueba un traspaso; Personalizar; Qué no inventar; Texto de lo pendiente; Bloques opcionales; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

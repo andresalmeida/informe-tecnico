@@ -1,6 +1,6 @@
 # Plan y registro de pruebas de aceptación
 
-Elegir `document.kind: "plan-pruebas"` para acordar cómo se aceptará un software, ejecutar los casos y registrar la decisión final de las partes. Partir de `assets/ejemplo-plan-pruebas.json`, con `format.profile: "institucional"`. Diagrama: no; los pasos y sus resultados bastan para decidir sobre cada criterio. El plan toma sus criterios del alcance acordado ([alcance-proyecto.md](alcance-proyecto.md)).
+Elegir `document.kind: "plan-pruebas"` para acordar cómo se aceptará un software, ejecutar los casos y registrar la decisión final de las partes. Partir de `assets/ejemplo-plan-pruebas.json`. Diagrama: no; los pasos y sus resultados bastan para decidir sobre cada criterio. El plan toma sus criterios del alcance acordado ([alcance-proyecto.md](alcance-proyecto.md)).
 
 Es un formulario compacto, sin portada, con las casillas de resultado junto a cada caso. El histórico se imprime al final con `document.show_changes: true`. Los índices son opcionales: para planes extensos conviene `document.indexes: ["contents"]`; las fichas `testcase` tienen marcadores y referencias, pero no un índice impreso propio ni entradas en `tables`. Ver el esquema en [testcase.md](../contrato/testcase.md).
 

@@ -1,6 +1,6 @@
 # Especificación de requisitos
 
-Elegir `document.kind: "especificacion-requisitos"` para decir, de forma verificable, qué debe hacer y cumplir un sistema. Cada requisito se traza hasta su origen y hasta la prueba que lo comprueba. Empezar por `assets/ejemplo-especificacion-requisitos.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. Los requisitos se leen en fichas y la trazabilidad en una tabla. Un esquema del sistema repetiría la arquitectura de la factibilidad o el perímetro del alcance.
+Elegir `document.kind: "especificacion-requisitos"` para decir, de forma verificable, qué debe hacer y cumplir un sistema. Cada requisito se traza hasta su origen y hasta la prueba que lo comprueba. Empezar por `assets/ejemplo-especificacion-requisitos.json`. Diagrama: no lleva. Los requisitos se leen en fichas y la trazabilidad en una tabla. Un esquema del sistema repetiría la arquitectura de la factibilidad o el perímetro del alcance.
 
 **Contenido:** Decidir antes de redactar; Cómo se escribe un requisito; Qué se hace con un hueco; Completar cada campo; Cómo se comprueba una especificación; Personalizar; Qué no inventar; Qué se elimina cuando algo no aplica; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

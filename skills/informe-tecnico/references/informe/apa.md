@@ -1,24 +1,24 @@
-# Formato institucional con criterios APA 7
+# Perfil por omisión: formato institucional con criterios APA 7
 
-Guía verificada con APA Style el 28 de octubre de 2026. La séptima edición se aplica aquí como criterio de composición y atribución para informes y manuales. Conservar la voz y la finalidad definidas en [redaccion.md](redaccion.md).
+Guía verificada con APA Style el 28 de octubre de 2026. La séptima edición se aplica aquí como criterio de composición y atribución. Las reglas de párrafo, tablas y figuras valen para todos los tipos de documento; las de referencias y citas, para informes y manuales. Conservar la voz y la finalidad definidas en [redaccion.md](redaccion.md).
 
 ## Perfil y límites
 
-Usar `"format": {"profile": "institucional-apa"}` solo cuando el usuario pida APA 7 o un trabajo académico lo exija; por omisión un informe nuevo usa `institucional`, como la plantilla base. El motor aplica las medidas de la tabla y registra los valores efectivos en el manifiesto. Cambiar un valor para atender un requisito institucional es una adaptación que debe quedar identificada en el paquete de trabajo.
+`institucional-apa` es el perfil de todos los tipos: se aplica sin escribirlo y las plantillas lo traen explícito. `"format": {"profile": "institucional"}` conserva la composición compacta anterior (cuerpo de 10,5 pt con interlineado sencillo, sin sangría ni justificado y tablas con la cabecera de color); conviene para una ficha que deba caber en una o dos páginas. El motor aplica las medidas de la tabla y registra los valores efectivos en el manifiesto. Cambiar un valor para atender un requisito institucional es una adaptación que debe quedar identificada en el paquete de trabajo.
 
 | Elemento | Tratamiento del perfil |
 | --- | --- |
-| Cuerpo | 11 pt, alineación izquierda, margen derecho irregular. |
-| Interlineado | 2,0: con cuerpo de 11 pt, distancia de 22 pt entre líneas. |
+| Cuerpo | 11 pt, justificado. Con `"justify": false` queda con margen derecho irregular. |
+| Interlineado | 1,5: con cuerpo de 11 pt, distancia de 16,5 pt entre líneas. |
 | Párrafos de texto | Primera línea a 1,27 cm; sin espacios adicionales antes o después. |
 | Listas, títulos, celdas y notas de tablas/figuras | Sin sangría inicial de párrafo. Las listas utilizan sangría colgante propia. |
-| Referencias | Doble interlineado y sangría francesa de 1,27 cm: primera línea al margen y siguientes desplazadas. |
+| Referencias | El interlineado del cuerpo y sangría francesa de 1,27 cm: primera línea al margen y siguientes desplazadas. |
 | Citas en bloque | Desde 40 palabras, sin comillas envolventes; bloque a 1,27 cm del margen izquierdo. Los párrafos posteriores añaden 1,27 cm en su primera línea. |
-| Títulos de sección | Nivel 1 centrado y en negrita; nivel 2 izquierdo y en negrita; nivel 3 izquierdo y en negrita cursiva. Se conserva la numeración técnica. |
-| Tablas y figuras | Número en negrita y título en cursiva, encima del contenido; nota debajo cuando sea necesaria. |
+| Títulos de sección | Los de la familia institucional: a la izquierda, en negrita, numerados «1. Título» y «2.1. Título», con mayúscula de oración. No se centran ni se quita el punto de la numeración. |
+| Tablas y figuras | Número en negrita y título en cursiva, encima del contenido; nota debajo cuando sea necesaria. Tablas con líneas horizontales mínimas y cabecera centrada en negrita, sin relleno de color. |
 | Celdas | Misma familia y tamaño del cuerpo; interlineado sencillo como excepción permitida. Puede configurarse a 1,5 o 2 si mejora la lectura. |
 
-APA prescribe doble interlineado sin espacios extra entre párrafos y admite excepciones para las celdas y el interior de imágenes. La alineación izquierda y ambas sangrías proceden de sus reglas de párrafo. No simular sangrías mediante espacios o tabulaciones escritos en el texto. Fuentes: [interlineado](https://apastyle.apa.org/style-grammar-guidelines/paper-format/line-spacing) y [párrafos](https://apastyle.apa.org/style-grammar-guidelines/paper-format/paragraph-format).
+APA prescribe doble interlineado sin espacios extra entre párrafos, alineación izquierda y el nivel 1 de títulos centrado, y admite excepciones para las celdas y el interior de imágenes. El perfil toma de APA las sangrías, las referencias y los rótulos de tabla y figura, y se aparta en el interlineado (1,5), el justificado y los títulos, que siguen la familia institucional. Quien deba entregar APA estricto fija `line_spacing: 2` y `justify: false`, y aun así conserva los títulos y los márgenes institucionales. No simular sangrías mediante espacios o tabulaciones escritos en el texto. Fuentes: [interlineado](https://apastyle.apa.org/style-grammar-guidelines/paper-format/line-spacing) y [párrafos](https://apastyle.apa.org/style-grammar-guidelines/paper-format/paragraph-format).
 
 La plantilla conserva cabecera con logo, control de cambios, portada propia, índices, capítulos numerados y márgenes de cuerpo de 21 mm laterales, 58 mm superior y 25 mm inferior. Los preliminares, índices, encabezados y pies mantienen sus estilos institucionales compactos. Estas son diferencias deliberadas respecto de un trabajo académico APA. APA indica márgenes de 2,54 cm; no presentar los márgenes institucionales como una medida APA. Fuente: [márgenes](https://apastyle.apa.org/style-grammar-guidelines/paper-format/margins).
 
