@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-ficha-modelo.json",
   "source_sha256": "0d7ac3ab899d484e4b3aee5e561d8e4d0f63a50ad244fdb092f216390346ce91",
-  "pdf_sha256": "7cb1382a0e18586f30aeb3e545f15ed6d989872cba6e1b1569b3b033e7254521",
+  "pdf_sha256": "79a9664b024e692217439898cfe9cff930a1a820b11109853ccd3a1cb01b4830",
   "assets": [],
   "pages": 4,
   "passes": 2,

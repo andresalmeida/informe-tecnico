@@ -270,10 +270,12 @@ class RegisteredTable(LongTable):
     """Retain the first-fragment anchor while repeating caption and headings."""
     keep_whole, page_height = False, 0
     blank_limit = None  # share of the page above which a table that fits on one page is split instead of moved
+    blank_bonus = 0  # room already taken by the heading that travels with the table, counted as free for that rule
 
     def split(self, available_width, available_height):
         if self.keep_whole and self.wrap(available_width, available_height)[1] <= self.page_height and (
-                self.blank_limit is None or available_height <= self.blank_limit * self.page_height):
+                self.blank_limit is None
+                or available_height + self.blank_bonus <= self.blank_limit * self.page_height):
             return []
         parts = super().split(available_width, available_height)
         if self.keep_whole and self.blank_limit is not None and len(parts) == 2:
@@ -282,7 +284,7 @@ class RegisteredTable(LongTable):
             parts[0].entry = self.entry
         return parts
 
-    MIN_ROWS = 3  # a split never leaves fewer data rows than this on either page
+    MIN_ROWS = 2  # a split never leaves fewer data rows than this on either page
 
     def without_orphan_row(self, parts, available_width, available_height):
         """Move the split earlier until both pages keep MIN_ROWS data rows; keep the table whole if that is impossible."""

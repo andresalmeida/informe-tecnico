@@ -4,7 +4,7 @@ import re
 from reportlab.platypus import CondPageBreak, KeepTogether, PageBreak, Spacer
 
 
-SECTION_MAX_BLANK = .4  # share of the page a section may leave blank when it moves whole to the next one
+SECTION_MAX_BLANK = .35  # share of the page a section may leave blank when it moves whole to the next one
 
 
 class KeepSection(Spacer):
@@ -49,9 +49,37 @@ class FlexKeepTogether(KeepTogether):
         self.limit = limit
 
     def split(self, aW, aH):
-        if self.limit and aH > self.limit:
-            return self._content[:]
+        frame = getattr(self, "_frame", None)
+        at_top = frame is not None and getattr(frame, "_atTop", False)
+        # A lone item, or a group already at the top of a page, has nothing to spread: flowing it would regroup it forever.
+        if self.limit and aH > self.limit and len(self._content) > 1 and not at_top and self.starts_here(aW, aH):
+            # The first item must be an action flowable: a table that has to split cannot be placed whole.
+            return [self.NullActionFlowable()] + self._content[:]
         return KeepTogether.split(self, aW, aH)
+
+    def starts_here(self, width, available):
+        """True when every item up to the first one that does not fit can be placed, and that one can split here.
+        Otherwise the group moves whole, so a heading is never left alone at the foot of a page. A splittable table
+        counts the room taken by the items before it as free, so the group and the table apply the same 35 %."""
+        canvas = self._doctemplateAttr("canv")
+        consumed = 0
+        for item in self._content:
+            _, height = item.wrapOn(canvas, width, available)
+            if isinstance(item, KeepTogether):
+                height = item._H
+            if height <= available:
+                taken = height + item.getSpaceAfter()
+                available -= taken
+                consumed += taken
+                continue
+            if hasattr(item, "blank_bonus"):
+                item.blank_bonus = consumed
+                if item.split(width, available):
+                    return True
+                item.blank_bonus = 0
+                return False
+            return bool(item.split(width, available))
+        return True
 
 
 def scale_figure(figure, factor):

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-descripcion-arquitectura.json",
   "source_sha256": "d0c8ab3a040aeecbf45257f999cde06be7340494bdec7e7da589f8dde34e36e8",
-  "pdf_sha256": "9da3ccff9cdab7f7ae5caa5c24e285608835a3c46b95b9a741cdf4fe88e3b74c",
+  "pdf_sha256": "9c3cd9d04d03e5f032c4c21f6116af06dad2191ab364a5442a9ef1c604246650",
   "assets": [
     {
       "path": "diagrams/contexto-arquitectura-pagos.png",
@@ -13,7 +13,7 @@
       "sha256": "0597998dadd44fc7b5b34b7292e582cbb188ffc8acd4d6c65112a4b5dfd0e2de"
     }
   ],
-  "pages": 10,
+  "pages": 9,
   "passes": 3,
   "paper": "A4",
   "document": {
@@ -103,14 +103,14 @@
       "label": "5. Vista de datos",
       "kind": "section",
       "level": 0,
-      "page": 6
+      "page": 5
     },
     {
       "id": "datos-guardados",
       "label": "Tabla 3 Datos, ubicación y conservación",
       "kind": "table",
       "level": 0,
-      "page": 6
+      "page": 5
     },
     {
       "id": "operacion",
@@ -124,7 +124,7 @@
       "label": "Tabla 4 Entornos y condiciones operativas",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 6
     },
     {
       "id": "decisiones",
@@ -145,42 +145,42 @@
       "label": "8. Atributos de calidad",
       "kind": "section",
       "level": 0,
-      "page": 8
+      "page": 7
     },
     {
       "id": "calidad-criterios",
       "label": "Tabla 6 Criterios, mecanismos y comprobación",
       "kind": "table",
       "level": 0,
-      "page": 8
+      "page": 7
     },
     {
       "id": "riesgos",
       "label": "9. Riesgos y pendientes",
       "kind": "section",
       "level": 0,
-      "page": 9
+      "page": 8
     },
     {
       "id": "riesgos-arquitectura",
       "label": "Tabla 7 Riesgos de DEMO-RIE-01 que afectan al diseño",
       "kind": "table",
       "level": 0,
-      "page": 9
+      "page": 8
     },
     {
       "id": "responsabilidad",
       "label": "10. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 10
+      "page": 9
     },
     {
       "id": "firmas",
       "label": "Tabla 8 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 10
+      "page": 9
     }
   ],
   "labels": {

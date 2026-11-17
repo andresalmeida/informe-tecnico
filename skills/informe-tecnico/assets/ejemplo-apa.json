@@ -124,9 +124,6 @@
           "text": "La {{ref:medidas}} reúne las medidas del perfil. El cuerpo de una tabla puede emplear un interlineado más compacto, mientras el número, el título y la nota se mantienen con el interlineado del cuerpo (American Psychological Association, 2021b, 2022b)."
         },
         {
-          "type": "pagebreak"
-        },
-        {
           "type": "table",
           "id": "medidas",
           "title": "Medidas de composición del perfil",

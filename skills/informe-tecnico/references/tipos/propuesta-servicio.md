@@ -111,7 +111,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que la cotización esté entera, que el total del resumen coincida con el de la tabla, que la tabla de aceptación quede entera y que el histórico no ocupe una página solo. Entregar el PDF, su manifiesto `.manifest.json` y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 40 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son:
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son:
 
 - **Hueco al pie**, porque la tabla siguiente no cabe. Un hueco de hasta un tercio de página se acepta. Se corrige cuando una frase de más lo causa.
 - **El título de un apartado al pie y su tabla en la página siguiente.** Se acorta el apartado anterior o se mueve la frase que presenta la tabla para que quede debajo de ella: el motor mantiene la tabla con el párrafo que la sigue.

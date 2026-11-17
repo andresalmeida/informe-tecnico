@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-baja.json",
   "source_sha256": "60001519da51d37c0f29851ed681a6fcdd099918b6c14a3840e8718613eb62ff",
-  "pdf_sha256": "3bdb495624dc1bc26c7e87de3110444bca9c49e471f3d9cee2fe18ae6ffeec32",
+  "pdf_sha256": "2415a939fce410e0a9b89d7276ac29aabc4931e8468dd90015778ece8f99d528",
   "assets": [],
   "pages": 4,
   "passes": 2,

@@ -63,7 +63,7 @@ def main():
         assert len(continuation)>=2, continuation
         checks.append({"case":"table-continuation","pages":continuation})
 
-        for kind, expected_pages in (("acta-entrega", 4), ("acta-reunion", 2)):
+        for kind, expected_pages in (("acta-entrega", 3), ("acta-reunion", 2)):
             sample = json.loads((example.parent/f"ejemplo-{kind}.json").read_text())
             acta, acta_pdf = build(kind, sample)
             assert acta["pages"] == expected_pages
@@ -347,7 +347,7 @@ def main():
                                         ("firmas", "Aprobado por")):
                 assert last_cell in texts[pages_of[table_id]-1], (table_id, pages_of[table_id])
             assert "Histórico de revisiones" in texts[-1] and "Marta Quiroga" in texts[-1]
-            # The closing splits from its history only when more than 40 % of the page would stay empty.
+            # The closing splits from its history only when more than 35 % of the page would stay empty.
             assert feasibility["pages"]-1 <= pages_of["aprobaciones"] <= feasibility["pages"], "Las firmas cierran el cuerpo"
         assert check(feasibility_pdf)["internal_links"] >= 2
         checks.append({"case": "informe-factibilidad", "pages": feasibility["pages"], "choices": len(expected_choices)})
@@ -645,13 +645,15 @@ def main():
         alcance_pages = {entry["id"]: entry["page"] for entry in alcance["entries"]}
         with pdfplumber.open(alcance_pdf) as printed:
             texts = [pg.extract_text() or "" for pg in printed.pages]
-            # Every table is whole: its first and last row print on the page where its title is registered.
+            # A table prints its first row on the page where its title is registered and its last row there or on the
+            # next page (a table splits only when moving it would leave over 35 % of the page empty).
             for table_id in ("entregas", "lista-condiciones", "fases", "responsables", "partes", "firmas"):
                 rows = find_block(alcance_source, table_id)["rows"]
-                for cell in (rows[0][0], rows[-1][0]):
-                    assert cell.split("\n")[0][:18] in texts[alcance_pages[table_id]-1], (table_id, cell)
-            # The legend of the matrix prints on the page of its table, and each pair of signatures stays together.
-            assert "responsable de hacer la actividad" in texts[alcance_pages["responsables"]-1]
+                page = alcance_pages[table_id]-1
+                assert rows[0][0].split("\n")[0][:18] in texts[page], (table_id, rows[0][0])
+                assert rows[-1][0].split("\n")[0][:18] in "\n".join(texts[page:page+2]), (table_id, rows[-1][0])
+            # The legend of the matrix prints on the page of its table or the next, and the signatures stay together.
+            assert "responsable de hacer la actividad" in "\n".join(texts[alcance_pages["responsables"]-1:alcance_pages["responsables"]+1])
             acceptance = texts[alcance_pages["partes"]-1]
             assert all(name in acceptance for name in ("Soledad Paredes", "Iván Salas", "Pendiente"))
             assert alcance_pages["firmas"] == alcance["pages"], "Las firmas de responsabilidad cierran el documento"

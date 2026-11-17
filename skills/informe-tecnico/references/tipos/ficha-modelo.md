@@ -99,7 +99,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que la casilla marcada sea la del estado, que cada cifra lleve su procedencia y que el histórico comparta página con las firmas. Entregar el PDF, su manifiesto `.manifest.json` y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 40 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico. El apartado de aprobaciones se deja en esa página, con las firmas.
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico. El apartado de aprobaciones se deja en esa página, con las firmas.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.
 

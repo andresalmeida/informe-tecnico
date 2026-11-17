@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-informe-cierre.json",
   "source_sha256": "066a1848db04a7b0cf458c991e75636b79f252a7ee9f6a6d0c13514d9056dfcc",
-  "pdf_sha256": "376e6b314f8c78b3c7548f58c2c14c8a0704dcf692d27a65cc72056ef0a07ff1",
+  "pdf_sha256": "eb0400ebc6c2ebdaa07646bf4d700adf2c0f5951f47bd97cde5f1bae99d9357a",
   "assets": [],
   "pages": 5,
   "passes": 2,

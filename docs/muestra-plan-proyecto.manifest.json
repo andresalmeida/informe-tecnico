@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-plan-proyecto.json",
   "source_sha256": "624dad6732e75bca16a25e1c4ed8c239c32be235280bbfab92ab67f84b932964",
-  "pdf_sha256": "1a556de3ba366a075cb7593522f77c8f25fd0ad31b442a7cbaa289ecf52bd235",
+  "pdf_sha256": "5977852fe2d1c765bd00590a41c2c43e0d2df1288e5e30a7365deffb7d3f69aa",
   "assets": [],
   "pages": 5,
   "passes": 2,

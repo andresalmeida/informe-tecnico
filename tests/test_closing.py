@@ -42,7 +42,7 @@ def run_checks(example, root, checks, build):
         assert positions['responsabilidad']==positions['firmas']>=result['pages']-(1 if profile!='institucional' else 0)
         if profile=='institucional':assert result['pages']==2
         checks.append({'case':'cierre-unidad-'+name,'pages':result['pages']})
-    # With little room left (at most 40 % of the page), the default profile still moves the whole closing together.
+    # With little room left (at most 35 % of the page), the default profile still moves the whole closing together.
     value=copy.deepcopy(base)
     value['format']['profile']='institucional-apa'
     value['document']['paper']='Letter'

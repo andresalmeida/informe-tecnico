@@ -99,7 +99,7 @@ Dos pruebas, ambas sin el contexto de quien escribió el tipo:
 
 ## Lecciones
 
-- La regla que pasa una sección entera a la página siguiente (`KeepSection`, hasta un 40 % de hueco) mide cada sección con `wrapOn`; un bloque nuevo debe poder medirse así y no declarar `PageBreak` dentro de una sección que quiera mantenerse entera.
+- La regla que pasa una sección entera a la página siguiente (`KeepSection`, hasta un 35 % de hueco) mide cada sección con `wrapOn`; un bloque nuevo debe poder medirse así y no declarar `PageBreak` dentro de una sección que quiera mantenerse entera.
 - Un cambio de composición que arregla un caso suele empeorar otro: antes de adoptar una regla de página, medir las páginas y los huecos de todos los ejemplos.
 - Una función de texto nueva se prueba con las aristas: siglas, dígitos, mayúsculas internas y todo en mayúsculas.
 - Una regla `choice` existencial se cumple con cualquier elección: un tipo con dos casillas puede compilar sin una. La guía dice que comprobar ambas corresponde a quien redacta.

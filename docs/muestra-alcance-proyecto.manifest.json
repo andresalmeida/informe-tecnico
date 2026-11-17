@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-alcance-proyecto.json",
   "source_sha256": "9da44499f6d2fcffc4f90a2ae9ab69ce234a883942b3f54451ca8133fd26fc80",
-  "pdf_sha256": "55e6c4b41e6b8d3c9f0d6f354d84fd632580dfa5a1794f628ce4bcf35e5e107b",
+  "pdf_sha256": "8ca974664504916c248cd42309cdf7903cc3bbd1bc47cda4e7070b5738e7cbc7",
   "assets": [
     {
       "path": "diagrams/alcance-pagos.png",
@@ -130,14 +130,14 @@
       "label": "6. Matriz de responsabilidades",
       "kind": "section",
       "level": 0,
-      "page": 7
+      "page": 6
     },
     {
       "id": "responsables",
       "label": "Tabla 4 Responsabilidades por actividad",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 6
     },
     {
       "id": "aceptacion",

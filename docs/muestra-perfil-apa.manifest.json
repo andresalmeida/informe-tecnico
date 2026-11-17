@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "source": "ejemplo-apa.json",
-  "source_sha256": "ea2227e7732d848e6b3c8eec3becdceb496a5613ea5f93603c906b4b5d1d5bb3",
-  "pdf_sha256": "9cb254f25da5f5e8c5df6f42ea1dc37f028e4de632efd06c31ff18f0f464bda7",
+  "source_sha256": "4851cf10f8c8fbc436e308d7daec1668a7a822b503049b166bf4f121757773be",
+  "pdf_sha256": "d3524bc842d82c10e08b9dfff9884d87aa24bf8061b35f414d03a9037b4c0ab1",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",
       "sha256": "823fc270c7c7038f84ea85a16353bd7638c869dfa2d6d566190ea4b94e430f84"
     }
   ],
-  "pages": 10,
+  "pages": 9,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -82,14 +82,14 @@
       "label": "Tabla 1 Medidas de composición del perfil",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 6
     },
     {
       "id": "ciclo",
       "label": "Figura 1 Ciclo de revisión documental",
       "kind": "figure",
       "level": 0,
-      "page": 8
+      "page": 7
     },
     {
       "id": "referencias-aplicacion",
@@ -103,21 +103,21 @@
       "label": "5. Resultados",
       "kind": "section",
       "level": 0,
-      "page": 9
+      "page": 8
     },
     {
       "id": "conclusiones",
       "label": "6. Conclusiones",
       "kind": "section",
       "level": 0,
-      "page": 9
+      "page": 8
     },
     {
       "id": "referencias",
       "label": "7. Referencias",
       "kind": "section",
       "level": 0,
-      "page": 10
+      "page": 9
     }
   ],
   "labels": {

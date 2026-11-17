@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "ejemplo-acta-entrega.json",
   "source_sha256": "3d4fd5750ca8ecf7e3cb6cb41cdae0952efaf5ff60e706529e01d9d4b7e31469",
-  "pdf_sha256": "8602b66e9584afb58fa99208e44d81b48076ae18409ed7213fbe6bc9ef54aba8",
+  "pdf_sha256": "bf1444004ece11b1d594eef4ec9153886ce3446849f16251b3fe24ebcaff8eee",
   "assets": [],
-  "pages": 4,
+  "pages": 3,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -42,14 +42,14 @@
       "label": "2. Entregables y comprobación",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 1
     },
     {
       "id": "entregables",
       "label": "Tabla 1 Inventario de entrega",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 1
     },
     {
       "id": "capacitacion",
@@ -63,14 +63,14 @@
       "label": "4. Observaciones generales",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 2
     },
     {
       "id": "pendientes",
       "label": "Tabla 2 Pendientes de la entrega",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 2
     },
     {
       "id": "conformidad",
@@ -98,14 +98,14 @@
       "label": "7. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 3
     },
     {
       "id": "firmas",
       "label": "Tabla 4 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 3
     }
   ],
   "labels": {

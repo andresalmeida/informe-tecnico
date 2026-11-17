@@ -29,7 +29,7 @@ def run_checks(example, checks, build, rejected_with):
     atp=load('plan-pruebas'); feasibility=load('informe-factibilidad'); request=load('registro-requerimientos')
     result,pdf=build('entrega-cadena',source)
     text_pages=pages(pdf); text=' '.join(text_pages)
-    assert result['pages']==4,result['pages']
+    assert result['pages']==3,result['pages']
     assert source['document']['show_changes'] is True
     assert marks(pdf)==(2,1),marks(pdf)
     with pdfplumber.open(pdf) as printed:
@@ -93,7 +93,8 @@ def run_checks(example, checks, build, rejected_with):
 
     destinations={e['id']:e['page'] for e in result['entries']}
     for key in ('entregables','pendientes','partes','firmas'):
-        page=text_pages[destinations[key]-1]
+        first=destinations[key]-1
+        page=' '.join(text_pages[first:first+2])  # a table may continue on the next page
         rows=block(source,key)['rows']
         assert all(' '.join(row[0].split()) in page for row in rows),(key,page)
     assert destinations['firmas']==result['pages']

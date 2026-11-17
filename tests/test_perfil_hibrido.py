@@ -140,7 +140,7 @@ def run_checks(example, root, checks, build, rejected_with):
             assert abs(palabras["CENTRO"]["top"]-palabras["LINEA_A"]["top"]) < 1.5
         checks.append({"case": "celda-" + ("centrada" if centrado else "arriba") + "-" + perfil})
 
-    # Una sección que se cortaría pasa entera a la página siguiente si el hueco que deja es de a lo sumo el 40 %.
+    # Una sección que se cortaría pasa entera a la página siguiente si el hueco que deja es de a lo sumo el 35 %.
     def con_relleno(cantidad):
         spec = fuente(base, None)
         spec["sections"] = [
@@ -183,7 +183,7 @@ def run_checks(example, root, checks, build, rejected_with):
     assert cortada["titulo"][0] == 0 and cortada["ultimo"][0] == 1, cortada
     checks.append({"case": "seccion-que-se-cortaria-pasa-entera-salvo-hueco-grande"})
 
-    # Una tabla que cabe en una página, pero no en el espacio que queda, se parte si ese espacio pasa del 40 % y se
+    # Una tabla que cabe en una página, pero no en el espacio que queda, se parte si ese espacio pasa del 35 % y se
     # mueve entera si es menor; un fragmento nunca queda con menos de tres filas.
     def con_tabla(cantidad):
         spec = fuente(base, None)
