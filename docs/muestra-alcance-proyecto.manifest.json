@@ -2,14 +2,14 @@
   "schema_version": 1,
   "source": "ejemplo-alcance-proyecto.json",
   "source_sha256": "d0795999f6cb193964721f41e939d0572ba552cbe40e9bb2fec1148d0be7ad43",
-  "pdf_sha256": "a231e7adef4c5df1714b0d3066d2f18ab6a1c2d3270f8a23f76da226f21106a5",
+  "pdf_sha256": "711ea16b6a9835fac404635abcc8ac075381f09a699444e9f9ef8595a8e6a5a6",
   "assets": [
     {
       "path": "diagrams/alcance-pagos.png",
       "sha256": "7d1ad21e5a916c7a28b2ec40dd5833ada9ce9d29279edbed3f69381b9b6efbbe"
     }
   ],
-  "pages": 7,
+  "pages": 8,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -31,8 +31,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -117,28 +116,28 @@
       "label": "5. Cronograma de trabajo",
       "kind": "section",
       "level": 0,
-      "page": 5
+      "page": 6
     },
     {
       "id": "fases",
       "label": "Tabla 3 Cronograma estimado por fase",
       "kind": "table",
       "level": 0,
-      "page": 5
+      "page": 6
     },
     {
       "id": "matriz",
       "label": "6. Matriz de responsabilidades",
       "kind": "section",
       "level": 0,
-      "page": 6
+      "page": 7
     },
     {
       "id": "responsables",
       "label": "Tabla 4 Responsabilidades por actividad",
       "kind": "table",
       "level": 0,
-      "page": 6
+      "page": 7
     },
     {
       "id": "aceptacion",
@@ -159,14 +158,14 @@
       "label": "8. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "firmas",
       "label": "Tabla 6 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 8
     }
   ],
   "labels": {

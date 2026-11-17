@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-ficha-modelo.json",
   "source_sha256": "0394c5f4f54d687a7c646893661bf3f1ecd6de20e2036863a04d8bdb10118043",
-  "pdf_sha256": "6c19011380d0bbf89c99ea9b40a8c651670144313668f1a2d7ee3964c8f50545",
+  "pdf_sha256": "1ade2c60e18bcb503fdc3b5046e31ea598089417f9f211a4d3f169d2ada14206",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

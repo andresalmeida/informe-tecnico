@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-registro-riesgos.json",
   "source_sha256": "b8d775e111262d9c8e75efa33aedaf3b9cd066203da45554dfab8cb0e64d71be",
-  "pdf_sha256": "5e7041b96304682e50d4f69c0cbec5a3d8aedb237267a1269fcf4ebaffef7677",
+  "pdf_sha256": "1143426a9f73238eb5aa04f0fc1be8aef3c052c144ff95a653060dc32ee3a47c",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

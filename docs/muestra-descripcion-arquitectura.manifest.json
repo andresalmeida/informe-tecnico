@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-descripcion-arquitectura.json",
   "source_sha256": "bb3c6d4c98efcbd2ad30540d4e12cfe0e35c4c281fae70971fd99593bf420eb8",
-  "pdf_sha256": "a76c2bde0aa3315135b57d2da7e4610d112920b9ca960d8394cbdf56dbcab35c",
+  "pdf_sha256": "f9fd1517e3ed5d68af0a60c7d987bcf6b81f0f1299a8e0834e3115532f480261",
   "assets": [
     {
       "path": "diagrams/contexto-arquitectura-pagos.png",
@@ -13,7 +13,7 @@
       "sha256": "0597998dadd44fc7b5b34b7292e582cbb188ffc8acd4d6c65112a4b5dfd0e2de"
     }
   ],
-  "pages": 9,
+  "pages": 10,
   "passes": 3,
   "paper": "A4",
   "document": {
@@ -39,8 +39,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -118,14 +117,14 @@
       "label": "6. Despliegue y operación",
       "kind": "section",
       "level": 0,
-      "page": 6
+      "page": 7
     },
     {
       "id": "entornos",
       "label": "Tabla 4 Entornos y condiciones operativas",
       "kind": "table",
       "level": 0,
-      "page": 6
+      "page": 7
     },
     {
       "id": "decisiones",
@@ -153,7 +152,7 @@
       "label": "Tabla 6 Criterios, mecanismos y comprobación",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "riesgos",
@@ -167,21 +166,21 @@
       "label": "Tabla 7 Riesgos de DEMO-RIE-01 que afectan al diseño",
       "kind": "table",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "responsabilidad",
       "label": "10. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 9
+      "page": 10
     },
     {
       "id": "firmas",
       "label": "Tabla 8 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 9
+      "page": 10
     }
   ],
   "labels": {

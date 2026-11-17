@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-baja.json",
   "source_sha256": "7d048112e7e40ea9fb5dd35276cf243c96a8867acae0535e3d9777e3779a0472",
-  "pdf_sha256": "ce78e8b1dc2afe23feb6f423934a26d208c0fa58bcd4e87ef689c33a71a35447",
+  "pdf_sha256": "54b67b3cb7b2191f5b960f41c49a0d26eca3a8ad25e760ad9b3cb4a17b3f7b60",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -30,8 +30,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -88,7 +87,7 @@
       "label": "5. Sustituto o alternativa",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "plan",
@@ -116,7 +115,7 @@
       "label": "Tabla 5 Transiciones documentales previstas",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "responsabilidad",

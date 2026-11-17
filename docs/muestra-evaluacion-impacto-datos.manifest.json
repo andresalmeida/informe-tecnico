@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "ejemplo-evaluacion-impacto-datos.json",
   "source_sha256": "8ad4c5c24de2052bb77b11dead52905f9f1c321191b3148b37764f959062c66a",
-  "pdf_sha256": "3934a19a03b4e060b4335fed0e8c8d4671237afb2a3af6531ebb756dd04e81fd",
+  "pdf_sha256": "a975d8ddca8fc8e2dc48b272ca07a60ec2e9a4840be12bb8ce88e0cfe3581bdc",
   "assets": [],
-  "pages": 9,
+  "pages": 10,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -42,7 +41,7 @@
       "label": "2. Tamizaje de datos personales",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "preguntas",
@@ -56,7 +55,7 @@
       "label": "3. Descripción del tratamiento",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "datos-tratados",
@@ -70,126 +69,126 @@
       "label": "4. Necesidad y proporcionalidad",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "riesgos",
       "label": "5. Análisis de riesgos del tratamiento",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "matriz-riesgos",
       "label": "Tabla 3 Matriz de niveles de riesgo para las personas",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 6
     },
     {
       "id": "matriz-riesgos-registro",
       "label": "5.1. Riesgos para las personas titulares",
       "kind": "section",
       "level": 1,
-      "page": 5
+      "page": 6
     },
     {
       "id": "RD-01",
       "label": "RD-01",
       "kind": "risk",
       "level": 0,
-      "page": 5
+      "page": 6
     },
     {
       "id": "RD-02",
       "label": "RD-02",
       "kind": "risk",
       "level": 0,
-      "page": 5
+      "page": 7
     },
     {
       "id": "RD-03",
       "label": "RD-03",
       "kind": "risk",
       "level": 0,
-      "page": 5
+      "page": 7
     },
     {
       "id": "RD-04",
       "label": "RD-04",
       "kind": "risk",
       "level": 0,
-      "page": 6
+      "page": 7
     },
     {
       "id": "RD-05",
       "label": "RD-05",
       "kind": "risk",
       "level": 0,
-      "page": 6
+      "page": 8
     },
     {
       "id": "RD-06",
       "label": "RD-06",
       "kind": "risk",
       "level": 0,
-      "page": 6
+      "page": 8
     },
     {
       "id": "matriz-riesgos-resumen-apartado",
       "label": "5.2. Resumen por nivel",
       "kind": "section",
       "level": 1,
-      "page": 7
+      "page": 8
     },
     {
       "id": "resumen-riesgos",
       "label": "Tabla 4 Riesgos abiertos para las personas, por nivel",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "salvaguardas",
       "label": "6. Medidas y salvaguardas",
       "kind": "section",
       "level": 0,
-      "page": 7
+      "page": 9
     },
     {
       "id": "medidas",
       "label": "Tabla 5 Medidas y salvaguardas",
       "kind": "table",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "supervision",
       "label": "7. Supervisión humana y decisiones automatizadas",
       "kind": "section",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "conclusion",
       "label": "8. Conclusión y decisión",
       "kind": "section",
       "level": 0,
-      "page": 8
+      "page": 10
     },
     {
       "id": "responsabilidad",
       "label": "9. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 9
+      "page": 10
     },
     {
       "id": "firmas",
       "label": "Tabla 6 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 9
+      "page": 10
     }
   ],
   "labels": {

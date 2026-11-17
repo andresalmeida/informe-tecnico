@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-ficha-proceso.json",
   "source_sha256": "38bf9a2473a7678574bf29b6297a973b1d2944329dce02400e102999965928e4",
-  "pdf_sha256": "0db9d3aeca8cdcf9d6e6362f8570a14816ec573623b4c4c264c616a45dc0116e",
+  "pdf_sha256": "481f67b6994d1f0e02ecbf158d25e24f013af0ace7ce54a3152f4f15a6ada230",
   "assets": [
     {
       "path": "diagrams/sipoc-proyectos.png",
@@ -31,8 +31,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

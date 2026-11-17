@@ -17,7 +17,7 @@ def run_checks(example, checks, build, rejected_with):
     def field(source,label):return next(i for s in source['sections'] for b in s['blocks'] if b['type']=='fields' for i in b['items'] if i['label']==label)
     source=load('descripcion-arquitectura');adr=load('decision-arquitectura');scope=load('alcance-proyecto');atp=load('plan-pruebas');risks=load('registro-riesgos');delivery=load('acta-entrega')
     result,pdf=build('descripcion-arquitectura',source)
-    assert result['pages']==9,result['pages']
+    assert result['pages']==10,result['pages']
     assert source['document']['indexes']==['contents','figures']
     assert date.fromisoformat(scope['document']['date'])<date.fromisoformat(source['document']['date'])<date.fromisoformat(delivery['document']['date'])
     assert field(source,'Versión del sistema')['value']=='Por confirmar con Iván Salas'

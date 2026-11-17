@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-entrega.json",
   "source_sha256": "b1de598e1d0943a1eee8fd64a42721723a2e9eeb840a34fc931355d0d48f33f2",
-  "pdf_sha256": "539476ebc9c7c8eb5c040c8d65660764bee2783ec099fc7890291d6469cc3d9e",
+  "pdf_sha256": "8d9ccc7e96c5cb39ee63502b771e83c83232a4f5cca05a0f563d99af3b306f89",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -27,8 +27,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

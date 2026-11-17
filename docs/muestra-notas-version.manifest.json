@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-notas-version.json",
   "source_sha256": "dc8efd1fc4601463e23cce604a7d26db3244bf5322a10c91b23e3d1854b8d326",
-  "pdf_sha256": "13b62b939cb988057df31a00b923f373d345d8fe307cace664bbc5bf4f753887",
+  "pdf_sha256": "565cd5a0decdd7e81f5288d32bc461f003fe406738942f67ac66a327cb0a5460",
   "assets": [],
   "pages": 3,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

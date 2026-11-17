@@ -22,7 +22,7 @@ def run_checks(example, checks, build, rejected_with):
             diagonals = sum(sum(abs(l['width']-5.2)<.01 and abs(l['height']-5.2)<.01 for l in p.lines) for p in printed.pages)
         return boxes, diagonals//2
     plan, pdf = build('plan-pruebas', source)
-    assert plan['pages'] == 8, plan['pages']
+    assert plan['pages'] == 9, plan['pages']
     assert marks(pdf) == (15, 0), marks(pdf)
     pages = texts(pdf)
     destinations = {e['id']:e['page'] for e in plan['entries']}

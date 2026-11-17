@@ -2,14 +2,14 @@
   "schema_version": 1,
   "source": "ejemplo-informe-factibilidad-completo.json",
   "source_sha256": "51e89ef5a86a74b4bc077a17947f2ae84027d562a093d195d34caeb7afdeaa7d",
-  "pdf_sha256": "5a6daf767ddcefadf09aa14c4987512a48ebe84c1139b0c3aa7190e23ead7d37",
+  "pdf_sha256": "4a48a21319c35d6d26e2269dfc727fb6d83bcabc621b8bd115cf8b16b9acc0b7",
   "assets": [
     {
       "path": "diagrams/arquitectura-pagos.png",
       "sha256": "aaaff384b994683f6b18c904dfcba8eb60a466e7c7dd4355252f4b5209bca674"
     }
   ],
-  "pages": 7,
+  "pages": 8,
   "passes": 3,
   "paper": "A4",
   "document": {
@@ -36,8 +36,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -122,7 +121,7 @@
       "label": "Tabla 2 Recursos técnicos y herramientas",
       "kind": "table",
       "level": 0,
-      "page": 5
+      "page": 6
     },
     {
       "id": "externos",
@@ -150,21 +149,21 @@
       "label": "7. Conclusiones y recomendaciones",
       "kind": "section",
       "level": 0,
-      "page": 6
+      "page": 7
     },
     {
       "id": "aprobaciones",
       "label": "8. Aprobaciones y firmas",
       "kind": "section",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "firmas",
       "label": "Tabla 5 Firmas de responsabilidad",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 8
     }
   ],
   "labels": {

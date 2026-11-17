@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-registro-requerimientos.json",
   "source_sha256": "85a7d63e96d943be43a843224e142c9e40074125bb3168b780381de4bbd481a9",
-  "pdf_sha256": "ae872ffe3561a988fdcb2cf664e2d4395fe131ec807ce259ef4fb3cec77e68a8",
+  "pdf_sha256": "1665a0c13e84578966c56fb674373b7419f6033a5ca1a6d76ad61f7b0b9ca4f7",
   "assets": [],
   "pages": 2,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

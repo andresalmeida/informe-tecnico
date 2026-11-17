@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-plan-proyecto.json",
   "source_sha256": "1ecfb4560c854a43baac1f53b71d354a43877ff350b5cf7c52437d3040a4ca24",
-  "pdf_sha256": "f25c7036ed10aecda35b1f2dfa5ac509289e657b020affcab17765787f8e5ec4",
+  "pdf_sha256": "7a1d8cfc1429c01d18dd7c7b5a4610236d5b78cd03c9e3266e9821881a7149b9",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -98,7 +97,7 @@
       "label": "6. Cadencia de seguimiento",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "riesgos",

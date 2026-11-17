@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-propuesta-sustituida.json",
   "source_sha256": "3ae334bf9dfc2a7deafc9fafda12aec1a33ae888cebcce603513143410eaa48c",
-  "pdf_sha256": "2b0ead0748d07ec6cda174243dcd572e61c0ae073b9de9d77cea26d4b9919d2c",
+  "pdf_sha256": "81e7ef4f53ec55020edcea64834d345481c492e6d68d50a2025f4eefae61c4e8",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -32,8 +32,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

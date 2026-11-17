@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-traspaso-operacion.json",
   "source_sha256": "592370f7fd9731ddcf0deab275544c9db3c218ba56d2c03ac9be6f114b9c4fa2",
-  "pdf_sha256": "90fe1b5a64ed5202cd5a822ac5dc36eb5c0d4f30b95071a824525d109226c4f7",
+  "pdf_sha256": "0097e0080a3732e69b95e01c5cad5936ae6a60f3c6ba1d72154de21eba677970",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

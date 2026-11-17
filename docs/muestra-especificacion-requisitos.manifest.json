@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-especificacion-requisitos.json",
   "source_sha256": "1cc61b7f9089a971ff6f5d2151ee53c558fcac0f48c5a58a1d3824dfe2d640ca",
-  "pdf_sha256": "8dd209e6b12c0a42f413f99a9fbe0e7e751792766d5a31624a267b714318e440",
+  "pdf_sha256": "aae0be2ce2911ed967e787b8b629712f352e6d9de65d718d36632822511411f3",
   "assets": [],
   "pages": 7,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

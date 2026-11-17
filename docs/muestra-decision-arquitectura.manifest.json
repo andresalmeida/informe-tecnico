@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-decision-arquitectura.json",
   "source_sha256": "fa480e7a91af2ccd88eac0b01ccb10a245ac822bc3327e25b5214bdcec1ef48d",
-  "pdf_sha256": "f548d8ce0f9fa714cf08ae917e24ec40653dbc49a362eaca3adfa8e8f5099780",
+  "pdf_sha256": "c177b396259e6ea958d6b13505c06b697096157baf6e38dae3027bd0311a7204",
   "assets": [],
   "pages": 2,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -63,7 +62,7 @@
       "label": "4. Decisión",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "consecuencias",

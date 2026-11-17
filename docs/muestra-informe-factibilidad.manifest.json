@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-informe-factibilidad.json",
   "source_sha256": "17ade84b15685243c1052a4e9cf971b26b62e1b2486e2a6ea10b55322f425478",
-  "pdf_sha256": "803a83a5e86e95874c9c109bdd98d658564949418465c46fddb208b6d176644f",
+  "pdf_sha256": "b0b4a9eecfd43e718addbfbbc2c5e96477c68dc7b58d6428696bbfcf8c882525",
   "assets": [
     {
       "path": "diagrams/arquitectura-pagos.png",
@@ -31,8 +31,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

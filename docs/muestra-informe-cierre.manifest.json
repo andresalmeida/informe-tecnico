@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "ejemplo-informe-cierre.json",
   "source_sha256": "44ebaa012a807bfe5c93287b7827cdd928e13ce612829ab5a06140f14df560c9",
-  "pdf_sha256": "8e1217f4cb703e8013597c98720dad36bb302b8ea62a7b31a5bfa6b28bcbf41a",
+  "pdf_sha256": "f5be6d5a3ab18d6f4d5c6b1d54a89f6526ed69f3ba57a48b9e07680bf05e6838",
   "assets": [],
-  "pages": 4,
+  "pages": 5,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -27,8 +27,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -92,7 +91,7 @@
       "label": "6. Cambios aprobados",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "riesgos",
@@ -113,14 +112,14 @@
       "label": "8. Lecciones aprendidas",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "aprendizajes",
       "label": "Tabla 5 Lecciones y acciones",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "soporte",
@@ -141,14 +140,14 @@
       "label": "10. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "firmas",
       "label": "Tabla 7 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 5
     }
   ],
   "labels": {

@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "ejemplo-plan-pruebas.json",
   "source_sha256": "dcd3f42e285fcbcc9f18c34b78eab53f985e780b5fe4eb1281fd7e87266a078b",
-  "pdf_sha256": "4135f75b7e7f0b5d166040138fd58c49605d29610ea4ebfa5c9cc4b8fc00699b",
+  "pdf_sha256": "afbba7976918a6265d482b12589a9584bc10cfcbaf16528dd313c4e2f9ec97f4",
   "assets": [],
-  "pages": 8,
+  "pages": 9,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -27,8 +27,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -50,14 +49,14 @@
       "label": "2.1. Responsables en la ejecución del ATP",
       "kind": "section",
       "level": 1,
-      "page": 1
+      "page": 2
     },
     {
       "id": "equipo-atp",
       "label": "Tabla 1 Participación en la ejecución",
       "kind": "table",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "resultados",
@@ -85,21 +84,21 @@
       "label": "3.2. Usuarios de prueba",
       "kind": "section",
       "level": 1,
-      "page": 2
+      "page": 3
     },
     {
       "id": "cuentas",
       "label": "Tabla 2 Cuentas requeridas",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "datos",
       "label": "3.3. Datos para prueba",
       "kind": "section",
       "level": 1,
-      "page": 2
+      "page": 3
     },
     {
       "id": "aplicacion",
@@ -113,77 +112,77 @@
       "label": "4.1. Módulo de pagos",
       "kind": "section",
       "level": 1,
-      "page": 3
+      "page": 4
     },
     {
       "id": "CP-01",
       "label": "Caso CP-01. Rendimiento",
       "kind": "testcase",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "CP-02",
       "label": "Caso CP-02. Seguridad",
       "kind": "testcase",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "CP-03",
       "label": "Caso CP-03. Fiabilidad",
       "kind": "testcase",
       "level": 0,
-      "page": 5
+      "page": 6
     },
     {
       "id": "CP-04",
       "label": "Caso CP-04. Compatibilidad",
       "kind": "testcase",
       "level": 0,
-      "page": 6
+      "page": 7
     },
     {
       "id": "CP-05",
       "label": "Caso CP-05. Conciliación",
       "kind": "testcase",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "certificado",
       "label": "5. Certificado de aceptación de pruebas (ATR)",
       "kind": "section",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "aceptacion",
       "label": "6. Firmas de aceptación",
       "kind": "section",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "partes",
       "label": "Tabla 3 Aceptación de pruebas por las dos partes",
       "kind": "table",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "responsabilidad",
       "label": "7. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "firmas",
       "label": "Tabla 4 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 8
+      "page": 9
     }
   ],
   "labels": {

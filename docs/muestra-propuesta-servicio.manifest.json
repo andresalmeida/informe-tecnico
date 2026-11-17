@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "ejemplo-propuesta-servicio.json",
   "source_sha256": "e724d95f74abea1a0a6fb003229ef0b998c1ea764b1c642b3adbf8062fe4bcb8",
-  "pdf_sha256": "8bfbb8c4ffee35679a5233bb3a37e5dd68dd7c8cf57a05cdb32099676008f5c6",
+  "pdf_sha256": "742fb6ae98277a96016f6d1f1674b06a61b8b5e3aa6d7a7b31ed1bba122535c2",
   "assets": [],
-  "pages": 4,
+  "pages": 5,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
@@ -133,7 +132,7 @@
       "label": "Tabla 5 Aceptación de las dos partes",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 5
     }
   ],
   "labels": {

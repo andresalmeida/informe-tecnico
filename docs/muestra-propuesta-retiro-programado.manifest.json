@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-propuesta-retiro-programado.json",
   "source_sha256": "3a5ca60408ce724cf24951561a2a73488d646b6ae965fdfa618b00c80715b273",
-  "pdf_sha256": "591ecfeef833ad8c6ec3d4efaa0eaf41a1e93e3cffbe4e8e502a185b8b882fa8",
+  "pdf_sha256": "f03469d643d02f129d931e992db5b7deff578c3ca5f90577616777a902ffdd54",
   "assets": [],
   "pages": 1,
   "passes": 2,
@@ -34,8 +34,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

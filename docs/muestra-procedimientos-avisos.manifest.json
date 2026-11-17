@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-procedimientos.json",
   "source_sha256": "389c71a467b57f03057eb9eefe6ec446d427f665bda19ea322767f7f97f558e2",
-  "pdf_sha256": "a0957478782a1b303df13bb05751a5a7f33b101614a0a9a13c2488fdb90801f7",
+  "pdf_sha256": "36c8552130df6d0bd22c945b5b0299daa8d489cc1e8deaa6a4c28e317ed59466",
   "assets": [],
   "pages": 7,
   "passes": 2,
@@ -25,8 +25,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

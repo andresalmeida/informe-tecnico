@@ -333,7 +333,7 @@ def main():
             lines = {}
             for number, pg in enumerate(printed.pages):
                 for c in pg.chars:
-                    if abs(c["size"]-10) < .1 and c["x0"] > 190:  # 10 pt table text
+                    if abs(c["size"]-11) < .1 and c["x0"] > 190:  # table text at body size
                         lines.setdefault((number, round(c["top"])), []).append(c)
             printed_lines = [("".join(c["text"] for c in sorted(chars, key=lambda c: c["x0"])),
                               all("Bold" in c["fontname"] for c in chars)) for chars in lines.values()]
@@ -457,7 +457,7 @@ def main():
             for number, pg in enumerate(printed.pages):
                 rows = {}
                 for c in pg.chars:
-                    if abs(c["size"]-10) < .1 and c["x0"] > 160:  # 10 pt table text
+                    if abs(c["size"]-11) < .1 and c["x0"] > 160:  # table text at body size
                         rows.setdefault((number, round(c["top"])), []).append(c)
                 for chars in rows.values():
                     chars.sort(key=lambda c: c["x0"])
@@ -638,7 +638,7 @@ def main():
         alcance_source = json.loads((example.parent/"ejemplo-alcance-proyecto.json").read_text())
         alcance, alcance_pdf = build("alcance-proyecto", alcance_source)
         assert alcance["document"]["kind"] == "alcance-proyecto"
-        assert alcance["pages"] == 7, alcance["pages"]
+        assert alcance["pages"] == 8, alcance["pages"]
         assert choices(alcance_source) == [], "El alcance no tiene elecciones: su decisión de más peso se escribe"
         assert "perimetro" in alcance["labels"] and any(a["path"].endswith("alcance-pagos.png") for a in alcance["assets"])
         alcance_pages = {entry["id"]: entry["page"] for entry in alcance["entries"]}
@@ -1178,7 +1178,7 @@ def main():
         from build_report import format_amount, validate_quote
         proposal_source = json.loads((example.parent/"ejemplo-propuesta-servicio.json").read_text())
         proposal, proposal_pdf = build("propuesta-servicio", proposal_source)
-        assert proposal["pages"] == 4, proposal["pages"]
+        assert proposal["pages"] == 5, proposal["pages"]
         assert proposal["document"]["kind"] == "propuesta-servicio"
         assert choices(proposal_source) == []
         quote = copy.deepcopy(find_block(proposal_source, "cotizacion"))
@@ -1516,7 +1516,7 @@ def main():
             return " ".join((text or "").split())
 
         eid, eid_pdf = build("evaluacion-impacto-datos", eid_source)
-        assert eid["pages"] == 9, eid["pages"]
+        assert eid["pages"] == 10, eid["pages"]
         assert eid["document"]["kind"] == "evaluacion-impacto-datos"
         eid_choices = choices(eid_source)
         assert [item["label"] for item in eid_choices] == ["Conclusión del tamizaje", "Decisión"]

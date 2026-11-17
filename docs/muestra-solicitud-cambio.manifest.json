@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-solicitud-cambio.json",
   "source_sha256": "b84eaab00da5e8b7a795032b03466ed2080788cc268e5f70e9cc778a388bd4ad",
-  "pdf_sha256": "837d0f6b8c4cf5c14f480e4e2a0b110389e55343394f4f10610b30360e9411e7",
+  "pdf_sha256": "b52f083470ad3fce38be36f2cbdc505bac34f35821fbe7721447f06a5d3c349c",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

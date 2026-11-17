@@ -155,7 +155,6 @@ def format_for(spec):
             'format.heading_case admite "sentence" o "title".')
     if apa:
         values["justify"] = True  # the APA profile justifies the body; format.justify can turn it off
-        values["table_size_pt"] = 10.0  # APA lets tables use a smaller size; 11 pt splits words in the fixed form columns
     require(not set(config)-set(values)-{"heading_case", "justify"}, "Campo de formato desconocido")
     if "justify" in config:
         require(isinstance(config["justify"], bool), "format.justify debe ser true o false")
@@ -166,7 +165,6 @@ def format_for(spec):
         require(float(value) == float(value) and abs(float(value)) != float("inf"), f"Formato no finito: {key}")
         values[key] = float(value)
     require(8.5 <= values["body_size_pt"] <= 24, "Cuerpo fuera de 8,5..24 pt")
-    require(8.5 <= values.get("table_size_pt", 9) <= 24, "Texto de tabla fuera de 8,5..24 pt")
     require(1 <= values["line_spacing"] <= 3, "Interlineado fuera de 1..3")
     require(1 <= values["table_line_spacing"] <= 2, "Interlineado de tabla fuera de 1..2")
     require(0 <= values["first_line_indent_mm"] <= 30 and 0 <= values["reference_indent_mm"] <= 30,
@@ -522,7 +520,7 @@ def testcase_for(block, doc, styles, p, markup, accent, rule, head_style, apa=Fa
              [label("Responsable de aceptación"), "", p(block["responsible"], "cell"), "", ""],
              [label("Observaciones"), "", p(block["observations"], "cell"), "", ""]]
     # RegisteredTable transfers its destination only to the first fragment.
-    # The bold 10 pt header «Paso» does not fit the original .07 column.
+    # The bold 11 pt header «Paso» does not fit the original .07 column.
     weights = (.085, .165, .275, .25, .225) if apa else (.07, .17, .28, .25, .23)
     result = RegisteredTable(data, colWidths=[doc.width*w for w in weights],
                              repeatRows=header_rows, splitByRow=1, splitInRow=0,
@@ -1611,8 +1609,7 @@ def styles_for(brand, base, layout=None):
                               borderWidth=.55, borderColor=ink, borderPadding=6)
     if apa:
         result.update({
-            "cell": style("cell-apa", fontSize=layout["table_size_pt"],
-                          leading=layout["table_size_pt"]*layout["table_line_spacing"]),
+            "cell": style("cell-apa", leading=size*layout["table_line_spacing"]),
             "caption": style("caption-apa", keepWithNext=True),
             "small": style("notes-apa"),
         })

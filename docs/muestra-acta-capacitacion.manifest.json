@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-capacitacion.json",
   "source_sha256": "9b9e3abf9d2258c94940d3fd5da58536d1d0fa4f1f2514a7d8fec36b4029bb38",
-  "pdf_sha256": "858ddb7ceac5632c573222d40193673a3cefc3414dc3a3d753d0bbd90a60489c",
+  "pdf_sha256": "60995d1cbb27068549dacca72a29d8a8b6c6f11d1c338c43b43d98461983bd4c",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -26,8 +26,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {

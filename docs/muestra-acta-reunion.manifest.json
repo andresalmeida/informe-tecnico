@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-reunion.json",
   "source_sha256": "924bde069f068b301cef633fe2ec6564389551580c9254a982ce224f39710f59",
-  "pdf_sha256": "638f04c0d996d9b11d8f749d8cdcd65093070f1a63b2e0a17b6fa256bcd64e8a",
+  "pdf_sha256": "654e9b0dcabc12bf3ea2b5277ddfef9552eab0c39cc28aa8db927a3c0548c8d7",
   "assets": [],
   "pages": 2,
   "passes": 2,
@@ -25,8 +25,7 @@
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
     "table_line_spacing": 1.0,
-    "justify": true,
-    "table_size_pt": 10.0
+    "justify": true
   },
   "entries": [
     {
