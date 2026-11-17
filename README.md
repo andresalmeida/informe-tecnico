@@ -36,7 +36,7 @@ Veintidós tipos de documento y un dossier, ordenados por la fase del proyecto e
 |  | [Informe de cierre](docs/muestra-informe-cierre.pdf) | Balance interno del proyecto |
 | **Operación y evolución** | [Notas de versión](docs/muestra-notas-version.pdf) | Qué cambia en cada versión que se publica |
 | **Retiro** | [Acta de baja](docs/muestra-acta-baja.pdf) | Retirar un sistema, un módulo o un procedimiento, con autorización |
-| **Fuera del proyecto** | [Informe, manual o catálogo](docs/muestra-informe-tecnico.pdf) | Documentación técnica de un sistema, con criterios APA 7 |
+| **Fuera del proyecto** | [Informe, manual o catálogo](docs/muestra-informe-tecnico.pdf) | Documentación técnica de un sistema, con APA 7 si se pide |
 |  | [Ficha de proceso](docs/muestra-ficha-proceso.pdf) | Cómo trabaja un proceso de la entidad (SIPOC) |
 |  | [Dossier de sistema](docs/muestra-dossier.pdf) | Cómo funciona un sistema y qué tan confiable es, en 6 a 8 páginas (flujo aparte, con la skill `nasa-handbook`) |
 

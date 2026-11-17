@@ -47,7 +47,7 @@ Para componer esas tareas usar los módulos opcionales de [procedimientos.md](pr
 
 Propósito, ámbito, convenciones, reglas generales y fichas tabulares. Por ficha: ID estable, nombre, definición, código, tipo/longitud cuando se conozcan, dominio permitido, unidad, obligatoriedad, vigencia y fuente. No inventar columnas de esquema ausentes. Las bajas llevan estado explícito; no se borra silenciosamente su significado histórico.
 
-## Control de cambios
+## Histórico de revisiones
 
 Usar fecha ISO en la fuente y una presentación local uniforme. La fecha corresponde a la revisión del documento. Una nueva exportación no crea una nueva revisión. No imponer SemVer a una entidad que ya usa 14.3 u otra convención.
 

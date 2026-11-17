@@ -4,7 +4,7 @@ Elegir `document.kind: "informe"` (es el valor por omisión) para explicar un si
 
 **Leer:** [redaccion.md](redaccion.md), [estructura.md](estructura.md), [apa.md](apa.md), [contrato.md](../contrato.md) y [composicion.md](composicion.md); [procedimientos.md](procedimientos.md) si hay pasos.
 
-**Contenido:** antes de redactar, estructura base, formato institucional con criterios APA 7, procedimientos y avisos, fuente y evidencia, comprobar.
+**Contenido:** antes de redactar, estructura base, formato del informe, procedimientos y avisos, fuente y evidencia, comprobar.
 
 ## Antes de redactar
 
@@ -16,9 +16,11 @@ Identificar audiencia, uso y clase documental: informe técnico de actividad o e
 
 Para un informe nuevo, partir de `assets/plantilla-base.json`: introducción, objetivos, alcance, **4. Desarrollo técnico**, resultados y validación, conclusiones y recomendaciones, y referencias. El trabajo principal y sus subsecciones pertenecen al capítulo 4. Los preliminares no consumen números de capítulo. Adaptar esta base cuando el usuario o una estructura institucional requieran otro orden.
 
-## Formato institucional con criterios APA 7
+## Formato del informe
 
-Para documentos nuevos, usar `format.profile: "institucional-apa"` de la plantilla base y leer [apa.md](apa.md). Aplica doble interlineado, sangría inicial de 1,27 cm, alineación izquierda, referencias con sangría francesa, cursivas y títulos y notas de tablas y figuras. Mantiene la cabecera, la portada, los índices y los márgenes institucionales; denominarlo **formato institucional con criterios APA 7**, no APA integral. Un encargo académico que exija APA estricto necesita adaptar también esas diferencias o elegir otro motor.
+Un informe nuevo parte de `assets/plantilla-base.json`, con `format.profile: "institucional"`: interlineado sencillo, títulos a la izquierda, numeración «1. Título», mayúscula de oración y el mismo aspecto que las fichas y actas del catálogo. Con `format.heading_case: "title"` los títulos llevan mayúscula en cada palabra.
+
+**APA 7, solo si se pide.** Para un trabajo académico o una entidad que exija APA, usar `format.profile: "institucional-apa"` y leer [apa.md](apa.md). Aplica doble interlineado, sangría inicial de 1,27 cm, títulos centrados, referencias con sangría francesa, cursivas y títulos y notas de tablas y figuras. Mantiene la cabecera, la portada, los índices y los márgenes institucionales; denominarlo **formato institucional con criterios APA 7**, no APA integral. Un encargo académico que exija APA estricto necesita adaptar también esas diferencias o elegir otro motor.
 
 Las fuentes antiguas sin `format` conservan su maquetación. Al actualizar un informe, mantener su perfil salvo que se solicite la adaptación. Aplicar citas autor-fecha y referencias cuando se use material ajeno; conservar los códigos documentales dentro de su título o identificación. No inventar autores, fechas, DOI ni validaciones para completar una referencia. El formato APA no cambia la voz técnica ni convierte un informe de sistema en una revisión bibliográfica.
 

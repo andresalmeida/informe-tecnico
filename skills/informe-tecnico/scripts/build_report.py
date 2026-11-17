@@ -132,11 +132,10 @@ def heading_text(text, mode):
 
 
 def heading_mode_for(spec):
-    """Heading mode of a form. Informes and procedures stay as written, so they return None."""
+    """Heading mode of any kind: sentence case by default, title case on request."""
     mode = (spec.get("format") or {}).get("heading_case", "sentence")
     require(mode in ("sentence", "title"), 'format.heading_case admite "sentence" o "title".')
-    form = KIND_RULES[spec["document"].get("kind", "informe")].get("form", False)
-    return mode if form else None
+    return mode
 
 
 def format_for(spec):
@@ -684,8 +683,8 @@ def bind_risk_block(block, section, counters, table_n, form, mode, separator=". 
             counters[index] = 0
         number = ".".join(map(str, counters[:parent + 1]))
         title = block.get(key, default)
-        title = heading_text(title, mode) if mode else title
-        return f"{number}. {title}" if form else f"{number} {title}"
+        title = heading_text(title, mode)
+        return f"{number}. {title}"
     block["_register_id"] = block["id"] + "-registro"
     block["_register_label"] = heading("register_title", "Registro de riesgos")
     block["_summary_heading_id"] = block["id"] + "-resumen-apartado"
@@ -1425,8 +1424,8 @@ def registry(spec):
         for i in range(level, 3):
             counters[i] = 0
         section["_number"] = ".".join(map(str, counters[:level]))
-        shown = heading_text(section["title"], mode) if mode else section["title"]
-        items = [(section, f'{section["_number"]}. {shown}' if form else f'{section["_number"]} {section["title"]}')]
+        shown = heading_text(section["title"], mode)
+        items = [(section, f'{section["_number"]}. {shown}')]
         for block in section.get("blocks", []):
             kind = block["type"]
             require(kind in ("paragraph", "list", "table", "figure", "note", "pagebreak", "reference", "quotation",
@@ -1650,10 +1649,9 @@ def compile_report(source, output):
                 f"document.indexes pide {key} pero el documento no tiene {'tablas' if key == 'tables' else 'figuras'}: quitarlo de la lista")
     layout = format_for(spec)
     mode = heading_mode_for(spec)
-    if form:
-        for key in ("title", "short_title"):
-            if spec["document"].get(key):
-                spec["document"][key] = heading_text(spec["document"][key], mode)
+    for key in ("title", "short_title"):
+        if spec["document"].get(key):
+            spec["document"][key] = heading_text(spec["document"][key], mode)
     apa = layout["profile"] == "institucional-apa"
     labels = registry(spec)
     if "choice" in rules:
@@ -1860,7 +1858,7 @@ def compile_report(source, output):
                   p(f'Versión {m["version"]} · {date.fromisoformat(m["date"]).strftime("%d/%m/%Y")} · {m["status"]}', "small")]
         if m.get("notice"):
             story += [p(m["notice"], "small")]
-        story += [PageBreak(), p("Control de cambios", "h1")]
+        story += [PageBreak(), p(heading_text("Histórico de revisiones", mode), "h1")]
         # The APA header is 11 pt bold: reserve enough width to keep «Versión» whole.
         history_widths = [1.4,1.5,4.6,2] if apa else [1,1.5,5,2]
         story += [table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], history, history_widths)]
@@ -1997,7 +1995,7 @@ def compile_report(source, output):
                 story += [KeepTogether(components)]
     if show_changes:
         dated = history
-        closing = [p(heading_text("Histórico de revisiones", mode) if form else "Histórico de revisiones", "h1"),
+        closing = [p(heading_text("Histórico de revisiones", mode), "h1"),
                    table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], dated, [1,1.5,5,2])]
         story = append_closing(story, closing, doc.width, doc.height) if form else story + closing
     doc.multiBuild(story, maxPasses=10)

@@ -40,7 +40,7 @@ Producir el documento que se pide. Ningún proyecto usa todo el catálogo. Ante 
 | `ficha-proceso` | Cómo trabaja un proceso de la entidad (SIPOC), en una o dos páginas | [ficha-proceso.md](references/tipos/ficha-proceso.md) | `ejemplo-ficha-proceso.json` |
 | dossier | El usuario pide un «dossier», «informe-dossier», «modo nasa dossier» o «flow NASA» | [dossier.md](references/tipos/dossier.md) | no usa el motor JSON |
 
-El acta de reunión se exporta a Word con `scripts/build_acta_docx.py`; el comando está en [acta-reunion.md](references/tipos/acta-reunion.md#acta-de-reunión-en-word). Si el usuario aporta un formato obligatorio, trabajar sobre una copia y conservar su estructura. Todos los tipos de proyecto usan `format.profile: "institucional"`; el perfil APA es solo del informe. Cada guía dice si su tipo lleva figura; para un esquema nuevo, usar la skill `diagram-design` y seguir [diagramas.md](references/diagramas.md).
+El acta de reunión se exporta a Word con `scripts/build_acta_docx.py`; el comando está en [acta-reunion.md](references/tipos/acta-reunion.md#acta-de-reunión-en-word). Si el usuario aporta un formato obligatorio, trabajar sobre una copia y conservar su estructura. Todos los tipos de proyecto usan `format.profile: "institucional"`; el perfil APA es solo del informe y solo se usa si se pide. Cada guía dice si su tipo lleva figura; para un esquema nuevo, usar la skill `diagram-design` y seguir [diagramas.md](references/diagramas.md).
 
 ## Leer solo lo necesario
 

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo.json",
   "source_sha256": "82740e3267e8b9038d0b292a2b54ea17e956f7809e7efc63d7070ac650edbaf9",
-  "pdf_sha256": "1ee655c3df4a093c321762f7f983ed017937d4f6073df796b6451a035df22009",
+  "pdf_sha256": "4769f7e30545abc49e6b9e4b1c6423554e3fdd40a649a418ed5b2f95adffc440",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",
@@ -37,35 +37,35 @@
   "entries": [
     {
       "id": "introduccion",
-      "label": "1 Introducción",
+      "label": "1. Introducción",
       "kind": "section",
       "level": 0,
       "page": 5
     },
     {
       "id": "objetivos",
-      "label": "2 Objetivos",
+      "label": "2. Objetivos",
       "kind": "section",
       "level": 0,
       "page": 5
     },
     {
       "id": "alcance",
-      "label": "3 Alcance y límites",
+      "label": "3. Alcance y límites",
       "kind": "section",
       "level": 0,
       "page": 5
     },
     {
       "id": "desarrollo",
-      "label": "4 Desarrollo técnico",
+      "label": "4. Desarrollo técnico",
       "kind": "section",
       "level": 0,
       "page": 6
     },
     {
       "id": "modelo",
-      "label": "4.1 Modelo documental",
+      "label": "4.1. Modelo documental",
       "kind": "section",
       "level": 1,
       "page": 6
@@ -79,14 +79,14 @@
     },
     {
       "id": "convenciones",
-      "label": "4.2 Convenciones de contenido",
+      "label": "4.2. Convenciones de contenido",
       "kind": "section",
       "level": 1,
       "page": 7
     },
     {
       "id": "catalogo",
-      "label": "4.3 Catálogo de campos documentales",
+      "label": "4.3. Catálogo de campos documentales",
       "kind": "section",
       "level": 1,
       "page": 8
@@ -100,14 +100,14 @@
     },
     {
       "id": "revision",
-      "label": "4.4 Preparación de una nueva revisión",
+      "label": "4.4. Preparación de una nueva revisión",
       "kind": "section",
       "level": 1,
       "page": 11
     },
     {
       "id": "validacion",
-      "label": "5 Resultados y validación",
+      "label": "5. Resultados y validación",
       "kind": "section",
       "level": 0,
       "page": 11
@@ -121,49 +121,49 @@
     },
     {
       "id": "conclusiones",
-      "label": "6 Conclusiones y recomendaciones",
+      "label": "6. Conclusiones y recomendaciones",
       "kind": "section",
       "level": 0,
       "page": 12
     },
     {
       "id": "referencias",
-      "label": "7 Referencias de diseño",
+      "label": "7. Referencias de diseño",
       "kind": "section",
       "level": 0,
       "page": 12
     }
   ],
   "labels": {
-    "introduccion": "1 Introducción",
-    "objetivos": "2 Objetivos",
-    "alcance": "3 Alcance y límites",
-    "desarrollo": "4 Desarrollo técnico",
-    "modelo": "4.1 Modelo documental",
+    "introduccion": "1. Introducción",
+    "objetivos": "2. Objetivos",
+    "alcance": "3. Alcance y límites",
+    "desarrollo": "4. Desarrollo técnico",
+    "modelo": "4.1. Modelo documental",
     "flujo": "Figura 1. Ciclo de revisión documental",
-    "convenciones": "4.2 Convenciones de contenido",
-    "catalogo": "4.3 Catálogo de campos documentales",
+    "convenciones": "4.2. Convenciones de contenido",
+    "catalogo": "4.3. Catálogo de campos documentales",
     "campos": "Tabla 1. Campos y controles de la fuente documental",
-    "revision": "4.4 Preparación de una nueva revisión",
-    "validacion": "5 Resultados y validación",
+    "revision": "4.4. Preparación de una nueva revisión",
+    "validacion": "5. Resultados y validación",
     "criterios": "Tabla 2. Comprobaciones antes de entregar",
-    "conclusiones": "6 Conclusiones y recomendaciones",
-    "referencias": "7 Referencias de diseño"
+    "conclusiones": "6. Conclusiones y recomendaciones",
+    "referencias": "7. Referencias de diseño"
   },
   "reference_labels": {
-    "introduccion": "1 Introducción",
-    "objetivos": "2 Objetivos",
-    "alcance": "3 Alcance y límites",
-    "desarrollo": "4 Desarrollo técnico",
-    "modelo": "4.1 Modelo documental",
+    "introduccion": "1. Introducción",
+    "objetivos": "2. Objetivos",
+    "alcance": "3. Alcance y límites",
+    "desarrollo": "4. Desarrollo técnico",
+    "modelo": "4.1. Modelo documental",
     "flujo": "Figura 1. Ciclo de revisión documental",
-    "convenciones": "4.2 Convenciones de contenido",
-    "catalogo": "4.3 Catálogo de campos documentales",
+    "convenciones": "4.2. Convenciones de contenido",
+    "catalogo": "4.3. Catálogo de campos documentales",
     "campos": "Tabla 1. Campos y controles de la fuente documental",
-    "revision": "4.4 Preparación de una nueva revisión",
-    "validacion": "5 Resultados y validación",
+    "revision": "4.4. Preparación de una nueva revisión",
+    "validacion": "5. Resultados y validación",
     "criterios": "Tabla 2. Comprobaciones antes de entregar",
-    "conclusiones": "6 Conclusiones y recomendaciones",
-    "referencias": "7 Referencias de diseño"
+    "conclusiones": "6. Conclusiones y recomendaciones",
+    "referencias": "7. Referencias de diseño"
   }
 }

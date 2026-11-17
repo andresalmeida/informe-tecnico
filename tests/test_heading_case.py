@@ -78,15 +78,26 @@ def run_checks(example, root, checks, build, rejected_with):
     checks.append({"case": "heading-sentence-no-reescribe-el-resto"})
 
     informe = json.loads(example.read_text())
+    sentence_informe = json.loads(example.read_text())
+    sentence_informe.setdefault("format", {})["heading_case"] = "sentence"
     titled_informe = json.loads(example.read_text())
     titled_informe.setdefault("format", {})["heading_case"] = "title"
     plain, plain_pdf = build("informe-sin-heading-case", informe)
+    explicit, explicit_pdf = build("informe-heading-sentence", sentence_informe)
     forced, forced_pdf = build("informe-heading-title", titled_informe)
-    assert plain["labels"] == forced["labels"]
-    assert plain["document"]["title"] == forced["document"]["title"]
+    # The informe follows heading_case like every other kind: sentence by default, title on request.
+    assert plain["labels"] == explicit["labels"]
     assert [page.extract_text() for page in PdfReader(plain_pdf).pages] == [
-        page.extract_text() for page in PdfReader(forced_pdf).pages]
-    checks.append({"case": "heading-case-no-cambia-el-informe"})
+        page.extract_text() for page in PdfReader(explicit_pdf).pages]
+    assert plain["labels"] != forced["labels"]
+    assert any(label.endswith("Desarrollo Técnico") for label in forced["labels"].values()), forced["labels"]
+    assert any(label.endswith("Desarrollo técnico") for label in plain["labels"].values()), plain["labels"]
+    checks.append({"case": "heading-case-aplica-tambien-al-informe"})
+
+    # A new informe starts from the template: institutional profile (APA only on request).
+    base = json.loads((example.parent / "plantilla-base.json").read_text())
+    assert base["format"]["profile"] == "institucional", base["format"]
+    checks.append({"case": "plantilla-base-usa-el-perfil-institucional"})
 
     unknown = json.loads((example.parent / "ejemplo-informe-factibilidad.json").read_text())
     unknown.setdefault("format", {})["heading_case"] = "upper"
