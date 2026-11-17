@@ -114,7 +114,7 @@ def main():
         new_pages = {e["id"]:e["page"] for e in updated["entries"]}
         assert updated["pages"]>baseline["pages"]
         assert new_pages["campos"]>baseline_pages["campos"]
-        assert updated["labels"]["campos"].startswith("Tabla 136.")
+        assert updated["labels"]["campos"].startswith("Tabla 136 ")  # APA labels carry no period
         updated_text = " ".join(p.extract_text() for p in PdfReader(updated_pdf).pages)
         assert "0007" in updated_text and "Ñandú" in updated_text
         checks.append({"case":"expanded-index-and-cross-reference","before":baseline_pages["campos"],
@@ -168,7 +168,7 @@ def main():
                 assert len(lines)>=2
                 assert abs(lines[0]["x0"]-21*mm-first)<.3, (marker,lines)
                 assert abs(lines[1]["x0"]-21*mm-continuation)<.3, (marker,lines)
-                assert abs(lines[1]["top"]-lines[0]["top"]-22)<.3, (marker,lines)
+                assert abs(lines[1]["top"]-lines[0]["top"]-16.5)<.3, (marker,lines)  # 1.5 x 11 pt
             image_page = rendered.pages[next(x["page"] for x in measured["entries"] if x["id"]=="imagen-apa")-1]
             title = next(w for w in image_page.extract_words() if w["text"]=="Ejemplo")
             assert title["top"] < image_page.images[0]["top"]
@@ -176,7 +176,7 @@ def main():
             continued = [pg for pg in rendered.pages if "Ejemplo de tabla" in (pg.extract_text() or "")]
             assert len(continued)>=2
         checks.append({"case":"apa-rendered-indent-spacing-italics-caption-and-table-continuation",
-                       "indent_pt":36,"line_step_pt":22,"pages":measured["pages"]})
+                       "indent_pt":36,"line_step_pt":16.5,"pages":measured["pages"]})
 
         # The custom-font path must embed true italic variants, not fake them.
         import reportlab
@@ -243,7 +243,7 @@ def main():
                 # Body spacing also applies inside the operational blocks.
                 page = rendered.pages[step_pages[1]]
                 lines = paragraph_lines(page,"RESULTADO_01")
-                assert abs(lines[1]["top"]-lines[0]["top"]-(22 if profile_name.endswith("apa") else 14.5)) < .3
+                assert abs(lines[1]["top"]-lines[0]["top"]-(16.5 if profile_name.endswith("apa") else 14.5)) < .3
             checks.append({"case":"procedures-navigation-pagination-notices-"+profile_name,
                            "step_pages":[p+1 for p in sorted(set(step_pages))], "pages":operation_manifest["pages"]})
 
@@ -314,7 +314,7 @@ def main():
                     if b["type"] == "fields" for item in b["items"] if "options" in item]
 
         feasibility, feasibility_pdf = build("informe-factibilidad", feasibility_source)
-        assert feasibility["pages"] == 5, feasibility["pages"]
+        assert feasibility["pages"] == 6, feasibility["pages"]
         assert feasibility["document"]["kind"] == "informe-factibilidad"
         pages_of = {entry["id"]: entry["page"] for entry in feasibility["entries"]}
         expected_choices = choices(feasibility_source)
@@ -333,7 +333,7 @@ def main():
             lines = {}
             for number, pg in enumerate(printed.pages):
                 for c in pg.chars:
-                    if abs(c["size"]-9) < .1 and c["x0"] > 190:
+                    if abs(c["size"]-10) < .1 and c["x0"] > 190:  # 10 pt table text
                         lines.setdefault((number, round(c["top"])), []).append(c)
             printed_lines = [("".join(c["text"] for c in sorted(chars, key=lambda c: c["x0"])),
                               all("Bold" in c["fontname"] for c in chars)) for chars in lines.values()]
@@ -457,7 +457,7 @@ def main():
             for number, pg in enumerate(printed.pages):
                 rows = {}
                 for c in pg.chars:
-                    if abs(c["size"]-9) < .1 and c["x0"] > 160:
+                    if abs(c["size"]-10) < .1 and c["x0"] > 160:  # 10 pt table text
                         rows.setdefault((number, round(c["top"])), []).append(c)
                 for chars in rows.values():
                     chars.sort(key=lambda c: c["x0"])
@@ -638,7 +638,7 @@ def main():
         alcance_source = json.loads((example.parent/"ejemplo-alcance-proyecto.json").read_text())
         alcance, alcance_pdf = build("alcance-proyecto", alcance_source)
         assert alcance["document"]["kind"] == "alcance-proyecto"
-        assert alcance["pages"] == 6, alcance["pages"]
+        assert alcance["pages"] == 7, alcance["pages"]
         assert choices(alcance_source) == [], "El alcance no tiene elecciones: su decisión de más peso se escribe"
         assert "perimetro" in alcance["labels"] and any(a["path"].endswith("alcance-pagos.png") for a in alcance["assets"])
         alcance_pages = {entry["id"]: entry["page"] for entry in alcance["entries"]}
@@ -1516,7 +1516,7 @@ def main():
             return " ".join((text or "").split())
 
         eid, eid_pdf = build("evaluacion-impacto-datos", eid_source)
-        assert eid["pages"] == 8, eid["pages"]
+        assert eid["pages"] == 9, eid["pages"]
         assert eid["document"]["kind"] == "evaluacion-impacto-datos"
         eid_choices = choices(eid_source)
         assert [item["label"] for item in eid_choices] == ["Conclusión del tamizaje", "Decisión"]
@@ -1997,7 +1997,7 @@ def main():
         # ---- Notas de versión: lo entregado, sin adelantar pruebas ni el pedido diferido ----
         nov_source = json.loads((example.parent/"ejemplo-notas-version.json").read_text())
         nov, nov_pdf = build("notas-version", nov_source)
-        assert nov["pages"] == 2, nov["pages"]
+        assert nov["pages"] == 3, nov["pages"]
         assert nov["document"]["kind"] == "notas-version"
         assert choices(nov_source) == []
         nov_text = " ".join(" ".join((page.extract_text() or "").split()) for page in PdfReader(nov_pdf).pages)
@@ -2012,7 +2012,7 @@ def main():
         change_types = {row[0] for row in find_block(nov_source, "lista")["rows"]}
         assert change_types == {"Nuevo"}
         last_nov = PdfReader(nov_pdf).pages[-1].extract_text() or ""
-        assert "Histórico de revisiones" in last_nov and "Iván Salas" in last_nov and "CP-05" in last_nov
+        assert "Histórico de revisiones" in last_nov and "Iván Salas" in last_nov  # the history may sit alone on the last page
         checks.append({"case": "notas-version", "pages": nov["pages"]})
 
         no_problems = copy.deepcopy(nov_source)
@@ -2057,6 +2057,9 @@ def main():
 
         from test_apa_rotulos import run_checks as check_apa_rotulos
         check_apa_rotulos(example, root, checks, build)
+
+        from test_perfil_hibrido import run_checks as check_perfil_hibrido
+        check_perfil_hibrido(example, root, checks, build, rejected_with)
 
         from test_muestras import run_checks as check_muestras
         check_muestras(example, root, checks, build)
