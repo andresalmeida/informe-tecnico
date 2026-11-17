@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-plan-proyecto.json",
-  "source_sha256": "f34f25fa5219d4b893d9cc15099740daa9042e598efbed9ea4efdbe5a260edf0",
-  "pdf_sha256": "a292a0545903cfa32755a13eb6f054a5aceaedbd691e91fd10e95d3745bdb3bd",
+  "source_sha256": "1ecfb4560c854a43baac1f53b71d354a43877ff350b5cf7c52437d3040a4ca24",
+  "pdf_sha256": "f25c7036ed10aecda35b1f2dfa5ac509289e657b020affcab17765787f8e5ec4",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -19,13 +19,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -51,7 +53,7 @@
     },
     {
       "id": "desglose",
-      "label": "Tabla 1. EDT del módulo de pagos",
+      "label": "Tabla 1 EDT del módulo de pagos",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -65,7 +67,7 @@
     },
     {
       "id": "calendario",
-      "label": "Tabla 2. Hitos del calendario propuesto",
+      "label": "Tabla 2 Hitos del calendario propuesto",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -79,14 +81,14 @@
     },
     {
       "id": "equipo",
-      "label": "Tabla 3. Roles del equipo",
+      "label": "Tabla 3 Roles del equipo",
       "kind": "table",
       "level": 0,
       "page": 3
     },
     {
       "id": "decisiones",
-      "label": "Tabla 4. Tipos de decisión",
+      "label": "Tabla 4 Tipos de decisión",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -107,7 +109,7 @@
     },
     {
       "id": "clave",
-      "label": "Tabla 5. Riesgos que vigila el plan",
+      "label": "Tabla 5 Riesgos que vigila el plan",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -128,7 +130,7 @@
     },
     {
       "id": "responsables",
-      "label": "Tabla 6. Firmas del plan",
+      "label": "Tabla 6 Firmas del plan",
       "kind": "table",
       "level": 0,
       "page": 5
@@ -138,34 +140,34 @@
     "referencia": "1. Información de referencia",
     "objetivos": "2. Objetivos y alcance",
     "edt": "3. Estructura de desglose del trabajo",
-    "desglose": "Tabla 1. EDT del módulo de pagos",
+    "desglose": "Tabla 1 EDT del módulo de pagos",
     "hitos": "4. Hitos y calendario",
-    "calendario": "Tabla 2. Hitos del calendario propuesto",
+    "calendario": "Tabla 2 Hitos del calendario propuesto",
     "roles": "5. Roles y decisiones",
-    "equipo": "Tabla 3. Roles del equipo",
-    "decisiones": "Tabla 4. Tipos de decisión",
+    "equipo": "Tabla 3 Roles del equipo",
+    "decisiones": "Tabla 4 Tipos de decisión",
     "cadencia": "6. Cadencia de seguimiento",
     "riesgos": "7. Riesgos clave",
-    "clave": "Tabla 5. Riesgos que vigila el plan",
+    "clave": "Tabla 5 Riesgos que vigila el plan",
     "herramientas": "8. Herramientas y comunicación",
     "firmas": "9. Firmas",
-    "responsables": "Tabla 6. Firmas del plan"
+    "responsables": "Tabla 6 Firmas del plan"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "objetivos": "2. Objetivos y alcance",
     "edt": "3. Estructura de desglose del trabajo",
-    "desglose": "Tabla 1. EDT del módulo de pagos",
+    "desglose": "Tabla 1",
     "hitos": "4. Hitos y calendario",
-    "calendario": "Tabla 2. Hitos del calendario propuesto",
+    "calendario": "Tabla 2",
     "roles": "5. Roles y decisiones",
-    "equipo": "Tabla 3. Roles del equipo",
-    "decisiones": "Tabla 4. Tipos de decisión",
+    "equipo": "Tabla 3",
+    "decisiones": "Tabla 4",
     "cadencia": "6. Cadencia de seguimiento",
     "riesgos": "7. Riesgos clave",
-    "clave": "Tabla 5. Riesgos que vigila el plan",
+    "clave": "Tabla 5",
     "herramientas": "8. Herramientas y comunicación",
     "firmas": "9. Firmas",
-    "responsables": "Tabla 6. Firmas del plan"
+    "responsables": "Tabla 6"
   }
 }

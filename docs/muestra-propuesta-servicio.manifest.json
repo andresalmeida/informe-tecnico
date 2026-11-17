@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-propuesta-servicio.json",
-  "source_sha256": "8a9762f2c29384648cf55f9f10e9a6d7525df875f5c09ea99f14b347cafad9e2",
-  "pdf_sha256": "c7e4b3b61b61611c346d06de0b0b48ebe77b77d0c02a9f59bf1a430a54b56b33",
+  "source_sha256": "e724d95f74abea1a0a6fb003229ef0b998c1ea764b1c642b3adbf8062fe4bcb8",
+  "pdf_sha256": "8bfbb8c4ffee35679a5233bb3a37e5dd68dd7c8cf57a05cdb32099676008f5c6",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -19,13 +19,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -58,7 +60,7 @@
     },
     {
       "id": "entregables",
-      "label": "Tabla 1. Entregables",
+      "label": "Tabla 1 Entregables",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -72,7 +74,7 @@
     },
     {
       "id": "fases",
-      "label": "Tabla 2. Fases e hitos de la parte solicitante",
+      "label": "Tabla 2 Fases e hitos de la parte solicitante",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -86,7 +88,7 @@
     },
     {
       "id": "aportes",
-      "label": "Tabla 3. Aportes de Operaciones de reservas",
+      "label": "Tabla 3 Aportes de Operaciones de reservas",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -107,10 +109,10 @@
     },
     {
       "id": "cotizacion",
-      "label": "Tabla 4. Cotización del módulo de pagos",
+      "label": "Tabla 4 Cotización del módulo de pagos",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "condiciones",
@@ -128,7 +130,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 5. Aceptación de las dos partes",
+      "label": "Tabla 5 Aceptación de las dos partes",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -139,33 +141,33 @@
     "necesidad": "2. Necesidad y objetivo",
     "solucion": "3. Solución propuesta",
     "alcance": "4. Alcance y exclusiones",
-    "entregables": "Tabla 1. Entregables",
+    "entregables": "Tabla 1 Entregables",
     "cronograma": "5. Cronograma",
-    "fases": "Tabla 2. Fases e hitos de la parte solicitante",
+    "fases": "Tabla 2 Fases e hitos de la parte solicitante",
     "solicitud": "6. Lo que necesitamos de la parte solicitante",
-    "aportes": "Tabla 3. Aportes de Operaciones de reservas",
+    "aportes": "Tabla 3 Aportes de Operaciones de reservas",
     "riesgos": "7. Supuestos y riesgos relevantes",
     "inversion": "8. Inversión",
-    "cotizacion": "Tabla 4. Cotización del módulo de pagos",
+    "cotizacion": "Tabla 4 Cotización del módulo de pagos",
     "condiciones": "9. Condiciones",
     "aceptacion": "10. Aceptación",
-    "firmas": "Tabla 5. Aceptación de las dos partes"
+    "firmas": "Tabla 5 Aceptación de las dos partes"
   },
   "reference_labels": {
     "resumen": "1. Resumen",
     "necesidad": "2. Necesidad y objetivo",
     "solucion": "3. Solución propuesta",
     "alcance": "4. Alcance y exclusiones",
-    "entregables": "Tabla 1. Entregables",
+    "entregables": "Tabla 1",
     "cronograma": "5. Cronograma",
-    "fases": "Tabla 2. Fases e hitos de la parte solicitante",
+    "fases": "Tabla 2",
     "solicitud": "6. Lo que necesitamos de la parte solicitante",
-    "aportes": "Tabla 3. Aportes de Operaciones de reservas",
+    "aportes": "Tabla 3",
     "riesgos": "7. Supuestos y riesgos relevantes",
     "inversion": "8. Inversión",
-    "cotizacion": "Tabla 4. Cotización del módulo de pagos",
+    "cotizacion": "Tabla 4",
     "condiciones": "9. Condiciones",
     "aceptacion": "10. Aceptación",
-    "firmas": "Tabla 5. Aceptación de las dos partes"
+    "firmas": "Tabla 5"
   }
 }

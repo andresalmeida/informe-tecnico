@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "source": "ejemplo-informe-factibilidad.json",
-  "source_sha256": "33a62a5a2aa240aaeea641179daf5040173f0933b53c5366ba991f000221bf0c",
-  "pdf_sha256": "a0bb4d5e6ec6bd533b6598995e4561454b04752f636797599899b553b515bb79",
+  "source_sha256": "17ade84b15685243c1052a4e9cf971b26b62e1b2486e2a6ea10b55322f425478",
+  "pdf_sha256": "803a83a5e86e95874c9c109bdd98d658564949418465c46fddb208b6d176644f",
   "assets": [
     {
       "path": "diagrams/arquitectura-pagos.png",
       "sha256": "aaaff384b994683f6b18c904dfcba8eb60a466e7c7dd4355252f4b5209bca674"
     }
   ],
-  "pages": 5,
+  "pages": 6,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -24,13 +24,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -70,7 +72,7 @@
     },
     {
       "id": "arquitectura",
-      "label": "Figura 1. Arquitectura propuesta del módulo de pagos",
+      "label": "Figura 1 Arquitectura propuesta del módulo de pagos",
       "kind": "figure",
       "level": 0,
       "page": 2
@@ -80,7 +82,7 @@
       "label": "3.1. Objetivos técnicos del desarrollo",
       "kind": "section",
       "level": 1,
-      "page": 2
+      "page": 3
     },
     {
       "id": "criterios",
@@ -98,21 +100,21 @@
     },
     {
       "id": "humanos",
-      "label": "Tabla 1. Recursos humanos estimados",
+      "label": "Tabla 1 Recursos humanos estimados",
       "kind": "table",
       "level": 0,
       "page": 3
     },
     {
       "id": "tecnicos",
-      "label": "Tabla 2. Recursos técnicos y herramientas",
+      "label": "Tabla 2 Recursos técnicos y herramientas",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "externos",
-      "label": "Tabla 3. Perfiles externos",
+      "label": "Tabla 3 Perfiles externos",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -126,7 +128,7 @@
     },
     {
       "id": "fases",
-      "label": "Tabla 4. Estimación por fase",
+      "label": "Tabla 4 Estimación por fase",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -136,21 +138,21 @@
       "label": "6. Conclusiones y recomendaciones",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "aprobaciones",
       "label": "7. Aprobaciones y firmas",
       "kind": "section",
       "level": 0,
-      "page": 5
+      "page": 6
     },
     {
       "id": "firmas",
-      "label": "Tabla 5. Firmas de responsabilidad",
+      "label": "Tabla 5 Firmas de responsabilidad",
       "kind": "table",
       "level": 0,
-      "page": 5
+      "page": 6
     }
   ],
   "labels": {
@@ -159,18 +161,18 @@
     "impacto": "2.1. Impacto en procesos y sistemas existentes",
     "supuestos": "2.2. Supuestos y restricciones técnicas",
     "alcance": "3. Definición del alcance técnico",
-    "arquitectura": "Figura 1. Arquitectura propuesta del módulo de pagos",
+    "arquitectura": "Figura 1 Arquitectura propuesta del módulo de pagos",
     "objetivos": "3.1. Objetivos técnicos del desarrollo",
     "criterios": "3.2. Criterios de aceptación mínimos",
     "recursos": "4. Evaluación y asignación de recursos",
-    "humanos": "Tabla 1. Recursos humanos estimados",
-    "tecnicos": "Tabla 2. Recursos técnicos y herramientas",
-    "externos": "Tabla 3. Perfiles externos",
+    "humanos": "Tabla 1 Recursos humanos estimados",
+    "tecnicos": "Tabla 2 Recursos técnicos y herramientas",
+    "externos": "Tabla 3 Perfiles externos",
     "tiempo": "5. Estimación preliminar de tiempo",
-    "fases": "Tabla 4. Estimación por fase",
+    "fases": "Tabla 4 Estimación por fase",
     "conclusiones": "6. Conclusiones y recomendaciones",
     "aprobaciones": "7. Aprobaciones y firmas",
-    "firmas": "Tabla 5. Firmas de responsabilidad"
+    "firmas": "Tabla 5 Firmas de responsabilidad"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
@@ -178,17 +180,17 @@
     "impacto": "2.1. Impacto en procesos y sistemas existentes",
     "supuestos": "2.2. Supuestos y restricciones técnicas",
     "alcance": "3. Definición del alcance técnico",
-    "arquitectura": "Figura 1. Arquitectura propuesta del módulo de pagos",
+    "arquitectura": "Figura 1",
     "objetivos": "3.1. Objetivos técnicos del desarrollo",
     "criterios": "3.2. Criterios de aceptación mínimos",
     "recursos": "4. Evaluación y asignación de recursos",
-    "humanos": "Tabla 1. Recursos humanos estimados",
-    "tecnicos": "Tabla 2. Recursos técnicos y herramientas",
-    "externos": "Tabla 3. Perfiles externos",
+    "humanos": "Tabla 1",
+    "tecnicos": "Tabla 2",
+    "externos": "Tabla 3",
     "tiempo": "5. Estimación preliminar de tiempo",
-    "fases": "Tabla 4. Estimación por fase",
+    "fases": "Tabla 4",
     "conclusiones": "6. Conclusiones y recomendaciones",
     "aprobaciones": "7. Aprobaciones y firmas",
-    "firmas": "Tabla 5. Firmas de responsabilidad"
+    "firmas": "Tabla 5"
   }
 }

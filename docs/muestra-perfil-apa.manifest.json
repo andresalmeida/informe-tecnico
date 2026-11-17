@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-apa.json",
-  "source_sha256": "a6d365f54eb8b837e028bd6022c4403c237b146602130794b4cdbd14689c0c43",
-  "pdf_sha256": "357e09aa9f32087484f1cdee33f7b967595100e9672b193d47d6dfa350cb9604",
+  "source_sha256": "4e1e295496aef32eddb31c0b35ea24aeec8135913889fe65858eda8887822a5e",
+  "pdf_sha256": "8beaecfb21c364d7fc21c1b196c32c96c82de14e3cc6c1d29c4476a1ec06bdc2",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",
@@ -20,18 +20,20 @@
     "date": "2026-10-28",
     "status": "Demostración",
     "paper": "A4",
-    "subtitle": "Muestra de composición de la skill informe-tecnico 0.3.0.\nAplicable a informes y manuales de cualquier sistema o entidad.",
+    "subtitle": "Muestra de composición del perfil por omisión de la skill informe-tecnico.\nAplicable a informes y manuales de cualquier sistema o entidad.",
     "author": "Demostración de la plantilla",
     "notice": "La entidad de esta muestra es ficticia. La cabecera, los índices y los márgenes institucionales se conservan; el documento no representa un trabajo académico APA integral."
   },
   "format": {
     "profile": "institucional-apa",
     "body_size_pt": 11.0,
-    "line_spacing": 2.0,
+    "line_spacing": 1.5,
     "first_line_indent_mm": 12.7,
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.0
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {

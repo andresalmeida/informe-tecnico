@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-acta-baja.json",
-  "source_sha256": "a8a372205abf95382f50ff93355433d28d65e5706acf588053be3dc5199ae012",
-  "pdf_sha256": "69c83ab7f08ff3141155cd71ce8acbd0c884447f50544eeaadd8fe5d71ec730f",
+  "source_sha256": "7d048112e7e40ea9fb5dd35276cf243c96a8867acae0535e3d9777e3779a0472",
+  "pdf_sha256": "ce78e8b1dc2afe23feb6f423934a26d208c0fa58bcd4e87ef689c33a71a35447",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -23,13 +23,15 @@
     }
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -48,7 +50,7 @@
     },
     {
       "id": "perimetro",
-      "label": "Tabla 1. Qué sale y qué se mantiene",
+      "label": "Tabla 1 Qué sale y qué se mantiene",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -62,7 +64,7 @@
     },
     {
       "id": "dependencias",
-      "label": "Tabla 2. Dependencias, impacto y aviso",
+      "label": "Tabla 2 Dependencias, impacto y aviso",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -76,7 +78,7 @@
     },
     {
       "id": "tratamiento",
-      "label": "Tabla 3. Conservación, migración y eliminación previstas",
+      "label": "Tabla 3 Conservación, migración y eliminación previstas",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -97,7 +99,7 @@
     },
     {
       "id": "pasos",
-      "label": "Tabla 4. Plan propuesto y evidencia de baja",
+      "label": "Tabla 4 Plan propuesto y evidencia de baja",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -111,7 +113,7 @@
     },
     {
       "id": "afectados",
-      "label": "Tabla 5. Transiciones documentales previstas",
+      "label": "Tabla 5 Transiciones documentales previstas",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -125,7 +127,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 6. Registro de firmas",
+      "label": "Tabla 6 Registro de firmas",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -134,34 +136,34 @@
   "labels": {
     "referencia": "1. Información de referencia",
     "alcance": "2. Alcance de la baja",
-    "perimetro": "Tabla 1. Qué sale y qué se mantiene",
+    "perimetro": "Tabla 1 Qué sale y qué se mantiene",
     "impacto": "3. Dependencias e impacto",
-    "dependencias": "Tabla 2. Dependencias, impacto y aviso",
+    "dependencias": "Tabla 2 Dependencias, impacto y aviso",
     "datos": "4. Datos",
-    "tratamiento": "Tabla 3. Conservación, migración y eliminación previstas",
+    "tratamiento": "Tabla 3 Conservación, migración y eliminación previstas",
     "sustituto": "5. Sustituto o alternativa",
     "plan": "6. Plan y verificación",
-    "pasos": "Tabla 4. Plan propuesto y evidencia de baja",
+    "pasos": "Tabla 4 Plan propuesto y evidencia de baja",
     "documentos": "7. Documentos afectados",
-    "afectados": "Tabla 5. Transiciones documentales previstas",
+    "afectados": "Tabla 5 Transiciones documentales previstas",
     "responsabilidad": "8. Firmas de responsabilidad",
-    "firmas": "Tabla 6. Registro de firmas"
+    "firmas": "Tabla 6 Registro de firmas"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "alcance": "2. Alcance de la baja",
-    "perimetro": "Tabla 1. Qué sale y qué se mantiene",
+    "perimetro": "Tabla 1",
     "impacto": "3. Dependencias e impacto",
-    "dependencias": "Tabla 2. Dependencias, impacto y aviso",
+    "dependencias": "Tabla 2",
     "datos": "4. Datos",
-    "tratamiento": "Tabla 3. Conservación, migración y eliminación previstas",
+    "tratamiento": "Tabla 3",
     "sustituto": "5. Sustituto o alternativa",
     "plan": "6. Plan y verificación",
-    "pasos": "Tabla 4. Plan propuesto y evidencia de baja",
+    "pasos": "Tabla 4",
     "documentos": "7. Documentos afectados",
-    "afectados": "Tabla 5. Transiciones documentales previstas",
+    "afectados": "Tabla 5",
     "responsabilidad": "8. Firmas de responsabilidad",
-    "firmas": "Tabla 6. Registro de firmas"
+    "firmas": "Tabla 6"
   },
   "lifecycle": {
     "state": "borrador"

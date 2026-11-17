@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-traspaso-operacion.json",
-  "source_sha256": "c45d7f3fab116b2a2ea84d739c8266275c3f986335de0e75adbeb005f13b94a5",
-  "pdf_sha256": "6c7c3090307fb9c3ff3eece14b9d3c16efc1c747cdd6fa6204a6636124506483",
+  "source_sha256": "592370f7fd9731ddcf0deab275544c9db3c218ba56d2c03ac9be6f114b9c4fa2",
+  "pdf_sha256": "90fe1b5a64ed5202cd5a822ac5dc36eb5c0d4f30b95071a824525d109226c4f7",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -19,13 +19,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -44,7 +46,7 @@
     },
     {
       "id": "inventario",
-      "label": "Tabla 1. Componentes y quién responde después del paso",
+      "label": "Tabla 1 Componentes y quién responde después del paso",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -65,7 +67,7 @@
     },
     {
       "id": "comprobaciones",
-      "label": "Tabla 2. Comprobaciones del paso",
+      "label": "Tabla 2 Comprobaciones del paso",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -100,7 +102,7 @@
     },
     {
       "id": "abiertos",
-      "label": "Tabla 3. Pendientes que pasan con la operación",
+      "label": "Tabla 3 Pendientes que pasan con la operación",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -114,7 +116,7 @@
     },
     {
       "id": "responsables",
-      "label": "Tabla 4. Firmas de quien entrega y de quien recibe",
+      "label": "Tabla 4 Firmas de quien entrega y de quien recibe",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -123,31 +125,31 @@
   "labels": {
     "referencia": "1. Información de referencia",
     "componentes": "2. Qué pasa a operación",
-    "inventario": "Tabla 1. Componentes y quién responde después del paso",
+    "inventario": "Tabla 1 Componentes y quién responde después del paso",
     "soporte": "3. Quién opera y quién da soporte",
     "verificacion": "4. Verificación posterior",
-    "comprobaciones": "Tabla 2. Comprobaciones del paso",
+    "comprobaciones": "Tabla 2 Comprobaciones del paso",
     "reversa": "5. Plan de reversa",
     "monitoreo": "6. Monitoreo y alertas",
     "accesos": "7. Accesos",
     "pendientes": "8. Pendientes conocidos y soporte posterior",
-    "abiertos": "Tabla 3. Pendientes que pasan con la operación",
+    "abiertos": "Tabla 3 Pendientes que pasan con la operación",
     "firmas": "9. Firmas",
-    "responsables": "Tabla 4. Firmas de quien entrega y de quien recibe"
+    "responsables": "Tabla 4 Firmas de quien entrega y de quien recibe"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "componentes": "2. Qué pasa a operación",
-    "inventario": "Tabla 1. Componentes y quién responde después del paso",
+    "inventario": "Tabla 1",
     "soporte": "3. Quién opera y quién da soporte",
     "verificacion": "4. Verificación posterior",
-    "comprobaciones": "Tabla 2. Comprobaciones del paso",
+    "comprobaciones": "Tabla 2",
     "reversa": "5. Plan de reversa",
     "monitoreo": "6. Monitoreo y alertas",
     "accesos": "7. Accesos",
     "pendientes": "8. Pendientes conocidos y soporte posterior",
-    "abiertos": "Tabla 3. Pendientes que pasan con la operación",
+    "abiertos": "Tabla 3",
     "firmas": "9. Firmas",
-    "responsables": "Tabla 4. Firmas de quien entrega y de quien recibe"
+    "responsables": "Tabla 4"
   }
 }

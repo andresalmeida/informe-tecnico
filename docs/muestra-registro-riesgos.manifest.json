@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-registro-riesgos.json",
-  "source_sha256": "f056d04b1eec7b482cb3fbc95bdfb8a844a47449039db1a13416f53aa6526b94",
-  "pdf_sha256": "7de5677dd41d3e2e0b86b8e52726738a7a45d5139e05d4c35bd6f1e39b1a5951",
+  "source_sha256": "b8d775e111262d9c8e75efa33aedaf3b9cd066203da45554dfab8cb0e64d71be",
+  "pdf_sha256": "5e7041b96304682e50d4f69c0cbec5a3d8aedb237267a1269fcf4ebaffef7677",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -19,13 +19,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -44,7 +46,7 @@
     },
     {
       "id": "matriz-niveles",
-      "label": "Tabla 1. Matriz de niveles",
+      "label": "Tabla 1 Matriz de niveles",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -121,7 +123,7 @@
     },
     {
       "id": "resumen-niveles",
-      "label": "Tabla 2. Riesgos abiertos por nivel",
+      "label": "Tabla 2 Riesgos abiertos por nivel",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -135,7 +137,7 @@
     },
     {
       "id": "cambios",
-      "label": "Tabla 3. Riesgos que cambiaron de estado",
+      "label": "Tabla 3 Riesgos que cambiaron de estado",
       "kind": "table",
       "level": 0,
       "page": 5
@@ -149,7 +151,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 4. Registro de firmas",
+      "label": "Tabla 4 Registro de firmas",
       "kind": "table",
       "level": 0,
       "page": 5
@@ -158,10 +160,10 @@
   "labels": {
     "referencia": "1. Información de referencia",
     "criterios": "2. Análisis de riesgos del proyecto",
-    "matriz-niveles": "Tabla 1. Matriz de niveles",
+    "matriz-niveles": "Tabla 1 Matriz de niveles",
     "matriz-niveles-registro": "2.1. Registro de riesgos",
     "matriz-niveles-resumen-apartado": "2.2. Resumen por nivel",
-    "resumen-niveles": "Tabla 2. Riesgos abiertos por nivel",
+    "resumen-niveles": "Tabla 2 Riesgos abiertos por nivel",
     "R-01": "R-01",
     "R-02": "R-02",
     "R-03": "R-03",
@@ -171,17 +173,17 @@
     "R-07": "R-07",
     "R-08": "R-08",
     "seguimiento": "3. Seguimiento",
-    "cambios": "Tabla 3. Riesgos que cambiaron de estado",
+    "cambios": "Tabla 3 Riesgos que cambiaron de estado",
     "responsabilidad": "4. Firmas de responsabilidad",
-    "firmas": "Tabla 4. Registro de firmas"
+    "firmas": "Tabla 4 Registro de firmas"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "criterios": "2. Análisis de riesgos del proyecto",
-    "matriz-niveles": "Tabla 1. Matriz de niveles",
+    "matriz-niveles": "Tabla 1",
     "matriz-niveles-registro": "2.1. Registro de riesgos",
     "matriz-niveles-resumen-apartado": "2.2. Resumen por nivel",
-    "resumen-niveles": "Tabla 2. Riesgos abiertos por nivel",
+    "resumen-niveles": "Tabla 2",
     "R-01": "R-01",
     "R-02": "R-02",
     "R-03": "R-03",
@@ -191,8 +193,8 @@
     "R-07": "R-07",
     "R-08": "R-08",
     "seguimiento": "3. Seguimiento",
-    "cambios": "Tabla 3. Riesgos que cambiaron de estado",
+    "cambios": "Tabla 3",
     "responsabilidad": "4. Firmas de responsabilidad",
-    "firmas": "Tabla 4. Registro de firmas"
+    "firmas": "Tabla 4"
   }
 }

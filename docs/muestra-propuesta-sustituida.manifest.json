@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "ejemplo-propuesta-sustituida.json",
-  "source_sha256": "f3d61aec818e38a2ff71ea9aabd712a1addf616f95e85efa493dff8548504abe",
-  "pdf_sha256": "261165f6f4c2cc4d0aeea9488e77da823d252d8f69e38038862d43d4458c4852",
+  "source_sha256": "3ae334bf9dfc2a7deafc9fafda12aec1a33ae888cebcce603513143410eaa48c",
+  "pdf_sha256": "2b0ead0748d07ec6cda174243dcd572e61c0ae073b9de9d77cea26d4b9919d2c",
   "assets": [],
-  "pages": 4,
+  "pages": 5,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -25,13 +25,15 @@
     "notice": "Ejemplo ficticio de sustitución entre versiones del mismo documento. Se conserva la propuesta 0.1; no acredita aceptación comercial ni firmas."
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -64,7 +66,7 @@
     },
     {
       "id": "entregables",
-      "label": "Tabla 1. Entregables",
+      "label": "Tabla 1 Entregables",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -78,7 +80,7 @@
     },
     {
       "id": "fases",
-      "label": "Tabla 2. Fases e hitos de la parte solicitante",
+      "label": "Tabla 2 Fases e hitos de la parte solicitante",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -92,7 +94,7 @@
     },
     {
       "id": "aportes",
-      "label": "Tabla 3. Aportes de Operaciones de reservas",
+      "label": "Tabla 3 Aportes de Operaciones de reservas",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -113,10 +115,10 @@
     },
     {
       "id": "cotizacion",
-      "label": "Tabla 4. Cotización del módulo de pagos",
+      "label": "Tabla 4 Cotización del módulo de pagos",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "condiciones",
@@ -134,10 +136,10 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 5. Aceptación de las dos partes",
+      "label": "Tabla 5 Aceptación de las dos partes",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 5
     }
   ],
   "labels": {
@@ -145,34 +147,34 @@
     "necesidad": "2. Necesidad y objetivo",
     "solucion": "3. Solución propuesta",
     "alcance": "4. Alcance y exclusiones",
-    "entregables": "Tabla 1. Entregables",
+    "entregables": "Tabla 1 Entregables",
     "cronograma": "5. Cronograma",
-    "fases": "Tabla 2. Fases e hitos de la parte solicitante",
+    "fases": "Tabla 2 Fases e hitos de la parte solicitante",
     "solicitud": "6. Lo que necesitamos de la parte solicitante",
-    "aportes": "Tabla 3. Aportes de Operaciones de reservas",
+    "aportes": "Tabla 3 Aportes de Operaciones de reservas",
     "riesgos": "7. Supuestos y riesgos relevantes",
     "inversion": "8. Inversión",
-    "cotizacion": "Tabla 4. Cotización del módulo de pagos",
+    "cotizacion": "Tabla 4 Cotización del módulo de pagos",
     "condiciones": "9. Condiciones",
     "aceptacion": "10. Aceptación",
-    "firmas": "Tabla 5. Aceptación de las dos partes"
+    "firmas": "Tabla 5 Aceptación de las dos partes"
   },
   "reference_labels": {
     "resumen": "1. Resumen",
     "necesidad": "2. Necesidad y objetivo",
     "solucion": "3. Solución propuesta",
     "alcance": "4. Alcance y exclusiones",
-    "entregables": "Tabla 1. Entregables",
+    "entregables": "Tabla 1",
     "cronograma": "5. Cronograma",
-    "fases": "Tabla 2. Fases e hitos de la parte solicitante",
+    "fases": "Tabla 2",
     "solicitud": "6. Lo que necesitamos de la parte solicitante",
-    "aportes": "Tabla 3. Aportes de Operaciones de reservas",
+    "aportes": "Tabla 3",
     "riesgos": "7. Supuestos y riesgos relevantes",
     "inversion": "8. Inversión",
-    "cotizacion": "Tabla 4. Cotización del módulo de pagos",
+    "cotizacion": "Tabla 4",
     "condiciones": "9. Condiciones",
     "aceptacion": "10. Aceptación",
-    "firmas": "Tabla 5. Aceptación de las dos partes"
+    "firmas": "Tabla 5"
   },
   "lifecycle": {
     "state": "sustituido",

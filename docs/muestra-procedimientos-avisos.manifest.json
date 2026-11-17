@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-procedimientos.json",
   "source_sha256": "389c71a467b57f03057eb9eefe6ec446d427f665bda19ea322767f7f97f558e2",
-  "pdf_sha256": "026d1a303dc6c52d7f37f947e73d325bd73bb0e41055fa30cedeb1cb70c03c3e",
+  "pdf_sha256": "a0957478782a1b303df13bb05751a5a7f33b101614a0a9a13c2488fdb90801f7",
   "assets": [],
   "pages": 7,
   "passes": 2,
@@ -20,11 +20,13 @@
   "format": {
     "profile": "institucional-apa",
     "body_size_pt": 11.0,
-    "line_spacing": 2.0,
+    "line_spacing": 1.5,
     "first_line_indent_mm": 12.7,
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.0
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {

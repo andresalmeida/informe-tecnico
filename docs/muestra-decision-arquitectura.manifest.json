@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-decision-arquitectura.json",
-  "source_sha256": "d7e345e30dc9c29128f351e0a55a7c01b509c50a51d153b6e7f5605aaad3c8d2",
-  "pdf_sha256": "bac56603bd4f59024c4dad8da5ae83693152c3d6911b5b36aa76cbd32bf0d2c9",
+  "source_sha256": "fa480e7a91af2ccd88eac0b01ccb10a245ac822bc3327e25b5214bdcec1ef48d",
+  "pdf_sha256": "f548d8ce0f9fa714cf08ae917e24ec40653dbc49a362eaca3adfa8e8f5099780",
   "assets": [],
   "pages": 2,
   "passes": 2,
@@ -19,13 +19,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -51,7 +53,7 @@
     },
     {
       "id": "alternativas",
-      "label": "Tabla 1. Alternativas de captura",
+      "label": "Tabla 1 Alternativas de captura",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -86,7 +88,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 2. Firmas de responsabilidad",
+      "label": "Tabla 2 Firmas de responsabilidad",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -96,22 +98,22 @@
     "referencia": "1. Información de referencia",
     "contexto": "2. Contexto y problema",
     "opciones": "3. Opciones consideradas",
-    "alternativas": "Tabla 1. Alternativas de captura",
+    "alternativas": "Tabla 1 Alternativas de captura",
     "decision": "4. Decisión",
     "consecuencias": "5. Consecuencias",
     "seguimiento": "6. Seguimiento",
     "responsabilidad": "7. Firmas de responsabilidad",
-    "firmas": "Tabla 2. Firmas de responsabilidad"
+    "firmas": "Tabla 2 Firmas de responsabilidad"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "contexto": "2. Contexto y problema",
     "opciones": "3. Opciones consideradas",
-    "alternativas": "Tabla 1. Alternativas de captura",
+    "alternativas": "Tabla 1",
     "decision": "4. Decisión",
     "consecuencias": "5. Consecuencias",
     "seguimiento": "6. Seguimiento",
     "responsabilidad": "7. Firmas de responsabilidad",
-    "firmas": "Tabla 2. Firmas de responsabilidad"
+    "firmas": "Tabla 2"
   }
 }

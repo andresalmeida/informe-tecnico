@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-acta-capacitacion.json",
-  "source_sha256": "7ec3f1a728d943b485147fb656b162ab9d0d4bad38569029424d04c46ab5cf8d",
-  "pdf_sha256": "be2fe2d560b3a5934a45d4ffa8de483d352818ccb2ba8afc5088cc2db54dcd4d",
+  "source_sha256": "9b9e3abf9d2258c94940d3fd5da58536d1d0fa4f1f2514a7d8fec36b4029bb38",
+  "pdf_sha256": "858ddb7ceac5632c573222d40193673a3cefc3414dc3a3d753d0bbd90a60489c",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -19,13 +19,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -58,7 +60,7 @@
     },
     {
       "id": "lista-asistentes",
-      "label": "Tabla 1. Asistentes a la capacitación",
+      "label": "Tabla 1 Asistentes a la capacitación",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -79,14 +81,14 @@
     },
     {
       "id": "evaluacion-aspectos",
-      "label": "Tabla 2. Evaluación de la capacitación por aspecto",
+      "label": "Tabla 2 Evaluación de la capacitación por aspecto",
       "kind": "table",
       "level": 0,
       "page": 3
     },
     {
       "id": "comentarios",
-      "label": "Tabla 3. Comentarios y sugerencias de los asistentes",
+      "label": "Tabla 3 Comentarios y sugerencias de los asistentes",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -100,10 +102,10 @@
     },
     {
       "id": "constancia-firma",
-      "label": "Tabla 4. Constancia de ejecución",
+      "label": "Tabla 4 Constancia de ejecución",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "responsabilidad",
@@ -114,7 +116,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 5. Registro de firmas",
+      "label": "Tabla 5 Registro de firmas",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -125,29 +127,29 @@
     "objetivos": "2. Objetivos de la capacitación",
     "contenidos": "3. Contenidos abordados",
     "asistentes": "4. Lista de asistentes y firmas",
-    "lista-asistentes": "Tabla 1. Asistentes a la capacitación",
+    "lista-asistentes": "Tabla 1 Asistentes a la capacitación",
     "materiales": "5. Materiales entregados",
     "evaluacion": "6. Evaluación y retroalimentación",
-    "evaluacion-aspectos": "Tabla 2. Evaluación de la capacitación por aspecto",
-    "comentarios": "Tabla 3. Comentarios y sugerencias de los asistentes",
+    "evaluacion-aspectos": "Tabla 2 Evaluación de la capacitación por aspecto",
+    "comentarios": "Tabla 3 Comentarios y sugerencias de los asistentes",
     "constancia": "7. Constancia de ejecución y cierre",
-    "constancia-firma": "Tabla 4. Constancia de ejecución",
+    "constancia-firma": "Tabla 4 Constancia de ejecución",
     "responsabilidad": "8. Firmas de responsabilidad",
-    "firmas": "Tabla 5. Registro de firmas"
+    "firmas": "Tabla 5 Registro de firmas"
   },
   "reference_labels": {
     "informacion": "1. Información general",
     "objetivos": "2. Objetivos de la capacitación",
     "contenidos": "3. Contenidos abordados",
     "asistentes": "4. Lista de asistentes y firmas",
-    "lista-asistentes": "Tabla 1. Asistentes a la capacitación",
+    "lista-asistentes": "Tabla 1",
     "materiales": "5. Materiales entregados",
     "evaluacion": "6. Evaluación y retroalimentación",
-    "evaluacion-aspectos": "Tabla 2. Evaluación de la capacitación por aspecto",
-    "comentarios": "Tabla 3. Comentarios y sugerencias de los asistentes",
+    "evaluacion-aspectos": "Tabla 2",
+    "comentarios": "Tabla 3",
     "constancia": "7. Constancia de ejecución y cierre",
-    "constancia-firma": "Tabla 4. Constancia de ejecución",
+    "constancia-firma": "Tabla 4",
     "responsabilidad": "8. Firmas de responsabilidad",
-    "firmas": "Tabla 5. Registro de firmas"
+    "firmas": "Tabla 5"
   }
 }

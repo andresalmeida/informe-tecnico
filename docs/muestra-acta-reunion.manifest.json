@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-acta-reunion.json",
-  "source_sha256": "4fb6ba9730bf913860b56aa10eb8eccd0c2d0370f2ff47b5bacd1e39995f72b2",
-  "pdf_sha256": "036da7c29fab969688da7fc595ddabf29b977cf0e8f51b83fca7c1f03b98a167",
+  "source_sha256": "924bde069f068b301cef633fe2ec6564389551580c9254a982ce224f39710f59",
+  "pdf_sha256": "638f04c0d996d9b11d8f749d8cdcd65093070f1a63b2e0a17b6fa256bcd64e8a",
   "assets": [],
   "pages": 2,
   "passes": 2,
@@ -18,13 +18,15 @@
     "status": "Borrador"
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -36,7 +38,7 @@
     },
     {
       "id": "ficha",
-      "label": "Tabla 1. Ficha de la reunión",
+      "label": "Tabla 1 Ficha de la reunión",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -50,7 +52,7 @@
     },
     {
       "id": "asistencia",
-      "label": "Tabla 2. Registro de asistencia",
+      "label": "Tabla 2 Registro de asistencia",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -71,7 +73,7 @@
     },
     {
       "id": "detalle",
-      "label": "Tabla 3. Registro de lo tratado",
+      "label": "Tabla 3 Registro de lo tratado",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -85,7 +87,7 @@
     },
     {
       "id": "acuerdos",
-      "label": "Tabla 4. Registro de acuerdos",
+      "label": "Tabla 4 Registro de acuerdos",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -106,7 +108,7 @@
     },
     {
       "id": "matriz-casos",
-      "label": "Tabla 5. Matriz de comprobación del módulo",
+      "label": "Tabla 5 Matriz de comprobación del módulo",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -114,30 +116,30 @@
   ],
   "labels": {
     "sesion": "1. Datos de la sesión",
-    "ficha": "Tabla 1. Ficha de la reunión",
+    "ficha": "Tabla 1 Ficha de la reunión",
     "participantes": "2. Participantes",
-    "asistencia": "Tabla 2. Registro de asistencia",
+    "asistencia": "Tabla 2 Registro de asistencia",
     "agenda": "3. Orden del día",
     "desarrollo": "4. Desarrollo por punto",
-    "detalle": "Tabla 3. Registro de lo tratado",
+    "detalle": "Tabla 3 Registro de lo tratado",
     "seguimiento": "5. Resultados y acuerdos",
-    "acuerdos": "Tabla 4. Registro de acuerdos",
+    "acuerdos": "Tabla 4 Registro de acuerdos",
     "cierre": "6. Cierre y próxima reunión",
     "anexo-casos": "7. Anexo de comprobación",
-    "matriz-casos": "Tabla 5. Matriz de comprobación del módulo"
+    "matriz-casos": "Tabla 5 Matriz de comprobación del módulo"
   },
   "reference_labels": {
     "sesion": "1. Datos de la sesión",
-    "ficha": "Tabla 1. Ficha de la reunión",
+    "ficha": "Tabla 1",
     "participantes": "2. Participantes",
-    "asistencia": "Tabla 2. Registro de asistencia",
+    "asistencia": "Tabla 2",
     "agenda": "3. Orden del día",
     "desarrollo": "4. Desarrollo por punto",
-    "detalle": "Tabla 3. Registro de lo tratado",
+    "detalle": "Tabla 3",
     "seguimiento": "5. Resultados y acuerdos",
-    "acuerdos": "Tabla 4. Registro de acuerdos",
+    "acuerdos": "Tabla 4",
     "cierre": "6. Cierre y próxima reunión",
     "anexo-casos": "7. Anexo de comprobación",
-    "matriz-casos": "Tabla 5. Matriz de comprobación del módulo"
+    "matriz-casos": "Tabla 5"
   }
 }

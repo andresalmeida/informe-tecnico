@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-propuesta-retiro-programado.json",
-  "source_sha256": "ae0c842522384d3b1b9e724b7f6af37e6010aa058bb38427e982e16b45b6d8e3",
-  "pdf_sha256": "512cc2dc4324ae5a8e69f065e5ea58ac0134405855ba136831bcae6fcb311d99",
+  "source_sha256": "3a5ca60408ce724cf24951561a2a73488d646b6ae965fdfa618b00c80715b273",
+  "pdf_sha256": "591ecfeef833ad8c6ec3d4efaa0eaf41a1e93e3cffbe4e8e502a185b8b882fa8",
   "assets": [],
   "pages": 1,
   "passes": 2,
@@ -27,13 +27,15 @@
     "notice": "Simulación independiente de vigencia y retiro programado. No acredita que la propuesta de la cadena haya sido aceptada."
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {

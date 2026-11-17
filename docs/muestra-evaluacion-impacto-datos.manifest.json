@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "ejemplo-evaluacion-impacto-datos.json",
-  "source_sha256": "21b35a12e5624694b6967a09235f8cc7dc63321fa669f9915ec9002321be6636",
-  "pdf_sha256": "d1fc67b8a01501ecc9dadac5719a551ef0fda17e5a84007cebe730f4fa069dbe",
+  "source_sha256": "8ad4c5c24de2052bb77b11dead52905f9f1c321191b3148b37764f959062c66a",
+  "pdf_sha256": "3934a19a03b4e060b4335fed0e8c8d4671237afb2a3af6531ebb756dd04e81fd",
   "assets": [],
-  "pages": 8,
+  "pages": 9,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -19,13 +19,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -44,7 +46,7 @@
     },
     {
       "id": "preguntas",
-      "label": "Tabla 1. Preguntas del tamizaje",
+      "label": "Tabla 1 Preguntas del tamizaje",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -58,7 +60,7 @@
     },
     {
       "id": "datos-tratados",
-      "label": "Tabla 2. Datos personales del tratamiento",
+      "label": "Tabla 2 Datos personales del tratamiento",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -79,7 +81,7 @@
     },
     {
       "id": "matriz-riesgos",
-      "label": "Tabla 3. Matriz de niveles de riesgo para las personas",
+      "label": "Tabla 3 Matriz de niveles de riesgo para las personas",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -142,7 +144,7 @@
     },
     {
       "id": "resumen-riesgos",
-      "label": "Tabla 4. Riesgos abiertos para las personas, por nivel",
+      "label": "Tabla 4 Riesgos abiertos para las personas, por nivel",
       "kind": "table",
       "level": 0,
       "page": 7
@@ -156,10 +158,10 @@
     },
     {
       "id": "medidas",
-      "label": "Tabla 5. Medidas y salvaguardas",
+      "label": "Tabla 5 Medidas y salvaguardas",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "supervision",
@@ -180,28 +182,28 @@
       "label": "9. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "firmas",
-      "label": "Tabla 6. Registro de firmas",
+      "label": "Tabla 6 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 8
+      "page": 9
     }
   ],
   "labels": {
     "referencia": "1. Información de referencia",
     "tamizaje": "2. Tamizaje de datos personales",
-    "preguntas": "Tabla 1. Preguntas del tamizaje",
+    "preguntas": "Tabla 1 Preguntas del tamizaje",
     "tratamiento": "3. Descripción del tratamiento",
-    "datos-tratados": "Tabla 2. Datos personales del tratamiento",
+    "datos-tratados": "Tabla 2 Datos personales del tratamiento",
     "necesidad": "4. Necesidad y proporcionalidad",
     "riesgos": "5. Análisis de riesgos del tratamiento",
-    "matriz-riesgos": "Tabla 3. Matriz de niveles de riesgo para las personas",
+    "matriz-riesgos": "Tabla 3 Matriz de niveles de riesgo para las personas",
     "matriz-riesgos-registro": "5.1. Riesgos para las personas titulares",
     "matriz-riesgos-resumen-apartado": "5.2. Resumen por nivel",
-    "resumen-riesgos": "Tabla 4. Riesgos abiertos para las personas, por nivel",
+    "resumen-riesgos": "Tabla 4 Riesgos abiertos para las personas, por nivel",
     "RD-01": "RD-01",
     "RD-02": "RD-02",
     "RD-03": "RD-03",
@@ -209,24 +211,24 @@
     "RD-05": "RD-05",
     "RD-06": "RD-06",
     "salvaguardas": "6. Medidas y salvaguardas",
-    "medidas": "Tabla 5. Medidas y salvaguardas",
+    "medidas": "Tabla 5 Medidas y salvaguardas",
     "supervision": "7. Supervisión humana y decisiones automatizadas",
     "conclusion": "8. Conclusión y decisión",
     "responsabilidad": "9. Firmas de responsabilidad",
-    "firmas": "Tabla 6. Registro de firmas"
+    "firmas": "Tabla 6 Registro de firmas"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "tamizaje": "2. Tamizaje de datos personales",
-    "preguntas": "Tabla 1. Preguntas del tamizaje",
+    "preguntas": "Tabla 1",
     "tratamiento": "3. Descripción del tratamiento",
-    "datos-tratados": "Tabla 2. Datos personales del tratamiento",
+    "datos-tratados": "Tabla 2",
     "necesidad": "4. Necesidad y proporcionalidad",
     "riesgos": "5. Análisis de riesgos del tratamiento",
-    "matriz-riesgos": "Tabla 3. Matriz de niveles de riesgo para las personas",
+    "matriz-riesgos": "Tabla 3",
     "matriz-riesgos-registro": "5.1. Riesgos para las personas titulares",
     "matriz-riesgos-resumen-apartado": "5.2. Resumen por nivel",
-    "resumen-riesgos": "Tabla 4. Riesgos abiertos para las personas, por nivel",
+    "resumen-riesgos": "Tabla 4",
     "RD-01": "RD-01",
     "RD-02": "RD-02",
     "RD-03": "RD-03",
@@ -234,10 +236,10 @@
     "RD-05": "RD-05",
     "RD-06": "RD-06",
     "salvaguardas": "6. Medidas y salvaguardas",
-    "medidas": "Tabla 5. Medidas y salvaguardas",
+    "medidas": "Tabla 5",
     "supervision": "7. Supervisión humana y decisiones automatizadas",
     "conclusion": "8. Conclusión y decisión",
     "responsabilidad": "9. Firmas de responsabilidad",
-    "firmas": "Tabla 6. Registro de firmas"
+    "firmas": "Tabla 6"
   }
 }

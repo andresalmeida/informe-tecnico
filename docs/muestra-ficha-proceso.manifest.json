@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "source": "ejemplo-ficha-proceso.json",
-  "source_sha256": "593ee3874accf008d6e1301967bdba52b90315085e056847e048f8a7403706a6",
-  "pdf_sha256": "a89592f48e14ddd22de3df6f1a91cba1be028eccae2bce1b332867648036e6fa",
+  "source_sha256": "38bf9a2473a7678574bf29b6297a973b1d2944329dce02400e102999965928e4",
+  "pdf_sha256": "0db9d3aeca8cdcf9d6e6362f8570a14816ec573623b4c4c264c616a45dc0116e",
   "assets": [
     {
       "path": "diagrams/sipoc-proyectos.png",
       "sha256": "d41ebb6743e04da72108c17a5d5c28106cdd0689d1b970df027deb8bd73d0d03"
     }
   ],
-  "pages": 2,
+  "pages": 3,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -24,13 +24,15 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 9.5,
-    "line_spacing": 1.2,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 4.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true,
+    "table_size_pt": 10.0
   },
   "entries": [
     {
@@ -49,14 +51,14 @@
     },
     {
       "id": "sipoc-mapa",
-      "label": "Figura 1. Mapa SIPOC del proceso",
+      "label": "Figura 1 Mapa SIPOC del proceso",
       "kind": "figure",
       "level": 0,
       "page": 1
     },
     {
       "id": "sipoc-texto",
-      "label": "Tabla 1. Equivalente textual del mapa",
+      "label": "Tabla 1 Equivalente textual del mapa",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -66,14 +68,14 @@
       "label": "3. Etapas",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "flujo",
-      "label": "Tabla 2. Etapas y registros del catálogo",
+      "label": "Tabla 2 Etapas y registros del catálogo",
       "kind": "table",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "controles",
@@ -91,7 +93,7 @@
     },
     {
       "id": "decisiones",
-      "label": "Tabla 3. Quién decide, consulta e informa",
+      "label": "Tabla 3 Quién decide, consulta e informa",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -101,58 +103,58 @@
       "label": "6. Indicadores",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "medidas",
-      "label": "Tabla 4. Indicadores propuestos",
+      "label": "Tabla 4 Indicadores propuestos",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "firmas",
       "label": "7. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "responsabilidad",
-      "label": "Tabla 5. Responsabilidad documental por rol",
+      "label": "Tabla 5 Responsabilidad documental por rol",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 3
     }
   ],
   "labels": {
     "informacion": "1. Información del proceso",
     "sipoc": "2. Mapa SIPOC",
-    "sipoc-mapa": "Figura 1. Mapa SIPOC del proceso",
-    "sipoc-texto": "Tabla 1. Equivalente textual del mapa",
+    "sipoc-mapa": "Figura 1 Mapa SIPOC del proceso",
+    "sipoc-texto": "Tabla 1 Equivalente textual del mapa",
     "etapas": "3. Etapas",
-    "flujo": "Tabla 2. Etapas y registros del catálogo",
+    "flujo": "Tabla 2 Etapas y registros del catálogo",
     "controles": "4. Controles y registros",
     "roles": "5. Roles y decisiones",
-    "decisiones": "Tabla 3. Quién decide, consulta e informa",
+    "decisiones": "Tabla 3 Quién decide, consulta e informa",
     "indicadores": "6. Indicadores",
-    "medidas": "Tabla 4. Indicadores propuestos",
+    "medidas": "Tabla 4 Indicadores propuestos",
     "firmas": "7. Firmas de responsabilidad",
-    "responsabilidad": "Tabla 5. Responsabilidad documental por rol"
+    "responsabilidad": "Tabla 5 Responsabilidad documental por rol"
   },
   "reference_labels": {
     "informacion": "1. Información del proceso",
     "sipoc": "2. Mapa SIPOC",
-    "sipoc-mapa": "Figura 1. Mapa SIPOC del proceso",
-    "sipoc-texto": "Tabla 1. Equivalente textual del mapa",
+    "sipoc-mapa": "Figura 1",
+    "sipoc-texto": "Tabla 1",
     "etapas": "3. Etapas",
-    "flujo": "Tabla 2. Etapas y registros del catálogo",
+    "flujo": "Tabla 2",
     "controles": "4. Controles y registros",
     "roles": "5. Roles y decisiones",
-    "decisiones": "Tabla 3. Quién decide, consulta e informa",
+    "decisiones": "Tabla 3",
     "indicadores": "6. Indicadores",
-    "medidas": "Tabla 4. Indicadores propuestos",
+    "medidas": "Tabla 4",
     "firmas": "7. Firmas de responsabilidad",
-    "responsabilidad": "Tabla 5. Responsabilidad documental por rol"
+    "responsabilidad": "Tabla 5"
   }
 }
