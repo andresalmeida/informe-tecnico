@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-informe-cierre.json",
-  "source_sha256": "44ebaa012a807bfe5c93287b7827cdd928e13ce612829ab5a06140f14df560c9",
-  "pdf_sha256": "f5be6d5a3ab18d6f4d5c6b1d54a89f6526ed69f3ba57a48b9e07680bf05e6838",
+  "source_sha256": "066a1848db04a7b0cf458c991e75636b79f252a7ee9f6a6d0c13514d9056dfcc",
+  "pdf_sha256": "ce3656fa3b81b4000fb5014a27cf025c91719f8acc7a6c02c08fa7bbf6528591",
   "assets": [],
   "pages": 5,
   "passes": 2,

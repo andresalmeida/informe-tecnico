@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-alcance-proyecto.json",
-  "source_sha256": "d0795999f6cb193964721f41e939d0572ba552cbe40e9bb2fec1148d0be7ad43",
-  "pdf_sha256": "711ea16b6a9835fac404635abcc8ac075381f09a699444e9f9ef8595a8e6a5a6",
+  "source_sha256": "9da44499f6d2fcffc4f90a2ae9ab69ce234a883942b3f54451ca8133fd26fc80",
+  "pdf_sha256": "e23e2780ac984ee9faabd5b5c41e8b4610fbd17c36f068f8bb9d1d34d616ae2e",
   "assets": [
     {
       "path": "diagrams/alcance-pagos.png",

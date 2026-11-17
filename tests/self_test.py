@@ -841,7 +841,7 @@ def main():
         acta_source = json.loads((example.parent/"ejemplo-acta-capacitacion.json").read_text())
         capacitacion, capacitacion_pdf = build("acta-capacitacion", acta_source)
         assert capacitacion["document"]["kind"] == "acta-capacitacion"
-        assert capacitacion["pages"] == 4, capacitacion["pages"]
+        assert capacitacion["pages"] == 5, capacitacion["pages"]
         by_label = lambda source, label: next(item for item in choices(source) if item["label"] == label)
         assert [item["label"] for item in choices(acta_source)] == ["Modalidad", "Materiales"]
         assert not by_label(acta_source, "Modalidad").get("multiple") and by_label(acta_source, "Materiales")["multiple"]
@@ -854,7 +854,7 @@ def main():
             # The attendee table is whole: every number and every signature line prints on the page of its title.
             roll = texts[acta_pages["lista-asistentes"]-1]
             assert all(re.search(rf"(?m)^{n}( |$)", roll) for n in range(1, len(attendees)+1)), roll
-            assert roll.count("________________") == len(attendees)
+            assert "____" not in roll, "the signature cell is left empty: no printed line"
             for table_id, first, last in (("evaluacion-aspectos", "Claridad de la exposición", "Práctica guiada con el módulo"),
                                           ("constancia-firma", "Instructor", "Arquitecta de software"),
                                           ("firmas", "Elaborado por", "Aprobado por")):
@@ -868,7 +868,7 @@ def main():
         # The roll: consecutive numbers, a signature line in every row, two rows with no name, and a blank evaluation.
         assert [row[0] for row in attendees] == [str(n) for n in range(1, len(attendees)+1)]
         blank_rows = [row for row in attendees if not row[1] and not row[2]]
-        assert len(blank_rows) == 2 and all("____" in row[3] for row in attendees)
+        assert len(blank_rows) == 2 and all(row[3] == "" for row in attendees)
         evaluation = find_block(acta_source, "evaluacion-aspectos")
         assert evaluation["headers"][1:] == ["1", "2", "3", "4", "5"]
         assert all(cell == "" for row in evaluation["rows"] for cell in row[1:])
@@ -934,15 +934,16 @@ def main():
 
         # More attendees than rows: the table breaks across pages with its title and header repeated, nothing else moves.
         crowded = copy.deepcopy(acta_source)
-        rows = [[str(n), f"Asistente de prueba {n}", "Cargo de prueba", "\n________________"] for n in range(1, 29)]
-        rows += [["29", "", "", "\n________________"], ["30", "", "", "\n________________"]]
+        rows = [[str(n), f"Asistente de prueba {n}", "Cargo de prueba", ""] for n in range(1, 29)]
+        rows += [["29", "", "", ""], ["30", "", "", ""]]
         find_block(crowded, "lista-asistentes")["rows"] = rows
         crowded_manifest, crowded_pdf = build("acta-muchos-asistentes", crowded)
         crowded_texts = [pg.extract_text() or "" for pg in PdfReader(crowded_pdf).pages]
         roll_pages = [i for i, text in enumerate(crowded_texts) if "Asistentes a la capacitación" in text and "Nombre y apellido" in text]
         assert len(roll_pages) >= 2 and crowded_manifest["pages"] > capacitacion["pages"], (roll_pages, crowded_manifest["pages"])
         assert "Asistente de prueba 28" in crowded_texts[roll_pages[-1]]
-        assert sum(text.count("________________") for text in crowded_texts[roll_pages[0]:roll_pages[-1]+1]) == 30
+        roll_text = "\n".join(crowded_texts[roll_pages[0]:roll_pages[-1]+1])
+        assert all(re.search(rf"(?m)^{n}( |$)", roll_text) for n in range(1, 31)), "Every row keeps its number across the pages"
         crowded_pages = {entry["id"]: entry["page"] for entry in crowded_manifest["entries"]}
         assert crowded_pages["firmas"] == crowded_manifest["pages"], "Las firmas de responsabilidad siguen cerrando el documento"
         checks.append({"case": "acta-muchos-asistentes", "roll_pages": [i+1 for i in roll_pages], "pages": crowded_manifest["pages"]})
@@ -950,9 +951,9 @@ def main():
         # Fewer attendees: the unused rows go, two stay blank, and a guest who did not come keeps their row.
         small = copy.deepcopy(acta_source)
         find_block(small, "lista-asistentes")["rows"] = [
-            ["1", "Soledad Paredes", "Jefa de operaciones de reservas", "\n________________"],
+            ["1", "Soledad Paredes", "Jefa de operaciones de reservas", ""],
             ["2", "Teresa Villalba", "Coordinadora de reservas", "No asistió"],
-            ["3", "", "", "\n________________"], ["4", "", "", "\n________________"]]
+            ["3", "", "", ""], ["4", "", "", ""]]
         small_manifest, small_pdf = build("acta-pocos-asistentes", small)
         small_text = " ".join(p.extract_text() for p in PdfReader(small_pdf).pages)
         assert "No asistió" in small_text and small_manifest["pages"] <= capacitacion["pages"]

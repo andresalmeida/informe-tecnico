@@ -291,9 +291,9 @@
           "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.1, 2.3, 1.8, 1.1],
           "rows": [
-            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"],
-            ["Revisado por", "Iván Salas\nResponsable de ingeniería de software", "\n\n________________", "Pendiente"],
-            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n\n________________", "Pendiente"]
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "", "Pendiente"],
+            ["Revisado por", "Iván Salas\nResponsable de ingeniería de software", "", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "", "Pendiente"]
           ]
         },
         {

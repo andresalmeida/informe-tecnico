@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-propuesta-retiro-programado.json",
   "source_sha256": "3a5ca60408ce724cf24951561a2a73488d646b6ae965fdfa618b00c80715b273",
-  "pdf_sha256": "f03469d643d02f129d931e992db5b7deff578c3ca5f90577616777a902ffdd54",
+  "pdf_sha256": "d64c759bd8852315105c17120bfc5d170d1bf6de431f6ad9d036175e4f3b1740",
   "assets": [],
   "pages": 1,
   "passes": 2,

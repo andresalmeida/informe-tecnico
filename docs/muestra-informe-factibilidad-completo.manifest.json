@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-informe-factibilidad-completo.json",
-  "source_sha256": "51e89ef5a86a74b4bc077a17947f2ae84027d562a093d195d34caeb7afdeaa7d",
-  "pdf_sha256": "4a48a21319c35d6d26e2269dfc727fb6d83bcabc621b8bd115cf8b16b9acc0b7",
+  "source_sha256": "29a1724928121c4a46eb1d8456da16248082f18a10ebc9a40315e56f4447c671",
+  "pdf_sha256": "56bcc14228bb5cac4410c492d9e03927cabf10cc2dcf42046f48f01d7b0782cd",
   "assets": [
     {
       "path": "diagrams/arquitectura-pagos.png",

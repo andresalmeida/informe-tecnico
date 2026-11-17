@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-propuesta-sustituida.json",
-  "source_sha256": "3ae334bf9dfc2a7deafc9fafda12aec1a33ae888cebcce603513143410eaa48c",
-  "pdf_sha256": "81e7ef4f53ec55020edcea64834d345481c492e6d68d50a2025f4eefae61c4e8",
+  "source_sha256": "37fb64a1d3427c4d1c8a55f249ff8ec8f004063b28b34065fe3cd385647b6a80",
+  "pdf_sha256": "aff7b8f780e479cd54194b29469f5e5d4abcda90209034a5c1edf3184382c0fa",
   "assets": [],
   "pages": 5,
   "passes": 2,

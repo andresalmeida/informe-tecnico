@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-descripcion-arquitectura.json",
-  "source_sha256": "bb3c6d4c98efcbd2ad30540d4e12cfe0e35c4c281fae70971fd99593bf420eb8",
-  "pdf_sha256": "f9fd1517e3ed5d68af0a60c7d987bcf6b81f0f1299a8e0834e3115532f480261",
+  "source_sha256": "d0c8ab3a040aeecbf45257f999cde06be7340494bdec7e7da589f8dde34e36e8",
+  "pdf_sha256": "8d51b96939764c715a70674607c8db961dfc3279da6fae099097353633260358",
   "assets": [
     {
       "path": "diagrams/contexto-arquitectura-pagos.png",

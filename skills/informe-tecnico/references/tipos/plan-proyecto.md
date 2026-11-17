@@ -113,4 +113,4 @@ Los saltos medidos de la muestra:
 - La página 1 cierra con los objetivos y deja un hueco al pie, porque la EDT no cabe debajo y se mantiene entera en la página 2, con el total 50 y la hoja en Por estimar.
 - La página 2 cierra con el título de hitos y su párrafo. La tabla de hitos abre la página 3. El hueco queda por debajo de un tercio.
 - La página 4 cierra con las herramientas y deja un hueco mayor que un tercio. Las firmas van con `new_page` para quedar con el histórico.
-- La página 5 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. La línea de firma queda cerca del nombre.
+- La página 5 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. El espacio de firma queda cerca del nombre.

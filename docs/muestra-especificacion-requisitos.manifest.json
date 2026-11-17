@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-especificacion-requisitos.json",
-  "source_sha256": "1cc61b7f9089a971ff6f5d2151ee53c558fcac0f48c5a58a1d3824dfe2d640ca",
-  "pdf_sha256": "aae0be2ce2911ed967e787b8b629712f352e6d9de65d718d36632822511411f3",
+  "source_sha256": "e2c08c3555f616fa4cd920bcd5544214e8ba2ae1839916f4e94f57ec9c19ca45",
+  "pdf_sha256": "dd481f0dac5705c83503b95568226703e3e8f89c4071732c77055e02eb71e6fc",
   "assets": [],
   "pages": 7,
   "passes": 2,

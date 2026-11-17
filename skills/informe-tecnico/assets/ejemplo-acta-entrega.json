@@ -243,8 +243,8 @@
             ],
             [
               "Firma",
-              "\n\n________________",
-              "\n\n________________"
+              "",
+              ""
             ],
             [
               "Fecha",
@@ -279,19 +279,19 @@
             [
               "Elaborado por",
               "Iván Salas\nResponsable de ingeniería de software",
-              "\n\n________________",
+              "",
               "Pendiente"
             ],
             [
               "Revisado por",
               "Rafael Mena\nComité de calidad",
-              "\n\n________________",
+              "",
               "Pendiente"
             ],
             [
               "Aprobado por",
               "Lucía Ferrer\nComité de proyectos",
-              "\n\n________________",
+              "",
               "Pendiente"
             ]
           ]

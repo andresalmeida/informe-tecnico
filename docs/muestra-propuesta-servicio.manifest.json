@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-propuesta-servicio.json",
-  "source_sha256": "e724d95f74abea1a0a6fb003229ef0b998c1ea764b1c642b3adbf8062fe4bcb8",
-  "pdf_sha256": "742fb6ae98277a96016f6d1f1674b06a61b8b5e3aa6d7a7b31ed1bba122535c2",
+  "source_sha256": "142557ff6269935344f90718c0e83ea3bcf1aabfaefc6423a514f80bbaa71465",
+  "pdf_sha256": "9755fe7ba10dd60b8673c675774433b97945fc803a3e99ef45d3663f4441e1f3",
   "assets": [],
   "pages": 5,
   "passes": 2,

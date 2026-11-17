@@ -113,14 +113,14 @@
           "headers": ["N.º", "Nombre y apellido", "Cargo o área", "Firma"],
           "widths": [0.6, 2.2, 2.4, 2.0],
           "rows": [
-            ["1", "Soledad Paredes", "Jefa de operaciones de reservas", "\n________________"],
-            ["2", "Teresa Villalba", "Coordinadora de reservas", "\n________________"],
-            ["3", "Andrés Cordero", "Operador de reservas", "\n________________"],
-            ["4", "Paula Lozano", "Operadora de reservas", "\n________________"],
-            ["5", "Héctor Reyes", "Analista de conciliación", "\n________________"],
-            ["6", "Valeria Núñez", "Operadora de reservas", "\n________________"],
-            ["7", "", "", "\n________________"],
-            ["8", "", "", "\n________________"]
+            ["1", "Soledad Paredes", "Jefa de operaciones de reservas", ""],
+            ["2", "Teresa Villalba", "Coordinadora de reservas", ""],
+            ["3", "Andrés Cordero", "Operador de reservas", ""],
+            ["4", "Paula Lozano", "Operadora de reservas", ""],
+            ["5", "Héctor Reyes", "Analista de conciliación", ""],
+            ["6", "Valeria Núñez", "Operadora de reservas", ""],
+            ["7", "", "", ""],
+            ["8", "", "", ""]
           ]
         }
       ]
@@ -205,7 +205,7 @@
           "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.1, 2.3, 1.8, 1.1],
           "rows": [
-            ["Instructor principal", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"]
+            ["Instructor principal", "Marta Quiroga\nArquitecta de software", "", "Pendiente"]
           ]
         }
       ]
@@ -221,9 +221,9 @@
           "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.1, 2.3, 1.8, 1.1],
           "rows": [
-            ["Elaborado por", "Iván Salas\nResponsable de ingeniería de software", "\n\n________________", "Pendiente"],
-            ["Revisado por", "Rafael Mena\nComité de calidad", "\n\n________________", "Pendiente"],
-            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n\n________________", "Pendiente"]
+            ["Elaborado por", "Iván Salas\nResponsable de ingeniería de software", "", "Pendiente"],
+            ["Revisado por", "Rafael Mena\nComité de calidad", "", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "", "Pendiente"]
           ]
         }
       ]

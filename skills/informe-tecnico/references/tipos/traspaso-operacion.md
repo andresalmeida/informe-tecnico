@@ -102,4 +102,4 @@ Los saltos medidos de la muestra:
 
 - La página 2 reúne el soporte, la verificación y la reversa. Las cuatro comprobaciones quedan en Pendiente y la tabla no se parte.
 - La página 3 cierra con el soporte posterior. El hueco queda por debajo de un tercio.
-- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. La línea de firma queda cerca del nombre.
+- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. El espacio de firma queda cerca del nombre.

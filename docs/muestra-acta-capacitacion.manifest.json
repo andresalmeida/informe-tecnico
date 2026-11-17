@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "ejemplo-acta-capacitacion.json",
-  "source_sha256": "9b9e3abf9d2258c94940d3fd5da58536d1d0fa4f1f2514a7d8fec36b4029bb38",
-  "pdf_sha256": "60995d1cbb27068549dacca72a29d8a8b6c6f11d1c338c43b43d98461983bd4c",
+  "source_sha256": "09eb47e93a3113e5e8a0670d1decced8f8d1fe679a3790e109171518dcf5ef4e",
+  "pdf_sha256": "ce128d66076e129d90d58318e9ccfb2808cd6c99263922dfd698b80ac4d67dc8",
   "assets": [],
-  "pages": 4,
+  "pages": 5,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -55,14 +55,14 @@
       "label": "4. Lista de asistentes y firmas",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "lista-asistentes",
       "label": "Tabla 1 Asistentes a la capacitación",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "materiales",
@@ -83,21 +83,21 @@
       "label": "Tabla 2 Evaluación de la capacitación por aspecto",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "comentarios",
       "label": "Tabla 3 Comentarios y sugerencias de los asistentes",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "constancia",
       "label": "7. Constancia de ejecución y cierre",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "constancia-firma",
@@ -111,14 +111,14 @@
       "label": "8. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "firmas",
       "label": "Tabla 5 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 5
     }
   ],
   "labels": {

@@ -226,9 +226,9 @@
           "headers": ["Papel", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.8, 2.2, 1.6, 1.2],
           "rows": [
-            ["Arquitectura", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
-            ["Ingeniería", "Iván Salas\nResponsable de ingeniería de software", "\n________________", "Pendiente"],
-            ["Parte solicitante", "Soledad Paredes\nJefa de operaciones de reservas", "\n________________", "Pendiente"]
+            ["Arquitectura", "Marta Quiroga\nArquitecta de software", "", "Pendiente"],
+            ["Ingeniería", "Iván Salas\nResponsable de ingeniería de software", "", "Pendiente"],
+            ["Parte solicitante", "Soledad Paredes\nJefa de operaciones de reservas", "", "Pendiente"]
           ]
         }
       ]

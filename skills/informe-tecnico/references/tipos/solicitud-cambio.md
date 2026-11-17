@@ -109,4 +109,4 @@ Los saltos medidos de la muestra:
 - La página 1 cierra con la frase de la diferencia. La tabla de impacto abre la página 2. El hueco queda por debajo de un tercio.
 - La página 2 cierra con el párrafo de la decisión. La casilla abre la página 3. La marca es Diferida.
 - La página 3 cierra con la tabla de documentos. El hueco queda por debajo de un tercio, porque las firmas no caben debajo y pasan enteras a la página 4.
-- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. La línea de firma queda cerca del nombre.
+- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. El espacio de firma queda cerca del nombre.

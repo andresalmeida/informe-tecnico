@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-apa.json",
   "source_sha256": "ea2227e7732d848e6b3c8eec3becdceb496a5613ea5f93603c906b4b5d1d5bb3",
-  "pdf_sha256": "7ce948840c39748c3e26ef0613a69adf46eaba282879b4bd854d15837b5e32a7",
+  "pdf_sha256": "a7c785db9f66e4667a6dc6909cde308554ad2e06c9ff66ce94bf20abe2a7ce33",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",

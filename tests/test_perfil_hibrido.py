@@ -103,3 +103,21 @@ def run_checks(example, root, checks, build, rejected_with):
                         and r["height"] > 8]  # the header band, not the thin rules of the page frame
         assert bool(rellenos) == con_relleno, (nombre, perfil, len(rellenos))
         checks.append({"case": f"cabecera-{'con' if con_relleno else 'sin'}-relleno-{nombre.replace('ejemplo-', '').replace('.json', '')}-{perfil}"})
+
+    # Una celda vacía de firma reserva altura y no imprime raya: en la columna «Firma» y en la fila «Firma».
+    firmas = fuente(base, None)
+    firmas["sections"][0]["blocks"] = [
+        {"type": "table", "id": "columna", "title": "Firma en columna", "headers": ["Función", "Firma", "Fecha"],
+         "rows": [["FILA_A", "", "Pendiente"], ["FILA_B", "", "Pendiente"]]},
+        {"type": "table", "id": "fila", "title": "Firma en fila", "headers": ["", "Parte solicitante", "Equipo ejecutor"],
+         "rows": [["Nombre", "Ana", "Luis"], ["Firma", "", ""], ["Fecha", "FILA_C", "FILA_D"]]},
+    ]
+    manifiesto, pdf = build("firma-celda-vacia", firmas)
+    with pdfplumber.open(pdf) as impreso:
+        texto = " ".join((p.extract_text() or "") for p in impreso.pages)
+        assert "____" not in texto
+        palabras = [w for p in impreso.pages for w in p.extract_words()]
+        top = {w["text"]: w["top"] for w in palabras if w["text"] in ("FILA_A", "FILA_B", "Nombre", "FILA_C")}
+        assert top["FILA_B"]-top["FILA_A"] >= 11*MM, "la fila de firma reserva al menos 11 mm"
+        assert top["FILA_C"]-top["Nombre"] >= 11*MM, "la fila «Firma» reserva al menos 11 mm"
+    checks.append({"case": "firma-celda-vacia-reserva-altura"})

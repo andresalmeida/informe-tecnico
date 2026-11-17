@@ -336,9 +336,9 @@
           "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.2, 2.4, 1.6, 1.1],
           "rows": [
-            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"],
-            ["Revisado por", "Por confirmar\nDelegado de protección de datos, si se designa", "\n\n________________", "Pendiente"],
-            ["Aprobado por", "Soledad Paredes\nJefa de operaciones de reservas", "\n\n________________", "Pendiente"]
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "", "Pendiente"],
+            ["Revisado por", "Por confirmar\nDelegado de protección de datos, si se designa", "", "Pendiente"],
+            ["Aprobado por", "Soledad Paredes\nJefa de operaciones de reservas", "", "Pendiente"]
           ]
         }
       ]

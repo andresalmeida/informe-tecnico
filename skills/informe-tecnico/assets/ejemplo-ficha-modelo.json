@@ -187,8 +187,8 @@
           "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.6, 2.4, 1.5, 1.1],
           "rows": [
-            ["Responsable del modelo", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
-            ["Revisión independiente", "Rafael Mena\nComité de calidad", "\n________________", "Pendiente"]
+            ["Responsable del modelo", "Marta Quiroga\nArquitecta de software", "", "Pendiente"],
+            ["Revisión independiente", "Rafael Mena\nComité de calidad", "", "Pendiente"]
           ]
         }
       ]

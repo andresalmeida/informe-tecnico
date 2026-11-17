@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-ficha-modelo.json",
-  "source_sha256": "0394c5f4f54d687a7c646893661bf3f1ecd6de20e2036863a04d8bdb10118043",
-  "pdf_sha256": "1ade2c60e18bcb503fdc3b5046e31ea598089417f9f211a4d3f169d2ada14206",
+  "source_sha256": "144b757ecd3e02910013157a06ae4e3adaacf00bc5711ce9dd6b03f7962e22bb",
+  "pdf_sha256": "b16643538b8d959c657d4241df1112d09b1a708e0f6acf54ec60d55ed6d5803e",
   "assets": [],
   "pages": 4,
   "passes": 2,

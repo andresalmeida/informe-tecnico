@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-registro-riesgos.json",
-  "source_sha256": "b8d775e111262d9c8e75efa33aedaf3b9cd066203da45554dfab8cb0e64d71be",
-  "pdf_sha256": "1143426a9f73238eb5aa04f0fc1be8aef3c052c144ff95a653060dc32ee3a47c",
+  "source_sha256": "c7662bf91f7305762611c2fd62d602039883983c62cc606a0938c748db568ede",
+  "pdf_sha256": "e34e1787b7bb3d5eaa4922d633e67764ef28ca4436fe55adb89ec0f3c29d162c",
   "assets": [],
   "pages": 5,
   "passes": 2,

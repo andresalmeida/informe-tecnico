@@ -5,9 +5,10 @@ from reportlab.platypus import KeepTogether, PageBreak
 
 
 def signature_rows(headers, rows):
-    """Recognize the forms' signature labels, including unfilled underscore lines."""
+    """Recognize the forms' signature labels, the elaboration/review/approval triad and legacy underscore lines."""
     labels = list(headers) + [row[0] for row in rows if row]
-    return (any(str(label).strip().casefold() in ('firma', 'firmas') for label in labels)
+    triad = {'elaboración', 'revisión', 'aprobación'} <= {str(label).strip().casefold() for label in headers}
+    return (any(str(label).strip().casefold() in ('firma', 'firmas') for label in labels) or triad
             or any(re.search(r'_{3,}', str(cell)) for row in rows for cell in row))
 
 

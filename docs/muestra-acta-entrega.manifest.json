@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-acta-entrega.json",
-  "source_sha256": "b1de598e1d0943a1eee8fd64a42721723a2e9eeb840a34fc931355d0d48f33f2",
-  "pdf_sha256": "8d9ccc7e96c5cb39ee63502b771e83c83232a4f5cca05a0f563d99af3b306f89",
+  "source_sha256": "3d4fd5750ca8ecf7e3cb6cb41cdae0952efaf5ff60e706529e01d9d4b7e31469",
+  "pdf_sha256": "1b5d398738525996007371c519939558aa7906b08f4e8de3411b73478b6ccb82",
   "assets": [],
   "pages": 4,
   "passes": 2,

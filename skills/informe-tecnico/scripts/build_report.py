@@ -173,6 +173,13 @@ def format_for(spec):
     return values
 
 
+SIGNATURE_SPACE = 11*mm
+
+
+def is_signature_label(value):
+    return str(value).strip().casefold() in ("firma", "firmas")
+
+
 def fit_widths(widths, headers, rows, head_font, cell_font, size, padding=13):
     """Widen the columns whose longest word does not fit, taking the width from the columns with slack."""
     def longest(values, font):
@@ -1805,7 +1812,13 @@ def compile_report(source, output):
             data.append([caption_for(title_block) if title_block else p(title, "caption")]+[""]*(len(headers)-1))
             heading_row = 1
         data.append([Paragraph(markup(v), head_style) for v in headers])
-        data.extend([[p(v, "cell") for v in row] for row in rows])
+        signature_columns = {i for i, header in enumerate(headers) if is_signature_label(header)}
+        def body_cell(row, i, value):
+            # An empty cell of a signature column or row reserves the room to sign (often electronically): no printed line.
+            if not str(value).strip() and (i in signature_columns or is_signature_label(row[0])):
+                return [Spacer(1, SIGNATURE_SPACE)]
+            return p(value, "cell")
+        data.extend([[body_cell(row, i, v) for i, v in enumerate(row)] for row in rows])
         if source_note:
             note = (Paragraph(f'<i>Nota.</i> Fuente: {markup(source_note)}', styles["small"])
                     if apa else p(f"Fuente: {source_note}", "small"))
