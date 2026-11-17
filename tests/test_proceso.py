@@ -11,10 +11,11 @@ def run_checks(example, root, checks, build, rejected_with):
     source=json.loads((example.parent/'ejemplo-ficha-proceso.json').read_text())
     def block(name):return next(b for s in source['sections'] for b in s['blocks'] if b.get('id')==name)
     result,pdf=build('ficha-proceso',source)
-    assert result['pages']==2
+    assert result['pages']==3
     entries={e['id']:e['page'] for e in result['entries']}
-    assert entries['sipoc-mapa']==entries['flujo']==1
-    assert entries['responsabilidad']==entries['medidas']==2
+    assert entries['sipoc-mapa']==entries['sipoc-texto']==1
+    assert entries['flujo']==entries['controles']==entries['decisiones']==2
+    assert entries['responsabilidad']==entries['medidas']==3
     stage=block('flujo')['rows']
     assert [r[0] for r in stage]==list(map(str,range(1,9)))
     kinds=['registro-requerimientos','informe-factibilidad','propuesta-servicio','propuesta-servicio',
@@ -47,7 +48,7 @@ def run_checks(example, root, checks, build, rejected_with):
         assert 'Denominador cero: No aplica.' in ' '.join(last.split())
         assert 'Histórico de revisiones' in last and last.count('Fecha: Pendiente')==3
         assert len(printed.pages[0].images)==1
-    checks.append({'case':'ficha-proceso-dos-paginas-sipoc-registros-formulas','pages':2})
+    checks.append({'case':'ficha-proceso-tres-paginas-sipoc-registros-formulas','pages':3})
     for logo in (False,True):
         value=copy.deepcopy(source)
         value['brand'].update(entity='Organización de prueba',unit='Oficina de procesos',accent='#7A2E1D')

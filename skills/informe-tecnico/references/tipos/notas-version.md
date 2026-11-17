@@ -1,12 +1,12 @@
 # Notas de versión
 
-Elegir `document.kind: "notas-version"` para decir qué cambia en una versión ya entregada. Empezar por `assets/ejemplo-notas-version.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. El resumen y la tabla de cambios son la lectura.
+Elegir `document.kind: "notas-version"` para decir qué cambia en una versión ya entregada. Empezar por `assets/ejemplo-notas-version.json`. Diagrama: no lleva. El resumen y la tabla de cambios son la lectura.
 
 No hay bloque nuevo. No se reproduce el texto de unas notas ajenas. El orden de los apartados es el del catálogo. Las firmas de esta entrega viven en el acta y en el traspaso: estas notas no piden otra firma.
 
-El PDF es compacto: título y contenido en la primera página, sin portada, de dos páginas en el ejemplo. El histórico de revisiones se imprime al final con `document.show_changes: true`. No exige casilla. Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
+El PDF es compacto: título y contenido en la primera página, sin portada, de tres páginas en el ejemplo: la última lleva solo el histórico. El histórico de revisiones se imprime al final con `document.show_changes: true`. No exige casilla. Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
 
-**Índices.** El ejemplo no los lleva: con dos páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando las notas pasan de siete páginas. `figures` no se recomienda.
+**Índices.** El ejemplo no los lleva: con tres páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando las notas pasan de siete páginas. `figures` no se recomienda.
 
 ## Decidir antes de redactar
 

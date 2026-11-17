@@ -22,7 +22,7 @@
     ]
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {
@@ -463,19 +463,19 @@
             [
               "Elaborado por",
               "Marta Quiroga\nArquitecta de software",
-              "\n\n________________",
+              "",
               "Pendiente"
             ],
             [
               "Revisado por",
               "Iván Salas\nResponsable de ingeniería de software",
-              "\n\n________________",
+              "",
               "Pendiente"
             ],
             [
               "Aprobado por",
               "Lucía Ferrer\nComité de proyectos",
-              "\n\n________________",
+              "",
               "Pendiente"
             ]
           ]

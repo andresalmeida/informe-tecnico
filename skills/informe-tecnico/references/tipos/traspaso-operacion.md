@@ -1,6 +1,6 @@
 # Traspaso a operación
 
-Elegir `document.kind: "traspaso-operacion"` para el paso a producción: quién opera lo entregado, cómo se comprueba y cómo se vuelve atrás si falla. Empezar por `assets/ejemplo-traspaso-operacion.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. La ventana y la reversa caben en el texto.
+Elegir `document.kind: "traspaso-operacion"` para el paso a producción: quién opera lo entregado, cómo se comprueba y cómo se vuelve atrás si falla. Empezar por `assets/ejemplo-traspaso-operacion.json`. Diagrama: no lleva. La ventana y la reversa caben en el texto.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se comprueba un traspaso; Personalizar; Qué no inventar; Texto de lo pendiente; Bloques opcionales; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 
@@ -94,7 +94,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que cada resultado siga en Pendiente, que no aparezca un secreto y que el histórico comparta página con las firmas. Entregar el PDF, su manifiesto `.manifest.json` y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte.
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.
 
@@ -102,4 +102,4 @@ Los saltos medidos de la muestra:
 
 - La página 2 reúne el soporte, la verificación y la reversa. Las cuatro comprobaciones quedan en Pendiente y la tabla no se parte.
 - La página 3 cierra con el soporte posterior. El hueco queda por debajo de un tercio.
-- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. La línea de firma queda cerca del nombre.
+- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. El espacio de firma queda cerca del nombre.

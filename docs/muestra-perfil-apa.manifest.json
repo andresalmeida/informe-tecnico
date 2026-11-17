@@ -1,15 +1,15 @@
 {
   "schema_version": 1,
   "source": "ejemplo-apa.json",
-  "source_sha256": "a6d365f54eb8b837e028bd6022c4403c237b146602130794b4cdbd14689c0c43",
-  "pdf_sha256": "357e09aa9f32087484f1cdee33f7b967595100e9672b193d47d6dfa350cb9604",
+  "source_sha256": "4851cf10f8c8fbc436e308d7daec1668a7a822b503049b166bf4f121757773be",
+  "pdf_sha256": "d3524bc842d82c10e08b9dfff9884d87aa24bf8061b35f414d03a9037b4c0ab1",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",
       "sha256": "823fc270c7c7038f84ea85a16353bd7638c869dfa2d6d566190ea4b94e430f84"
     }
   ],
-  "pages": 10,
+  "pages": 9,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -20,18 +20,19 @@
     "date": "2026-10-28",
     "status": "Demostración",
     "paper": "A4",
-    "subtitle": "Muestra de composición de la skill informe-tecnico 0.3.0.\nAplicable a informes y manuales de cualquier sistema o entidad.",
+    "subtitle": "Muestra de composición del perfil por omisión de la skill informe-tecnico.\nAplicable a informes y manuales de cualquier sistema o entidad.",
     "author": "Demostración de la plantilla",
     "notice": "La entidad de esta muestra es ficticia. La cabecera, los índices y los márgenes institucionales se conservan; el documento no representa un trabajo académico APA integral."
   },
   "format": {
     "profile": "institucional-apa",
     "body_size_pt": 11.0,
-    "line_spacing": 2.0,
+    "line_spacing": 1.5,
     "first_line_indent_mm": 12.7,
     "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.0
+    "table_line_spacing": 1.0,
+    "justify": true
   },
   "entries": [
     {
@@ -81,14 +82,14 @@
       "label": "Tabla 1 Medidas de composición del perfil",
       "kind": "table",
       "level": 0,
-      "page": 7
+      "page": 6
     },
     {
       "id": "ciclo",
       "label": "Figura 1 Ciclo de revisión documental",
       "kind": "figure",
       "level": 0,
-      "page": 8
+      "page": 7
     },
     {
       "id": "referencias-aplicacion",
@@ -102,21 +103,21 @@
       "label": "5. Resultados",
       "kind": "section",
       "level": 0,
-      "page": 9
+      "page": 8
     },
     {
       "id": "conclusiones",
       "label": "6. Conclusiones",
       "kind": "section",
       "level": 0,
-      "page": 9
+      "page": 8
     },
     {
       "id": "referencias",
       "label": "7. Referencias",
       "kind": "section",
       "level": 0,
-      "page": 10
+      "page": 9
     }
   ],
   "labels": {

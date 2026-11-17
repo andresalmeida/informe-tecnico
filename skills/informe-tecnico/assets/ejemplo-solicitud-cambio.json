@@ -17,7 +17,7 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {
@@ -178,9 +178,9 @@
           "headers": ["Papel", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.6, 2.2, 1.8, 1.2],
           "rows": [
-            ["Quien pide", "Soledad Paredes\nJefa de operaciones de reservas", "\n________________", "Pendiente"],
-            ["Quien reúne", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
-            ["Quien decide", "Lucía Ferrer\nComité de proyectos", "\n________________", "Pendiente"]
+            ["Quien pide", "Soledad Paredes\nJefa de operaciones de reservas", "", "Pendiente"],
+            ["Quien reúne", "Marta Quiroga\nArquitecta de software", "", "Pendiente"],
+            ["Quien decide", "Lucía Ferrer\nComité de proyectos", "", "Pendiente"]
           ]
         }
       ]

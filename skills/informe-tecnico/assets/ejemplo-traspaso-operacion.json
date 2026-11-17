@@ -17,7 +17,7 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {
@@ -185,8 +185,8 @@
           "headers": ["Papel", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.5, 2.4, 1.6, 1.2],
           "rows": [
-            ["Entrega", "Iván Salas\nResponsable de ingeniería de software", "\n________________", "Pendiente"],
-            ["Recibe", "Soledad Paredes\nJefa de operaciones de reservas", "\n________________", "Pendiente"]
+            ["Entrega", "Iván Salas\nResponsable de ingeniería de software", "", "Pendiente"],
+            ["Recibe", "Soledad Paredes\nJefa de operaciones de reservas", "", "Pendiente"]
           ]
         }
       ]

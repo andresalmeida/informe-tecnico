@@ -49,12 +49,12 @@ def run_checks(example, root, checks, build, rejected_with):
     checks.append({'case':'lifecycle-sunset-discreto','pages':1})
     replaced=json.loads((example.parent/'ejemplo-propuesta-sustituida.json').read_text())
     result,pdf=build('lifecycle-propuesta-sustituida',replaced)
-    assert result['pages']==4 and result['document']['version']=='0.1'
+    assert result['pages']==5 and result['document']['version']=='0.1'
     assert result['lifecycle']['superseded_by']=='DEMO-PRO-01'
     assert result['lifecycle']['superseded_by_version']=='0.2'
     assert len(replaced['changes'])==len({row['version'] for row in replaced['changes']})
     assert result['document']['code']==source['document']['code']
-    checks.append({'case':'lifecycle-ejemplo-conserva-propuesta-01','pages':4})
+    checks.append({'case':'lifecycle-ejemplo-conserva-propuesta-01','pages':5})
 
     def raw(name,value):
         path=root/(name+'.json');path.write_text(json.dumps(value,ensure_ascii=False))

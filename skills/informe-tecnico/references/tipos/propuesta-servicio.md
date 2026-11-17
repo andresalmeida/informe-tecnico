@@ -1,14 +1,14 @@
 # Propuesta de servicio
 
-Elegir `document.kind: "propuesta-servicio"` para la propuesta técnico-económica que recibe quien contrata: qué se propone, en cuánto tiempo, a qué costo y qué se necesita de su parte. Empezar por `assets/ejemplo-propuesta-servicio.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. La solución de un módulo cabe en un párrafo y en la tabla de entregables; la arquitectura y el perímetro viven en los documentos internos.
+Elegir `document.kind: "propuesta-servicio"` para la propuesta técnico-económica que recibe quien contrata: qué se propone, en cuánto tiempo, a qué costo y qué se necesita de su parte. Empezar por `assets/ejemplo-propuesta-servicio.json`. Diagrama: no lleva. La solución de un módulo cabe en un párrafo y en la tabla de entregables; la arquitectura y el perímetro viven en los documentos internos.
 
 **Contenido:** Decidir antes de redactar; Qué se queda en la factibilidad; Voz; Completar cada campo; Cómo se comprueba una propuesta; Personalizar; Qué no inventar; Qué se elimina cuando algo no aplica; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 
 Va después del informe de factibilidad ([factibilidad.md](factibilidad.md)), que es interno, y antes del alcance ([alcance-proyecto.md](alcance-proyecto.md)). Cita el registro de riesgos ([registro-riesgos.md](registro-riesgos.md)) por su código cuando un riesgo cambia una fecha o una decisión de quien contrata. El orden de los apartados es el del catálogo.
 
-El PDF es compacto: título y contenido en la primera página, sin portada, de cuatro páginas en el ejemplo. No tiene casillas. El histórico de revisiones se imprime al final con `document.show_changes: true`. El esquema del bloque `quote` está en [quote.md](../contrato/quote.md). Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
+El PDF es compacto: título y contenido en la primera página, sin portada, de cinco páginas en el ejemplo. No tiene casillas. El histórico de revisiones se imprime al final con `document.show_changes: true`. El esquema del bloque `quote` está en [quote.md](../contrato/quote.md). Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
 
-**Índices.** El ejemplo no los lleva: con cuatro páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando la propuesta pasa de siete páginas. `tables` y `figures` no se recomiendan: las tablas son los entregables, el cronograma, los aportes, la cotización y la aceptación, y el tipo no lleva figura.
+**Índices.** El ejemplo no los lleva: con cinco páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando la propuesta pasa de siete páginas. `tables` y `figures` no se recomiendan: las tablas son los entregables, el cronograma, los aportes, la cotización y la aceptación, y el tipo no lleva figura.
 
 ## Decidir antes de redactar
 
@@ -111,7 +111,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que la cotización esté entera, que el total del resumen coincida con el de la tabla, que la tabla de aceptación quede entera y que el histórico no ocupe una página solo. Entregar el PDF, su manifiesto `.manifest.json` y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte. Los defectos habituales son:
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son:
 
 - **Hueco al pie**, porque la tabla siguiente no cabe. Un hueco de hasta un tercio de página se acepta. Se corrige cuando una frase de más lo causa.
 - **El título de un apartado al pie y su tabla en la página siguiente.** Se acorta el apartado anterior o se mueve la frase que presenta la tabla para que quede debajo de ella: el motor mantiene la tabla con el párrafo que la sigue.

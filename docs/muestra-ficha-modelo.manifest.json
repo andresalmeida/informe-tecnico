@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-ficha-modelo.json",
-  "source_sha256": "e480db6b94a7cbedb2f72391576bcdb6030d9af7b66df9315ebfe7242127530e",
-  "pdf_sha256": "fa5f28f6f24484b7ce68458b34386859dd94e5a14e7b6d3e8f49e48a701ce4b0",
+  "source_sha256": "0d7ac3ab899d484e4b3aee5e561d8e4d0f63a50ad244fdb092f216390346ce91",
+  "pdf_sha256": "79a9664b024e692217439898cfe9cff930a1a820b11109853ccd3a1cb01b4830",
   "assets": [],
   "pages": 4,
   "passes": 2,
@@ -19,13 +19,14 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true
   },
   "entries": [
     {
@@ -47,7 +48,7 @@
       "label": "3. Datos",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "modelo",
@@ -61,18 +62,18 @@
       "label": "5. Evaluación",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "metricas",
-      "label": "Tabla 1. Métricas de demostración",
+      "label": "Tabla 1 Métricas de demostración",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "grupos",
-      "label": "Tabla 2. Recall por canal, datos sintéticos",
+      "label": "Tabla 2 Recall por canal, datos sintéticos",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -89,7 +90,7 @@
       "label": "7. Monitoreo y mantenimiento",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "aprobacion",
@@ -100,7 +101,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 3. Registro de firmas",
+      "label": "Tabla 3 Registro de firmas",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -112,12 +113,12 @@
     "datos": "3. Datos",
     "modelo": "4. Modelo",
     "evaluacion": "5. Evaluación",
-    "metricas": "Tabla 1. Métricas de demostración",
-    "grupos": "Tabla 2. Recall por canal, datos sintéticos",
+    "metricas": "Tabla 1 Métricas de demostración",
+    "grupos": "Tabla 2 Recall por canal, datos sintéticos",
     "limitaciones": "6. Limitaciones y riesgos",
     "monitoreo": "7. Monitoreo y mantenimiento",
     "aprobacion": "8. Aprobaciones",
-    "firmas": "Tabla 3. Registro de firmas"
+    "firmas": "Tabla 3 Registro de firmas"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
@@ -125,11 +126,11 @@
     "datos": "3. Datos",
     "modelo": "4. Modelo",
     "evaluacion": "5. Evaluación",
-    "metricas": "Tabla 1. Métricas de demostración",
-    "grupos": "Tabla 2. Recall por canal, datos sintéticos",
+    "metricas": "Tabla 1",
+    "grupos": "Tabla 2",
     "limitaciones": "6. Limitaciones y riesgos",
     "monitoreo": "7. Monitoreo y mantenimiento",
     "aprobacion": "8. Aprobaciones",
-    "firmas": "Tabla 3. Registro de firmas"
+    "firmas": "Tabla 3"
   }
 }

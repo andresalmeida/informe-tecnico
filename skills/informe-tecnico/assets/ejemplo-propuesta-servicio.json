@@ -17,7 +17,7 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {
@@ -207,7 +207,7 @@
           "widths": [1.3, 2.6, 2.6],
           "rows": [
             ["Nombre y cargo", "Soledad Paredes\nJefa de operaciones de reservas", "Iván Salas\nResponsable de ingeniería de software"],
-            ["Firma", "\n________________", "\n________________"],
+            ["Firma", "", ""],
             ["Fecha de aceptación", "Pendiente", "Pendiente"]
           ]
         }

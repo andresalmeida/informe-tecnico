@@ -1,6 +1,6 @@
 # Plan de proyecto
 
-Elegir `document.kind: "plan-proyecto"` para el plan de un equipo pequeño: qué se entrega, en qué hitos, quién responde y cómo se sigue. Empezar por `assets/ejemplo-plan-proyecto.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. La EDT es la lectura del trabajo.
+Elegir `document.kind: "plan-proyecto"` para el plan de un equipo pequeño: qué se entrega, en qué hitos, quién responde y cómo se sigue. Empezar por `assets/ejemplo-plan-proyecto.json`. Diagrama: no lleva. La EDT es la lectura del trabajo.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se escribe la EDT; Cómo se comprueba un plan; Personalizar; Qué no inventar; Texto de lo pendiente; Bloques opcionales; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 
@@ -104,7 +104,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que el total de la EDT coincida con la suma de las hojas, que `Por estimar` se vea y que el histórico comparta página con las firmas. Entregar el PDF, su manifiesto `.manifest.json` y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico.
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.
 
@@ -113,4 +113,4 @@ Los saltos medidos de la muestra:
 - La página 1 cierra con los objetivos y deja un hueco al pie, porque la EDT no cabe debajo y se mantiene entera en la página 2, con el total 50 y la hoja en Por estimar.
 - La página 2 cierra con el título de hitos y su párrafo. La tabla de hitos abre la página 3. El hueco queda por debajo de un tercio.
 - La página 4 cierra con las herramientas y deja un hueco mayor que un tercio. Las firmas van con `new_page` para quedar con el histórico.
-- La página 5 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. La línea de firma queda cerca del nombre.
+- La página 5 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. El espacio de firma queda cerca del nombre.

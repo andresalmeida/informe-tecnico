@@ -13,7 +13,7 @@ def run_checks(example, root, checks, build, rejected_with):
     def block(name):
         return next(b for s in source['sections'] for b in s['blocks'] if b.get('id') == name)
     result, pdf = build('informe-cierre', source)
-    assert result['pages'] == 4
+    assert result['pages'] == 5
     pages = [p.extract_text() or '' for p in PdfReader(pdf).pages]
     assert 'Entregado con pendientes' in ' '.join(pages)
     assert 'sin ejecutar' in ' '.join(pages)

@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "ejemplo-informe-cierre.json",
-  "source_sha256": "4e57f49f2e3940d2b8a2cedf5744703ca37877e76eb5cfc72253667adf50bef2",
-  "pdf_sha256": "96bdd47593e1641881e355e6f2c24578147deff1f439dfd47b3132b38641bca6",
+  "source_sha256": "066a1848db04a7b0cf458c991e75636b79f252a7ee9f6a6d0c13514d9056dfcc",
+  "pdf_sha256": "eb0400ebc6c2ebdaa07646bf4d700adf2c0f5951f47bd97cde5f1bae99d9357a",
   "assets": [],
-  "pages": 4,
+  "pages": 5,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -20,13 +20,14 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true
   },
   "entries": [
     {
@@ -52,7 +53,7 @@
     },
     {
       "id": "resultados",
-      "label": "Tabla 1. Balance de objetivos",
+      "label": "Tabla 1 Balance de objetivos",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -66,7 +67,7 @@
     },
     {
       "id": "inventario",
-      "label": "Tabla 2. Entregables recibidos para revisión",
+      "label": "Tabla 2 Entregables recibidos para revisión",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -80,7 +81,7 @@
     },
     {
       "id": "variaciones",
-      "label": "Tabla 3. Estimación frente a real de demostración",
+      "label": "Tabla 3 Estimación frente a real de demostración",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -90,7 +91,7 @@
       "label": "6. Cambios aprobados",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "riesgos",
@@ -101,7 +102,7 @@
     },
     {
       "id": "riesgos-abiertos",
-      "label": "Tabla 4. Riesgos que requieren seguimiento",
+      "label": "Tabla 4 Riesgos que requieren seguimiento",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -111,14 +112,14 @@
       "label": "8. Lecciones aprendidas",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "aprendizajes",
-      "label": "Tabla 5. Lecciones y acciones",
+      "label": "Tabla 5 Lecciones y acciones",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "soporte",
@@ -129,7 +130,7 @@
     },
     {
       "id": "pendientes",
-      "label": "Tabla 6. Traspaso de pendientes",
+      "label": "Tabla 6 Traspaso de pendientes",
       "kind": "table",
       "level": 0,
       "page": 4
@@ -139,52 +140,52 @@
       "label": "10. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "firmas",
-      "label": "Tabla 7. Registro de firmas",
+      "label": "Tabla 7 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 5
     }
   ],
   "labels": {
     "referencia": "1. Información de referencia",
     "resumen": "2. Resumen",
     "objetivos": "3. Objetivos y resultados",
-    "resultados": "Tabla 1. Balance de objetivos",
+    "resultados": "Tabla 1 Balance de objetivos",
     "entregables": "4. Entregables",
-    "inventario": "Tabla 2. Entregables recibidos para revisión",
+    "inventario": "Tabla 2 Entregables recibidos para revisión",
     "plazo": "5. Plazo y esfuerzo",
-    "variaciones": "Tabla 3. Estimación frente a real de demostración",
+    "variaciones": "Tabla 3 Estimación frente a real de demostración",
     "cambios": "6. Cambios aprobados",
     "riesgos": "7. Riesgos materializados y abiertos",
-    "riesgos-abiertos": "Tabla 4. Riesgos que requieren seguimiento",
+    "riesgos-abiertos": "Tabla 4 Riesgos que requieren seguimiento",
     "lecciones": "8. Lecciones aprendidas",
-    "aprendizajes": "Tabla 5. Lecciones y acciones",
+    "aprendizajes": "Tabla 5 Lecciones y acciones",
     "soporte": "9. Pendientes y soporte",
-    "pendientes": "Tabla 6. Traspaso de pendientes",
+    "pendientes": "Tabla 6 Traspaso de pendientes",
     "responsabilidad": "10. Firmas de responsabilidad",
-    "firmas": "Tabla 7. Registro de firmas"
+    "firmas": "Tabla 7 Registro de firmas"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "resumen": "2. Resumen",
     "objetivos": "3. Objetivos y resultados",
-    "resultados": "Tabla 1. Balance de objetivos",
+    "resultados": "Tabla 1",
     "entregables": "4. Entregables",
-    "inventario": "Tabla 2. Entregables recibidos para revisión",
+    "inventario": "Tabla 2",
     "plazo": "5. Plazo y esfuerzo",
-    "variaciones": "Tabla 3. Estimación frente a real de demostración",
+    "variaciones": "Tabla 3",
     "cambios": "6. Cambios aprobados",
     "riesgos": "7. Riesgos materializados y abiertos",
-    "riesgos-abiertos": "Tabla 4. Riesgos que requieren seguimiento",
+    "riesgos-abiertos": "Tabla 4",
     "lecciones": "8. Lecciones aprendidas",
-    "aprendizajes": "Tabla 5. Lecciones y acciones",
+    "aprendizajes": "Tabla 5",
     "soporte": "9. Pendientes y soporte",
-    "pendientes": "Tabla 6. Traspaso de pendientes",
+    "pendientes": "Tabla 6",
     "responsabilidad": "10. Firmas de responsabilidad",
-    "firmas": "Tabla 7. Registro de firmas"
+    "firmas": "Tabla 7"
   }
 }

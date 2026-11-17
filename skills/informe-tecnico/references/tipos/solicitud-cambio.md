@@ -1,6 +1,6 @@
 # Solicitud de cambio
 
-Elegir `document.kind: "solicitud-cambio"` cuando alguien pide cambiar un documento ya aprobado: un alcance, una propuesta aceptada o unos requisitos. Empezar por `assets/ejemplo-solicitud-cambio.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. El antes y el después caben en la tabla de impacto.
+Elegir `document.kind: "solicitud-cambio"` cuando alguien pide cambiar un documento ya aprobado: un alcance, una propuesta aceptada o unos requisitos. Empezar por `assets/ejemplo-solicitud-cambio.json`. Diagrama: no lleva. El antes y el después caben en la tabla de impacto.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Cómo se escribe el impacto; Cómo se comprueba una solicitud; Personalizar; Qué no inventar; Texto de lo pendiente; Bloques opcionales; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 
@@ -100,7 +100,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que la casilla marcada sea la decisión, que la diferencia coincida con el después menos el antes y que el histórico comparta página con las firmas. Entregar el PDF, su manifiesto `.manifest.json` y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico. El apartado de firmas se deja en esa página, con el histórico.
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico. El apartado de firmas se deja en esa página, con el histórico.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.
 
@@ -109,4 +109,4 @@ Los saltos medidos de la muestra:
 - La página 1 cierra con la frase de la diferencia. La tabla de impacto abre la página 2. El hueco queda por debajo de un tercio.
 - La página 2 cierra con el párrafo de la decisión. La casilla abre la página 3. La marca es Diferida.
 - La página 3 cierra con la tabla de documentos. El hueco queda por debajo de un tercio, porque las firmas no caben debajo y pasan enteras a la página 4.
-- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. La línea de firma queda cerca del nombre.
+- La página 4 reúne firmas e histórico. Debajo queda espacio libre: es el final del documento. El espacio de firma queda cerca del nombre.

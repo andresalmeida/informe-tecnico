@@ -20,7 +20,7 @@
     "date": "2026-10-28",
     "status": "Demostración",
     "paper": "A4",
-    "subtitle": "Muestra de composición de la skill informe-tecnico 0.3.0.\nAplicable a informes y manuales de cualquier sistema o entidad.",
+    "subtitle": "Muestra de composición del perfil por omisión de la skill informe-tecnico.\nAplicable a informes y manuales de cualquier sistema o entidad.",
     "author": "Demostración de la plantilla",
     "notice": "La entidad de esta muestra es ficticia. La cabecera, los índices y los márgenes institucionales se conservan; el documento no representa un trabajo académico APA integral."
   },
@@ -44,7 +44,7 @@
         },
         {
           "type": "paragraph",
-          "text": "El doble interlineado y la ausencia de espacio adicional entre párrafos se aplican al cuerpo del documento. La sangría se establece como una propiedad del párrafo, sin insertar espacios en el texto (American Psychological Association, 2022b, 2022c)."
+          "text": "El interlineado de 1,5 y la ausencia de espacio adicional entre párrafos se aplican al cuerpo del documento. La sangría se establece como una propiedad del párrafo, sin insertar espacios en el texto (American Psychological Association, 2022b, 2022c)."
         }
       ],
       "new_page": false
@@ -62,7 +62,7 @@
           "type": "list",
           "ordered": true,
           "items": [
-            "Mostrar la sangría inicial y el doble interlineado en texto corrido.",
+            "Mostrar la sangría inicial, el justificado y el interlineado en texto corrido.",
             "Distinguir el título, el cuerpo y la nota de tablas y figuras.",
             "Presentar referencias con cursiva, orden alfabético y sangría francesa."
           ]
@@ -101,11 +101,11 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "La primera línea de este párrafo comienza a 1,27 cm del margen del cuerpo. Las líneas siguientes vuelven al margen izquierdo. El borde derecho permanece irregular, con alineación izquierda y sin justificación completa, conforme a la pauta de párrafos de APA Style (American Psychological Association, 2022c)."
+          "text": "La primera línea de este párrafo comienza a 1,27 cm del margen del cuerpo. Las líneas siguientes vuelven al margen izquierdo. El perfil justifica el cuerpo; APA Style indica alineación izquierda con el borde derecho irregular, y quien deba ceñirse a esa pauta desactiva el justificado con la opción justify del formato (American Psychological Association, 2022c)."
         },
         {
           "type": "paragraph",
-          "text": "El cuerpo utiliza 11 puntos e interlineado de 22 puntos. Este segundo párrafo permite observar la continuidad del texto sin una línea vacía añadida. Las listas y los títulos utilizan sus propias reglas de alineación para conservar la lectura del documento."
+          "text": "El cuerpo utiliza 11 puntos e interlineado de 16,5 puntos. Este segundo párrafo permite observar la continuidad del texto sin una línea vacía añadida. Las listas y los títulos utilizan sus propias reglas de alineación para conservar la lectura del documento."
         },
         {
           "type": "paragraph",
@@ -121,10 +121,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "La {{ref:medidas}} reúne las medidas del perfil. El cuerpo de una tabla puede emplear un interlineado más compacto, mientras el número, el título y la nota conservan doble interlineado (American Psychological Association, 2021b, 2022b)."
-        },
-        {
-          "type": "pagebreak"
+          "text": "La {{ref:medidas}} reúne las medidas del perfil. El cuerpo de una tabla puede emplear un interlineado más compacto, mientras el número, el título y la nota se mantienen con el interlineado del cuerpo (American Psychological Association, 2021b, 2022b)."
         },
         {
           "type": "table",
@@ -137,11 +134,11 @@
           "rows": [
             [
               "Cuerpo",
-              "11 puntos; alineación izquierda."
+              "11 puntos; justificado."
             ],
             [
               "Interlineado",
-              "2,0; 22 puntos entre líneas del cuerpo."
+              "1,5; 16,5 puntos entre líneas del cuerpo."
             ],
             [
               "Primera línea",
@@ -201,7 +198,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Se incorporó un perfil que aplica el doble interlineado y las sangrías a partir de la fuente editable. Las tablas y figuras presentan sus títulos y notas con estilos propios, y la lista de referencias utiliza sangría francesa. Los documentos anteriores mantienen su perfil cuando no se solicita una adaptación."
+          "text": "Se incorporó un perfil que aplica el interlineado de 1,5, el justificado y las sangrías a partir de la fuente editable. Las tablas y figuras presentan sus títulos y notas con estilos propios, y la lista de referencias utiliza sangría francesa. Los documentos anteriores conservan su aspecto compacto con el perfil institucional."
         }
       ],
       "new_page": false

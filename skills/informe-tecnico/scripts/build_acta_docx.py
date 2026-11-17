@@ -105,8 +105,10 @@ def build_acta_docx(source, output):
     for key in ("title", "code", "version", "status", "date"):
         require(isinstance(metadata.get(key), str) and metadata[key].strip(), f"Falta document.{key}")
     require(spec.get("sections"), "El acta requiere secciones")
+    # The Word export has its own institutional look: the PDF profile (APA body, justification) does not apply.
+    spec = dict(spec, format={key: value for key, value in spec.get("format", {}).items()
+                              if key not in ("profile", "justify")} | {"profile": "institucional"})
     layout = format_for(spec)
-    require(layout["profile"] == "institucional", "Usar el perfil institucional para el acta DOCX")
     labels = registry(spec)
     anchors = {key: number for number, key in enumerate(labels, 1)}
     updated = date.fromisoformat(metadata["date"]).strftime("%d/%m/%Y")

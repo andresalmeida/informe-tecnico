@@ -61,6 +61,7 @@ Antes de abrir el pull request: `python tests/self_test.py` termina con `ok: tru
 
 - No se suben pruebas ni herramientas a `skills/informe-tecnico/`: lo que se instala es solo el motor.
 - No se cambia el comportamiento del motor sin la regresión que demuestre qué cambió y qué no.
+- El número de páginas de un ejemplo no es una meta. Si un cambio de composición lo altera, se actualizan la prueba y la guía; no se recorta contenido, ni se achica una figura o la letra, para conservarlo.
 - No se reintroduce la mayúscula de título como valor por defecto, ni se copian o se citan formatos de otras entidades.
 - No se versiona nada fuera del árbol que describe este archivo: las referencias locales (`/*.pdf`, `output/`, `tmp/`) están en `.gitignore` y no se distribuyen.
 

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-especificacion-requisitos.json",
-  "source_sha256": "970d1e8fdb25ff1b9a4045e1eafa51406ec564e2ebfb415fd5b9fa7fd1282d9f",
-  "pdf_sha256": "6b8df2a8b24c12c3e859cc581796fa989145742f8a0cdcb1e8bc58f9c2756f1b",
+  "source_sha256": "e2c08c3555f616fa4cd920bcd5544214e8ba2ae1839916f4e94f57ec9c19ca45",
+  "pdf_sha256": "2dbc3b303af06d9bad96a44d355c85db7d1af9656bd0d24ee6222d1e4d10f0db",
   "assets": [],
   "pages": 7,
   "passes": 2,
@@ -19,13 +19,14 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true
   },
   "entries": [
     {
@@ -44,7 +45,7 @@
     },
     {
       "id": "glosario",
-      "label": "Tabla 1. Definiciones",
+      "label": "Tabla 1 Definiciones",
       "kind": "table",
       "level": 0,
       "page": 1
@@ -58,7 +59,7 @@
     },
     {
       "id": "usuarios",
-      "label": "Tabla 2. Partes interesadas y su necesidad",
+      "label": "Tabla 2 Partes interesadas y su necesidad",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -89,7 +90,7 @@
       "label": "RF-03",
       "kind": "requirement",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "RF-04",
@@ -124,7 +125,7 @@
       "label": "5. Requisitos no funcionales",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "RNF-01",
@@ -159,7 +160,7 @@
       "label": "RNF-05",
       "kind": "requirement",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "RNF-06",
@@ -184,7 +185,7 @@
     },
     {
       "id": "matriz-trazabilidad",
-      "label": "Tabla 3. Matriz de trazabilidad",
+      "label": "Tabla 3 Matriz de trazabilidad",
       "kind": "table",
       "level": 0,
       "page": 6
@@ -198,7 +199,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 4. Registro de firmas",
+      "label": "Tabla 4 Registro de firmas",
       "kind": "table",
       "level": 0,
       "page": 7
@@ -207,9 +208,9 @@
   "labels": {
     "referencia": "1. Información de referencia",
     "proposito": "2. Propósito, alcance y definiciones",
-    "glosario": "Tabla 1. Definiciones",
+    "glosario": "Tabla 1 Definiciones",
     "partes": "3. Partes interesadas y usuarios",
-    "usuarios": "Tabla 2. Partes interesadas y su necesidad",
+    "usuarios": "Tabla 2 Partes interesadas y su necesidad",
     "funcionales": "4. Requisitos funcionales",
     "RF-01": "RF-01",
     "RF-02": "RF-02",
@@ -227,16 +228,16 @@
     "RNF-06": "RNF-06",
     "restricciones": "6. Restricciones, supuestos y dependencias",
     "trazabilidad": "7. Trazabilidad",
-    "matriz-trazabilidad": "Tabla 3. Matriz de trazabilidad",
+    "matriz-trazabilidad": "Tabla 3 Matriz de trazabilidad",
     "responsabilidad": "8. Aprobación",
-    "firmas": "Tabla 4. Registro de firmas"
+    "firmas": "Tabla 4 Registro de firmas"
   },
   "reference_labels": {
     "referencia": "1. Información de referencia",
     "proposito": "2. Propósito, alcance y definiciones",
-    "glosario": "Tabla 1. Definiciones",
+    "glosario": "Tabla 1",
     "partes": "3. Partes interesadas y usuarios",
-    "usuarios": "Tabla 2. Partes interesadas y su necesidad",
+    "usuarios": "Tabla 2",
     "funcionales": "4. Requisitos funcionales",
     "RF-01": "RF-01",
     "RF-02": "RF-02",
@@ -254,8 +255,8 @@
     "RNF-06": "RNF-06",
     "restricciones": "6. Restricciones, supuestos y dependencias",
     "trazabilidad": "7. Trazabilidad",
-    "matriz-trazabilidad": "Tabla 3. Matriz de trazabilidad",
+    "matriz-trazabilidad": "Tabla 3",
     "responsabilidad": "8. Aprobación",
-    "firmas": "Tabla 4. Registro de firmas"
+    "firmas": "Tabla 4"
   }
 }
