@@ -192,6 +192,8 @@ class KeepSection(Spacer):
         canvas = self._doctemplateAttr("canv")
         for index, item in enumerate(self.unit):
             _, height = item.wrapOn(canvas, width, self.page_height)
+            if isinstance(item, KeepTogether):
+                height = item._H  # KeepTogether reports a huge height to force a split; its content height is stored apart
             before = item.getSpaceBefore()
             total += height + (0 if index == 0 else max(before, previous_after))
             previous_after = item.getSpaceAfter()
@@ -213,6 +215,8 @@ def keep_sections(story, starts, page_height):
     ends = starts[1:] + [len(story)]
     for start, end in reversed(list(zip(starts, ends))):
         unit = story[start:end]
+        while unit and isinstance(unit[-1], PageBreak):
+            unit.pop()  # the break that opens the next section (new_page) is not part of this one
         if not any(isinstance(item, (PageBreak, CondPageBreak)) for item in unit):
             story.insert(start, KeepSection(unit, page_height))
 
@@ -580,7 +584,8 @@ def testcase_for(block, doc, styles, p, markup, accent, rule, head_style, apa=Fa
                 ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#F4F6F8")),
                 ("NOSPLIT", (0, closing-1), (-1, -1))]
     if apa:
-        commands += [("LINEABOVE", (0, header_rows-1), (-1, header_rows-1), .6, colors.black),
+        commands += [("BOTTOMPADDING", (0, header_rows-2), (-1, header_rows-2), 8),
+                     ("LINEABOVE", (0, header_rows-1), (-1, header_rows-1), .6, colors.black),
                      ("LINEBELOW", (0, header_rows-1), (-1, header_rows-1), .6, colors.black)]
     else:
         commands += [("BACKGROUND", (0, header_rows-1), (-1, header_rows-1), accent)]
@@ -651,6 +656,24 @@ def levels_in_matrix_order(matrix):
             if cell not in order:
                 order.append(cell)
     return order
+
+
+# Soft green, yellow and red: black text stays readable on them, and the level word is always printed beside the color.
+RISK_RAMP = ((0xC6, 0xE0, 0xB4), (0xFF, 0xE6, 0x99), (0xF4, 0xA6, 0xA6))
+
+
+def risk_level_colors(matrix):
+    """Heat-map color of each level by its rank in the matrix order: the first level green, the last red."""
+    order = levels_in_matrix_order(matrix)
+    last = max(len(order) - 1, 1)
+    result = {}
+    for rank, level in enumerate(order):
+        position = rank / last * 2
+        low = min(int(position), 1)
+        fraction = position - low
+        rgb = [a + (b - a) * fraction for a, b in zip(RISK_RAMP[low], RISK_RAMP[low + 1])]
+        result[level] = colors.Color(*[value / 255 for value in rgb])
+    return result
 
 
 def matrix_level(scale, probability, impact):
@@ -804,15 +827,33 @@ def risks_for(block, table, p, styles, markup, doc_width, rule, doc_height):
     intro = p(
         "Probabilidad, en el orden en que se escribió: " + spanish_join(scale["probability"]) + ". "
         "Impacto, en el orden en que se escribió: " + spanish_join(scale["impact"]) + ". "
-        "La fila de la matriz es la probabilidad y la columna es el impacto. La celda es el nivel que corresponde a ese par.",
+        "La fila de la matriz es la probabilidad y la columna es el impacto. La celda es el nivel que corresponde a ese par, "
+        "coloreada del verde al rojo según el orden en que aparecen los niveles, y lista los riesgos abiertos que le tocan.",
         "body")
     intro.keepWithNext = True
     parts.append(intro)
     matrix_caption = {"_label": block["_matrix_label"], "_number_label": block["_matrix_number_label"],
                       "title": block["_matrix_title"]}
+    level_color = risk_level_colors(scale["matrix"])
+    open_cells = {}
+    for item in block["items"]:
+        if item["state"] in block["_open_states"]:
+            open_cells.setdefault((item["probability"], item["impact"]), []).append(item["id"])
+
+    def heat_cell(probability, impact, level):
+        ids = open_cells.get((probability, impact), [])
+        return level + ("\n" + ", ".join(f"{{{{ref:{key}}}}}" for key in ids) if ids else "")
+
     matrix = table(["Probabilidad / Impacto", *scale["impact"]],
-                   [[scale["probability"][i], *row] for i, row in enumerate(scale["matrix"])],
+                   [[scale["probability"][i], *[heat_cell(scale["probability"][i], scale["impact"][j], level)
+                                                for j, level in enumerate(row)]]
+                    for i, row in enumerate(scale["matrix"])],
                    [1.7, *([1] * len(scale["impact"]))], block["_matrix_label"], None, matrix_caption)
+    # Row 0 is the caption and row 1 the header; the matrix starts at row 2, after the probability column.
+    heat = [("BACKGROUND", (j + 1, i + 2), (j + 1, i + 2), level_color[level])
+            for i, row in enumerate(scale["matrix"]) for j, level in enumerate(row)]
+    heat.append(("INNERGRID", (1, 2), (-1, -1), .8, colors.white))
+    matrix.setStyle(TableStyle(heat))
     matrix.entry = (block["id"], block["_matrix_label"], "table", 0)
     parts.append(matrix)
     # Kept off the next heading: gluing this sentence to the first card pushed both to the next page
@@ -839,7 +880,7 @@ def risks_for(block, table, p, styles, markup, doc_width, rule, doc_height):
             ("GRID", (0, 0), (-1, -1), .4, rule),
             ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5),
             ("TOPPADDING", (0, 0), (-1, -1), 3), ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
-            ("BACKGROUND", (0, 0), (-1, 0), head),
+            ("BACKGROUND", (0, 0), (1, 0), head), ("BACKGROUND", (2, 0), (3, 0), level_color[item["_level"]]),
             ("SPAN", (0, 0), (1, 0)), ("SPAN", (2, 0), (3, 0))]
         data.append([text(item["id"], strong), "", text("Nivel: " + item["_level"], strong), ""])
         full = [("Causa", item["cause"]), ("Evento", item["event"]), ("Consecuencia", item["consequence"])]
@@ -872,6 +913,8 @@ def risks_for(block, table, p, styles, markup, doc_width, rule, doc_height):
                        "title": block["_summary_table_title"]}
     summary = table(["Nivel", "Abiertos", "Cuáles"], open_risk_rows(block), [1.5, 1.1, 3.4],
                     block["_summary_label"], None, summary_caption)
+    summary.setStyle(TableStyle([("BACKGROUND", (0, index + 2), (0, index + 2), level_color[level])
+                                 for index, level in enumerate(levels_in_matrix_order(scale["matrix"]))]))
     summary.entry = (block["_summary_id"], block["_summary_label"], "table", 0)
     parts.append(summary)
     return parts
@@ -1661,6 +1704,7 @@ def styles_for(brand, base, layout=None):
             "cell": style("cell-apa", leading=size*layout["table_line_spacing"]),
             "caption": style("caption-apa", keepWithNext=True),
             "small": style("notes-apa"),
+            "note_label": ParagraphStyle("note-label", parent=result["kicker"], spaceBefore=10, spaceAfter=4),
         })
     return result
 
@@ -2027,7 +2071,7 @@ def compile_report(source, output):
                     grid.keepWithNext = True
                 story += [grid]
             elif kind == "note":
-                story += [p(block.get("label", "Nota"),"kicker"),p(block["text"],"small")]
+                story += [p(block.get("label", "Nota"), "note_label" if apa else "kicker"), p(block["text"],"small")]
             elif kind == "notice":
                 story += [notice_for(block)]
             elif kind == "procedure":

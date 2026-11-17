@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-acta-capacitacion.json",
   "source_sha256": "09eb47e93a3113e5e8a0670d1decced8f8d1fe679a3790e109171518dcf5ef4e",
-  "pdf_sha256": "a2b83a66d82b2ff269dd9b463d96db87add1d0b900f8a4fca9659928c3b5ed74",
+  "pdf_sha256": "ed9618f3b1352cdca74cfa4aa92c9f4bddaed67f3b164aef2f2ad5f2d7e10fb8",
   "assets": [],
   "pages": 5,
   "passes": 2,

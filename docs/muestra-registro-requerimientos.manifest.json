@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-registro-requerimientos.json",
   "source_sha256": "a9f2ec5ecc367eca6c9f2005d97ecdf008861770612f5e9e4d9867cbf993cfc0",
-  "pdf_sha256": "dffe15d041d22b936389028f5945a0243a18b54cf8df0e745d9478a00b2f6ff7",
+  "pdf_sha256": "be646bd1850d470d1011171c423e1df0ecf1d78f0afc06ec39c0d47dceba663a",
   "assets": [],
   "pages": 2,
   "passes": 2,

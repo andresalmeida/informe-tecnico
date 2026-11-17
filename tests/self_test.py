@@ -1449,7 +1449,7 @@ def main():
         mod_source = json.loads((example.parent/"ejemplo-ficha-modelo.json").read_text())
         risk_chain = json.loads((example.parent/"ejemplo-registro-riesgos.json").read_text())
         mod, mod_pdf = build("ficha-modelo", mod_source)
-        assert mod["pages"] == 5, mod["pages"]
+        assert mod["pages"] == 4, mod["pages"]
         assert mod["document"]["kind"] == "ficha-modelo"
         mod_choices = choices(mod_source)
         assert len(mod_choices) == 1 and mod_choices[0]["selected"] == "En validación"
@@ -2062,6 +2062,9 @@ def main():
 
         from test_perfil_hibrido import run_checks as check_perfil_hibrido
         check_perfil_hibrido(example, root, checks, build, rejected_with)
+
+        from test_mapa_calor import run_checks as check_mapa_calor
+        check_mapa_calor(example, root, checks, build)
 
         from test_muestras import run_checks as check_muestras
         check_muestras(example, root, checks, build)

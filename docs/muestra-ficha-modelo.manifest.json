@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "ejemplo-ficha-modelo.json",
-  "source_sha256": "144b757ecd3e02910013157a06ae4e3adaacf00bc5711ce9dd6b03f7962e22bb",
-  "pdf_sha256": "55b2b4cfec9ec217d150bc4e873a1c168a6abd5e51fc5dc03833c575fdda162f",
+  "source_sha256": "0d7ac3ab899d484e4b3aee5e561d8e4d0f63a50ad244fdb092f216390346ce91",
+  "pdf_sha256": "f5f1111cdb8bc59245475ec92d1aaf63073d2eff25a510a7419b11ef9b4e19e0",
   "assets": [],
-  "pages": 5,
+  "pages": 4,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -97,14 +97,14 @@
       "label": "8. Aprobaciones",
       "kind": "section",
       "level": 0,
-      "page": 5
+      "page": 4
     },
     {
       "id": "firmas",
       "label": "Tabla 3 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 5
+      "page": 4
     }
   ],
   "labels": {

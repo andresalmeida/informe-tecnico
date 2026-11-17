@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-alcance-proyecto.json",
   "source_sha256": "9da44499f6d2fcffc4f90a2ae9ab69ce234a883942b3f54451ca8133fd26fc80",
-  "pdf_sha256": "9bb7fcf3a08984e41dc25fa1c27f1af904159954324dbe357265a9f485bb2587",
+  "pdf_sha256": "4385d89e326a5abdda230891ac7589cd0a6d440f99d5143db340e36eedbb4df8",
   "assets": [
     {
       "path": "diagrams/alcance-pagos.png",

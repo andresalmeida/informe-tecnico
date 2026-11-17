@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-propuesta-servicio.json",
   "source_sha256": "142557ff6269935344f90718c0e83ea3bcf1aabfaefc6423a514f80bbaa71465",
-  "pdf_sha256": "16eb90a2b74f115e6822a232f11255bb5a045683200a67d061de7da71191924d",
+  "pdf_sha256": "9e733b7d311f0f87a70d7cc5a3afff52a30ddbdad9ec32888aeda8c33178318d",
   "assets": [],
   "pages": 5,
   "passes": 2,

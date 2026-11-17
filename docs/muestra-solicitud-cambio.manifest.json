@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-solicitud-cambio.json",
   "source_sha256": "4399362f5936058a537b4fca7f251be3e796bb26ac160f998570a931eca0fd5f",
-  "pdf_sha256": "cfe0005f7688bc4d81fbc33202e36b342f5817ff34b082cef7682d703524b79b",
+  "pdf_sha256": "55c22c556bac41b15383c57a125a762583f454e3b59bf3786c55a754f87edd50",
   "assets": [],
   "pages": 4,
   "passes": 2,

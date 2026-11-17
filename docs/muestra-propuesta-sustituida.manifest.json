@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-propuesta-sustituida.json",
   "source_sha256": "37fb64a1d3427c4d1c8a55f249ff8ec8f004063b28b34065fe3cd385647b6a80",
-  "pdf_sha256": "8cc47e7b3be336c8bdc634e06598169f34f82fa7271befd40897c7416a1cb4e8",
+  "pdf_sha256": "93dadb23abcacb6af5f0b428f02ecaaf9e8968bc9296473db62efc3fa6266f72",
   "assets": [],
   "pages": 5,
   "passes": 2,

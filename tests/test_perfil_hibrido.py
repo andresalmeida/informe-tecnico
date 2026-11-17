@@ -121,3 +121,64 @@ def run_checks(example, root, checks, build, rejected_with):
         assert top["FILA_B"]-top["FILA_A"] >= 11*MM, "la fila de firma reserva al menos 11 mm"
         assert top["FILA_C"]-top["Nombre"] >= 11*MM, "la fila «Firma» reserva al menos 11 mm"
     checks.append({"case": "firma-celda-vacia-reserva-altura"})
+
+    # Las celdas se centran en vertical con el perfil por omisión y quedan arriba en `institucional`.
+    centrada = fuente(base, None)
+    centrada["sections"][0]["blocks"] = [{"type": "table", "id": "centro", "title": "Celdas",
+        "headers": ["Largo", "Corto"], "rows": [["LINEA_A\nLINEA_B\nLINEA_C\nLINEA_D", "CENTRO"]]}]
+    for perfil, centrado in (("institucional-apa", True), ("institucional", False)):
+        centrada["format"] = {"profile": perfil}
+        _, pdf = build("celda-vertical-" + perfil, centrada)
+        with pdfplumber.open(pdf) as impreso:
+            palabras = {w["text"]: w for p in impreso.pages for w in p.extract_words()
+                        if w["text"] in ("LINEA_A", "LINEA_D", "CENTRO")}
+        medio_largo = (palabras["LINEA_A"]["top"]+palabras["LINEA_D"]["bottom"])/2
+        medio_corto = (palabras["CENTRO"]["top"]+palabras["CENTRO"]["bottom"])/2
+        if centrado:
+            assert abs(medio_largo-medio_corto) < 2, (medio_largo, medio_corto)
+        else:
+            assert abs(palabras["CENTRO"]["top"]-palabras["LINEA_A"]["top"]) < 1.5
+        checks.append({"case": "celda-" + ("centrada" if centrado else "arriba") + "-" + perfil})
+
+    # Una sección que se cortaría pasa entera a la página siguiente si el hueco que deja es de a lo sumo el 40 %.
+    def con_relleno(cantidad):
+        spec = fuente(base, None)
+        spec["sections"] = [
+            {"id": "relleno", "title": "Relleno", "blocks": [
+                {"type": "paragraph", "text": texto_largo(f"RELLENO_{i:02d}")[:210]} for i in range(cantidad)]},
+            {"id": "cortable", "title": "Sección cortable", "blocks": [
+                {"type": "paragraph", "text": "Introducción de la sección que podría cortarse."},
+                {"type": "list", "ordered": True,
+                 "items": [f"PUNTO_{i:02d} elemento de la lista de prueba." for i in range(16)]}]}]
+        return spec
+
+    def posiciones(nombre, cantidad):
+        _, pdf = build(nombre, con_relleno(cantidad))
+        with pdfplumber.open(pdf) as impreso:
+            hallado = {}
+            for n, pagina in enumerate(impreso.pages):
+                for w in pagina.extract_words():
+                    if w["text"] == "cortable":
+                        hallado["titulo"] = (n, w["top"])
+                    if w["text"] == "PUNTO_15":
+                        hallado["ultimo"] = (n, w["top"])
+                    if w["text"] == "RELLENO_00":
+                        hallado["relleno"] = (n, w["top"])
+            hallado["fondo"] = impreso.pages[0].height-25*MM
+        return hallado
+
+    sin_relleno = posiciones("seccion-medida-0", 0)
+    con_cuatro = posiciones("seccion-medida-4", 4)
+    alto_relleno = (con_cuatro["titulo"][1]-sin_relleno["titulo"][1])/4
+    fondo = sin_relleno["fondo"]
+    util = fondo-58*MM
+
+    def cantidad_para(hueco):
+        return round((fondo-hueco*util-sin_relleno["titulo"][1])/alto_relleno)
+
+    movida = posiciones("seccion-hueco-chico", cantidad_para(.30))
+    assert movida["relleno"][0] == 0 and movida["titulo"][0] == 1 and movida["ultimo"][0] == 1, movida
+    assert movida["titulo"][1] < 58*MM+60, "la sección arranca arriba de la página siguiente"
+    cortada = posiciones("seccion-hueco-grande", cantidad_para(.50))
+    assert cortada["titulo"][0] == 0 and cortada["ultimo"][0] == 1, cortada
+    checks.append({"case": "seccion-que-se-cortaria-pasa-entera-salvo-hueco-grande"})
