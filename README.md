@@ -2,7 +2,7 @@
 
 Una skill para agentes (Claude Code, Codex, Cursor y otros) que redacta y compila en PDF documentos técnicos y de gestión de proyectos con la identidad de tu entidad: nombre, logo, colores y esquema de códigos. El agente lee `SKILL.md`, elige el tipo de documento, escribe una fuente JSON y un motor en Python la convierte en un PDF con cabecera, paginación, historial de cambios, índices y un comprobador.
 
-**Versión 0.8.1** · licencia MIT · Python 3.10 o posterior
+**Versión 0.8.2** · licencia MIT · Python 3.10 o posterior
 
 [![CI](https://github.com/andresalmeida/informe-tecnico/actions/workflows/validate.yml/badge.svg)](https://github.com/andresalmeida/informe-tecnico/actions/workflows/validate.yml)
 
@@ -36,7 +36,7 @@ Veintidós tipos de documento y un dossier, ordenados por la fase del proyecto e
 |  | [Informe de cierre](docs/muestra-informe-cierre.pdf) | Balance interno del proyecto |
 | **Operación y evolución** | [Notas de versión](docs/muestra-notas-version.pdf) | Qué cambia en cada versión que se publica |
 | **Retiro** | [Acta de baja](docs/muestra-acta-baja.pdf) | Retirar un sistema, un módulo o un procedimiento, con autorización |
-| **Fuera del proyecto** | [Informe, manual o catálogo](docs/muestra-informe-tecnico.pdf) | Documentación técnica de un sistema, con criterios APA 7 |
+| **Fuera del proyecto** | [Informe, manual o catálogo](docs/muestra-informe-tecnico.pdf) | Documentación técnica de un sistema, con APA 7 si se pide |
 |  | [Ficha de proceso](docs/muestra-ficha-proceso.pdf) | Cómo trabaja un proceso de la entidad (SIPOC) |
 |  | [Dossier de sistema](docs/muestra-dossier.pdf) | Cómo funciona un sistema y qué tan confiable es, en 6 a 8 páginas (flujo aparte, con la skill `nasa-handbook`) |
 

@@ -3,7 +3,7 @@ name: informe-tecnico
 description: Redacta y compila en PDF documentos técnicos y de gestión de proyectos con la identidad de una entidad (nombre, logo, colores, código): informes, manuales, actas, factibilidad, propuestas, alcance, requisitos, pruebas, riesgos, cambios, traspasos, cierres, evaluaciones de impacto en datos y fichas de modelo y de proceso. Usar cuando se pida cualquiera de esos documentos, un informe o manual con formato institucional o criterios APA 7, o un acta de reunión en Word.
 license: MIT
 metadata:
-  version: "0.8.1"
+  version: "0.8.2"
 ---
 
 # Informe técnico institucional
@@ -40,7 +40,7 @@ Producir el documento que se pide. Ningún proyecto usa todo el catálogo. Ante 
 | `ficha-proceso` | Cómo trabaja un proceso de la entidad (SIPOC), en una o dos páginas | [ficha-proceso.md](references/tipos/ficha-proceso.md) | `ejemplo-ficha-proceso.json` |
 | dossier | El usuario pide un «dossier», «informe-dossier», «modo nasa dossier» o «flow NASA» | [dossier.md](references/tipos/dossier.md) | no usa el motor JSON |
 
-El acta de reunión se exporta a Word con `scripts/build_acta_docx.py`; el comando está en [acta-reunion.md](references/tipos/acta-reunion.md#acta-de-reunión-en-word). Si el usuario aporta un formato obligatorio, trabajar sobre una copia y conservar su estructura. Todos los tipos de proyecto usan `format.profile: "institucional"`; el perfil APA es solo del informe. Cada guía dice si su tipo lleva figura; para un esquema nuevo, usar la skill `diagram-design` y seguir [diagramas.md](references/diagramas.md).
+El acta de reunión se exporta a Word con `scripts/build_acta_docx.py`; el comando está en [acta-reunion.md](references/tipos/acta-reunion.md#acta-de-reunión-en-word). Si el usuario aporta un formato obligatorio, trabajar sobre una copia y conservar su estructura. Todos los tipos de proyecto usan `format.profile: "institucional"`; el perfil APA es solo del informe y solo se usa si se pide. Cada guía dice si su tipo lleva figura; para un esquema nuevo, usar la skill `diagram-design` y seguir [diagramas.md](references/diagramas.md).
 
 ## Leer solo lo necesario
 
