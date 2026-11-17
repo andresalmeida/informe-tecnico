@@ -1,6 +1,6 @@
 # Acta de baja
 
-Elegir `document.kind: "acta-baja"`, código `BAJ`, para registrar que un sistema, módulo, procedimiento o conjunto documental deja de usarse. Partir de `assets/ejemplo-acta-baja.json`, con `format.profile: "institucional"`. Es formulario sin elección obligatoria. No lleva diagrama: el perímetro, las condiciones y la verificación se expresan en tablas. La estructura procede del encargo del catálogo, sin un formulario empresarial de origen.
+Elegir `document.kind: "acta-baja"`, código `BAJ`, para registrar que un sistema, módulo, procedimiento o conjunto documental deja de usarse. Partir de `assets/ejemplo-acta-baja.json`. Es formulario sin elección obligatoria. No lleva diagrama: el perímetro, las condiciones y la verificación se expresan en tablas. La estructura procede del encargo del catálogo, sin un formulario empresarial de origen.
 
 La muestra tiene cuatro páginas, título y contenido desde la primera, firmas e histórico al cierre. Las tablas breves se mantienen completas; pueden dejar espacio al pie. Se omiten índices; son opcionales para expedientes extensos. No reducir la letra para eliminar huecos. Los bloques existentes bastan: no hay contrato nuevo ni ejecución automática de la baja.
 

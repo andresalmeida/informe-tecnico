@@ -1,6 +1,6 @@
 # Informes de factibilidad
 
-Elegir `document.kind: "informe-factibilidad"` para evaluar si una propuesta técnica se puede realizar con la arquitectura, los recursos y el tiempo disponibles, antes de comprometer su desarrollo. Empezar por `assets/ejemplo-informe-factibilidad.json`; al compilarlo se obtiene la muestra. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe` y vuelve doble el interlineado de las listas. Diagrama: opcional; el ejemplo incluye uno y el tipo compila igual sin él.
+Elegir `document.kind: "informe-factibilidad"` para evaluar si una propuesta técnica se puede realizar con la arquitectura, los recursos y el tiempo disponibles, antes de comprometer su desarrollo. Empezar por `assets/ejemplo-informe-factibilidad.json`; al compilarlo se obtiene la muestra. Diagrama: opcional; el ejemplo incluye uno y el tipo compila igual sin él.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Variante completa; Cómo se comprueba una factibilidad; Personalizar; Qué no inventar; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 

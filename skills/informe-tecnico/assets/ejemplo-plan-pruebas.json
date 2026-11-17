@@ -18,7 +18,7 @@
     "notice": "Entidad, personas, códigos, cifras y fechas ficticios. Casos sin ejecutar; aprobaciones, firmas y certificado pendientes."
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {
@@ -425,8 +425,8 @@
             ],
             [
               "Firma",
-              "\n\n________________",
-              "\n\n________________"
+              "",
+              ""
             ],
             [
               "Fecha",
@@ -461,19 +461,19 @@
             [
               "Elaborado por",
               "Diego Arce\nPruebas",
-              "\n\n________________",
+              "",
               "Pendiente"
             ],
             [
               "Revisado por",
               "Rafael Mena\nComité de calidad",
-              "\n\n________________",
+              "",
               "Pendiente"
             ],
             [
               "Aprobado por",
               "Lucía Ferrer\nComité de proyectos",
-              "\n\n________________",
+              "",
               "Pendiente"
             ]
           ]

@@ -17,7 +17,7 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {
@@ -298,9 +298,9 @@
           "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.3, 2.5, 1.6, 1.2],
           "rows": [
-            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n________________", "Pendiente"],
-            ["Revisado por", "Rafael Mena\nComité de calidad", "\n________________", "Pendiente"],
-            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n________________", "Pendiente"]
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "", "Pendiente"],
+            ["Revisado por", "Rafael Mena\nComité de calidad", "", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "", "Pendiente"]
           ]
         }
       ]

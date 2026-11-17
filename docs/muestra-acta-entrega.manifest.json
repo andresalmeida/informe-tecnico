@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "source": "ejemplo-acta-entrega.json",
-  "source_sha256": "3c12463bf508a90adc3a3722ff55ef77fa5f6a124190b55bb9fbe4091e257840",
-  "pdf_sha256": "8a65ddb5414ec5f61316e2b7c6c3c595a3ac3fe5b1c6f394a736459710d1dc84",
+  "source_sha256": "3d4fd5750ca8ecf7e3cb6cb41cdae0952efaf5ff60e706529e01d9d4b7e31469",
+  "pdf_sha256": "bf1444004ece11b1d594eef4ec9153886ce3446849f16251b3fe24ebcaff8eee",
   "assets": [],
-  "pages": 4,
+  "pages": 3,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -20,13 +20,14 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true
   },
   "entries": [
     {
@@ -41,14 +42,14 @@
       "label": "2. Entregables y comprobación",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 1
     },
     {
       "id": "entregables",
-      "label": "Tabla 1. Inventario de entrega",
+      "label": "Tabla 1 Inventario de entrega",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 1
     },
     {
       "id": "capacitacion",
@@ -62,14 +63,14 @@
       "label": "4. Observaciones generales",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 2
     },
     {
       "id": "pendientes",
-      "label": "Tabla 2. Pendientes de la entrega",
+      "label": "Tabla 2 Pendientes de la entrega",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 2
     },
     {
       "id": "conformidad",
@@ -87,7 +88,7 @@
     },
     {
       "id": "partes",
-      "label": "Tabla 3. Aceptación de la entrega por las dos partes",
+      "label": "Tabla 3 Aceptación de la entrega por las dos partes",
       "kind": "table",
       "level": 0,
       "page": 3
@@ -97,40 +98,40 @@
       "label": "7. Firmas de responsabilidad",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 3
     },
     {
       "id": "firmas",
-      "label": "Tabla 4. Registro de firmas",
+      "label": "Tabla 4 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 3
     }
   ],
   "labels": {
     "informacion": "1. Información general",
     "inventario": "2. Entregables y comprobación",
-    "entregables": "Tabla 1. Inventario de entrega",
+    "entregables": "Tabla 1 Inventario de entrega",
     "capacitacion": "3. Capacitación realizada",
     "observaciones": "4. Observaciones generales",
-    "pendientes": "Tabla 2. Pendientes de la entrega",
+    "pendientes": "Tabla 2 Pendientes de la entrega",
     "conformidad": "5. Conformidad y cierre",
     "aceptacion": "6. Firmas de aceptación",
-    "partes": "Tabla 3. Aceptación de la entrega por las dos partes",
+    "partes": "Tabla 3 Aceptación de la entrega por las dos partes",
     "responsabilidad": "7. Firmas de responsabilidad",
-    "firmas": "Tabla 4. Registro de firmas"
+    "firmas": "Tabla 4 Registro de firmas"
   },
   "reference_labels": {
     "informacion": "1. Información general",
     "inventario": "2. Entregables y comprobación",
-    "entregables": "Tabla 1. Inventario de entrega",
+    "entregables": "Tabla 1",
     "capacitacion": "3. Capacitación realizada",
     "observaciones": "4. Observaciones generales",
-    "pendientes": "Tabla 2. Pendientes de la entrega",
+    "pendientes": "Tabla 2",
     "conformidad": "5. Conformidad y cierre",
     "aceptacion": "6. Firmas de aceptación",
-    "partes": "Tabla 3. Aceptación de la entrega por las dos partes",
+    "partes": "Tabla 3",
     "responsabilidad": "7. Firmas de responsabilidad",
-    "firmas": "Tabla 4. Registro de firmas"
+    "firmas": "Tabla 4"
   }
 }

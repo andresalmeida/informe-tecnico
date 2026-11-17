@@ -1,6 +1,6 @@
 # Ficha de modelo
 
-Elegir `document.kind: "ficha-modelo"` para acompañar un modelo estadístico o de aprendizaje automático: para qué sirve, con qué datos se hizo, cómo rinde, para quién, y qué no debe hacerse con él. Empezar por `assets/ejemplo-ficha-modelo.json`. Usa `format.profile: "institucional"`, como los demás tipos compactos: el perfil APA es solo del `informe`. Diagrama: no lleva. Quién decide y qué marca el modelo cabe en dos frases. La arquitectura del sistema ya está en la factibilidad.
+Elegir `document.kind: "ficha-modelo"` para acompañar un modelo estadístico o de aprendizaje automático: para qué sirve, con qué datos se hizo, cómo rinde, para quién, y qué no debe hacerse con él. Empezar por `assets/ejemplo-ficha-modelo.json`. Diagrama: no lleva. Quién decide y qué marca el modelo cabe en dos frases. La arquitectura del sistema ya está en la factibilidad.
 
 **Contenido:** Decidir antes de redactar; Completar cada campo; Qué no afirma la ficha; Cómo se comprueba una ficha; Personalizar; Qué no inventar; Qué se elimina cuando algo no aplica; ¿Necesita un diagrama?; Revisar la redacción con las skills hermanas; Comprobar y entregar.
 
@@ -99,7 +99,7 @@ Sin Poppler, las mismas imágenes salen con las dependencias del motor:
 
 Renderizar todas las páginas y abrirlas. Revisar que la casilla marcada sea la del estado, que cada cifra lleve su procedencia y que el histórico comparta página con las firmas. Entregar el PDF, su manifiesto `.manifest.json` y el JSON.
 
-El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico. El apartado de aprobaciones se deja en esa página, con las firmas.
+El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son un hueco al pie porque la tabla siguiente no cabe, y una página final con solo el histórico. El apartado de aprobaciones se deja en esa página, con las firmas.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.
 

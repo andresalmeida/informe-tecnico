@@ -25,7 +25,7 @@
     "notice": "Simulación independiente de vigencia y retiro programado. No acredita que la propuesta de la cadena haya sido aceptada."
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {

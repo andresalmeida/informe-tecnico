@@ -29,16 +29,34 @@ def run_checks(example, root, checks, build):
         with pdfplumber.open(pdf) as printed:
             last=printed.pages[-1]
             body=last.crop((21*72/25.4,58*72/25.4,last.width-21*72/25.4,last.height-25*72/25.4)).extract_text() or ''
-            assert not body.startswith('Histórico de revisiones')
-            for text in ['Responsabilidad','Elabora','Revisa','Aprueba','Remitido','Histórico de revisiones']:
-                assert text in body,text
+            alone=body.startswith('Histórico de revisiones')
+            if profile=='institucional':
+                assert not alone
+                for text in ['Responsabilidad','Elabora','Revisa','Aprueba','Remitido','Histórico de revisiones']:
+                    assert text in body,text
+            elif not alone:
+                for text in ['Responsabilidad','Elabora','Revisa','Aprueba','Remitido','Histórico de revisiones']:
+                    assert text in body,text
         positions={e['id']:e['page'] for e in result['entries']}
-        assert positions['responsabilidad']==positions['firmas']==result['pages']
+        # In the default profile the history may go alone, but the signatures never split from their section.
+        assert positions['responsabilidad']==positions['firmas']>=result['pages']-(1 if profile!='institucional' else 0)
         if profile=='institucional':assert result['pages']==2
         checks.append({'case':'cierre-unidad-'+name,'pages':result['pages']})
+    # With little room left (at most 35 % of the page), the default profile still moves the whole closing together.
+    value=copy.deepcopy(base)
+    value['format']['profile']='institucional-apa'
+    value['document']['paper']='Letter'
+    value['sections'][0]['blocks'].extend(
+        {'type':'paragraph','text':f'Párrafo adicional de demostración {i}: contenido previo al cierre.'} for i in range(5))
+    result,pdf=build('cierre-hueco-chico-apa',value)
+    with pdfplumber.open(pdf) as printed:
+        last=printed.pages[-1]
+        body=last.crop((21*72/25.4,58*72/25.4,last.width-21*72/25.4,last.height-25*72/25.4)).extract_text() or ''
+    assert not body.startswith('Histórico de revisiones') and 'Elabora' in body and 'Histórico de revisiones' in body
+    checks.append({'case':'cierre-hueco-chico-apa','pages':result['pages']})
     value=copy.deepcopy(base)
     value['sections'][0]['blocks'].extend(
-        {'type':'paragraph','text':f'Contenido adicional de demostración {i}.'} for i in range(2))
+        {'type':'paragraph','text':f'Contenido adicional de demostración {i}.'} for i in range(6))
     for row in value['sections'][-1]['blocks'][0]['rows']:row[2]=''
     result,pdf=build('cierre-firmas-sin-lineas',value)
     text=PdfReader(pdf).pages[-1].extract_text() or ''

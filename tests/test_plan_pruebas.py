@@ -22,7 +22,7 @@ def run_checks(example, checks, build, rejected_with):
             diagonals = sum(sum(abs(l['width']-5.2)<.01 and abs(l['height']-5.2)<.01 for l in p.lines) for p in printed.pages)
         return boxes, diagonals//2
     plan, pdf = build('plan-pruebas', source)
-    assert plan['pages'] == 8, plan['pages']
+    assert plan['pages'] == 9, plan['pages']
     assert marks(pdf) == (15, 0), marks(pdf)
     pages = texts(pdf)
     destinations = {e['id']:e['page'] for e in plan['entries']}
@@ -125,7 +125,9 @@ def run_checks(example, checks, build, rejected_with):
     long_pages = texts(long_pdf)
     assert long_result['pages'] > 2
     assert len([e for e in long_result['entries'] if e['id']==long_case['id']]) == 1
-    for page in long_pages:
+    step_pages = [page for page in long_pages if 'Tarea0' in page]  # the last page may carry only the history
+    assert len(step_pages) >= 2
+    for page in step_pages:
         assert f"Caso {long_case['id']}. {long_case['title']}" in page
         assert 'Precondiciones' in page and 'Resultado esperado' in page and 'Resultado real' in page
         assert 'Criterio 1 de DEMO-ALC-01' in page
@@ -133,8 +135,9 @@ def run_checks(example, checks, build, rejected_with):
         containing=[p for p in long_pages if f'Tarea{i:03}' in p]
         assert len(containing)==1
         assert all(token in containing[0] for token in (f'Actividad{i:03}',f'Esperado{i:03}',f'Real{i:03}'))
-    assert 'Tarea060' in long_pages[-1] and 'Resultado del caso' in long_pages[-1]
-    assert all('Resultado del caso' not in pg for pg in long_pages[:-1])
+    closing_page = next(n for n, pg in enumerate(long_pages) if 'Tarea060' in pg)
+    assert 'Resultado del caso' in long_pages[closing_page]  # the closing stays with the last step
+    assert all('Resultado del caso' not in pg for n, pg in enumerate(long_pages) if n != closing_page)
     assert marks(long_pdf) == (3,1), marks(long_pdf)
     checks.append({'case':'plan-cabecera-repetida-y-cierre-con-ultimo-paso','pages':long_result['pages']})
 

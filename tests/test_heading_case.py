@@ -94,10 +94,10 @@ def run_checks(example, root, checks, build, rejected_with):
     assert any(label.endswith("Desarrollo técnico") for label in plain["labels"].values()), plain["labels"]
     checks.append({"case": "heading-case-aplica-tambien-al-informe"})
 
-    # A new informe starts from the template: institutional profile (APA only on request).
+    # A new informe starts from the template, which carries the default profile of every kind.
     base = json.loads((example.parent / "plantilla-base.json").read_text())
-    assert base["format"]["profile"] == "institucional", base["format"]
-    checks.append({"case": "plantilla-base-usa-el-perfil-institucional"})
+    assert base["format"]["profile"] == "institucional-apa", base["format"]
+    checks.append({"case": "plantilla-base-usa-el-perfil-por-omision"})
 
     unknown = json.loads((example.parent / "ejemplo-informe-factibilidad.json").read_text())
     unknown.setdefault("format", {})["heading_case"] = "upper"

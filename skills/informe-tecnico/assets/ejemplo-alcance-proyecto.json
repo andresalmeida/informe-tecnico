@@ -17,7 +17,7 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional"
+    "profile": "institucional-apa"
   },
   "changes": [
     {
@@ -276,7 +276,7 @@
           "widths": [1.2, 2.4, 2.4],
           "rows": [
             ["Nombre y cargo", "Soledad Paredes\nJefa de operaciones de reservas", "Iván Salas\nResponsable de ingeniería de software"],
-            ["Firma", "\n\n________________", "\n\n________________"],
+            ["Firma", "", ""],
             ["Fecha", "Pendiente", "Pendiente"]
           ]
         }
@@ -293,9 +293,9 @@
           "headers": ["Función", "Nombre y cargo", "Firma", "Fecha"],
           "widths": [1.1, 2.3, 1.8, 1.1],
           "rows": [
-            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "\n\n________________", "Pendiente"],
-            ["Revisado por", "Rafael Mena\nComité de calidad", "\n\n________________", "Pendiente"],
-            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "\n\n________________", "Pendiente"]
+            ["Elaborado por", "Marta Quiroga\nArquitecta de software", "", "Pendiente"],
+            ["Revisado por", "Rafael Mena\nComité de calidad", "", "Pendiente"],
+            ["Aprobado por", "Lucía Ferrer\nComité de proyectos", "", "Pendiente"]
           ]
         }
       ]

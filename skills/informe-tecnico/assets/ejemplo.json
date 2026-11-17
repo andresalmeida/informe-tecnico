@@ -405,7 +405,6 @@
           "source": "Especificación propia de la plantilla; todos los códigos son demostrativos."
         }
       ],
-      "new_page": true,
       "level": 2
     },
     {
@@ -424,7 +423,6 @@
           ]
         }
       ],
-      "new_page": true,
       "level": 2
     },
     {
@@ -497,8 +495,7 @@
           "type": "paragraph",
           "text": "Antes de utilizarla para una entrega real, definir la entidad y el alcance, sustituir el contenido demostrativo y contrastar la evidencia técnica. Las comprobaciones estructurales y visuales complementan esa revisión de contenido."
         }
-      ],
-      "new_page": true
+      ]
     },
     {
       "id": "referencias",

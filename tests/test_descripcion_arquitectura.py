@@ -80,14 +80,18 @@ def run_checks(example, checks, build, rejected_with):
                 label=' '.join(entry['label'].split())
                 assert re.search(re.escape(label)+r'\s*(?:\.\s*)+'+str(entry['page'])+r'\b',first),(label,entry['page'])
         for table in [b for s in source['sections'] for b in s['blocks'] if b['type']=='table']:
-            page=printed.pages[destinations[table['id']]-1]
-            left=21*72/25.4;width=(page.width-2*left)*table['widths'][0]/sum(table['widths'])
-            column=' '.join((page.crop((left,0,left+width,page.height)).extract_text() or '').split())
+            # A table may continue on the next page when moving it would leave over 35 % of the page empty.
+            first=destinations[table['id']]-1
+            column=''
+            for page in printed.pages[first:first+2]:
+                left=21*72/25.4;width=(page.width-2*left)*table['widths'][0]/sum(table['widths'])
+                column+=' '+' '.join((page.crop((left,0,left+width,page.height)).extract_text() or '').split())
             assert all(' '.join(row[0].split()) in column for row in table['rows']),table['id']
         assert destinations['firmas']==result['pages']
         assert 'Histórico de revisiones' in printed.pages[-1].extract_text()
         assert destinations['contexto-sistema']!=destinations['frontera-tarjeta']
-        assert any(w['text']=='Compatibilidad' for w in printed.pages[destinations['calidad-criterios']-1].extract_words())
+        quality=destinations['calidad-criterios']-1
+        assert any(w['text']=='Compatibilidad' for page in printed.pages[quality:quality+2] for w in page.extract_words())
         assert any(w['text']=='Riesgo' for w in printed.pages[destinations['riesgos-arquitectura']-1].extract_words())
     checks.append({'case':'arq-indices-con-destinos-y-tablas-enteras'})
 

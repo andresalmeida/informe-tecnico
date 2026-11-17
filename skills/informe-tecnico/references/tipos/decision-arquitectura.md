@@ -1,6 +1,6 @@
 # Decisión de arquitectura
 
-Elegir `document.kind: "decision-arquitectura"` para registrar una decisión de arquitectura (ADR). Partir de `assets/ejemplo-decision-arquitectura.json`, con `format.profile: "institucional"` y código ADR según [codigos.md](../codigos.md). Registra una decisión con sus razones y consecuencias. Cada opción se explica sin jerga interna, de forma que quien no estuvo en la conversación pueda entenderla.
+Elegir `document.kind: "decision-arquitectura"` para registrar una decisión de arquitectura (ADR). Partir de `assets/ejemplo-decision-arquitectura.json`, con código ADR según [codigos.md](../codigos.md). Registra una decisión con sus razones y consecuencias. Cada opción se explica sin jerga interna, de forma que quien no estuvo en la conversación pueda entenderla.
 
 Es una ficha corta, sin portada, con una elección de estado y el histórico al final (`show_changes: true`). No necesita índices por defecto; `document.indexes` está disponible para un registro que lo requiera. No lleva figura: comparar las opciones y explicar sus consecuencias en texto permite entender esta decisión sin repetir la arquitectura de la factibilidad. El esquema usa bloques existentes `fields`, `table` y `paragraph`, descritos en [fields.md](../contrato/fields.md) y [secciones.md](../contrato/secciones.md).
 

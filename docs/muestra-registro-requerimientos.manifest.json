@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "source": "ejemplo-registro-requerimientos.json",
-  "source_sha256": "e8286a9ba487c5a30814530a21ca54b1991ccaf629b8ce442a94f95ca208ec63",
-  "pdf_sha256": "f9d8fbcff08729575a92b6dc1f9f997290dd229d7ee5aab1c5c958d3a3fa4f56",
+  "source_sha256": "a9f2ec5ecc367eca6c9f2005d97ecdf008861770612f5e9e4d9867cbf993cfc0",
+  "pdf_sha256": "4f0d47e09e1e55fbc8da8d647a0b945b874a0f3178ae54d5c53920488100fc2f",
   "assets": [],
   "pages": 2,
   "passes": 2,
@@ -19,13 +19,14 @@
     "show_changes": true
   },
   "format": {
-    "profile": "institucional",
-    "body_size_pt": 10.5,
-    "line_spacing": 1.380952380952381,
-    "first_line_indent_mm": 0.0,
-    "paragraph_space_after_pt": 8.0,
+    "profile": "institucional-apa",
+    "body_size_pt": 11.0,
+    "line_spacing": 1.5,
+    "first_line_indent_mm": 12.7,
+    "paragraph_space_after_pt": 0.0,
     "reference_indent_mm": 12.7,
-    "table_line_spacing": 1.3333333333333333
+    "table_line_spacing": 1.0,
+    "justify": true
   },
   "entries": [
     {
@@ -54,7 +55,7 @@
       "label": "4. Recepción y asignación",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "aprobaciones",
@@ -65,7 +66,7 @@
     },
     {
       "id": "firmas",
-      "label": "Tabla 1. Registro de firmas",
+      "label": "Tabla 1 Registro de firmas",
       "kind": "table",
       "level": 0,
       "page": 2
@@ -77,7 +78,7 @@
     "adicional": "3. Información adicional",
     "recepcion": "4. Recepción y asignación",
     "aprobaciones": "5. Firmas de responsabilidad",
-    "firmas": "Tabla 1. Registro de firmas"
+    "firmas": "Tabla 1 Registro de firmas"
   },
   "reference_labels": {
     "datos": "1. Datos generales del requerimiento",
@@ -85,6 +86,6 @@
     "adicional": "3. Información adicional",
     "recepcion": "4. Recepción y asignación",
     "aprobaciones": "5. Firmas de responsabilidad",
-    "firmas": "Tabla 1. Registro de firmas"
+    "firmas": "Tabla 1"
   }
 }

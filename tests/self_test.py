@@ -63,7 +63,7 @@ def main():
         assert len(continuation)>=2, continuation
         checks.append({"case":"table-continuation","pages":continuation})
 
-        for kind, expected_pages in (("acta-entrega", 4), ("acta-reunion", 2)):
+        for kind, expected_pages in (("acta-entrega", 3), ("acta-reunion", 2)):
             sample = json.loads((example.parent/f"ejemplo-{kind}.json").read_text())
             acta, acta_pdf = build(kind, sample)
             assert acta["pages"] == expected_pages
@@ -114,7 +114,7 @@ def main():
         new_pages = {e["id"]:e["page"] for e in updated["entries"]}
         assert updated["pages"]>baseline["pages"]
         assert new_pages["campos"]>baseline_pages["campos"]
-        assert updated["labels"]["campos"].startswith("Tabla 136.")
+        assert updated["labels"]["campos"].startswith("Tabla 136 ")  # APA labels carry no period
         updated_text = " ".join(p.extract_text() for p in PdfReader(updated_pdf).pages)
         assert "0007" in updated_text and "Ñandú" in updated_text
         checks.append({"case":"expanded-index-and-cross-reference","before":baseline_pages["campos"],
@@ -168,7 +168,7 @@ def main():
                 assert len(lines)>=2
                 assert abs(lines[0]["x0"]-21*mm-first)<.3, (marker,lines)
                 assert abs(lines[1]["x0"]-21*mm-continuation)<.3, (marker,lines)
-                assert abs(lines[1]["top"]-lines[0]["top"]-22)<.3, (marker,lines)
+                assert abs(lines[1]["top"]-lines[0]["top"]-16.5)<.3, (marker,lines)  # 1.5 x 11 pt
             image_page = rendered.pages[next(x["page"] for x in measured["entries"] if x["id"]=="imagen-apa")-1]
             title = next(w for w in image_page.extract_words() if w["text"]=="Ejemplo")
             assert title["top"] < image_page.images[0]["top"]
@@ -176,7 +176,7 @@ def main():
             continued = [pg for pg in rendered.pages if "Ejemplo de tabla" in (pg.extract_text() or "")]
             assert len(continued)>=2
         checks.append({"case":"apa-rendered-indent-spacing-italics-caption-and-table-continuation",
-                       "indent_pt":36,"line_step_pt":22,"pages":measured["pages"]})
+                       "indent_pt":36,"line_step_pt":16.5,"pages":measured["pages"]})
 
         # The custom-font path must embed true italic variants, not fake them.
         import reportlab
@@ -243,7 +243,7 @@ def main():
                 # Body spacing also applies inside the operational blocks.
                 page = rendered.pages[step_pages[1]]
                 lines = paragraph_lines(page,"RESULTADO_01")
-                assert abs(lines[1]["top"]-lines[0]["top"]-(22 if profile_name.endswith("apa") else 14.5)) < .3
+                assert abs(lines[1]["top"]-lines[0]["top"]-(16.5 if profile_name.endswith("apa") else 14.5)) < .3
             checks.append({"case":"procedures-navigation-pagination-notices-"+profile_name,
                            "step_pages":[p+1 for p in sorted(set(step_pages))], "pages":operation_manifest["pages"]})
 
@@ -314,7 +314,7 @@ def main():
                     if b["type"] == "fields" for item in b["items"] if "options" in item]
 
         feasibility, feasibility_pdf = build("informe-factibilidad", feasibility_source)
-        assert feasibility["pages"] == 5, feasibility["pages"]
+        assert feasibility["pages"] == 6, feasibility["pages"]
         assert feasibility["document"]["kind"] == "informe-factibilidad"
         pages_of = {entry["id"]: entry["page"] for entry in feasibility["entries"]}
         expected_choices = choices(feasibility_source)
@@ -333,7 +333,7 @@ def main():
             lines = {}
             for number, pg in enumerate(printed.pages):
                 for c in pg.chars:
-                    if abs(c["size"]-9) < .1 and c["x0"] > 190:
+                    if abs(c["size"]-11) < .1 and c["x0"] > 190:  # table text at body size
                         lines.setdefault((number, round(c["top"])), []).append(c)
             printed_lines = [("".join(c["text"] for c in sorted(chars, key=lambda c: c["x0"])),
                               all("Bold" in c["fontname"] for c in chars)) for chars in lines.values()]
@@ -347,7 +347,8 @@ def main():
                                         ("firmas", "Aprobado por")):
                 assert last_cell in texts[pages_of[table_id]-1], (table_id, pages_of[table_id])
             assert "Histórico de revisiones" in texts[-1] and "Marta Quiroga" in texts[-1]
-            assert pages_of["aprobaciones"] == feasibility["pages"], "Las firmas quedan en la última página"
+            # The closing splits from its history only when more than 35 % of the page would stay empty.
+            assert feasibility["pages"]-1 <= pages_of["aprobaciones"] <= feasibility["pages"], "Las firmas cierran el cuerpo"
         assert check(feasibility_pdf)["internal_links"] >= 2
         checks.append({"case": "informe-factibilidad", "pages": feasibility["pages"], "choices": len(expected_choices)})
 
@@ -457,7 +458,7 @@ def main():
             for number, pg in enumerate(printed.pages):
                 rows = {}
                 for c in pg.chars:
-                    if abs(c["size"]-9) < .1 and c["x0"] > 160:
+                    if abs(c["size"]-11) < .1 and c["x0"] > 160:  # table text at body size
                         rows.setdefault((number, round(c["top"])), []).append(c)
                 for chars in rows.values():
                     chars.sort(key=lambda c: c["x0"])
@@ -638,19 +639,21 @@ def main():
         alcance_source = json.loads((example.parent/"ejemplo-alcance-proyecto.json").read_text())
         alcance, alcance_pdf = build("alcance-proyecto", alcance_source)
         assert alcance["document"]["kind"] == "alcance-proyecto"
-        assert alcance["pages"] == 6, alcance["pages"]
+        assert alcance["pages"] == 8, alcance["pages"]
         assert choices(alcance_source) == [], "El alcance no tiene elecciones: su decisión de más peso se escribe"
         assert "perimetro" in alcance["labels"] and any(a["path"].endswith("alcance-pagos.png") for a in alcance["assets"])
         alcance_pages = {entry["id"]: entry["page"] for entry in alcance["entries"]}
         with pdfplumber.open(alcance_pdf) as printed:
             texts = [pg.extract_text() or "" for pg in printed.pages]
-            # Every table is whole: its first and last row print on the page where its title is registered.
+            # A table prints its first row on the page where its title is registered and its last row there or on the
+            # next page (a table splits only when moving it would leave over 35 % of the page empty).
             for table_id in ("entregas", "lista-condiciones", "fases", "responsables", "partes", "firmas"):
                 rows = find_block(alcance_source, table_id)["rows"]
-                for cell in (rows[0][0], rows[-1][0]):
-                    assert cell.split("\n")[0][:18] in texts[alcance_pages[table_id]-1], (table_id, cell)
-            # The legend of the matrix prints on the page of its table, and each pair of signatures stays together.
-            assert "responsable de hacer la actividad" in texts[alcance_pages["responsables"]-1]
+                page = alcance_pages[table_id]-1
+                assert rows[0][0].split("\n")[0][:18] in texts[page], (table_id, rows[0][0])
+                assert rows[-1][0].split("\n")[0][:18] in "\n".join(texts[page:page+2]), (table_id, rows[-1][0])
+            # The legend of the matrix prints on the page of its table or the next, and the signatures stay together.
+            assert "responsable de hacer la actividad" in "\n".join(texts[alcance_pages["responsables"]-1:alcance_pages["responsables"]+1])
             acceptance = texts[alcance_pages["partes"]-1]
             assert all(name in acceptance for name in ("Soledad Paredes", "Iván Salas", "Pendiente"))
             assert alcance_pages["firmas"] == alcance["pages"], "Las firmas de responsabilidad cierran el documento"
@@ -841,7 +844,7 @@ def main():
         acta_source = json.loads((example.parent/"ejemplo-acta-capacitacion.json").read_text())
         capacitacion, capacitacion_pdf = build("acta-capacitacion", acta_source)
         assert capacitacion["document"]["kind"] == "acta-capacitacion"
-        assert capacitacion["pages"] == 4, capacitacion["pages"]
+        assert capacitacion["pages"] == 5, capacitacion["pages"]
         by_label = lambda source, label: next(item for item in choices(source) if item["label"] == label)
         assert [item["label"] for item in choices(acta_source)] == ["Modalidad", "Materiales"]
         assert not by_label(acta_source, "Modalidad").get("multiple") and by_label(acta_source, "Materiales")["multiple"]
@@ -851,24 +854,26 @@ def main():
         attendees = find_block(acta_source, "lista-asistentes")["rows"]
         with pdfplumber.open(capacitacion_pdf) as printed:
             texts = [pg.extract_text() or "" for pg in printed.pages]
-            # The attendee table is whole: every number and every signature line prints on the page of its title.
-            roll = texts[acta_pages["lista-asistentes"]-1]
-            assert all(re.search(rf"(?m)^{n}( |$)", roll) for n in range(1, len(attendees)+1)), roll
-            assert roll.count("________________") == len(attendees)
+            # The attendee table may split when much of the page is free, repeating its title and header; each
+            # number prints once, in the page of its title or the next one.
+            first = acta_pages["lista-asistentes"]-1
+            roll = "\n".join(texts[first:first+2])
+            assert all(len(re.findall(rf"(?m)^{n}( |$)", roll)) == 1 for n in range(1, len(attendees)+1)), roll
+            assert "____" not in roll, "the signature cell is left empty: no printed line"
             for table_id, first, last in (("evaluacion-aspectos", "Claridad de la exposición", "Práctica guiada con el módulo"),
                                           ("constancia-firma", "Instructor", "Arquitecta de software"),
                                           ("firmas", "Elaborado por", "Aprobado por")):
                 assert first in texts[acta_pages[table_id]-1] and last in texts[acta_pages[table_id]-1], table_id
-            assert acta_pages["comentarios"] == acta_pages["evaluacion-aspectos"]
+            assert 0 <= acta_pages["comentarios"]-acta_pages["evaluacion-aspectos"] <= 1  # a small table may go to the next page
             # The signatures of responsibility close the document, before the history.
-            assert acta_pages["firmas"] == capacitacion["pages"] and "Histórico de revisiones" in texts[-1]
+            assert capacitacion["pages"]-1 <= acta_pages["firmas"] <= capacitacion["pages"] and "Histórico de revisiones" in texts[-1]
         assert check(capacitacion_pdf)["internal_links"] >= 2
         checks.append({"case": "acta-capacitacion", "pages": capacitacion["pages"], "choices": 2})
 
         # The roll: consecutive numbers, a signature line in every row, two rows with no name, and a blank evaluation.
         assert [row[0] for row in attendees] == [str(n) for n in range(1, len(attendees)+1)]
         blank_rows = [row for row in attendees if not row[1] and not row[2]]
-        assert len(blank_rows) == 2 and all("____" in row[3] for row in attendees)
+        assert len(blank_rows) == 2 and all(row[3] == "" for row in attendees)
         evaluation = find_block(acta_source, "evaluacion-aspectos")
         assert evaluation["headers"][1:] == ["1", "2", "3", "4", "5"]
         assert all(cell == "" for row in evaluation["rows"] for cell in row[1:])
@@ -934,15 +939,16 @@ def main():
 
         # More attendees than rows: the table breaks across pages with its title and header repeated, nothing else moves.
         crowded = copy.deepcopy(acta_source)
-        rows = [[str(n), f"Asistente de prueba {n}", "Cargo de prueba", "\n________________"] for n in range(1, 29)]
-        rows += [["29", "", "", "\n________________"], ["30", "", "", "\n________________"]]
+        rows = [[str(n), f"Asistente de prueba {n}", "Cargo de prueba", ""] for n in range(1, 29)]
+        rows += [["29", "", "", ""], ["30", "", "", ""]]
         find_block(crowded, "lista-asistentes")["rows"] = rows
         crowded_manifest, crowded_pdf = build("acta-muchos-asistentes", crowded)
         crowded_texts = [pg.extract_text() or "" for pg in PdfReader(crowded_pdf).pages]
         roll_pages = [i for i, text in enumerate(crowded_texts) if "Asistentes a la capacitación" in text and "Nombre y apellido" in text]
         assert len(roll_pages) >= 2 and crowded_manifest["pages"] > capacitacion["pages"], (roll_pages, crowded_manifest["pages"])
         assert "Asistente de prueba 28" in crowded_texts[roll_pages[-1]]
-        assert sum(text.count("________________") for text in crowded_texts[roll_pages[0]:roll_pages[-1]+1]) == 30
+        roll_text = "\n".join(crowded_texts[roll_pages[0]:roll_pages[-1]+1])
+        assert all(re.search(rf"(?m)^{n}( |$)", roll_text) for n in range(1, 31)), "Every row keeps its number across the pages"
         crowded_pages = {entry["id"]: entry["page"] for entry in crowded_manifest["entries"]}
         assert crowded_pages["firmas"] == crowded_manifest["pages"], "Las firmas de responsabilidad siguen cerrando el documento"
         checks.append({"case": "acta-muchos-asistentes", "roll_pages": [i+1 for i in roll_pages], "pages": crowded_manifest["pages"]})
@@ -950,9 +956,9 @@ def main():
         # Fewer attendees: the unused rows go, two stay blank, and a guest who did not come keeps their row.
         small = copy.deepcopy(acta_source)
         find_block(small, "lista-asistentes")["rows"] = [
-            ["1", "Soledad Paredes", "Jefa de operaciones de reservas", "\n________________"],
+            ["1", "Soledad Paredes", "Jefa de operaciones de reservas", ""],
             ["2", "Teresa Villalba", "Coordinadora de reservas", "No asistió"],
-            ["3", "", "", "\n________________"], ["4", "", "", "\n________________"]]
+            ["3", "", "", ""], ["4", "", "", ""]]
         small_manifest, small_pdf = build("acta-pocos-asistentes", small)
         small_text = " ".join(p.extract_text() for p in PdfReader(small_pdf).pages)
         assert "No asistió" in small_text and small_manifest["pages"] <= capacitacion["pages"]
@@ -1178,7 +1184,7 @@ def main():
         from build_report import format_amount, validate_quote
         proposal_source = json.loads((example.parent/"ejemplo-propuesta-servicio.json").read_text())
         proposal, proposal_pdf = build("propuesta-servicio", proposal_source)
-        assert proposal["pages"] == 4, proposal["pages"]
+        assert proposal["pages"] == 5, proposal["pages"]
         assert proposal["document"]["kind"] == "propuesta-servicio"
         assert choices(proposal_source) == []
         quote = copy.deepcopy(find_block(proposal_source, "cotizacion"))
@@ -1516,7 +1522,7 @@ def main():
             return " ".join((text or "").split())
 
         eid, eid_pdf = build("evaluacion-impacto-datos", eid_source)
-        assert eid["pages"] == 8, eid["pages"]
+        assert eid["pages"] == 10, eid["pages"]
         assert eid["document"]["kind"] == "evaluacion-impacto-datos"
         eid_choices = choices(eid_source)
         assert [item["label"] for item in eid_choices] == ["Conclusión del tamizaje", "Decisión"]
@@ -1554,7 +1560,8 @@ def main():
             assert checked_block["items"][position]["_level"] == level
             page_text = eid_texts[eid_pages[item["id"]]-1]
             assert f'{item["id"]} Nivel: {level}' in page_text, (item["id"], level)
-            assert flat(item["cause"])[:30] in page_text and flat(item["action"])[-20:] in page_text, item["id"]
+            # The label cell is centered, so text extraction can interleave it between lines: compare word by word.
+            assert all(word in page_text for word in flat(item["cause"])[:30].split() + flat(item["action"])[-20:].split()[1:]), item["id"]
         assert [item["id"] for item in eid_block["items"] if item["state"] == "Cerrado"] == ["RD-06"]
         summary_text = eid_texts[eid_pages["resumen-riesgos"]-1]
         assert "Total de abiertos 5" in summary_text and "Muy alto 0 Ninguno" in summary_text
@@ -1997,7 +2004,7 @@ def main():
         # ---- Notas de versión: lo entregado, sin adelantar pruebas ni el pedido diferido ----
         nov_source = json.loads((example.parent/"ejemplo-notas-version.json").read_text())
         nov, nov_pdf = build("notas-version", nov_source)
-        assert nov["pages"] == 2, nov["pages"]
+        assert nov["pages"] == 3, nov["pages"]
         assert nov["document"]["kind"] == "notas-version"
         assert choices(nov_source) == []
         nov_text = " ".join(" ".join((page.extract_text() or "").split()) for page in PdfReader(nov_pdf).pages)
@@ -2012,7 +2019,7 @@ def main():
         change_types = {row[0] for row in find_block(nov_source, "lista")["rows"]}
         assert change_types == {"Nuevo"}
         last_nov = PdfReader(nov_pdf).pages[-1].extract_text() or ""
-        assert "Histórico de revisiones" in last_nov and "Iván Salas" in last_nov and "CP-05" in last_nov
+        assert "Histórico de revisiones" in last_nov and "Iván Salas" in last_nov  # the history may sit alone on the last page
         checks.append({"case": "notas-version", "pages": nov["pages"]})
 
         no_problems = copy.deepcopy(nov_source)
@@ -2057,6 +2064,12 @@ def main():
 
         from test_apa_rotulos import run_checks as check_apa_rotulos
         check_apa_rotulos(example, root, checks, build)
+
+        from test_perfil_hibrido import run_checks as check_perfil_hibrido
+        check_perfil_hibrido(example, root, checks, build, rejected_with)
+
+        from test_mapa_calor import run_checks as check_mapa_calor
+        check_mapa_calor(example, root, checks, build)
 
         from test_muestras import run_checks as check_muestras
         check_muestras(example, root, checks, build)
