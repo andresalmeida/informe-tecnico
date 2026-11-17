@@ -16,7 +16,7 @@ from lifecycle import validate_lifecycle, status_label, draw_lifecycle_band
 from closing import signature_rows, append_closing
 
 from reportlab.lib import colors
-from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
+from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT, TA_RIGHT
 from reportlab.lib.pagesizes import A4, letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
@@ -139,33 +139,58 @@ def heading_mode_for(spec):
 
 
 def format_for(spec):
-    """Resolve an explicit profile; pre-0.3 sources retain their layout."""
+    """Resolve the format profile; every kind defaults to the hybrid APA body unless ``institucional`` is asked."""
     config = spec.get("format", {})
     require(isinstance(config, dict), "format debe ser un objeto")
-    profile = config.get("profile", "institucional")
+    profile = config.get("profile", "institucional-apa")
     require(profile in ("institucional", "institucional-apa"), "Perfil de formato desconocido")
     apa = profile == "institucional-apa"
     values = {"profile": profile, "body_size_pt": 11.0 if apa else 10.5,
-              "line_spacing": 2.0 if apa else 14.5/10.5,
+              "line_spacing": 1.5 if apa else 14.5/10.5,
               "first_line_indent_mm": 12.7 if apa else 0.0,
               "paragraph_space_after_pt": 0.0 if apa else 8.0,
               "reference_indent_mm": 12.7,
               "table_line_spacing": 1.0 if apa else 12/9}
     require(config.get("heading_case", "sentence") in ("sentence", "title"),
             'format.heading_case admite "sentence" o "title".')
-    require(not set(config)-set(values)-{"heading_case"}, "Campo de formato desconocido")
-    for key in values.keys()-{"profile"}:
+    if apa:
+        values["justify"] = True  # the APA profile justifies the body; format.justify can turn it off
+        values["table_size_pt"] = 10.0  # APA lets tables use a smaller size; 11 pt splits words in the fixed form columns
+    require(not set(config)-set(values)-{"heading_case", "justify"}, "Campo de formato desconocido")
+    if "justify" in config:
+        require(isinstance(config["justify"], bool), "format.justify debe ser true o false")
+        values["justify"] = config["justify"]
+    for key in values.keys()-{"profile", "justify"}:
         value = config.get(key, values[key])
         require(isinstance(value, (int, float)) and not isinstance(value, bool), f"Formato no numérico: {key}")
         require(float(value) == float(value) and abs(float(value)) != float("inf"), f"Formato no finito: {key}")
         values[key] = float(value)
     require(8.5 <= values["body_size_pt"] <= 24, "Cuerpo fuera de 8,5..24 pt")
+    require(8.5 <= values.get("table_size_pt", 9) <= 24, "Texto de tabla fuera de 8,5..24 pt")
     require(1 <= values["line_spacing"] <= 3, "Interlineado fuera de 1..3")
     require(1 <= values["table_line_spacing"] <= 2, "Interlineado de tabla fuera de 1..2")
     require(0 <= values["first_line_indent_mm"] <= 30 and 0 <= values["reference_indent_mm"] <= 30,
             "Sangría fuera de 0..30 mm")
     require(0 <= values["paragraph_space_after_pt"] <= 30, "Espaciado de párrafo fuera de 0..30 pt")
     return values
+
+
+def fit_widths(widths, headers, rows, head_font, cell_font, size, padding=13):
+    """Widen the columns whose longest word does not fit, taking the width from the columns with slack."""
+    def longest(values, font):
+        best = 0
+        for text in values:
+            for word in re.split(r"\s+", re.sub(r"<[^>]+>", "", str(text))):
+                if word and not word.startswith("{{"):
+                    best = max(best, pdfmetrics.stringWidth(word, font, size))
+        return best + padding
+    need = [max(longest([header], head_font), longest([row[i] for row in rows], cell_font))
+            for i, header in enumerate(headers)]
+    deficit = sum(max(0, n - w) for n, w in zip(need, widths))
+    slack = sum(max(0, w - n) for n, w in zip(need, widths))
+    if deficit == 0 or deficit > slack:
+        return widths
+    return [n if w < n else w - (w - n) * deficit / slack for n, w in zip(need, widths)]
 
 
 def require(condition, message):
@@ -473,7 +498,7 @@ def validate_testcase(block):
             required_text(step.get(key), f"testcase.steps[{i}].{key}")
 
 
-def testcase_for(block, doc, styles, p, markup, accent, rule, head_style):
+def testcase_for(block, doc, styles, p, markup, accent, rule, head_style, apa=False):
     """One row-splittable table: repeat the case sheet, keep the closing result with the last step."""
     label_style = ParagraphStyle("testcase-label", parent=styles["cell"], fontName=styles["h1"].fontName)
     def label(text):
@@ -497,16 +522,22 @@ def testcase_for(block, doc, styles, p, markup, accent, rule, head_style):
              [label("Responsable de aceptación"), "", p(block["responsible"], "cell"), "", ""],
              [label("Observaciones"), "", p(block["observations"], "cell"), "", ""]]
     # RegisteredTable transfers its destination only to the first fragment.
-    result = RegisteredTable(data, colWidths=[doc.width*w for w in (.07, .17, .28, .25, .23)],
+    # The bold 10 pt header «Paso» does not fit the original .07 column.
+    weights = (.085, .165, .275, .25, .225) if apa else (.07, .17, .28, .25, .23)
+    result = RegisteredTable(data, colWidths=[doc.width*w for w in weights],
                              repeatRows=header_rows, splitByRow=1, splitInRow=0,
                              hAlign="LEFT", spaceBefore=6, spaceAfter=10)
     commands = [("SPAN", (0, 0), (-1, 0)), ("VALIGN", (0, 0), (-1, -1), "TOP"),
                 ("GRID", (0, 0), (-1, -1), .4, rule),
                 ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5),
                 ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-                ("BACKGROUND", (0, header_rows-1), (-1, header_rows-1), accent),
                 ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#F4F6F8")),
                 ("NOSPLIT", (0, closing-1), (-1, -1))]
+    if apa:
+        commands += [("LINEABOVE", (0, header_rows-1), (-1, header_rows-1), .6, colors.black),
+                     ("LINEBELOW", (0, header_rows-1), (-1, header_rows-1), .6, colors.black)]
+    else:
+        commands += [("BACKGROUND", (0, header_rows-1), (-1, header_rows-1), accent)]
     for row in list(range(1, header_rows-1)) + list(range(closing, len(data))):
         # Label spans two columns; the value takes the other three.
         commands += [("SPAN", (0, row), (1, row)), ("SPAN", (2, row), (-1, row))]
@@ -1309,7 +1340,7 @@ def validate_wbs(block):
     block["_flat"] = flat
 
 
-def wbs_for(block, styles, markup, doc_width, accent, rule, head_style, doc_height):
+def wbs_for(block, styles, markup, doc_width, accent, rule, head_style, doc_height, apa=False, caption=None):
     from reportlab.platypus import Paragraph, TableStyle
     unit = block["_unit"]
     intro = Paragraph(
@@ -1346,16 +1377,21 @@ def wbs_for(block, styles, markup, doc_width, accent, rule, head_style, doc_heig
     result = RegisteredTable(data, colWidths=widths, repeatRows=1, hAlign="LEFT",
                              splitByRow=1, splitInRow=0, spaceBefore=2, spaceAfter=8)
     result.keep_whole, result.page_height = True, doc_height
-    result.setStyle(TableStyle([
+    commands = [
         ("VALIGN", (0, 0), (-1, -1), "TOP"),
         ("LEFTPADDING", (0, 0), (-1, -1), 6), ("RIGHTPADDING", (0, 0), (-1, -1), 6),
-        ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
-        ("BACKGROUND", (0, 0), (-1, 0), accent),
-        ("LINEBELOW", (0, 0), (-1, -1), .3, rule),
-        ("ROWBACKGROUNDS", (0, 1), (-1, -2), [colors.white, colors.HexColor("#F4F6F8")]),
-        ("BACKGROUND", (0, -1), (-1, -1), colors.HexColor("#E6EEF3")),
-    ]))
-    caption = Paragraph(markup(block["_label"]), styles["caption"])
+        ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4)]
+    if apa:
+        # Sparse horizontal rules, as in every APA table: above and below the header, above and below the total.
+        commands += [("LINEABOVE", (0, 0), (-1, 0), .6, colors.black), ("LINEBELOW", (0, 0), (-1, 0), .6, colors.black),
+                     ("LINEABOVE", (0, -1), (-1, -1), .4, colors.black), ("LINEBELOW", (0, -1), (-1, -1), .6, colors.black)]
+    else:
+        commands += [("BACKGROUND", (0, 0), (-1, 0), accent),
+                     ("LINEBELOW", (0, 0), (-1, -1), .3, rule),
+                     ("ROWBACKGROUNDS", (0, 1), (-1, -2), [colors.white, colors.HexColor("#F4F6F8")]),
+                     ("BACKGROUND", (0, -1), (-1, -1), colors.HexColor("#E6EEF3"))]
+    result.setStyle(TableStyle(commands))
+    caption = caption or Paragraph(markup(block["_label"]), styles["caption"])
     caption.keepWithNext = True
     result.entry = (block["id"], block["_label"], "table", 0)
     return [intro, caption, result]
@@ -1412,7 +1448,7 @@ def registry(spec):
     form = KIND_RULES[spec["document"].get("kind", "informe")].get("form", False)
     mode = heading_mode_for(spec)
     # In the APA profile the printed caption is «Tabla 1» above the title, so the label has no period.
-    separator = " " if spec.get("format", {}).get("profile") == "institucional-apa" else ". "
+    separator = " " if format_for(spec)["profile"] == "institucional-apa" else ". "
     labels, counters, table_n, figure_n, procedure_n = {}, [0, 0, 0], 0, 0, 0
     used_numbers = {"table": set(), "figure": set()}
     seen_requirement_ids, requirement_items, matrix_seen = set(), [], False
@@ -1525,13 +1561,15 @@ def styles_for(brand, base, layout=None):
     accent = colors.HexColor(brand["accent"])
     size = layout["body_size_pt"]
     leading = size*layout["line_spacing"]
+    body_alignment = TA_JUSTIFY if layout.get("justify") else TA_LEFT
     root = ParagraphStyle("body", fontName=normal, fontSize=size, leading=leading,
-                          firstLineIndent=layout["first_line_indent_mm"]*mm, alignment=TA_LEFT,
+                          firstLineIndent=layout["first_line_indent_mm"]*mm, alignment=body_alignment,
                           textColor=ink, spaceBefore=0, spaceAfter=layout["paragraph_space_after_pt"],
                           allowWidows=0, allowOrphans=0)
     def style(name, **kw):
         kw.setdefault("firstLineIndent", 0)
         kw.setdefault("leftIndent", 0)
+        kw.setdefault("alignment", TA_LEFT)  # only body text follows the justification setting
         return ParagraphStyle(name, parent=root, **kw)
     result = {"body": root,
             "h1": style("h1", fontName=bold, fontSize=16, leading=20, spaceBefore=15,
@@ -1554,11 +1592,12 @@ def styles_for(brand, base, layout=None):
             "footer": style("footer", fontSize=8.5, leading=11, spaceAfter=0)}
     result["footer_right"] = ParagraphStyle("footer-right", parent=result["footer"], alignment=TA_RIGHT)
     result["plain"] = style("plain")
-    result["list"] = style("list", leftIndent=18, firstLineIndent=-18)
+    result["list"] = style("list", leftIndent=18, firstLineIndent=-18, alignment=body_alignment)
     result["reference"] = style("reference", leftIndent=layout["reference_indent_mm"]*mm,
                                 firstLineIndent=-layout["reference_indent_mm"]*mm)
-    result["quotation"] = style("quotation", leftIndent=12.7*mm)
-    result["quotation_continued"] = style("quotation-continued", leftIndent=12.7*mm, firstLineIndent=12.7*mm)
+    result["quotation"] = style("quotation", leftIndent=12.7*mm, alignment=body_alignment)
+    result["quotation_continued"] = style("quotation-continued", leftIndent=12.7*mm, firstLineIndent=12.7*mm,
+                                          alignment=body_alignment)
     result["procedure_title"] = style("procedure-title", fontName=bold, spaceBefore=10,
                                        spaceAfter=6, keepWithNext=True)
     result["procedure_action"] = style("procedure-action", leftIndent=18, firstLineIndent=-18,
@@ -1567,15 +1606,13 @@ def styles_for(brand, base, layout=None):
     result["procedure_context"] = style("procedure-context", keepWithNext=True)
     for name, indent in (("bulleted", 12), ("ordered", 20)):
         result[name] = style(name, leftIndent=indent, bulletIndent=0, bulletFontName=normal,
-                             bulletFontSize=size, spaceAfter=3)
+                             bulletFontSize=size, spaceAfter=3, alignment=body_alignment)
     result["notice"] = style("notice", leftIndent=8, rightIndent=8, spaceBefore=10, spaceAfter=10,
                               borderWidth=.55, borderColor=ink, borderPadding=6)
     if apa:
         result.update({
-            "h1": style("h1-apa", fontName=bold, alignment=TA_CENTER, keepWithNext=True),
-            "h2": style("h2-apa", fontName=bold, keepWithNext=True),
-            "h3": style("h3-apa", fontName=bold_italic, keepWithNext=True),
-            "cell": style("cell-apa", leading=size*layout["table_line_spacing"]),
+            "cell": style("cell-apa", fontSize=layout["table_size_pt"],
+                          leading=layout["table_size_pt"]*layout["table_line_spacing"]),
             "caption": style("caption-apa", keepWithNext=True),
             "small": style("notes-apa"),
         })
@@ -1762,6 +1799,9 @@ def compile_report(source, output):
             widths = [1] * len(headers)
         require(len(widths) == len(headers) and all(float(v) > 0 for v in widths), "Anchos de tabla no válidos")
         widths = [doc.width*float(v)/sum(widths) for v in widths]
+        if apa:
+            widths = fit_widths(widths, headers, rows, head_style.fontName, styles["cell"].fontName,
+                                styles["cell"].fontSize)
         data = []
         heading_row = 0
         if title:
@@ -1805,7 +1845,8 @@ def compile_report(source, output):
     def fields_for(block):
         """Label/value grid; a choice stacks its options, the marked ones crossed."""
         per_row = block.get("columns", 1)
-        weights = [.24, .76] if per_row == 1 else [.18, .32, .18, .32]
+        # An 11 pt bold label such as «Requerimiento» needs the wider label column of the APA profile.
+        weights = [.24, .76] if per_row == 1 else ([.20, .30, .20, .30] if apa else [.18, .32, .18, .32])
         label_style = ParagraphStyle("field-label", parent=styles["cell"], fontName=styles["h1"].fontName)
         ink = colors.HexColor(spec["brand"].get("ink", "#17232F"))
         data, commands = [], [
@@ -1841,6 +1882,8 @@ def compile_report(source, output):
         return grid
 
     m = spec["document"]
+    # The APA header is 11 pt bold: reserve enough width to keep «Versión» whole.
+    history_widths = [1.4,1.5,4.6,2] if apa else [1,1.5,5,2]
     history = []
     for change in spec["changes"]:
         for key in ("version", "date", "summary", "author"):
@@ -1859,8 +1902,6 @@ def compile_report(source, output):
         if m.get("notice"):
             story += [p(m["notice"], "small")]
         story += [PageBreak(), p(heading_text("Histórico de revisiones", mode), "h1")]
-        # The APA header is 11 pt bold: reserve enough width to keep «Versión» whole.
-        history_widths = [1.4,1.5,4.6,2] if apa else [1,1.5,5,2]
         story += [table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], history, history_widths)]
         if m.get("control_note"):
             story += [p(m["control_note"], "small")]
@@ -1938,7 +1979,7 @@ def compile_report(source, output):
             elif kind == "procedure":
                 story += procedure_for(block)
             elif kind == "testcase":
-                append_testcase(story, testcase_for(block, doc, styles, p, markup, accent, rule, head_style), doc)
+                append_testcase(story, testcase_for(block, doc, styles, p, markup, accent, rule, head_style, apa), doc)
             elif kind == "risks":
                 story += risks_for(block, table, p, styles, markup, doc.width, rule, doc.height)
             elif kind == "quote":
@@ -1946,7 +1987,8 @@ def compile_report(source, output):
             elif kind == "impact":
                 story += [impact_for(block, table)]
             elif kind == "wbs":
-                story += wbs_for(block, styles, markup, doc.width, accent, rule, head_style, doc.height)
+                story += wbs_for(block, styles, markup, doc.width, accent, rule, head_style, doc.height,
+                                 apa, caption_for(block) if apa else None)
             elif kind == "requirements":
                 story += requirements_for(block, table, p, styles, markup, doc.width, rule, doc.height)
             elif kind == "pagebreak":
@@ -1996,7 +2038,7 @@ def compile_report(source, output):
     if show_changes:
         dated = history
         closing = [p(heading_text("Histórico de revisiones", mode), "h1"),
-                   table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], dated, [1,1.5,5,2])]
+                   table(["Versión", "Fecha", "Cambio y localizador", "Responsable"], dated, history_widths)]
         story = append_closing(story, closing, doc.width, doc.height) if form else story + closing
     doc.multiBuild(story, maxPasses=10)
     assets = []
