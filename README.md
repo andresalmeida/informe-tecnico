@@ -2,7 +2,7 @@
 
 Una skill para agentes (Claude Code, Codex, Cursor y otros) que redacta y compila en PDF documentos técnicos y de gestión de proyectos con la identidad de tu entidad: nombre, logo, colores y esquema de códigos. El agente lee `SKILL.md`, elige el tipo de documento, escribe una fuente JSON y un motor en Python la convierte en un PDF con cabecera, paginación, historial de cambios, índices y un comprobador.
 
-**Versión 0.8.2** · licencia MIT · Python 3.10 o posterior
+**Versión 0.8.3** · licencia MIT · Python 3.10 o posterior
 
 [![CI](https://github.com/andresalmeida/informe-tecnico/actions/workflows/validate.yml/badge.svg)](https://github.com/andresalmeida/informe-tecnico/actions/workflows/validate.yml)
 
