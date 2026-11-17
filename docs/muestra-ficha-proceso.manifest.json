@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-ficha-proceso.json",
   "source_sha256": "906ace52d63ec092e95643a8671503258d5b0947e214c174ebfd4f0fe67aab4b",
-  "pdf_sha256": "d4f7dd05ba0ce49d98700098cc86d10fb4c7d29440708aa1cbc60cfc4c78fd12",
+  "pdf_sha256": "5913f01a18a8d17987380a0dd753d8507c000af5fff4db57a9ead5ea76157479",
   "assets": [
     {
       "path": "diagrams/sipoc-proyectos.png",

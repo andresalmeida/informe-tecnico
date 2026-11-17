@@ -2,9 +2,9 @@
   "schema_version": 1,
   "source": "ejemplo-ficha-modelo.json",
   "source_sha256": "144b757ecd3e02910013157a06ae4e3adaacf00bc5711ce9dd6b03f7962e22bb",
-  "pdf_sha256": "b16643538b8d959c657d4241df1112d09b1a708e0f6acf54ec60d55ed6d5803e",
+  "pdf_sha256": "55b2b4cfec9ec217d150bc4e873a1c168a6abd5e51fc5dc03833c575fdda162f",
   "assets": [],
-  "pages": 4,
+  "pages": 5,
   "passes": 2,
   "paper": "A4",
   "document": {
@@ -48,7 +48,7 @@
       "label": "3. Datos",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "modelo",
@@ -62,14 +62,14 @@
       "label": "5. Evaluación",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "metricas",
       "label": "Tabla 1 Métricas de demostración",
       "kind": "table",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "grupos",
@@ -90,21 +90,21 @@
       "label": "7. Monitoreo y mantenimiento",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "aprobacion",
       "label": "8. Aprobaciones",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "firmas",
       "label": "Tabla 3 Registro de firmas",
       "kind": "table",
       "level": 0,
-      "page": 4
+      "page": 5
     }
   ],
   "labels": {

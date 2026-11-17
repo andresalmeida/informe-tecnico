@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-especificacion-requisitos.json",
   "source_sha256": "e2c08c3555f616fa4cd920bcd5544214e8ba2ae1839916f4e94f57ec9c19ca45",
-  "pdf_sha256": "dd481f0dac5705c83503b95568226703e3e8f89c4071732c77055e02eb71e6fc",
+  "pdf_sha256": "626a5c6310339b7ead039f060135d7233ed320d95ae767cabfb8f60235637762",
   "assets": [],
   "pages": 7,
   "passes": 2,
@@ -125,7 +125,7 @@
       "label": "5. Requisitos no funcionales",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "RNF-01",
@@ -160,7 +160,7 @@
       "label": "RNF-05",
       "kind": "requirement",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "RNF-06",

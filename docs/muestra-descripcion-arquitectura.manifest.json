@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-descripcion-arquitectura.json",
   "source_sha256": "d0c8ab3a040aeecbf45257f999cde06be7340494bdec7e7da589f8dde34e36e8",
-  "pdf_sha256": "8d51b96939764c715a70674607c8db961dfc3279da6fae099097353633260358",
+  "pdf_sha256": "36dd3e9c7524616dcd776e6f9e6e3fbaff70ebedbd83074717cb6ce7f6695ca5",
   "assets": [
     {
       "path": "diagrams/contexto-arquitectura-pagos.png",
@@ -145,7 +145,7 @@
       "label": "8. Atributos de calidad",
       "kind": "section",
       "level": 0,
-      "page": 7
+      "page": 8
     },
     {
       "id": "calidad-criterios",
@@ -159,7 +159,7 @@
       "label": "9. Riesgos y pendientes",
       "kind": "section",
       "level": 0,
-      "page": 8
+      "page": 9
     },
     {
       "id": "riesgos-arquitectura",

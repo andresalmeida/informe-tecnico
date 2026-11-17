@@ -174,6 +174,47 @@ def format_for(spec):
 
 
 SIGNATURE_SPACE = 11*mm
+SECTION_MAX_BLANK = .4  # share of the page a section may leave blank when it moves whole to the next one
+
+
+class KeepSection(Spacer):
+    """Zero-height marker before a section. A section that would be cut, fits on one page and leaves no more than
+    ``max_blank`` of the page empty if it moves, goes whole to the next page."""
+    locChanger = 1
+
+    def __init__(self, unit, page_height, max_blank=SECTION_MAX_BLANK):
+        Spacer.__init__(self, 0, 0)
+        self.unit, self.page_height, self.max_blank = unit, page_height, max_blank * page_height
+        self.needed = None
+
+    def measure(self, width):
+        total, previous_after = 0, 0
+        canvas = self._doctemplateAttr("canv")
+        for index, item in enumerate(self.unit):
+            _, height = item.wrapOn(canvas, width, self.page_height)
+            before = item.getSpaceBefore()
+            total += height + (0 if index == 0 else max(before, previous_after))
+            previous_after = item.getSpaceAfter()
+        return total
+
+    def wrap(self, availWidth, availHeight):
+        if self.needed is None:
+            self.needed = self.measure(availWidth)
+        if self.needed > availHeight and self.needed <= self.page_height and availHeight <= self.max_blank:
+            frame = self._doctemplateAttr("frame")
+            if frame:
+                from reportlab.platypus.doctemplate import FrameBreak
+                frame.add_generated_content(FrameBreak)
+        return 0, 0
+
+
+def keep_sections(story, starts, page_height):
+    """Put a KeepSection before every section start, unless the section holds an authored page break."""
+    ends = starts[1:] + [len(story)]
+    for start, end in reversed(list(zip(starts, ends))):
+        unit = story[start:end]
+        if not any(isinstance(item, (PageBreak, CondPageBreak)) for item in unit):
+            story.insert(start, KeepSection(unit, page_height))
 
 
 def is_signature_label(value):
@@ -532,7 +573,7 @@ def testcase_for(block, doc, styles, p, markup, accent, rule, head_style, apa=Fa
     result = RegisteredTable(data, colWidths=[doc.width*w for w in weights],
                              repeatRows=header_rows, splitByRow=1, splitInRow=0,
                              hAlign="LEFT", spaceBefore=6, spaceAfter=10)
-    commands = [("SPAN", (0, 0), (-1, 0)), ("VALIGN", (0, 0), (-1, -1), "TOP"),
+    commands = [("SPAN", (0, 0), (-1, 0)), ("VALIGN", (0, 0), (-1, -1), styles["table_valign"]),
                 ("GRID", (0, 0), (-1, -1), .4, rule),
                 ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5),
                 ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4),
@@ -794,7 +835,7 @@ def risks_for(block, table, p, styles, markup, doc_width, rule, doc_height):
 
     for item in block["items"]:
         data, commands = [], [
-            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("VALIGN", (0, 0), (-1, -1), styles["table_valign"]),
             ("GRID", (0, 0), (-1, -1), .4, rule),
             ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5),
             ("TOPPADDING", (0, 0), (-1, -1), 3), ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
@@ -1135,7 +1176,7 @@ def requirements_for(block, table, p, styles, markup, doc_width, rule, doc_heigh
 
     for item in block["items"]:
         data, commands = [], [
-            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+            ("VALIGN", (0, 0), (-1, -1), styles["table_valign"]),
             ("GRID", (0, 0), (-1, -1), .4, rule),
             ("LEFTPADDING", (0, 0), (-1, -1), 5), ("RIGHTPADDING", (0, 0), (-1, -1), 5),
             ("TOPPADDING", (0, 0), (-1, -1), 3), ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
@@ -1383,7 +1424,7 @@ def wbs_for(block, styles, markup, doc_width, accent, rule, head_style, doc_heig
                              splitByRow=1, splitInRow=0, spaceBefore=2, spaceAfter=8)
     result.keep_whole, result.page_height = True, doc_height
     commands = [
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ("VALIGN", (0, 0), (-1, -1), styles["table_valign"]),
         ("LEFTPADDING", (0, 0), (-1, -1), 6), ("RIGHTPADDING", (0, 0), (-1, -1), 6),
         ("TOPPADDING", (0, 0), (-1, -1), 4), ("BOTTOMPADDING", (0, 0), (-1, -1), 4)]
     if apa:
@@ -1612,6 +1653,7 @@ def styles_for(brand, base, layout=None):
     for name, indent in (("bulleted", 12), ("ordered", 20)):
         result[name] = style(name, leftIndent=indent, bulletIndent=0, bulletFontName=normal,
                              bulletFontSize=size, spaceAfter=3, alignment=body_alignment)
+    result["table_valign"] = "MIDDLE" if apa else "TOP"  # a Word-like "center left" cell in the default profile
     result["notice"] = style("notice", leftIndent=8, rightIndent=8, spaceBefore=10, spaceAfter=10,
                               borderWidth=.55, borderColor=ink, borderPadding=6)
     if apa:
@@ -1827,7 +1869,7 @@ def compile_report(source, output):
                                  hAlign="LEFT", splitByRow=1, splitInRow=0,
                                  spaceBefore=before, spaceAfter=after)
         commands = [
-            ("VALIGN", (0,0),(-1,-1),"TOP"),
+            ("VALIGN", (0,0),(-1,-1),styles["table_valign"]),
             ("LEFTPADDING", (0,0),(-1,-1),6), ("RIGHTPADDING", (0,0),(-1,-1),6),
             ("TOPPADDING", (0,0),(-1,-1),pad), ("BOTTOMPADDING", (0,0),(-1,-1),pad),
             ("BACKGROUND", (0,heading_row),(-1,heading_row),accent),
@@ -1860,7 +1902,7 @@ def compile_report(source, output):
         label_style = ParagraphStyle("field-label", parent=styles["cell"], fontName=styles["h1"].fontName)
         ink = colors.HexColor(spec["brand"].get("ink", "#17232F"))
         data, commands = [], [
-            ("VALIGN", (0,0),(-1,-1),"TOP"), ("GRID", (0,0),(-1,-1),.5,rule),
+            ("VALIGN", (0,0),(-1,-1),styles["table_valign"]), ("GRID", (0,0),(-1,-1),.5,rule),
             ("LEFTPADDING", (0,0),(-1,-1),6), ("RIGHTPADDING", (0,0),(-1,-1),6),
             ("TOPPADDING", (0,0),(-1,-1),5), ("BOTTOMPADDING", (0,0),(-1,-1),5)]
         items = block["items"]
@@ -1937,9 +1979,11 @@ def compile_report(source, output):
         for name, kind_name in (("contents", "section"), ("tables", "table"), ("figures", "figure")):
             if name in indexes:
                 story += [p(heading_text(INDEX_TITLES[name], mode), "h2"), Navigation(kind_name, styles["index"], tight=True)]
+    section_starts = []
     for section_index, section in enumerate(spec["sections"]):
         if section.get("new_page") and section_index:
             story += [PageBreak()]
+        section_starts.append(len(story))
         heading = p(labels[section["id"]], f'h{section.get("level",1)}')
         heading.entry = (section["id"], labels[section["id"]], "section", section.get("level",1)-1)
         story += [heading]
@@ -2045,6 +2089,8 @@ def compile_report(source, output):
                     if block.get("source"):
                         components += [p(f'Fuente: {block["source"]}',"small")]
                 story += [KeepTogether(components)]
+    if apa:
+        keep_sections(story, section_starts, doc.height)
     if show_changes:
         dated = history
         closing = [p(heading_text("Histórico de revisiones", mode), "h1"),

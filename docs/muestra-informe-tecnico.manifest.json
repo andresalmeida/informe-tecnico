@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo.json",
   "source_sha256": "82740e3267e8b9038d0b292a2b54ea17e956f7809e7efc63d7070ac650edbaf9",
-  "pdf_sha256": "91b34c665aef62cd75d5b5250b13d2ce09bb4f8453d6ff2189d82d127c2ce105",
+  "pdf_sha256": "16193b60bed428f5d9a0345136461228f2d156a6cd8f64bc6e6c84d394c95d62",
   "assets": [
     {
       "path": "diagrams/ciclo-revision.png",

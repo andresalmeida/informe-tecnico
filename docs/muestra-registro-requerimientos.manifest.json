@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-registro-requerimientos.json",
   "source_sha256": "a9f2ec5ecc367eca6c9f2005d97ecdf008861770612f5e9e4d9867cbf993cfc0",
-  "pdf_sha256": "77b9cd387b00b6666a919779b1fa9a610d66ffba47e5f07fe10fad26ff1b7ca7",
+  "pdf_sha256": "dffe15d041d22b936389028f5945a0243a18b54cf8df0e745d9478a00b2f6ff7",
   "assets": [],
   "pages": 2,
   "passes": 2,
@@ -55,7 +55,7 @@
       "label": "4. Recepción y asignación",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "aprobaciones",

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-alcance-proyecto.json",
   "source_sha256": "9da44499f6d2fcffc4f90a2ae9ab69ce234a883942b3f54451ca8133fd26fc80",
-  "pdf_sha256": "e23e2780ac984ee9faabd5b5c41e8b4610fbd17c36f068f8bb9d1d34d616ae2e",
+  "pdf_sha256": "9bb7fcf3a08984e41dc25fa1c27f1af904159954324dbe357265a9f485bb2587",
   "assets": [
     {
       "path": "diagrams/alcance-pagos.png",
@@ -46,7 +46,7 @@
       "label": "2. Objetivo del proyecto",
       "kind": "section",
       "level": 0,
-      "page": 1
+      "page": 2
     },
     {
       "id": "alcance",

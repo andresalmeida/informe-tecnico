@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-plan-proyecto.json",
   "source_sha256": "624dad6732e75bca16a25e1c4ed8c239c32be235280bbfab92ab67f84b932964",
-  "pdf_sha256": "5bbf6abc3e6da213f58b5112c298682c09a77cac099cd0d21fdf1358ba513ddd",
+  "pdf_sha256": "c8c093ced9af3c0f3f743a2c52ad18f160685f5b313e24fb922ca9012d70d0b1",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -62,7 +62,7 @@
       "label": "4. Hitos y calendario",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "calendario",
@@ -90,7 +90,7 @@
       "label": "Tabla 4 Tipos de decisión",
       "kind": "table",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "cadencia",

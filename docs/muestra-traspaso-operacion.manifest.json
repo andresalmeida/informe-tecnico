@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-traspaso-operacion.json",
   "source_sha256": "c79eba83630999393ce81fa72625eb297dca7879feb014d7999abde57bb66d17",
-  "pdf_sha256": "ef8a814a00ed4624ca243be7dbf2dc83ef05808250041360fbf4c860a046de30",
+  "pdf_sha256": "7426faf9315ea0ec46354de0254d55dc092206a7409bd844a5c902b089026e21",
   "assets": [],
   "pages": 4,
   "passes": 2,

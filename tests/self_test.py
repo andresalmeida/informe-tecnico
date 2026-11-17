@@ -1449,7 +1449,7 @@ def main():
         mod_source = json.loads((example.parent/"ejemplo-ficha-modelo.json").read_text())
         risk_chain = json.loads((example.parent/"ejemplo-registro-riesgos.json").read_text())
         mod, mod_pdf = build("ficha-modelo", mod_source)
-        assert mod["pages"] == 4, mod["pages"]
+        assert mod["pages"] == 5, mod["pages"]
         assert mod["document"]["kind"] == "ficha-modelo"
         mod_choices = choices(mod_source)
         assert len(mod_choices) == 1 and mod_choices[0]["selected"] == "En validación"
@@ -1555,7 +1555,8 @@ def main():
             assert checked_block["items"][position]["_level"] == level
             page_text = eid_texts[eid_pages[item["id"]]-1]
             assert f'{item["id"]} Nivel: {level}' in page_text, (item["id"], level)
-            assert flat(item["cause"])[:30] in page_text and flat(item["action"])[-20:] in page_text, item["id"]
+            # The label cell is centered, so text extraction can interleave it between lines: compare word by word.
+            assert all(word in page_text for word in flat(item["cause"])[:30].split() + flat(item["action"])[-20:].split()[1:]), item["id"]
         assert [item["id"] for item in eid_block["items"] if item["state"] == "Cerrado"] == ["RD-06"]
         summary_text = eid_texts[eid_pages["resumen-riesgos"]-1]
         assert "Total de abiertos 5" in summary_text and "Muy alto 0 Ninguno" in summary_text

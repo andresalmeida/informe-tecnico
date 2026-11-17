@@ -6,9 +6,9 @@ Elegir `document.kind: "ficha-modelo"` para acompañar un modelo estadístico o 
 
 La estructura se orienta por la idea de una ficha de modelo: uso previsto, datos, modelo, evaluación y limitaciones. No se reproduce el texto de una publicación ni se afirma de ella nada que no esté en esta guía. El orden de los apartados es el del catálogo.
 
-El PDF es compacto: título y contenido en la primera página, sin portada, de cuatro páginas en el ejemplo. El histórico de revisiones se imprime al final con `document.show_changes: true`. No hay bloque nuevo: las tablas y las fichas de campos bastan. Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
+El PDF es compacto: título y contenido en la primera página, sin portada, de cinco páginas en el ejemplo. El histórico de revisiones se imprime al final con `document.show_changes: true`. No hay bloque nuevo: las tablas y las fichas de campos bastan. Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
 
-**Índices.** El ejemplo no los lleva: con cuatro páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando la ficha pasa de siete páginas. `tables` y `figures` no se recomiendan en una ficha corta.
+**Índices.** El ejemplo no los lleva: con cinco páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando la ficha pasa de siete páginas. `tables` y `figures` no se recomiendan en una ficha corta.
 
 ## Decidir antes de redactar
 

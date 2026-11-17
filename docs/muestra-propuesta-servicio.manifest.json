@@ -2,7 +2,7 @@
   "schema_version": 1,
   "source": "ejemplo-propuesta-servicio.json",
   "source_sha256": "142557ff6269935344f90718c0e83ea3bcf1aabfaefc6423a514f80bbaa71465",
-  "pdf_sha256": "9755fe7ba10dd60b8673c675774433b97945fc803a3e99ef45d3663f4441e1f3",
+  "pdf_sha256": "16eb90a2b74f115e6822a232f11255bb5a045683200a67d061de7da71191924d",
   "assets": [],
   "pages": 5,
   "passes": 2,
@@ -83,7 +83,7 @@
       "label": "6. Lo que necesitamos de la parte solicitante",
       "kind": "section",
       "level": 0,
-      "page": 2
+      "page": 3
     },
     {
       "id": "aportes",
@@ -104,7 +104,7 @@
       "label": "8. Inversión",
       "kind": "section",
       "level": 0,
-      "page": 3
+      "page": 4
     },
     {
       "id": "cotizacion",
@@ -125,7 +125,7 @@
       "label": "10. Aceptación",
       "kind": "section",
       "level": 0,
-      "page": 4
+      "page": 5
     },
     {
       "id": "firmas",
