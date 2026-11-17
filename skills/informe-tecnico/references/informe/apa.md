@@ -4,7 +4,7 @@ Guía verificada con APA Style el 28 de octubre de 2026. La séptima edición se
 
 ## Perfil y límites
 
-`institucional-apa` es el perfil de todos los tipos: se aplica sin escribirlo y las plantillas lo traen explícito. `"format": {"profile": "institucional"}` conserva la composición compacta anterior (cuerpo de 10,5 pt con interlineado sencillo, sin sangría ni justificado y tablas con la cabecera de color); conviene para una ficha que deba caber en una o dos páginas. El motor aplica las medidas de la tabla y registra los valores efectivos en el manifiesto. Cambiar un valor para atender un requisito institucional es una adaptación que debe quedar identificada en el paquete de trabajo.
+`institucional-apa` es el perfil de todos los tipos: se aplica sin escribirlo y las plantillas lo traen explícito. `"format": {"profile": "institucional"}` conserva la composición compacta anterior (cuerpo de 10,5 pt con interlineado sencillo, sin sangría ni justificado y tablas con la cabecera de color); conviene cuando se pide expresamente un documento más denso. El motor aplica las medidas de la tabla y registra los valores efectivos en el manifiesto. Cambiar un valor para atender un requisito institucional es una adaptación que debe quedar identificada en el paquete de trabajo.
 
 | Elemento | Tratamiento del perfil |
 | --- | --- |

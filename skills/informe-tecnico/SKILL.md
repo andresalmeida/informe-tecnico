@@ -37,7 +37,7 @@ Producir el documento que se pide. Ningún proyecto usa todo el catálogo. Ante 
 | `informe-cierre` | Balance interno de un proyecto | [informe-cierre.md](references/tipos/informe-cierre.md) | `ejemplo-informe-cierre.json` |
 | `acta-baja` | Retirada de un sistema, procedimiento o documentos, con autorización | [acta-baja.md](references/tipos/acta-baja.md) | `ejemplo-acta-baja.json` |
 | `ficha-modelo` | Acompañar un modelo estadístico o de aprendizaje automático | [ficha-modelo.md](references/tipos/ficha-modelo.md) | `ejemplo-ficha-modelo.json` |
-| `ficha-proceso` | Cómo trabaja un proceso de la entidad (SIPOC), en dos o tres páginas | [ficha-proceso.md](references/tipos/ficha-proceso.md) | `ejemplo-ficha-proceso.json` |
+| `ficha-proceso` | Cómo trabaja un proceso de la entidad (SIPOC) | [ficha-proceso.md](references/tipos/ficha-proceso.md) | `ejemplo-ficha-proceso.json` |
 | dossier | El usuario pide un «dossier», «informe-dossier», «modo nasa dossier» o «flow NASA» | [dossier.md](references/tipos/dossier.md) | no usa el motor JSON |
 
 El acta de reunión se exporta a Word con `scripts/build_acta_docx.py`; el comando está en [acta-reunion.md](references/tipos/acta-reunion.md#acta-de-reunión-en-word). Si el usuario aporta un formato obligatorio, trabajar sobre una copia y conservar su estructura. Todos los tipos usan el perfil por omisión `institucional-apa` (cuerpo justificado con sangría, tablas y rótulos APA, títulos a la izquierda con «1. Título»); `format.profile: "institucional"` da la composición compacta y solo se usa si se pide o si el documento debe caber en pocas páginas. Cada guía dice si su tipo lleva figura; para un esquema nuevo, usar la skill `diagram-design` y seguir [diagramas.md](references/diagramas.md).

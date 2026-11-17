@@ -2,7 +2,7 @@
 
 Elegir `document.kind: "ficha-proceso"`, código `FPR`, para explicar cómo trabaja una entidad: proveedores, entradas, proceso, salidas y clientes, con sus etapas, decisiones e indicadores. Partir de `assets/ejemplo-ficha-proceso.json`. Es formulario sin elección obligatoria. Lleva figura SIPOC y su equivalente textual. La estructura la fija el catálogo; no procede de un formulario empresarial ni reproduce una norma.
 
-La muestra ocupa tres páginas: identificación y SIPOC en la primera; etapas, controles, roles y decisiones en la segunda; indicadores, firmas e histórico en la tercera. No lleva portada ni índices. Usa las medidas del perfil por omisión; una ficha que deba caber en dos páginas puede pedir `format.profile: "institucional"` (cuerpo de 10,5 pt, tablas de 9 pt). No hay ajuste automático de escala. El nombre del proceso aparece en el subtítulo; código y versión se repiten con el dueño en la información. Las firmas se organizan por función en tres columnas para conservar un espacio real de firma sin alargar la ficha.
+La muestra ocupa tres páginas: identificación y SIPOC en la primera; etapas, controles, roles y decisiones en la segunda; indicadores, firmas e histórico en la tercera. No lleva portada ni índices. Usa las medidas del perfil por omisión. No hay ajuste automático de escala. El nombre del proceso aparece en el subtítulo; código y versión se repiten con el dueño en la información. Las firmas se organizan por función en tres columnas para conservar un espacio real de firma sin alargar la ficha.
 
 ## Decidir antes de redactar
 
@@ -28,7 +28,7 @@ Cada indicador debe permitir calcular el mismo resultado con los mismos datos. �
 
 Cambiar identidad, código, papel A4 o Letter, dueño, roles, fuentes y fórmulas. El logo es PNG o JPEG relativo al JSON. Seguir [pendientes-y-estado.md](../pendientes-y-estado.md) y [codigos.md](../codigos.md). No inventar aprobaciones, firmas, metas, mediciones o cumplimiento de una norma. Conservar las condiciones y la evidencia que determinan la conformidad.
 
-No se omiten figura, tabla equivalente, etapas ni fórmulas para acortar la ficha. Los índices son opcionales del motor, pero no se recomiendan aquí; la prueba cubre su activación. Más registros o textos más largos pueden superar las tres páginas: resumir a una acción por etapa, revisar los anchos y separar el detalle en documentos referenciados. La personalización en Letter puede necesitar esa revisión de composición. No reducir toda la figura o la letra para forzar el límite.
+No se omiten figura, tabla equivalente, etapas ni fórmulas. Los índices son opcionales del motor, pero no se recomiendan aquí; la prueba cubre su activación. La ficha ocupa las páginas que necesite su contenido: no se recorta el detalle, ni se reduce la figura o la letra, para que quepa en un número de páginas.
 
 ## Diagrama: qué agrega y cómo producirlo
 

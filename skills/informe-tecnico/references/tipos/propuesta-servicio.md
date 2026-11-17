@@ -6,9 +6,9 @@ Elegir `document.kind: "propuesta-servicio"` para la propuesta técnico-económi
 
 Va después del informe de factibilidad ([factibilidad.md](factibilidad.md)), que es interno, y antes del alcance ([alcance-proyecto.md](alcance-proyecto.md)). Cita el registro de riesgos ([registro-riesgos.md](registro-riesgos.md)) por su código cuando un riesgo cambia una fecha o una decisión de quien contrata. El orden de los apartados es el del catálogo.
 
-El PDF es compacto: título y contenido en la primera página, sin portada, de cuatro páginas en el ejemplo. No tiene casillas. El histórico de revisiones se imprime al final con `document.show_changes: true`. El esquema del bloque `quote` está en [quote.md](../contrato/quote.md). Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
+El PDF es compacto: título y contenido en la primera página, sin portada, de cinco páginas en el ejemplo. No tiene casillas. El histórico de revisiones se imprime al final con `document.show_changes: true`. El esquema del bloque `quote` está en [quote.md](../contrato/quote.md). Los títulos se escriben con normalidad, en mayúscula de oración: el motor los imprime con numeración «1. Título» y pone en mayúscula solo la primera palabra (con `format.heading_case: "title"`, la de cada palabra).
 
-**Índices.** El ejemplo no los lleva: con cuatro páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando la propuesta pasa de siete páginas. `tables` y `figures` no se recomiendan: las tablas son los entregables, el cronograma, los aportes, la cotización y la aceptación, y el tipo no lleva figura.
+**Índices.** El ejemplo no los lleva: con cinco páginas, `contents` alargaría la apertura sin cambiar la lectura. Conviene `document.indexes: ["contents"]` cuando la propuesta pasa de siete páginas. `tables` y `figures` no se recomiendan: las tablas son los entregables, el cronograma, los aportes, la cotización y la aceptación, y el tipo no lleva figura.
 
 ## Decidir antes de redactar
 

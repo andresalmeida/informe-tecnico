@@ -4,7 +4,7 @@ Elegir `document.kind: "plan-pruebas"` para acordar cómo se aceptará un softwa
 
 Es un formulario compacto, sin portada, con las casillas de resultado junto a cada caso. El histórico se imprime al final con `document.show_changes: true`. Los índices son opcionales: para planes extensos conviene `document.indexes: ["contents"]`; las fichas `testcase` tienen marcadores y referencias, pero no un índice impreso propio ni entradas en `tables`. Ver el esquema en [testcase.md](../contrato/testcase.md).
 
-La muestra tiene ocho páginas: preparación en las dos primeras, CP-01 a CP-05 en las páginas 3 a 7, certificado pendiente en la 7 y firmas e histórico en la 8. Los casos completos dejan huecos al pie, especialmente en las páginas 4 a 6: el caso siguiente no cabe en el espacio restante y pasa entero. Es el compromiso elegido para consultar y firmar cada ficha sin cortes. No forzar saltos ni rellenar con texto; si se necesita reducir páginas, revisar la extensión de las fichas manteniendo sus criterios y evidencia. Un caso largo admite continuidad entre filas con su cabecera repetida.
+La muestra tiene nueve páginas: preparación en las tres primeras, CP-01 a CP-05 en las páginas 4 a 8, certificado pendiente en la 8 y firmas e histórico en la 9. Los casos completos dejan huecos al pie, especialmente en las páginas 4 a 7: el caso siguiente no cabe en el espacio restante y pasa entero. Es el compromiso elegido para consultar y firmar cada ficha sin cortes. No forzar saltos ni rellenar con texto; si se necesita reducir páginas, revisar la extensión de las fichas manteniendo sus criterios y evidencia. Un caso largo admite continuidad entre filas con su cabecera repetida.
 
 ## Decidir antes de redactar
 
