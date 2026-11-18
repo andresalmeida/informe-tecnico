@@ -2115,6 +2115,10 @@ def compile_report(source, output):
                         components += [p(block["description"],"small")]
                     if block.get("source"):
                         components += [p(f'Fuente: {block["source"]}',"small")]
+                if story and getattr(story[-1], "entry", (None, None, None))[2] == "section":
+                    # A figure opening its section carries the heading: reportlab does not chain a heading to a
+                    # KeepTogether, and the heading would be left alone at the foot of the page.
+                    components = [story.pop()] + components
                 story += [FitFigure(components, figure, SECTION_MAX_BLANK * doc.height) if apa else KeepTogether(components)]
     if apa:
         keep_sections(story, section_starts, doc.height)
