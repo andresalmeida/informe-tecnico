@@ -231,3 +231,35 @@ def run_checks(example, root, checks, build, rejected_with):
         alto = impreso.pages[paginas["flujo"]-1].images[0]["height"]
     assert .88*nominal-1 <= alto < nominal-1, (alto, nominal)
     checks.append({"case": "figura-se-ajusta-sin-pasar-del-12-por-ciento", "escala": round(alto/nominal, 3)})
+
+    # Un título cuya primera pieza es una figura viaja con ella: no queda solo al pie de la página anterior.
+    def con_figura(cantidad):
+        spec = fuente(base, None)
+        spec["sections"] = [
+            {"id": "relleno", "title": "Relleno", "blocks": [
+                {"type": "paragraph", "text": texto_largo(f"RELLENO_{i:02d}")[:210]} for i in range(cantidad)]},
+            {"id": "con-figura", "title": "Sección que abre con figura", "blocks": [
+                {"type": "figure", "id": f"esquema{n}", "title": f"Esquema de prueba {n}",
+                 "path": "diagrams/ciclo-revision.png", "max_height_mm": 115} for n in (1, 2)]}]  # longer than a page
+        return spec
+
+    def figura_en(nombre, cantidad):
+        _, pdf = build(nombre, con_figura(cantidad))
+        with pdfplumber.open(pdf) as impreso:
+            palabras = [(n, w) for n, p in enumerate(impreso.pages) for w in p.extract_words()]
+            titulo = next(n for n, w in palabras if w["text"] == "figura")
+            y_titulo = next(w["top"] for n, w in palabras if w["text"] == "figura")
+            imagen = next(n for n, p in enumerate(impreso.pages) if p.images)
+            relleno = [w["top"] for n, w in palabras if n == 0 and w["text"].startswith("RELLENO_")]
+        return titulo, imagen, y_titulo, relleno
+
+    _, _, y_cero, _ = figura_en("figura-medida-0", 0)
+    _, _, _, tops = figura_en("figura-medida-4", 4)
+    alto_figura_relleno = (tops[-1]-tops[0])/(len(tops)-1)*1.0 if len(tops) > 1 else 50
+    # Each filler paragraph is a block of several lines: measure it from its first and last marker.
+    marcas = sorted(set(round(t) for t in tops))
+    alto_figura_relleno = (marcas[-1]-marcas[0])/3 if len(marcas) >= 2 else 50
+    k = round((fondo-.22*util-y_cero)/alto_figura_relleno)
+    titulo_pag, imagen_pag, _, _ = figura_en("figura-con-titulo", k)
+    assert titulo_pag == imagen_pag, (titulo_pag, imagen_pag)
+    checks.append({"case": "titulo-viaja-con-la-figura-que-abre-su-seccion"})
