@@ -49,7 +49,7 @@ Medidas para una columna de 168 mm (476 pt):
 
 Tokens. `diagram-design` pide confirmar los tokens antes de dibujar. Los del documento son la identidad del JSON activo (`paper` blanco, `brand.ink`, `brand.accent`): si el encargo ya fija esa identidad, usarlos y decirlo en la entrega; si no, preguntar.
 
-Geometría. El verificador de conectores (`verify-geometry.py`) existe en el repositorio fuente de `diagram-design` y puede faltar en la instalación. Si falta, revisar a mano que ningún conector cruce rótulos ni nodos y que cada flecha tenga un destino claro, y decirlo en la entrega.
+Geometría. La versión actual de `diagram-design` trae el verificador dentro de la skill (`scripts/verify_geometry.py`): comprueba que ninguna máscara de rótulo quede tapada por un nodo y la ruta de los conectores. Una copia anterior puede no tenerlo aunque diga la misma versión; si falta, actualizar `diagram-design` desde su repositorio antes de dibujar. Ejecutarlo desde la carpeta de la skill sobre cada HTML (`python3 -I scripts/verify_geometry.py <archivo.html>`) y decir en la entrega si el esquema se verificó o no. Si no se puede ejecutar, revisar a mano que ningún conector cruce rótulos ni nodos y que cada flecha tenga un destino claro, y decirlo.
 
 Qué agrega. Cuando un documento anterior de la cadena ya dibuja el mismo sistema, la figura nueva responde a otra pregunta de lectura (por ejemplo, el perímetro del alcance frente a la arquitectura de la factibilidad). Si repetiría la misma figura, no se hace.
 
