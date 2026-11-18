@@ -123,8 +123,8 @@ Renderizar todas las páginas y abrirlas. Revisar que cada casilla tenga una sol
 
 El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una ficha que cabe en una página no se parte. Una tabla tampoco, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son:
 
-- **Hueco al pie de una página**, porque una ficha de riesgo o una tabla entera pasó a la siguiente. Se corrige cuando una frase de más lo causa, acortando el texto de la ficha o de la fila; un hueco de hasta un tercio de página es un compromiso del diseño y se acepta.
-- **Una página final con solo el histórico de revisiones.** El motor agrupa las firmas, la remisión y el histórico cuando caben juntos en una página, así que el caso ya no debería darse. Si aparece (el cierre no cabe en una página o hay un `new_page` escrito antes del histórico), se corrige acortando una sección anterior. Poner `new_page: true` en una sección suele empeorarlo.
+- **Hueco al pie de una página**, porque una tabla, una ficha o una figura entera pasó a la siguiente. No se corrige recortando texto, juntando filas ni quitando datos: el contenido manda y el número de páginas no es una meta. El motor parte una tabla entre filas cuando moverla dejaría más del 35 % de la página en blanco; una ficha o una figura se queda entera. Un hueco así no se arregla: solo se reporta si estorba la lectura.
+- **Una página final con solo el histórico de revisiones.** Es posible: si las firmas, la remisión y el histórico no caben juntos y moverlos dejaría más del 35 % de la página en blanco, el histórico va solo en la última página. No se corrige acortando secciones anteriores ni con `new_page`.
 - **Un apartado cuyo párrafo de apertura queda en una página y su tabla en la siguiente.** El motor mantiene la tabla entera; se acepta si el hueco queda por debajo de un tercio.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.

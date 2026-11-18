@@ -113,9 +113,9 @@ Renderizar todas las páginas y abrirlas. Revisar que la cotización esté enter
 
 El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una tabla que cabe en una página no se parte, salvo que moverla dejara más del 35 % de la página en blanco: entonces se parte entre filas, con su título y encabezado repetidos y al menos tres filas en cada página. Los defectos habituales son:
 
-- **Hueco al pie**, porque la tabla siguiente no cabe. Un hueco de hasta un tercio de página se acepta. Se corrige cuando una frase de más lo causa.
+- **Hueco al pie de una página**, porque una tabla, una ficha o una figura entera pasó a la siguiente. No se corrige recortando texto, juntando filas ni quitando datos: el contenido manda y el número de páginas no es una meta. El motor parte una tabla entre filas cuando moverla dejaría más del 35 % de la página en blanco; una ficha o una figura se queda entera. Un hueco así no se arregla: solo se reporta si estorba la lectura.
 - **El título de un apartado al pie y su tabla en la página siguiente.** Se acorta el apartado anterior o se mueve la frase que presenta la tabla para que quede debajo de ella: el motor mantiene la tabla con el párrafo que la sigue.
-- **Una página final con solo el histórico de revisiones.** El motor agrupa las firmas, la remisión y el histórico cuando caben juntos en una página, así que el caso ya no debería darse. Si aparece, se acorta el apartado de condiciones o el de aceptación.
+- **Una página final con solo el histórico de revisiones.** Es posible: si las firmas, la remisión y el histórico no caben juntos y moverlos dejaría más del 35 % de la página en blanco, el histórico va solo en la última página. No se corrige acortando secciones anteriores ni con `new_page`.
 
 En la muestra medida:
 
