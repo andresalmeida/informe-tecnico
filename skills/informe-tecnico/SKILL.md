@@ -3,7 +3,7 @@ name: informe-tecnico
 description: Redacta y compila en PDF documentos técnicos y de gestión de proyectos con la identidad de una entidad (nombre, logo, colores, código): informes, manuales, actas, factibilidad, propuestas, alcance, requisitos, pruebas, riesgos, cambios, traspasos, cierres, evaluaciones de impacto en datos y fichas de modelo y de proceso. Usar cuando se pida cualquiera de esos documentos, un informe o manual con formato institucional o criterios APA 7, o un acta de reunión en Word.
 license: MIT
 metadata:
-  version: "0.8.3"
+  version: "0.8.4"
 ---
 
 # Informe técnico institucional
