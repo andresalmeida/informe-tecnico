@@ -86,8 +86,8 @@ Renderizar todas las páginas y abrirlas. Revisar que cada elección tenga una s
 
 El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. El motor mantiene enteras las tablas y las cuadrículas que caben en una página, junto con el bloque siguiente cuando es una tabla, una lista o un párrafo. En el ejemplo, la primera página reúne los cuatro primeros apartados y la segunda las firmas y el histórico. Los defectos habituales son:
 
-- **Hueco grande al pie de la primera página**, porque la cuadrícula de recepción pasó entera con su párrafo a la segunda. Se corrige acortando la necesidad o el resultado esperado, o quitando una línea de los adjuntos. Un hueco de hasta un tercio de página es un compromiso del diseño y se acepta cuando la tabla siguiente no cabe en el resto; se corrige cuando una frase de más lo causa.
-- **Una página final con solo el histórico de revisiones.** El motor agrupa las firmas, la remisión y el histórico cuando caben juntos en una página, así que el caso ya no debería darse. Si aparece (el cierre no cabe en una página o hay un `new_page` escrito antes del histórico), se corrige acortando una sección anterior. Poner `new_page: true` en una sección suele empeorarlo.
+- **Hueco al pie de una página**, porque una tabla, una ficha o una figura entera pasó a la siguiente. No se corrige recortando texto, juntando filas ni quitando datos: el contenido manda y el número de páginas no es una meta. El motor parte una tabla entre filas cuando moverla dejaría más del 35 % de la página en blanco; una ficha o una figura se queda entera. Un hueco así no se arregla: solo se reporta si estorba la lectura.
+- **Una página final con solo el histórico de revisiones.** Es posible: si las firmas, la remisión y el histórico no caben juntos y moverlos dejaría más del 35 % de la página en blanco, el histórico va solo en la última página. No se corrige acortando secciones anteriores ni con `new_page`.
 - **Subtítulo que salta de línea y deja una palabra sola.** Mantenerlo en una línea.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.

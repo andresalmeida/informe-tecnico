@@ -107,9 +107,9 @@ Renderizar todas las páginas y abrirlas. Revisar que cada ficha esté entera, q
 
 El comprobador no detecta los saltos de página mal repartidos; solo se ven en las imágenes. Una ficha que cabe en una página no se parte. Los defectos habituales son:
 
-- **Hueco al pie de la página de la matriz.** En la muestra, la página 1 cierra con la frase de respuestas y estados, y la primera ficha pasa entera a la página 2. El hueco queda por debajo de un tercio de página. Se corrige cuando una frase de más lo causa, no cuando la ficha simplemente no entra.
+- **Hueco al pie de una página**, porque una tabla, una ficha o una figura entera pasó a la siguiente. No se corrige recortando texto, juntando filas ni quitando datos: el contenido manda y el número de páginas no es una meta. El motor parte una tabla entre filas cuando moverla dejaría más del 35 % de la página en blanco; una ficha o una figura se queda entera. Un hueco así no se arregla: solo se reporta si estorba la lectura.
 - **El seguimiento en su propia página.** En la muestra el apartado abre la página 5 (`new_page`), con la tabla de cambios, las firmas y el histórico juntos. La página 4 cierra con el resumen y deja el hueco que eso produce. Quitar el salto metería el título del seguimiento al pie de la 4 y dejaría la tabla en la 5.
-- **Una página final con solo el histórico de revisiones.** El motor agrupa las firmas, la remisión y el histórico cuando caben juntos en una página, así que el caso ya no debería darse. Si aparece, se corrige acortando el seguimiento. Quitar el `new_page` del seguimiento suele partir la tabla de las firmas.
+- **Una página final con solo el histórico de revisiones.** Es posible: si las firmas, la remisión y el histórico no caben juntos y moverlos dejaría más del 35 % de la página en blanco, el histórico va solo en la última página. No se corrige acortando secciones anteriores ni con `new_page`.
 - **Una ficha más alta que la página.** El motor la parte por filas. Se acorta la acción o la consecuencia antes de dejar una ficha cortada.
 
 Después de cada ajuste, volver a compilar y renderizar todo: un cambio en una página mueve las siguientes.
