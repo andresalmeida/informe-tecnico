@@ -45,7 +45,7 @@ El árbol se imprime en vertical: el identificador, el paquete con sangría por 
 
 - **Alcance.** Los identificadores de las ramas existen como entregables del alcance citado.
 - **Total.** La suma de las hojas con número es el total impreso, y coincide con la factibilidad cuando el plan es de esa estimación.
-- **Hueco.** Cada `Por estimar` se ve en la tabla y no cambia el total.
+- **Hueco al pie de una página**, porque una tabla, una ficha o una figura entera pasó a la siguiente. No se corrige recortando texto, juntando filas ni quitando datos: el contenido manda y el número de páginas no es una meta. El motor parte una tabla entre filas cuando moverla dejaría más del 35 % de la página en blanco; una ficha o una figura se queda entera. Un hueco así no se arregla: solo se reporta si estorba la lectura.
 - **Fechas.** El calendario cabe entre el inicio y el fin propuestos del alcance. La capacitación y la entrega de la cadena caen en la semana de implementación.
 - **Riesgos.** Cada código citado existe en el registro, con el estado que ese registro trae.
 - **Pedido diferido.** Si una solicitud de cambio está diferida, sus entregables no aparecen en el árbol.
