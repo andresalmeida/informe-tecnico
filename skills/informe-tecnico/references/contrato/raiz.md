@@ -21,6 +21,12 @@ Cambiar `brand` actualiza la composición del informe; no recolorea una imagen e
 
 En `brand.fonts`, `normal` y `bold` siguen siendo obligatorios; se admiten además `italic` y `bold_italic`. Para fuentes TTF con el perfil APA se requieren las cuatro variantes, de modo que la cursiva no se simule con la fuente normal. Las rutas son relativas al JSON. La familia integrada predeterminada es Helvetica con sus cuatro variantes.
 
+## Identidad compartida
+
+Para `document.kind: "informe"` (también el tipo por omisión), `brand.partner` es un objeto opcional. Requiere `entity` como texto no vacío y admite `logo` como ruta a una imagen raster legible (por ejemplo, PNG o JPEG). Las rutas se resuelven respecto al JSON y el manifiesto registra los hashes de ambos logos si se incluyen.
+
+La portada sitúa la entidad principal a la izquierda y la asociada a la derecha, con sus nombres y los logos disponibles. La unidad sigue bajo la entidad principal. La entidad principal aporta los colores, la tipografía, la cabecera y el pie de todas las páginas.
+
 ## Ciclo de vida opcional
 
 `document.lifecycle` no afecta a las fuentes que lo omiten. Es un objeto con `state` obligatorio y campos opcionales `frozen_on`, `supersedes`, `superseded_by`, `superseded_by_version`, `retire_on` y `retention`. Los estados y rótulos son fijos: borrador, en-revision, vigente, sustituido, retirado y archivado. Véase [ciclo-de-vida.md](../ciclo-de-vida.md) para transiciones, versiones y autoridad.

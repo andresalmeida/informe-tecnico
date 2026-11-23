@@ -63,6 +63,8 @@ La identidad se configura en el JSON:
            "accent": "#2F4B7C", "logo": "logo.png" }
 ```
 
+Los informes y manuales con portada compartida admiten `brand.partner` con el nombre de la entidad asociada y su logo opcional. Consulta el [contrato de identidad compartida](skills/informe-tecnico/references/contrato/raiz.md#identidad-compartida).
+
 Cada guía incorpora dos criterios de escritura: la pirámide de Minto (la conclusión primero) y la revisión de estilo de unicorntext (sin relleno). Para los esquemas, la skill colaboradora `diagram-design` los dibuja con los colores y la tipografía del documento.
 
 Los documentos de un proyecto forman una cadena: cada uno cita a los anteriores por su código (`SRO-ALC-01, versión 0.2`) y las versiones nuevas conservan el código.
