@@ -20,11 +20,12 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT, TA_RIGHT
 from reportlab.lib.pagesizes import A4, letter
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import mm
+from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
     BaseDocTemplate, Frame, PageTemplate, Paragraph, Spacer, PageBreak,
-    LongTable, TableStyle, KeepTogether, Image, Flowable, IndexingFlowable, CondPageBreak,
+    LongTable, Table, TableStyle, KeepTogether, Image, Flowable, IndexingFlowable, CondPageBreak,
 )
 from reportlab.platypus.tableofcontents import TableOfContents
 from reportlab.graphics.shapes import Drawing, Rect, Line, Polygon
@@ -359,7 +360,6 @@ class Document(BaseDocTemplate):
         self.box_text(m.get("short_title") or m["title"], x+4*mm, top-h,
                       title_w-8*mm, h, self.styles["header"])
         if brand.get("logo"):
-            from reportlab.lib.utils import ImageReader
             logo = ImageReader(str(pathsafe(self.spec["_base"], brand["logo"])))
             iw, ih = logo.getSize()
             maxw, maxh = w-title_w-8*mm, h-5*mm
@@ -420,6 +420,50 @@ class Document(BaseDocTemplate):
 
 def required_text(value, field):
     require(isinstance(value, str) and bool(value.strip()), f"Texto obligatorio: {field}")
+
+
+def cover_logo(base, value, field):
+    required_text(value, field)
+    path = pathsafe(base, value)
+    require(path.is_file(), f"{field}: no existe el archivo del logo")
+    try:
+        image = ImageReader(str(path))
+        width, height = image.getSize()
+        image.getRGBData()
+    except (OSError, ValueError, SyntaxError) as error:
+        raise ValueError(f"{field}: no se pudo leer el logo como imagen raster") from error
+    require(width > 0 and height > 0, f"{field}: el logo debe tener dimensiones positivas")
+    return str(path), width, height
+
+
+def shared_cover(brand, partner, base, width, styles):
+    half = width / 2
+    logos = []
+    for identity, field in ((brand, "brand.logo"), (partner, "brand.partner.logo")):
+        if "logo" not in identity:
+            logos.append("")
+            continue
+        path, iw, ih = cover_logo(base, identity["logo"], field)
+        scale = min((half - 16*mm)/iw, 18*mm/ih)
+        logo = Image(path, width=iw*scale, height=ih*scale, hAlign="LEFT")
+        logos.append(logo)
+
+    names = [Paragraph(escape(identity["entity"]), styles["h2"])
+             for identity in (brand, partner)]
+    rows = [logos, names] if any(logos) else [names]
+    if brand.get("unit"):
+        rows.append([Paragraph(escape(brand["unit"]), styles["plain"]), ""])
+    return Table(rows, colWidths=[half, half], hAlign="LEFT", splitByRow=0,
+                 style=TableStyle([
+                     ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                     ("VALIGN", (0, 0), (-1, 0), "MIDDLE"),
+                     ("LEFTPADDING", (0, 0), (0, -1), 0),
+                     ("RIGHTPADDING", (0, 0), (0, -1), 8*mm),
+                     ("LEFTPADDING", (1, 0), (1, -1), 8*mm),
+                     ("RIGHTPADDING", (1, 0), (1, -1), 0),
+                     ("LINEBEFORE", (1, 0), (1, -1), .55,
+                      colors.HexColor(brand.get("rule", "#CFD6DD"))),
+                 ]))
 
 
 def validate_notice(block, nested=False):
@@ -1739,6 +1783,12 @@ def compile_report(source, output):
     require(spec["document"].get("paper", "A4") in ("A4", "Letter"), "paper: A4 o Letter")
     document_kind = spec["document"].get("kind", "informe")
     require(document_kind in KIND_RULES, "Tipo de documento desconocido")
+    partner = spec["brand"].get("partner")
+    if "partner" in spec["brand"]:
+        require(document_kind == "informe", "brand.partner requiere un documento de tipo informe")
+        require(isinstance(partner, dict) and not set(partner)-{"entity", "logo"},
+                "brand.partner debe ser un objeto con entity y logo opcional")
+        required_text(partner.get("entity"), "brand.partner.entity")
     rules = KIND_RULES[document_kind]
     form = rules.get("form", False)
     show_changes = spec["document"].get("show_changes", False)
@@ -1975,8 +2025,12 @@ def compile_report(source, output):
         story = [probe, Spacer(1,22*mm), p(m["code"], "kicker"), p(m["title"], "title")]
         if m.get("subtitle"):
             story += [p(m["subtitle"], "plain")]
-        story += [Spacer(1,12*mm), p(spec["brand"]["entity"], "h2"),
-                  p(spec["brand"].get("unit", ""), "plain"), Spacer(1,14*mm),
+        story += [Spacer(1,12*mm)]
+        if partner is None:
+            story += [p(spec["brand"]["entity"], "h2"), p(spec["brand"].get("unit", ""), "plain")]
+        else:
+            story += [shared_cover(spec["brand"], partner, base, doc.width, styles)]
+        story += [Spacer(1,14*mm),
                   p(f'Versión {m["version"]} · {date.fromisoformat(m["date"]).strftime("%d/%m/%Y")} · {m["status"]}', "small")]
         if m.get("notice"):
             story += [p(m["notice"], "small")]
@@ -2130,6 +2184,8 @@ def compile_report(source, output):
     doc.multiBuild(story, maxPasses=10)
     assets = []
     asset_values = ([spec["brand"]["logo"]] if spec["brand"].get("logo") else [])
+    if partner and "logo" in partner:
+        asset_values.append(partner["logo"])
     asset_values += list(spec["brand"].get("fonts", {}).values())
     asset_values += [b["path"] for s in spec["sections"] for b in s.get("blocks",[]) if b.get("path")]
     for value in asset_values:

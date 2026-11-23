@@ -2080,6 +2080,9 @@ def main():
         from test_header_name import run_checks as check_header_name
         check_header_name(example, root, checks, build, rejected_with)
 
+        from test_shared_cover import run_checks as check_shared_cover
+        check_shared_cover(example, root, checks, build, rejected_with)
+
         print(json.dumps({"ok":True,"checks":checks},ensure_ascii=False,indent=2))
 
 
